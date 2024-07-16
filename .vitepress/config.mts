@@ -20,6 +20,7 @@ export default defineConfig({
         items: [
           { text: 'Introduction', link: '/usage_guides/introduction' },
           { text: 'Customization', link: '/usage_guides/customization' },
+          { text: 'Importing Data', link: '/usage_guides/importing_data' },
         ]
       }
     ],

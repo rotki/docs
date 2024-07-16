@@ -5,15 +5,15 @@ pnpm install
 
 # Run locally
 ```
-pnpm run docs:dev
+pnpm run dev
 ```
 
 # Build
 ```
-pnpm run docs:build
+pnpm run build
 ```
 
 # Build and Preview
 ```
-pnpm run docs:preview
+pnpm run preview
 ```
