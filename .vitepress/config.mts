@@ -1,5 +1,9 @@
 import { defineConfig } from 'vitepress'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
+import path from 'path';
+import { fileURLToPath, URL } from 'url';
+
+const __dirname = path.dirname(fileURLToPath(new URL(import.meta.url)));
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -39,6 +43,13 @@ export default defineConfig({
   markdown: {
     config(md) {
       md.use(tabsMarkdownPlugin)
+    }
+  },
+  vite: {
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, '../')
+      }
     }
   }
 })

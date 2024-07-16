@@ -4,7 +4,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import './style.css'
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
-import CsvTable from '../../components/CsvTable.vue';
+import CsvTable from '@/components/CsvTable.vue';
 
 export default {
   extends: DefaultTheme,
