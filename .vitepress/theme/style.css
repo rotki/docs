@@ -145,3 +145,7 @@
 .dark .content img {
     border-color: #333;
 }
+
+.vp-doc .language-log code {
+    white-space: normal;
+}

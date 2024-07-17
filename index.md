@@ -14,8 +14,8 @@ hero:
       text: What is rotki?
       link: https://rotki.com
     - theme: alt
-      text: Usage guide
-      link: /usage_guides/introduction
+      text: Start using rotki
+      link: /requirement_and_installation/introduction
     - theme: alt
       text: Download rotki
       link: https://rotki.com/download

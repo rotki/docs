@@ -25,7 +25,7 @@ Next, provide a profile name and a password:
 - **Profile Name**: An identifier for your local database. It doesn’t need to match any previous username or your premium subscription username on [rotki.com](https://rotki.com/).
 - **Password**: Do not forget this password. It encrypts all your local files.
 
-For a new account, you can add the premium API key and secret during setup or later using [set-up-rotki-premium](#set-up-rotki-premium).
+For a new account, you can add the premium API key and secret during setup or later using [Setup rotki premium](#set-up-rotki-premium).
 
 ![Creating a new account](/images/rotki_create_account.png)
 
@@ -47,14 +47,14 @@ If you need to move your Rotki database to a new device (e.g., if your old one w
 
 ### Sync Data
 
-Refer to the [sync-data-with-rotki-server](#) section to understand how the premium subscription works with multiple accounts/devices and how to sync your data with the Rotki server. Syncing is disabled by default.
+Refer to the [Sync data with rotki server](#sync-data-with-rotki-server) section to understand how the premium subscription works with multiple accounts/devices and how to sync your data with the Rotki server. Syncing is disabled by default.
 
 ### Important Considerations
 
 - **User Database vs. Global Database**: Syncing only involves the user database, not the global database.
-- **Global Database**: Contains all assets data, global address book for names, and historical prices. It’s recommended to manually move this database as well. It is located in the [rotki data directory](#).
+- **Global Database**: Contains all assets data, global address book for names, and historical prices. It’s recommended to manually move this database as well. It is located in the [rotki data directory](/usage_guides/data_directory).
 
-Alternatively, you can use the [export-import-user-assets](#) function instead of moving the entire global database.
+Alternatively, you can use the [Exporting and importing user asset](/usage_guides/customization.html#exporting-and-importing-user-assets) function instead of moving the entire global database.
 
 ## Use an Account from a Different Installation
 
@@ -62,7 +62,7 @@ Alternatively, you can use the [export-import-user-assets](#) function instead o
 
 To move your data to another system or restore it:
 
-1. Identify the [rotki data directory](#) on both the source and destination systems.
+1. Identify the [rotki data directory](/usage_guides/data_directory) on both the source and destination systems.
 2. Move the entire data directory from the source system to the destination system.
 3. Ensure both systems use the same version of Rotki.
 
@@ -100,7 +100,7 @@ If you use multiple accounts/devices, the one with the most recent login will up
 
 You can also manually move the global database containing assets from one system to another:
 
-1. Locate the [rotki data directory](#) on the source system.
+1. Locate the [rotki data directory](/usage_guides/data_directory) on the source system.
 2. The global database is located at `/global/global.db` under the data directory above. Move it to the equivalent location on the new system.
 
 ![Manual DB sync](/images/rotki_premium_manual_db_sync.png)

@@ -10,7 +10,7 @@ Rotki calculates everything, including your total profit/loss during the PnL rep
 
 ## Application Settings
 
-Access the settings menu via `User icon > Settings`. By choosing the "General" settings button, you can customize general application settings.
+Access the settings menu via `User icon → Settings`. By choosing the "General" settings button, you can customize general application settings.
 
 ![Customizing the general app settings](/images/sc_general_settings.png)
 
@@ -18,7 +18,7 @@ Access the settings menu via `User icon > Settings`. By choosing the "General" s
 
 #### Language 
 
-> Set the language used in the app. This feature is experimental and may not work as expected for some languages. Help us speed up the translation process by contributing [here](https://rotki.readthedocs.io/en/latest/contribute.html#add-a-new-language-or-translation).
+> Set the language used in the app. This feature is experimental and may not work as expected for some languages. Help us speed up the translation process by contributing [here](/contribution_guides/contribute_as_developer.html#add-a-new-language-or-translation).
 
 #### Anonymous Usage Analytics
 

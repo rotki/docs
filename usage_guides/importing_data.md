@@ -2,7 +2,7 @@
 
 In this section, we will explain how you can import data by integrating with external services such as crypto exchanges.
 
-## Adding an exchange
+### Adding an exchange
 
 ![Adding exchanges](/images/rotki_add_exchange_1.png)
 
@@ -78,7 +78,7 @@ Once finished, click on save.
 
 Rotki relies on various external services for data such as historical crypto prices or EVM transactions. To get that data, some of these services require API keys. So you should go to their webpage, create a free account, and generate an API key. Once this is done, you can enter the API key in the section of the API keys page.
 
-Go to `API Keys > External Services`.
+Go to `API Keys → External Services`.
 
 ### Etherscan
 
