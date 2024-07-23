@@ -14,7 +14,7 @@ export default defineConfig({
     logo: '/logo.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/usage_guides/introduction' },
+      { text: 'Docs', link: '/requirement_and_installation/introduction' },
       { text: 'Download', link: 'https://rotki.com/download' }
     ],
 
@@ -22,9 +22,9 @@ export default defineConfig({
       {
         text: 'System Requirements & Installation',
         items: [
-          { text: 'Introduction', link: '/requirement_and_installation/introduction.md' },
-          { text: 'Packaged Binaries', link: '/requirement_and_installation/packaged_binaries.md' },
-          { text: 'Build From Source', link: '/requirement_and_installation/build_from_source.md' }
+          { text: 'Introduction', link: '/requirement_and_installation/introduction' },
+          { text: 'Packaged Binaries', link: '/requirement_and_installation/packaged_binaries' },
+          { text: 'Build From Source', link: '/requirement_and_installation/build_from_source' }
         ]
       },
       {
