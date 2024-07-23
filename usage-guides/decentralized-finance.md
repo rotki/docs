@@ -18,7 +18,7 @@ your DAI in MakerDAO DSR.
 
 The accounts are auto-detected from your given blockchain accounts.
 However you can, and most probably should, manage the different modules and addresses that are queried to make the retrieval faster.
-For more information you can check [module setting](/usage_guides/customization.html#module-settings).
+For more information you can check [module setting](/usage-guides/customization.html#module-settings).
 
 You can see how much of each asset you have locked over all of your accounts and how much of each is locked
 for each account across the different protocols.
@@ -61,14 +61,14 @@ The liquidity pool support allows premium users to see their balances, the per p
 
 ![Defi Liquidity Pools Summary on Dashboard](/images/sc_decentralized_lp_summary.png)
 
-> Note: For the balancer pools, you need `The Graph` API key to get the balances. Read [The Graph API Key](/usage_guides/importing_data.html#the-graph)
+> Note: For the balancer pools, you need `The Graph` API key to get the balances. Read [The Graph API Key](/usage-guides/importing-data.html#the-graph)
 
 ## Liabilities
 
 In the liabilities section you can find information on your Aave Borrowing, Compound Borrow, Liquity troves and MakerDAO Vaults.
 These collateralized loans can be autodetected from your ethereum accounts and information about each one of them is displayed.
 However you can manage the different modules and addresses that are queried to make the retrieval faster.
-For more information you can check [module setting](/usage_guides/customization.html#module-settings).
+For more information you can check [module setting](/usage-guides/customization.html#module-settings).
 
 As a normal non-premium user you can see all your vaults/troves, and for each one inspect the locked collateral, collateralization, debt generated and the liquidation price.
 

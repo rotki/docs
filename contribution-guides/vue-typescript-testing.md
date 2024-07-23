@@ -68,9 +68,9 @@ We always pin strict versions of our first-party dependencies, e.g.:
 
 ```json
 {
-   "dependencies": {
-       "package": "1.0.0"
-   }
+  "dependencies": {
+    "package": "1.0.0"
+  }
 }
 ```
 
@@ -78,8 +78,8 @@ instead of:
 
 ```json
 {
-   "dependencies": {
-       "package": "^1.0.0"
-   }
+  "dependencies": {
+    "package": "^1.0.0"
+  }
 }
 ```

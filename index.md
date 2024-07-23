@@ -15,7 +15,7 @@ hero:
       link: https://rotki.com
     - theme: alt
       text: Start using rotki
-      link: /requirement_and_installation/introduction
+      link: /requirement-and-installation/introduction
     - theme: alt
       text: Download rotki
       link: https://rotki.com/download
@@ -28,4 +28,3 @@ features:
   - title: Own your data
     details: Your financial data is kept encrypted in your system and not shared with third parties.
 ---
-

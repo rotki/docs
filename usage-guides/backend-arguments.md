@@ -6,11 +6,12 @@ Create or edit (if it exists) a file with the name `rotki_config.json` in the sa
 
 ```json
 {
-    "loglevel": "debug",
-    "logfromothermodules": false,
-    "log-dir": "/path/to/dir",
-    "data-dir": "/path/to/dir",
-    "sleep-secs": 20,
-    "max_size_in_mb_all_logs": 500,
-    "max_logfiles_num": 2
+  "loglevel": "debug",
+  "logfromothermodules": false,
+  "log-dir": "/path/to/dir",
+  "data-dir": "/path/to/dir",
+  "sleep-secs": 20,
+  "max_size_in_mb_all_logs": 500,
+  "max_logfiles_num": 2
 }
+```

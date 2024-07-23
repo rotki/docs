@@ -79,7 +79,7 @@ For EVM accounts, it is possible to trigger the process of detecting tokens befo
 
 ## Checking Exchange Balances
 
-You can check all of the asset balances that you have in each connected exchange in the "Exchange Balances" sub-page. Clicking the "Add exchange" button takes you to the API Keys page where you can manage your exchange connections (see [Adding an exchange](/usage_guides/importing_data.html#adding-an-exchange)).
+You can check all of the asset balances that you have in each connected exchange in the "Exchange Balances" sub-page. Clicking the "Add exchange" button takes you to the API Keys page where you can manage your exchange connections (see [Adding an exchange](/usage-guides/importing-data.html#adding-an-exchange)).
 
 ![Exchange Balance](/images/sc_exchange_balances.png)
 

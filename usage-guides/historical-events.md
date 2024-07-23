@@ -15,7 +15,7 @@ In the `amount` field you can register the amount of the base asset bought or so
 
 In the Trades page you can see a table of all your external trades. You can edit or delete a trade by clicking on the appropriate icon at the rightmost part of each trade under the "Actions" column.
 
-Currently rotki tracks your balance by querying the different supported protocols, exchanges and blockchains. If you manually add information about a trade your balances will not be updated since trades are not consulted when updating the accounts' balances. If you want to manually update your balance for an asset please refer to the [manual balances section](/usage_guides/accounts_and_balances.html#adding-manual-balances).
+Currently rotki tracks your balance by querying the different supported protocols, exchanges and blockchains. If you manually add information about a trade your balances will not be updated since trades are not consulted when updating the accounts' balances. If you want to manually update your balance for an asset please refer to the [manual balances section](/usage-guides/accounts-and-balances.html#adding-manual-balances).
 
 ## Filtering trades
 
@@ -26,12 +26,12 @@ limiting the trades to the ones that satisfy all the applied filters.
 
 You can filter using the following keys:
 
-* **base:** the base asset of the trades.
-* **quote:** the quote asset of the trades.
-* **action:** it can be buy or sell.
-* **start:** will only filter any trades from that date onwards.
-* **end:** will only filter any trades that happened before the selected date.
-* **location:** the location of the trade, e.g. kraken, uniswap etc.
+- **base:** the base asset of the trades.
+- **quote:** the quote asset of the trades.
+- **action:** it can be buy or sell.
+- **start:** will only filter any trades from that date onwards.
+- **end:** will only filter any trades that happened before the selected date.
+- **location:** the location of the trade, e.g. kraken, uniswap etc.
 
 ![Trade filter suggestions](/images/sc_history_trades_filter_suggestions.png)
 
@@ -57,11 +57,11 @@ You can filter your deposits and withdrawals in the same way you can filter your
 
 For deposits you can use the following filters:
 
-* **asset:** the asset that was deposited or withdrawn.
-* **action:** the actions (withdrawal or deposit).
-* **start:** will only filter any trades from that date onwards.
-* **end:** will only filter any trades that happened before the selected date.
-* **location:** the location of the trade, e.g. kraken, uniswap etc.
+- **asset:** the asset that was deposited or withdrawn.
+- **action:** the actions (withdrawal or deposit).
+- **start:** will only filter any trades from that date onwards.
+- **end:** will only filter any trades that happened before the selected date.
+- **location:** the location of the trade, e.g. kraken, uniswap etc.
 
 By default, all deposits/withdrawals will be processed in accounting, but you can ignore unwanted deposit/withdrawals, so they won't be processed.
 You can select the checkbox on the left part of each entry and click `Ignore`/`Unignore`.
@@ -168,7 +168,7 @@ Examples of customization. You can set:
 - `Event Type` to `Transfer` if you are sending money to a friend / (another account you own) and don't want the event to be taxable. The `Event Subtype` should be `None` in that case.
 - `Event Type` to `Deposit` / `Withdrawal` and `Event Subtype` to `Deposit Asset` / `Remove Asset` if you are depositing or withdrawing assets from an exchange or a protocol. Then this event won't be considered taxable in P&L reports. Currently rotki doesn't detect deposits / withdrawals automatically for all exchanges and protocols.
 - `Event Type` to `Withdrawal` and `Event Subtype` to `Bridge` if you are receiving something from another chain via some kind of bridge. And `Event Type` to `Deposit` and `Event Subtype` to `Bridge` if you are depositing to a bridge in order to move something to another chain.
-- For a swap: The first event should be `Event Type`: `Trade` and `Event Subtype`: `Spend`, while the second event should be `Event Type`: `Trade` and `Event Subtype`:  `Receive`. But in swaps what's also important is the `sequence_index`. They need to be subsequent and the send should come before the receive.
+- For a swap: The first event should be `Event Type`: `Trade` and `Event Subtype`: `Spend`, while the second event should be `Event Type`: `Trade` and `Event Subtype`: `Receive`. But in swaps what's also important is the `sequence_index`. They need to be subsequent and the send should come before the receive.
 - `Event Type` to `Spend` / `Receive` and `Event Subtype` to `None` if it is a plain expenditure / receipt.
 - `Event Type` to `Receive` and `Event Subtype` to `Reward` if you got a reward for something.
 - `Event Type` to `Receive` and `Event Subtype` to `Airdrop` if you received an airdrop.

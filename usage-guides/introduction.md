@@ -52,9 +52,9 @@ Refer to the [Sync data with rotki server](#sync-data-with-rotki-server) section
 ### Important Considerations
 
 - **User Database vs. Global Database**: Syncing only involves the user database, not the global database.
-- **Global Database**: Contains all assets data, global address book for names, and historical prices. It’s recommended to manually move this database as well. It is located in the [rotki data directory](/usage_guides/data_directory).
+- **Global Database**: Contains all assets data, global address book for names, and historical prices. It’s recommended to manually move this database as well. It is located in the [rotki data directory](/usage-guides/data-directory).
 
-Alternatively, you can use the [Exporting and importing user asset](/usage_guides/customization.html#exporting-and-importing-user-assets) function instead of moving the entire global database.
+Alternatively, you can use the [Exporting and importing user asset](/usage-guides/customization.html#exporting-and-importing-user-assets) function instead of moving the entire global database.
 
 ## Use an Account from a Different Installation
 
@@ -62,7 +62,7 @@ Alternatively, you can use the [Exporting and importing user asset](/usage_guide
 
 To move your data to another system or restore it:
 
-1. Identify the [rotki data directory](/usage_guides/data_directory) on both the source and destination systems.
+1. Identify the [rotki data directory](/usage-guides/data-directory) on both the source and destination systems.
 2. Move the entire data directory from the source system to the destination system.
 3. Ensure both systems use the same version of Rotki.
 
@@ -100,7 +100,7 @@ If you use multiple accounts/devices, the one with the most recent login will up
 
 You can also manually move the global database containing assets from one system to another:
 
-1. Locate the [rotki data directory](/usage_guides/data_directory) on the source system.
+1. Locate the [rotki data directory](/usage-guides/data-directory) on the source system.
 2. The global database is located at `/global/global.db` under the data directory above. Move it to the equivalent location on the new system.
 
 ![Manual DB sync](/images/rotki_premium_manual_db_sync.png)

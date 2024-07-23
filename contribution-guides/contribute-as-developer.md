@@ -76,7 +76,7 @@ This identifier mismatch can be detected by running [this test](https://github.c
 python pytestgeventwrapper.py -xs rotkehlchen/tests/unit/test_assets.py::test_coingecko_identifiers_are_reachable
 ```
 
-The test warns each mismatch suggesting the potential identifier (e.g., *Suggestion: id:sharering name:ShareToken symbol:shr*). This identifier can be checked via the **GET coins by id endpoint** on the [CoinGecko API explorer](https://www.coingecko.com/en/api#explore-api).
+The test warns each mismatch suggesting the potential identifier (e.g., _Suggestion: id:sharering name:ShareToken symbol:shr_). This identifier can be checked via the **GET coins by id endpoint** on the [CoinGecko API explorer](https://www.coingecko.com/en/api#explore-api).
 
 The test also warns about any asset delisted from CoinGecko. In that case, add the delisted asset identifier to the [coins_delisted_from_coingecko list](https://github.com/rotki/rotki/blob/80893e93a9b2e74287a5949c5fb742b5a068cecc/rotkehlchen/tests/unit/test_assets.py#L72).
 
@@ -85,16 +85,16 @@ The test also warns about any asset delisted from CoinGecko. In that case, add t
 One important gotcha is to check for CryptoCompare asset prices. Unfortunately, you need to check the page of each asset in CryptoCompare. For example, for [$BASED](https://www.cryptocompare.com/coins/based/overview) you would need to check the page and then try to see the API call for USD price to see [if it exists](https://min-api.cryptocompare.com/data/pricehistorical?fsym=$BASED&tsyms=USD&ts=1611915600). If this returns something like:
 
 ```json
-   {
-      "Response":"Error",
-      "Message":"There is no data for any of the toSymbols USD .",
-      "HasWarning":true,
-      "Type":2,
-      "RateLimit":{},
-      "Data":{},
-      "Warning":"There is no data for the toSymbol/s USD ",
-      "ParamWithError":"tsyms"
-   }
+{
+  "Response": "Error",
+  "Message": "There is no data for any of the toSymbols USD .",
+  "HasWarning": true,
+  "Type": 2,
+  "RateLimit": {},
+  "Data": {},
+  "Warning": "There is no data for the toSymbol/s USD ",
+  "ParamWithError": "tsyms"
+}
 ```
 
 Then that means you have to check the CryptoCompare page and compare directly with the asset they have listed there. Like [so](https://min-api.cryptocompare.com/data/pricehistorical?fsym=$BASED&tsyms=WETH&ts=1611915600) and see that it works. Then you need to edit the CryptoCompare mappings in the code to add that special mapping [here](https://github.com/rotki/rotki/blob/239552b843cd8ad99d02855ff95393d6032dbc57/rotkehlchen/externalapis/cryptocompare.py#L45). If you don't find your asset on CryptoCompare, just put an empty string for the cryptocompare key. Like `cryptocompare: ""`.
@@ -252,6 +252,7 @@ So essentially determining whether:
 - `count_entire_amount_spend`: If it's a spending event if the entire amount should be counted
 
 as a spend which means an expense. Negative PnL.
+
 - `count_cost_basis_pnl`: If true then we also count any profit/loss the asset may have had compared to when it was acquired.
 - `take`: The number of events to take for processing together. This is useful for swaps, to identify we need to process multiple events together.
 - `method`: Either an `acquisition` or a `spend`.
@@ -282,34 +283,52 @@ To fill in the translation for another language, you should pay attention to the
 
 1. The `JSON` structure from the `English` language file is absolute, meaning you can't change the JSON structure (the keys), because this is how rotki reads which value to use. So for translations of other languages, please follow the same structure as the `English` language JSON file. For example:
 
-    ```json
-    // en.json
-    "exchange_balances": {
-      "add_exchange": "Add exchange",
-      "click_here": "Click here",
-    }
+   - **en.json**
 
-    // es.json
-    "exchange_balances": {
-      "add_exchange": "Añadir intercambio",
-      "click_here": "Haga clic aquí",
-    }
-    ```
+   ```json
+   {
+     "exchange_balances": {
+       "add_exchange": "Add exchange",
+       "click_here": "Click here"
+     }
+   }
+   ```
+
+   - **es.json**
+
+   ```json
+   {
+
+     "exchange_balances": {
+       "add_exchange": "Añadir intercambio",
+       "click_here": "Haga clic aquí"
+     }
+   }
+   ```
 
 2. You may notice that there are some words that are wrapped inside curly brackets, for example the word `length` in the sentence `Use total from {length} asset(s) value`.
    This is how rotki inserts a variable inside a sentence. You **must** keep this variable name, when translating to a different language. What you can do though is to reposition the variable inside the sentence. For example:
 
-    ```json
-    // en.json
-    "total": {
-      "use_calculated_asset": "Use total from {length} asset(s) value: ",
-    }
+   - **en.json**
 
-    // es.json
-    "total": {
-      "use_calculated_asset": "Utilice el valor total de {length} activos: ",
-    }
-    ```
+   ```json
+   {
+     "total": {
+       "use_calculated_asset": "Use total from {length} asset(s) value: "
+     }
+   }
+   ```
+
+   - **es.json**
+
+   ```json
+   {
+
+     "total": {
+       "use_calculated_asset": "Utilice el valor total de {length} activos: "
+     }
+   }
+   ```
 
 3. For missing keys from other language files, by default it will use the value of the master file which is `English`.
 

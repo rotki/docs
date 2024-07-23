@@ -4,12 +4,12 @@ rotki uses two different SQLite databases: one with information about assets, pr
 
 ## Database Location
 
-Databases are stored in directories under the [rotki data directory](/usage_guides/data_directory.html#rotki-data-directory).
+Databases are stored in directories under the [rotki data directory](/usage-guides/data-directory.html#rotki-data-directory).
 
 - The global database is stored at `global/global.db`.
 - The accounts you create in rotki have their own database stored at `users/<account_name>/rotkehlchen.db`.
 
-If you need to manually access the database, you can find the guide [here](/usage_guides/accessing_db_manually.html#accessing-the-database-manually).
+If you need to manually access the database, you can find the guide [here](/usage-guides/accessing-db-manually.html#accessing-the-database-manually).
 
 ## DB Upgrades
 

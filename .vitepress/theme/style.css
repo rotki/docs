@@ -43,7 +43,7 @@
  *   in custom container, badges, etc.
  * -------------------------------------------------------------------------- */
 
- :root {
+:root {
   --vp-c-default-1: var(--vp-c-gray-1);
   --vp-c-default-2: var(--vp-c-gray-2);
   --vp-c-default-3: var(--vp-c-gray-3);
@@ -138,14 +138,14 @@
 }
 
 .content img {
-    border-radius: 8px;
-    border: 1px solid #ddd;
+  border-radius: 8px;
+  border: 1px solid #ddd;
 }
 
 .dark .content img {
-    border-color: #333;
+  border-color: #333;
 }
 
 .vp-doc .language-log code {
-    white-space: normal;
+  white-space: normal;
 }

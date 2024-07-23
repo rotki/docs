@@ -66,10 +66,10 @@ If time allows, test the following on the binaries for all OSes. If not, test on
 ### Ethereum Tokens
 
 - Track an Ethereum token and verify that it is added:
-    - In the dashboard.
-    - In the owned tokens.
-    - In total blockchain balances.
-    - In the expanded asset details of ETH accounts that own it.
+  - In the dashboard.
+  - In the owned tokens.
+  - In total blockchain balances.
+  - In the expanded asset details of ETH accounts that own it.
 - Remove an Ethereum token and verify that it is removed from all the above locations.
 
 ### Bitcoin Accounts

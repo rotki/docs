@@ -3,7 +3,7 @@
 Rotki creates a profit/loss report (called PnL for short) for you based on your trades and other events and the provided accounting settings. This is essentially a calculation of profit or loss for all your events based on the given dates. Before getting into the details of generating a report, here's a few important details regarding the report generation algorithm:
 
 - By default, rotki uses an accounting strategy called "First In - First Out" (short: FIFO). There are plans to implement other strategies (e.g. ["Last In - First Out"](https://github.com/rotki/rotki/issues/44)).
-- Rotki allows users in jurisdictions offering a tax free holding period (e.g. Germany with 1 year) to specify the period in days. To adjust this value, see the section [accounting settings](/usage_guides/customization.html#tax-free-period).
+- Rotki allows users in jurisdictions offering a tax free holding period (e.g. Germany with 1 year) to specify the period in days. To adjust this value, see the section [accounting settings](/usage-guides/customization.html#tax-free-period).
 - When generating a report for a custom period, where rotki is aware of the user's previous crypto holdings (e.g. we trade BTC between the years 2017 - 2019 but we ask for a report between 2018 - 2019), it takes all prior crypto holdings into account to calculate a starting balance for the given period. For example, say you traded BTC between 2017 - 2019 with a balance of 0.1 BTC on December 31, 2017. When generating a pnl report for 2018 - 2019, rotki will take the 0.1 BTC from December 31, 2017 as a start balance for its calculations in the period of 2018.
 
 ## How to run the PnL report
@@ -14,7 +14,7 @@ To create a PnL report click on the "Profit and Loss Report" button from the lef
 
 The calculation may take some time. You can also see a summary of the accounting setting the report is running with in the "Accounting settings" section.
 
-If you encounter any problems during the profit/loss report check out the [PnL report creation problem](/usage_guides/pnl.html#pnl-report-creation-problems) section.
+If you encounter any problems during the profit/loss report check out the [PnL report creation problem](/usage-guides/pnl.html#pnl-report-creation-problems) section.
 
 In the report screen you can also see any previously generated profit and loss reports, and manage them. Free users
 are limited to 20 stored reports in total.
@@ -37,7 +37,7 @@ Following are definitions for the all_event document's columns
 
 - `type` is a string describing the type of event a user engaged in, e.g. in "I buy ETH for EUR", buy is the `type`.
 - `location` is a string describing the location the event occurred at. For example "kraken" for kraken trades.
-- `asset` is a string identifying the asset an event was paid in, e.g. in "I bought 1 ETH for 100 EUR", EUR is the  `asset`.
+- `asset` is a string identifying the asset an event was paid in, e.g. in "I bought 1 ETH for 100 EUR", EUR is the `asset`.
 - `free_amount`: is a number specifying the amount of `asset` that won't be taken into consideration for tax purposes.
 - `taxable_amount`: is a number specifying the amount of `asset` needed to be taken into consideration for tax purposes according to the accounting settings, e.g. "I sold 1 ETH for 120 EUR", 1 ETH is the `taxable_amount`.
 - `timestamp` is a string containing the date and time an event was executed.
@@ -47,7 +47,7 @@ Following are definitions for the all_event document's columns
 - `cost_basis` If this is a spending event, this field contains information about where the amount that is spent came from according to the user's setting. Which buys contributed to this spend. If not enough information is known then this is also stated.
 - `notes` Information about the event.
 
-> Note: To learn more about `profit_currency` or to adjust it, see the section [change profit currency](/usage_guides/customization.html#profit-currency)
+> Note: To learn more about `profit_currency` or to adjust it, see the section [change profit currency](/usage-guides/customization.html#profit-currency)
 
 Results from past profit and loss reports are saved so the user can later review them without the need to run a new execution.
 
@@ -83,7 +83,7 @@ It's possible that rotki is not able to find an acquisition event for a sale. In
 
 This can happen for many reasons. The asset may have been acquired in a non-supported exchange/protocol, some event not detected etc.
 
-The way to fix it is to add either a [manual trade](/usage_guides/historical_events.html#adding-manual-trades) to tell rotki how you acquired that asset or an acquisition history event.
+The way to fix it is to add either a [manual trade](/usage-guides/historical-events.html#adding-manual-trades) to tell rotki how you acquired that asset or an acquisition history event.
 
 ### Error when importing CSV formulas to Google Docs
 
@@ -94,12 +94,12 @@ Simply change the language on Google doc to United States. This can be done in F
 
 ![Missing prices asset](/images/sc_pnl_missing_prices.png)
 
-It's possible that rotki is not able to find the price of assets. You have to input the price manually, otherwise the event will be skipped from pnl reports. For example if you are creating a GBP profit/loss report and the asset is GNO then make sure to create the GNO -> GBP historical price cache. You can add the prices on the spot, or open [manage historical price cache](/usage_guides/customization.html#manage-historical-price-oracle-cache).
+It's possible that rotki is not able to find the price of assets. You have to input the price manually, otherwise the event will be skipped from pnl reports. For example if you are creating a GBP profit/loss report and the asset is GNO then make sure to create the GNO -> GBP historical price cache. You can add the prices on the spot, or open [manage historical price cache](/usage-guides/customization.html#manage-historical-price-oracle-cache).
 
 ### The result of the generated PnL report is not what you expected.
 
 The results of the generated PnL report can vary depending on the
-[accounting settings](/usage_guides/customization.html#accounting-settings). Check if any settings align with unusual treatments for your events, so you can adjust the settings to resolve the issue yourself.
+[accounting settings](/usage-guides/customization.html#accounting-settings). Check if any settings align with unusual treatments for your events, so you can adjust the settings to resolve the issue yourself.
 
 If you have any question or are confused about the settings, feel free to send us a message on [Discord](https://discord.rotki.com).
 

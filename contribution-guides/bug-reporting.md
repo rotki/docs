@@ -14,7 +14,7 @@ Before reporting an issue, make sure to check the issue tracker for similar ones
 
 For running rotki in debug mode, you can do it either via a config file or the app UI. The choice will depend on how you run rotki.
 
-- **Config file**: See the section [Set the backend's arguments](/usage_guides/backend_arguments.html#set-the-backend-s-arguments). This is possible in the **electron app** and the **docker version**. For docker, you can even use environment variables as explained [here](/requirement_and_installation/packaged_binaries.html#configuring-the-backend-in-docker).
+- **Config file**: See the section [Set the backend's arguments](/usage-guides/backend-arguments.html#set-the-backend-s-arguments). This is possible in the **electron app** and the **docker version**. For docker, you can even use environment variables as explained [here](/requirement-and-installation/packaged-binaries.html#configuring-the-backend-in-docker).
 - **App UI**: Before logging in, click the cog wheel at the bottom right corner and select "Debug" (image below). Press the save button and proceed to log in as usual. This is only possible in the **electron app**.
 
 ![Run rotki in debug mode via app UI](/images/rotki_debug_mode_set.png)
