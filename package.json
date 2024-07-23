@@ -2,6 +2,7 @@
   "name": "@rotki/docs",
   "version": "1.0.0",
   "private": true,
+  "packageManager": "pnpm@9.6.0",
   "description": "Rotki's user guide and facing documentation",
   "keywords": ["static", "documentation", "rotki"],
   "license": "AGPL-3.0",
@@ -20,15 +21,15 @@
   },
   "dependencies": {
     "@vitejs/plugin-vue": "5.0.5",
-    "vue": "3.4.31"
+    "vue": "3.4.33"
   },
   "devDependencies": {
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "@rotki/eslint-config": "2.9.1",
-    "@types/node": "20.14.10",
-    "@vue/compiler-sfc": "3.4.31",
-    "@vue/runtime-dom": "3.4.31",
+    "@types/node": "20.14.11",
+    "@vue/compiler-sfc": "3.4.33",
+    "@vue/runtime-dom": "3.4.33",
     "eslint": "9.7.0",
     "papaparse": "5.4.1",
     "url": "0.11.3",
