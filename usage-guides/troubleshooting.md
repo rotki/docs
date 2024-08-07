@@ -24,7 +24,7 @@ Please, make sure you are using your premium subscription API keys/secret and th
 
 ## Data with multiple accounts/devices is not synced
 
-Please, make sure all your accounts have the "Allow data sync with rotki Server" switched on, and that on each log-in you make the appropriate choice when prompted to replace the local database. See the section [Sync data with rotki server](/usage-guides/introduction.html#sync-data-with-rotki-server) for more information about how to sync data with multiple accounts/devices.
+Please, make sure all your accounts have the "Allow data sync with rotki Server" switched on, and that on each log-in you make the appropriate choice when prompted to replace the local database. See the section [Sync data with rotki server](/usage-guides/#sync-data-with-rotki-server) for more information about how to sync data with multiple accounts/devices.
 
 ## ENS data not updating for newly registered name/address combination
 
