@@ -18,7 +18,7 @@ rotki offers tracking of all your crypto assets no matter where they are. Either
 
 You can also manually input information on your Fiat assets (i.e., how much EUR, USD, etc. you own) so that the analytics also take them into account. Manual input of actions that you did and would like to be tracked is also possible by adding an "external trade".
 
-It also allows you to get a tax report, essentially calculating all trades in a given period and determining your profit or loss depending on your given settings. For more details on what is offered and how to use it check the [Usage Guide](/usage-guides/introduction.html).
+It also allows you to get a tax report, essentially calculating all trades in a given period and determining your profit or loss depending on your given settings. For more details on what is offered and how to use it check the [Usage Guide](/usage-guides/).
 
 ### Will it remain free to use?
 
