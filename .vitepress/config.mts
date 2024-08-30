@@ -74,7 +74,7 @@ export default defineConfig({
           { text: 'Contributing as a Developer', link: '/contribution-guides/contribute-as-developer' },
           { text: 'Working on Issues', link: '/contribution-guides/working-on-issues' },
           { text: 'Python Code Testing', link: '/contribution-guides/python-testing' },
-          { text: 'Vue/Typescript Testing', link: '/contribution-guides/vue-typescript-testing' },
+          { text: 'Vue/Typescript', link: '/contribution-guides/vue-typescript' },
           { text: 'Manual Testing', link: '/contribution-guides/manual-testing' },
           { text: 'Code Profiling', link: '/contribution-guides/code-profiling' },
           { text: 'rotki Database', link: '/contribution-guides/rotki-database' },

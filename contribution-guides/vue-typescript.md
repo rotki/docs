@@ -94,7 +94,9 @@ const emit = defineEmits<{
   'update:msg': [msg: string];
 }>();
 
-// 3, I18n & vue-router
+const { msg } = toRefs(props);
+
+// 3. I18n & vue-router
 const { t } = useI18n();
 const router = useRouter();
 const route = useRoute();
@@ -121,7 +123,7 @@ watch(title, (title) => {
   emit('update:msg', title);
 });
 
-// 10 Lifecycle
+// 10. Lifecycle
 onMounted(() => {
   increaseCounter();
 });
