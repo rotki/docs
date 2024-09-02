@@ -14,7 +14,7 @@ export default defineConfig({
     logo: '/logo.png',
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Docs', link: '/requirement-and-installation' },
+      { text: 'Documentation', link: '/requirement-and-installation' },
       { text: 'Download', link: 'https://rotki.com/download' },
     ],
 
