@@ -11,10 +11,7 @@ hero:
     alt: rotki
   actions:
     - theme: brand
-      text: What is rotki?
-      link: https://rotki.com
-    - theme: alt
-      text: Start using rotki
+      text: Read the documentation
       link: /requirement-and-installation
     - theme: alt
       text: Download rotki
