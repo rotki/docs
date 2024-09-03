@@ -80,6 +80,7 @@ The preferred order of a setup script in should be the following:
 ```typescript
 // 1. Imports
 import { get } from '@vueuse/core';
+import { defineExpose } from '@vue/runtime-core';
 
 // 2. Definitions (defineX)
 defineOptions({
@@ -126,6 +127,11 @@ watch(title, (title) => {
 // 10. Lifecycle
 onMounted(() => {
   increaseCounter();
+});
+
+// 11. Exposed
+defineExpose({
+  increaseCounter,
 });
 ```
 
