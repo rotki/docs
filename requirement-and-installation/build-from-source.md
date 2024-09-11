@@ -222,8 +222,6 @@ python .\package.py --build full
 
 ```
 
-> **Note for Apple Silicon Mac users:** If you encounter an error during the SQLCipher verification step: `ImportError: dlopen(/.../lib/python3.9/site-packages/pysqlcipher3/_sqlite3.cpython-39-darwin.so, 0x0002): symbol not found in flat namespace (_ERR_error_string)`, you can use `SKIP_SQLCIPHER_VERIFICATION ./package.py` to build while skipping the verification step.
-
 ## Nix
 
 You can use the [Nix](https://nixos.org/download) package manager to start rotki development. Create `flake.nix` in the root of the project and copy the following into it:
