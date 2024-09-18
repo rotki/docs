@@ -135,6 +135,45 @@ defineExpose({
 });
 ```
 
+### Pinia Store
+
+For pinia stores the suggested order for elements is the following.
+
+```typescript
+// stores/counter.ts
+import { defineStore } from 'pinia';
+import { computed, ref } from 'vue';
+
+export const useCounterStore = defineStore('counter', () => {
+  // 1. State
+  const count = ref<number>(0);
+
+  // 2. Getters
+  const doubleCount = computed(() => count.value * 2);
+
+  // 3. Actions
+  function increment(): void {
+    count.value++;
+  }
+
+  function decrement(): void {
+    count.value--;
+  }
+
+  // 4. Watchers
+  watch(count, (count) => {
+    // do something
+  });
+
+  return {
+    count,
+    doubleCount,
+    increment,
+    decrement,
+  };
+});
+```
+
 ### useCssModules
 
 It should be only used if there is some access to the css module class names inside the script tag.
