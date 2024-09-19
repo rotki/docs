@@ -6,9 +6,13 @@ on:
   push:
     branches:
       - main
+      - bugfixes
+      - develop
   pull_request:
     branches:
       - main
+      - bugfixes
+      - develop
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
