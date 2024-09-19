@@ -113,6 +113,36 @@ As long as you provide Monerium credentials, all Monerium transactions on Mainne
 
 ![Add Monerium](/images/monerium_add_key.png)
 
+### Gnosis Pay
+
+You can integrate Gnosis Pay with Rotki to import your transaction data. Note that this feature is **experimental** and is only available for premium users.
+
+#### Adding Gnosis Pay Session Token
+
+To add your Gnosis Pay session token:
+
+1. **Login to Gnosis Pay:**
+
+   - Go to [Gnosis Pay](https://app.gnosispay.com/dashboard) and log in to your account.
+
+2. **Retrieve the Session Token:**
+
+   - Open your browser's developer tools (right-click on the page and select `Inspect` or press `F12` / `Ctrl+Shift+I`/`Cmd+Option+I`).
+   - Go to the **Application** tab in the developer tools.
+   - In the **Storage** section on the left sidebar, click on **Cookies** and select `https://app.gnosispay.com` (marked as **1** in the image).
+   - Look for the cookie named `__Secure-authjs.session-token` in the list (marked as **2** in the image).
+   - Copy the value of the cookie from the **Cookie Value** section at the bottom (marked as **3** in the image).
+
+   ![Retrieve Gnosis Pay Session Token](/images/gnosispay_add_key.png)
+
+3. **Add Session Token to Rotki:**
+   - In Rotki, navigate to `API Keys → External Services`.
+   - Scroll to the **Gnosis Pay** section.
+   - Paste the session token into the **Session Token** field.
+   - Click **Save**.
+
+> **Note**: The session token only provides read-only access to your Gnosis Pay data
+
 ### The Graph
 
 Rotki uses The Graph to obtain Balancer balances and particular ENS data. You can create one [here](https://thegraph.com/studio/apikeys).
