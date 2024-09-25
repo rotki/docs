@@ -96,7 +96,7 @@ Events can be exported as CSV, click on `Export CSV` button and accept prompt to
 
 ![Button to download events as csv](/images/events_query_process_export.png)
 
-It is possible that you need to redecode events for an evm transaction. To do that you have two options. The first of them is to click on the three dots to display the options for an EVM transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them.
+It is possible that you need to redecode events for an evm transaction. To do that you have two options. The first of them is to click on the three dots to display the options for an EVM transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them. If there are any custom events in the transaction, there will be one more confirmation, asking whether to also reset these custom events or not.
 
 ![Menu to redecode events for an EVM transaction](/images/redecode_events.png)
 

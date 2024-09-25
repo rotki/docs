@@ -10,31 +10,39 @@ Rotki allows to track balances of blockchain accounts.
 
 For now, the following chains are supported in Rotki (and the list will be growing as we add more chains in the future):
 
-- Ethereum
-- Bitcoin
-- Bitcoin Cash
-- Kusuma
-- Avalanche
-- Polkadot
-- Optimism
-- Polygon PoS
-- Arbitrum One
-- Base
-- Gnosis
-- Scroll
-- zkSync Lite
+- **EVM Chains**:
 
-To add or modify an account navigate to the `Blockchain Balances` sub-page and click the "Add Account" button on the top right. Now choose the blockchain on which you want to add an account. Then type or paste the address in the "Account" textbox and press the "Save" Button. Note that you can add multiple accounts if you click the "Add multiple addresses" checkbox and provide a comma separated list of addresses.
+  - Ethereum
+  - Optimism
+  - Polygon PoS
+  - Arbitrum One
+  - Base
+  - Gnosis
+  - Scroll
+  - Avalanche
+  - zkSync Lite
+
+- **Bitcoin Chains**:
+
+  - Bitcoin
+  - Bitcoin Cash
+
+- **Substrate Chains**:
+  - Polkadot
+  - Kusama
+
+To add or modify an account navigate to the `Blockchain Balances` sub-page and click the "**Add Account**" button on the top right. Now choose the blockchain on which you want to add an account. Then type or paste the address in the "Account" textbox and press the "Save" Button. Note that you can add multiple accounts if you click the "**Add multiple addresses**" checkbox and provide a comma separated list of addresses.
 
 ![Add a blockchain account](/images/add_blockchain_account.png)
 
-To stop tracking one or more accounts you can check the corresponding box in the accounts table and click the "Delete" button.
+You can edit or delete an account using the buttons at the end of the row.
+For editing, you can modify the label or the tags.
 
-![Delete a blockchain account](/images/delete_blockchain_account.png)
+![Edit or delete a blockchain account](/images/edit_or_delete_blockchain_account.png)
 
 ### EVM Chains
 
-If the selected chain is an EVM chain you will see **Add to all supported EVM chains** checkbox. It is checked by default and it means that rotki will try to add the address for all EVM chains. If the address is a contract in Ethereum mainnet it will only be added to Ethereum. Otherwise for each chain rotki will check whether the address had any activity there and will add only if it has at least one transaction. If you uncheck the checkbox, then the address will only be added to the selected chain.
+If the selected chain is an EVM chain you will see `Add to all supported EVM chains` checkbox. It is checked by default and it means that rotki will try to add the address for all EVM chains. If the address is a contract in Ethereum mainnet it will only be added to Ethereum. Otherwise for each chain rotki will check whether the address had any activity there and will add only if it has at least one transaction. If you uncheck the checkbox, then the address will only be added to the selected chain.
 
 If an EVM account also contains tracked tokens you can click on the arrow under **Actions** in order to expand its view and show the balance breakdown for the account over all assets it holds.
 
@@ -61,8 +69,6 @@ An xpub does not allow spending your coins but provides information about your w
 
 Rotki automatically resolves ens name and ens avatar for every evm address that has ens name set in ethereum mainnet. If there is a primary ens name specified for an address, this name will be shown instead of a raw blockchain address across the app. You can find the blockchain address by hovering the mouse over the ens name. If an ens avatar is set, it will be shown instead of the address blockie.
 
-![Example of resolving an ens name](/images/ens_resolution.png)
-
 ## Token detection
 
 For EVM accounts, it is possible to trigger the process of detecting tokens before refreshing the balances. There are several ways to do that:
@@ -73,7 +79,7 @@ For EVM accounts, it is possible to trigger the process of detecting tokens befo
 
 ![Refresh particular accounts tokens](/images/refresh_particular_account_tokens.png)
 
-2. To re-detect tokens for all addresses of one EVM chain, click `Re-detect tokens` in the particular chain balance table.
+2. To re-detect tokens for all addresses of one EVM chain, click `Re-detect tokens` in the EVM accounts section.
 
 3. To re-detect tokens for only one account, click the refresh button in the corresponding row.
 
