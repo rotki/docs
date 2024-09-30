@@ -14,6 +14,6 @@ To add a new price you have to press the plus button. This will open the add for
 There you can specify the assets, the price and the date of the price. Then you can proceed to save the entry.
 After saving you should be able to see the new entry.
 
-When a latest price is used it will be visually displayed in the UI.
+When a latest price is used it will be visually displayed in the UI. It will show an orange icon near the price, with a tooltip: "Manually defined price".
 
 ![Edited latest price UI indicator](/images/latest_price.png)
