@@ -46,6 +46,16 @@ If the selected chain is an EVM chain you will see `Add to all supported EVM cha
 
 If an EVM account also contains tracked tokens you can click on the arrow under **Actions** in order to expand its view and show the balance breakdown for the account over all assets it holds.
 
+### Aggregated view filtering
+
+In the EVM Chains section, the chain selection allows you to filter accounts based on specific blockchain networks. This functionality works as a filter, meaning you can click on any chain, like Ethereum, Gnosis, or Polygon, and view only the accounts that are associated with those chains. You can even filter by multiple chains simultaneously.
+
+![Filter or delete a blockchain account](/images/filter_chains.png)
+
+Additionally, there is an option to toggle between viewing the aggregated assets across all chains or displaying the assets per individual chain. This provides flexibility, allowing you to either get a total balance view from all chains at once or focus on specific chain assets.
+
+![Filter or delete a blockchain account](/images/aggregated_view_per_chain.png)
+
 ### Bitcoin chains
 
 For Bitcoin/Bitcoin Cash you can add addresses manually or let rotki discover them using an xpub. Using an xpub rotki can **locally** generate your addresses and query the Bitcoin/Bitcoin Cash blockchain for each one of them until it finds unused addresses.
