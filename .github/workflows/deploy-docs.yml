@@ -4,9 +4,10 @@ on:
   push:
     branches:
       - main
+      - develop
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -15,6 +16,8 @@ jobs:
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Fetch all history for all branches
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -28,8 +31,25 @@ jobs:
       - name: Install dependencies 👨🏻‍💻
         run: pnpm install --frozen-lockfile
 
-      - name: Build static
-        run: pnpm run build
+      - name: Build main (default) docs
+        run: |
+          git checkout main
+          pnpm run build
+          mv .vitepress/dist .vitepress/dist-main
+        env:
+          DOCS_VERSION: stable
+
+      - name: Build develop (latest) docs
+        run: |
+          git checkout develop
+          pnpm run build --outDir .vitepress/dist/latest
+        env:
+          DOCS_VERSION: latest
+
+      - name: Combine builds
+        run: |
+          mv .vitepress/dist-main/* .vitepress/dist/
+          rm -rf .vitepress/dist-main
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,13 +1,18 @@
 import path from 'node:path';
+import process from 'node:process';
 import { URL, fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitepress';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 
 const __dirname = path.dirname(fileURLToPath(new URL(import.meta.url)));
 
+const isLatest = process.env.DOCS_VERSION === 'latest';
+const base = isLatest ? '/latest' : '/';
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'Rotki Documentation',
+  base,
   description: 'All you need to start using rotki, or contributing to it.',
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
@@ -16,6 +21,22 @@ export default defineConfig({
       { text: 'Home', link: '/' },
       { text: 'Documentation', link: '/requirement-and-installation' },
       { text: 'Download', link: 'https://rotki.com/download' },
+      {
+        text: isLatest ? 'Latest' : 'Stable',
+        items: [
+          isLatest
+            ? {
+                text: 'Stable',
+                link: 'https://docs.rotki.com/',
+                target: '_blank',
+              }
+            : {
+                text: 'Latest',
+                link: 'https://docs.rotki.com/latest/',
+                target: '_blank',
+              },
+        ],
+      },
     ],
 
     sidebar: [
@@ -108,4 +129,7 @@ export default defineConfig({
     },
   },
   srcExclude: ['**/README.md', '**/LICENSE.md'],
+  rewrites: {
+    'latest/:path*': ':path*',
+  },
 });
