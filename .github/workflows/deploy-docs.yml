@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - develop
+      - bugfixes
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -45,6 +46,13 @@ jobs:
           pnpm run build --outDir .vitepress/dist/latest
         env:
           DOCS_VERSION: latest
+
+      - name: Build bugfixes (patch) docs
+        run: |
+          git checkout bugfixes
+          pnpm run build --outDir .vitepress/dist/patch
+        env:
+          DOCS_VERSION: patch
 
       - name: Combine builds
         run: |

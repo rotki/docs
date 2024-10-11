@@ -6,8 +6,10 @@ import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 
 const __dirname = path.dirname(fileURLToPath(new URL(import.meta.url)));
 
-const isLatest = process.env.DOCS_VERSION === 'latest';
-const base = isLatest ? '/latest' : '/';
+const DOCS_VERSION = process.env.DOCS_VERSION;
+const isLatest = DOCS_VERSION === 'latest';
+const isPatch = DOCS_VERSION === 'patch';
+const base = isLatest || isPatch ? `/${DOCS_VERSION}` : '/';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
@@ -131,5 +133,6 @@ export default defineConfig({
   srcExclude: ['**/README.md', '**/LICENSE.md'],
   rewrites: {
     'latest/:path*': ':path*',
+    'patch/:path*': ':path*',
   },
 });
