@@ -153,14 +153,6 @@ After creating the API key, you can add it to Rotki. Additionally, ensure that t
 
 ![The Graph subgraphs](/images/the_graph_subgraphs.png)
 
-### DefiLlama
-
-Rotki integrates with DefiLlama for DeFi data. To use it, a paid API key is required.
-
-### CoinGecko
-
-Rotki uses CoinGecko for cryptocurrency data. A paid API key is required.
-
 ## Import exchange data (CSV)
 
 For exchanges that don't support integration through API keys (or haven't integrated to Rotki), you can still import your trades or transactions. First, export the CSV file from the exchange's user interface. Then, import this CSV file into Rotki.
