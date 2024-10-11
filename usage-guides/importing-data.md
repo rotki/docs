@@ -155,11 +155,11 @@ After creating the API key, you can add it to Rotki. Additionally, ensure that t
 
 ### DefiLlama
 
-Rotki integrates with DefiLlama for DeFi data. To use it, a paid API key is required.
+Rotki integrates with DefiLlama for price data. An API key is not required, but a paid API key will provide higher rate limits. You can find more information about their API [here](https://defillama.com/pro-api).
 
 ### CoinGecko
 
-Rotki uses CoinGecko for cryptocurrency data. A paid API key is required.
+Rotki uses CoinGecko for cryptocurrency data. An API key is not required, but a paid API key will provide higher rate limits. You can find more information about their API [here](https://www.coingecko.com/en/api).
 
 ## Import exchange data (CSV)
 
