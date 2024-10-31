@@ -1,6 +1,6 @@
 # Address Book
 
-Rotki provides an address book for blockchains. This replaces addresses with names provided by the user across the application. You can click on `Save this name for all chains` to use the name for the provided address on all chains where that address appears. The address book is split into two different kinds:
+rotki provides an address book for blockchains. This replaces addresses with names provided by the user across the application. You can click on `Save this name for all chains` to use the name for the provided address on all chains where that address appears. The address book is split into two different kinds:
 
 1. **Global Addressbook**: It replaces addresses with the names provided across the entire application irrespective of the user logged in.
 2. **Private Addressbook**: It replaces addresses with the names provided for the user currently logged in. It takes precedence over names found in the global address book.

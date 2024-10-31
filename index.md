@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: "Rotki"
+  name: "rotki"
   text: The portfolio manager that protects your privacy
   tagline: All you need to start using rotki, or contributing to it.
   image:

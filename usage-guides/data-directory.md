@@ -1,6 +1,6 @@
-# Rotki data directory
+# rotki data directory
 
-Rotki saves user data by default in a different directory per OS. For each OS, data is stored in the respective standards-compliant equivalent directory.
+rotki saves user data by default in a different directory per OS. For each OS, data is stored in the respective standards-compliant equivalent directory.
 
 - **Linux**: `~/.local/share/rotki/data/`
 - **OSX**: `~/Library/Application Support/rotki/data` - please note this folder is hidden by default
