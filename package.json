@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "packageManager": "pnpm@9.12.3",
-  "description": "Rotki's user guide and facing documentation",
+  "description": "rotki's user guide and facing documentation",
   "keywords": [
     "static",
     "documentation",

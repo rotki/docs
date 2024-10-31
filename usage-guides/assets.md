@@ -105,7 +105,7 @@ on the frontend.
 
 ## Special assets
 
-Rotki allows you to track special assets like:
+rotki allows you to track special assets like:
 
 1. _Uniswap/Sushiswap LP tokens_: You can track LP tokens by adding them and using `UNI-V2` as protocol. This will make the app query balances and prices. As for now historical prices are not queried so you will need to add missing prices manually.
 2. _Yearn vaults_: To add a yearn vault you need to add a new ethereum token and use `yearn_vaults_v2` as protocol. In addition you need to specify the underlying token that the vault uses with a 100% weight.

@@ -161,3 +161,7 @@
 .VPButton.medium {
   border-radius: 0.5rem !important;
 }
+
+.main .name .clip {
+  font-size: 1.25em;
+}

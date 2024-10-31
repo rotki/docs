@@ -13,7 +13,7 @@ const base = isLatest || isPatch ? `/${DOCS_VERSION}` : '/';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Rotki Documentation',
+  title: 'rotki Documentation',
   base,
   description: 'All you need to start using rotki, or contributing to it.',
   themeConfig: {
@@ -73,7 +73,7 @@ export default defineConfig({
         text: 'Advanced',
         items: [
           { text: 'Set the backend\'s arguments', link: '/usage-guides/backend-arguments' },
-          { text: 'Rotki data directory', link: '/usage-guides/data-directory' },
+          { text: 'rotki data directory', link: '/usage-guides/data-directory' },
           { text: 'Accessing the database manually', link: '/usage-guides/accessing-db-manually' },
           { text: 'Long running tasks', link: '/usage-guides/long-running-tasks' },
           { text: 'Using rotki from mobile', link: '/usage-guides/using-rotki-from-mobile' },
