@@ -4,7 +4,7 @@ To track and analyze your DeFi actions use the Decentralized Finance tab from th
 
 ## Overview
 
-Rotki provides an overview of your assets in the different Defi protocols.
+rotki provides an overview of your assets in the different Defi protocols.
 
 ![Defi Overview](/images/defi_overview.png)
 
@@ -43,7 +43,7 @@ Finally you need to have a premium subscription in order for the total amount of
 
 ![Defi LP positions in the dashboard](/images/lps_in_dashboard.png)
 
-Rotki allows its users to keep track of their Liquidity Pools. An overview is available in the dashboard and it is also possible to get a per protocol view in the deposits section.
+rotki allows its users to keep track of their Liquidity Pools. An overview is available in the dashboard and it is also possible to get a per protocol view in the deposits section.
 
 ![Defi Liquidity Pools](/images/sc_decentralized_lp.png)
 

@@ -4,7 +4,7 @@ This guide explains how to use the rotki application.
 
 ## First Time Sign-Up
 
-When you start rotki, you'll see a sign-in/signup prompt. Rotki is a local app, so your account only exists on your local system. Your account on [rotki.com](https://rotki.com/) is only for managing premium subscription payments.
+When you start rotki, you'll see a sign-in/signup prompt. rotki is a local app, so your account only exists on your local system. Your account on [rotki.com](https://rotki.com/) is only for managing premium subscription payments.
 
 ![Creating a new account](/images/rotki_login_screen.png)
 
@@ -33,7 +33,7 @@ For a new account, you can add the premium API key and secret during setup or la
 
 ### Overview
 
-If you need to move your Rotki database to a new device (e.g., if your old one was destroyed), you can manually do this as long as you have backups. As a premium user, you can also restore the encrypted database backed up on the [rotki.com](https://rotki.com/) server.
+If you need to move your rotki database to a new device (e.g., if your old one was destroyed), you can manually do this as long as you have backups. As a premium user, you can also restore the encrypted database backed up on the [rotki.com](https://rotki.com/) server.
 
 ### Steps to Restore
 
@@ -47,7 +47,7 @@ If you need to move your Rotki database to a new device (e.g., if your old one w
 
 ### Sync Data
 
-Refer to the [Sync data with rotki server](#sync-data-with-rotki-server) section to understand how the premium subscription works with multiple accounts/devices and how to sync your data with the Rotki server. Syncing is disabled by default.
+Refer to the [Sync data with rotki server](#sync-data-with-rotki-server) section to understand how the premium subscription works with multiple accounts/devices and how to sync your data with the rotki server. Syncing is disabled by default.
 
 ### Important Considerations
 
@@ -64,35 +64,35 @@ To move your data to another system or restore it:
 
 1. Identify the [rotki data directory](/usage-guides/data-directory) on both the source and destination systems.
 2. Move the entire data directory from the source system to the destination system.
-3. Ensure both systems use the same version of Rotki.
+3. Ensure both systems use the same version of rotki.
 
 ## Sign-In
 
-To sign in with your local Rotki account, enter your profile name and password at the sign-in prompt. This is not the same as the online account you create at [rotki.com](https://rotki.com/) for a premium subscription.
+To sign in with your local rotki account, enter your profile name and password at the sign-in prompt. This is not the same as the online account you create at [rotki.com](https://rotki.com/) for a premium subscription.
 
-## Set Up Rotki Premium
+## Set Up rotki Premium
 
-If you decide to purchase [Rotki Premium](https://rotki.com/products/) later, set it up via **API Keys > Rotki Premium**.
+If you decide to purchase [rotki Premium](https://rotki.com/products/) later, set it up via **API Keys > rotki Premium**.
 
-![Set up Rotki premium API key/secret pair in an existing account](/images/rotki_premium_set.png)
+![Set up rotki premium API key/secret pair in an existing account](/images/rotki_premium_set.png)
 
 To replace or disassociate keys with your current account after setting up premium, use the same page.
 
-![Delete Rotki premium API key/secret pair in a premium account](/images/rotki_premium_del.png)
+![Delete rotki premium API key/secret pair in a premium account](/images/rotki_premium_del.png)
 
-## Sync Data with Rotki Server
+## Sync Data with rotki Server
 
 ### Enable Data Sync
 
-To back up your data on the Rotki Server:
+To back up your data on the rotki Server:
 
-1. Turn on "Allow data sync with Rotki Server". This allows you to restore your data on any account/device using the same API key/secret and account password.
+1. Turn on "Allow data sync with rotki Server". This allows you to restore your data on any account/device using the same API key/secret and account password.
 
-![Sync data with Rotki Server](/images/rotki_premium_set_sync_data.png)
+![Sync data with rotki Server](/images/rotki_premium_set_sync_data.png)
 
 ### Multiple Accounts/Devices
 
-If you use multiple accounts/devices, the one with the most recent login will upload the latest data to the Rotki Server. Using the same account from another device may prompt you to replace your local database with the remote one.
+If you use multiple accounts/devices, the one with the most recent login will upload the latest data to the rotki Server. Using the same account from another device may prompt you to replace your local database with the remote one.
 
 ![Replace local database with remote backup](/images/rotki_premium_replace_local_db_with_remote.png)
 
@@ -113,18 +113,18 @@ You can manually sync your database by clicking the "cloud" icon in the toolbar.
 
 If automatic sync fails, a message will appear. For messages like "Remote database larger than the local one," you can perform a "force push" by clicking the button.
 
-## Upgrading Rotki After a Long Time
+## Upgrading rotki After a Long Time
 
 ### Upgrade Steps
 
-If you haven't used Rotki for more than a year and a half and want to keep your data, follow these steps:
+If you haven't used rotki for more than a year and a half and want to keep your data, follow these steps:
 
-1. **Download Rotki 1.25.2**: Get it [here](https://github.com/rotki/rotki/releases/tag/v1.25.2).
-2. **Install and Log In**: Install Rotki 1.25.2 and log into your account. This will update your database to version 34.
+1. **Download rotki 1.25.2**: Get it [here](https://github.com/rotki/rotki/releases/tag/v1.25.2).
+2. **Install and Log In**: Install rotki 1.25.2 and log into your account. This will update your database to version 34.
 3. **Download the Latest Version**: Get the latest version [here](https://github.com/rotki/rotki/releases/).
 4. **Install and Open**: Install the latest version and open your updated database.
 
 ### Supported Database Versions
 
-- **Rotki 1.25.2 and Earlier**: Supports database versions 1 to 34.
-- **Rotki 1.26.x and Later**: Supports database version 26 and above.
+- **rotki 1.25.2 and Earlier**: Supports database versions 1 to 34.
+- **rotki 1.26.x and Later**: Supports database version 26 and above.

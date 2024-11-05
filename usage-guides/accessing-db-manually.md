@@ -6,9 +6,9 @@ To detect potential problems with data or modify the state of the database, you 
 
 1. **Download and Install**: Get [DB Browser for SQLite](https://sqlitebrowser.org/dl/). It's available for Windows, macOS, and Linux.
 2. **Starting the Program**: Launch the program with the SQLCipher functionality.
-3. **Opening the Rotki Database**:
-   - Navigate to the Rotki database in the [rotki data directory](/usage-guides/data-directory.html#rotki-data-directory).
-   - Enter the password you use to unlock your Rotki account to decrypt the database.
+3. **Opening the rotki Database**:
+   - Navigate to the rotki database in the [rotki data directory](/usage-guides/data-directory.html#rotki-data-directory).
+   - Enter the password you use to unlock your rotki account to decrypt the database.
 4. **Browsing and Modifying Data**:
    - Use the `Browse Data` tab to view the information.
    - Execute custom SQL commands if needed. However, be cautious and ensure you have double-checked commands with our team or are confident in what you are doing.
@@ -25,4 +25,4 @@ To detect potential problems with data or modify the state of the database, you 
      PRAGMA key='your-secret-key';
      ```
 
-By following these steps, you can access and modify the Rotki database securely. Always ensure to backup your database before making any changes.
+By following these steps, you can access and modify the rotki database securely. Always ensure to backup your database before making any changes.

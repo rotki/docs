@@ -193,7 +193,7 @@ If you modified the `@rotki/common` package, you might need to rebuild it:
 pnpm run --filter @rotki/common build
 ```
 
-### Running Rotki
+### Running rotki
 
 Start the application from the `frontend` directory:
 
@@ -228,7 +228,7 @@ You can use the [Nix](https://nixos.org/download) package manager to start rotki
 
 ```nix
 {
-  description = "Rotki project with virtualenv";
+  description = "rotki project with virtualenv";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";

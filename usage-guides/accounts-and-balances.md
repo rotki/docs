@@ -6,9 +6,9 @@ To manage Accounts & Balances (Blockchain Balances, Exchange Balances, and Manua
 
 ## Adding and Removing Blockchain Accounts
 
-Rotki allows to track balances of blockchain accounts.
+rotki allows to track balances of blockchain accounts.
 
-For now, the following chains are supported in Rotki (and the list will be growing as we add more chains in the future):
+For now, the following chains are supported in rotki (and the list will be growing as we add more chains in the future):
 
 - **EVM Chains**:
 
@@ -77,7 +77,7 @@ An xpub does not allow spending your coins but provides information about your w
 
 ## ENS names resolution
 
-Rotki automatically resolves ens name and ens avatar for every evm address that has ens name set in ethereum mainnet. If there is a primary ens name specified for an address, this name will be shown instead of a raw blockchain address across the app. You can find the blockchain address by hovering the mouse over the ens name. If an ens avatar is set, it will be shown instead of the address blockie.
+rotki automatically resolves ens name and ens avatar for every evm address that has ens name set in ethereum mainnet. If there is a primary ens name specified for an address, this name will be shown instead of a raw blockchain address across the app. You can find the blockchain address by hovering the mouse over the ens name. If an ens avatar is set, it will be shown instead of the address blockie.
 
 ## Token detection
 
@@ -134,7 +134,7 @@ From the balances section you can quickly get an overview of the accounts having
 
 ## NFTs
 
-Rotki provides an NFT gallery where you can view the NFTs owned by your accounts.
+rotki provides an NFT gallery where you can view the NFTs owned by your accounts.
 
 ![NFT Gallery](/images/sc_nfts.png)
 
@@ -232,7 +232,7 @@ If you stake on Kraken you can see your gains, and events in the various staked 
 
 ## Airdrops
 
-Rotki can detect some airdrops for you
+rotki can detect some airdrops for you
 
 ![rotki airdrops detection](/images/rotki_airdrops.png)
 

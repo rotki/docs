@@ -276,9 +276,9 @@ The `countries` field will be used to show the country's flag on the app. You ca
 
 ### Add or edit a translation
 
-Rotki does translation using [Vue i18n](https://kazupon.github.io/vue-i18n).
+rotki does translation using [Vue i18n](https://kazupon.github.io/vue-i18n).
 
-Rotki's main language is `English`. The language file for it is [here](https://github.com/rotki/rotki/blob/develop/frontend/app/src/locales/en.json).
+rotki's main language is `English`. The language file for it is [here](https://github.com/rotki/rotki/blob/develop/frontend/app/src/locales/en.json).
 To fill in the translation for another language, you should pay attention to the following things:
 
 1. The `JSON` structure from the `English` language file is absolute, meaning you can't change the JSON structure (the keys), because this is how rotki reads which value to use. So for translations of other languages, please follow the same structure as the `English` language JSON file. For example:

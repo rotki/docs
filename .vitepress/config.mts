@@ -13,7 +13,7 @@ const base = isLatest || isPatch ? `/${DOCS_VERSION}` : '/';
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  title: 'Rotki Documentation',
+  title: 'rotki Documentation',
   base,
   description: 'All you need to start using rotki, or contributing to it.',
   themeConfig: {
@@ -45,7 +45,7 @@ export default defineConfig({
       {
         text: 'System Requirements & Installation',
         items: [
-          { text: 'Introduction', link: '/requirement-and-installation' },
+          { text: 'Introduction', link: '/requirement-and-installation/' },
           { text: 'Packaged Binaries', link: '/requirement-and-installation/packaged-binaries' },
           { text: 'Build From Source', link: '/requirement-and-installation/build-from-source' },
         ],
@@ -73,7 +73,7 @@ export default defineConfig({
         text: 'Advanced',
         items: [
           { text: 'Set the backend\'s arguments', link: '/usage-guides/backend-arguments' },
-          { text: 'Rotki data directory', link: '/usage-guides/data-directory' },
+          { text: 'rotki data directory', link: '/usage-guides/data-directory' },
           { text: 'Accessing the database manually', link: '/usage-guides/accessing-db-manually' },
           { text: 'Long running tasks', link: '/usage-guides/long-running-tasks' },
           { text: 'Using rotki from mobile', link: '/usage-guides/using-rotki-from-mobile' },
@@ -83,16 +83,16 @@ export default defineConfig({
       {
         text: 'Frequently Asked Questions',
         items: [
-          { text: 'Application', link: 'faq#questions-on-the-application' },
-          { text: 'Premium', link: 'faq#questions-on-premium' },
-          { text: 'Roadmap & Features', link: 'faq#questions-on-roadmap-and-features' },
-          { text: 'Miscellaneous', link: 'faq#miscellaneous-questions' },
+          { text: 'Application', link: '/faq#questions-on-the-application' },
+          { text: 'Premium', link: '/faq#questions-on-premium' },
+          { text: 'Roadmap & Features', link: '/faq#questions-on-roadmap-and-features' },
+          { text: 'Miscellaneous', link: '/faq#miscellaneous-questions' },
         ],
       },
       {
         text: 'Contribution Guides',
         items: [
-          { text: 'Bug Reporting', link: '/contribution-guides' },
+          { text: 'Bug Reporting', link: '/contribution-guides/' },
           { text: 'Feature Requests', link: '/contribution-guides/feature-requests' },
           { text: 'Contributing as a Developer', link: '/contribution-guides/contribute-as-developer' },
           { text: 'Working on Issues', link: '/contribution-guides/working-on-issues' },

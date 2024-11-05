@@ -4,7 +4,7 @@ This section provides information on how to customize the application through th
 
 ## Profit Currency
 
-Rotki calculates everything, including your total profit/loss during the PnL report, in a given fiat currency, called the `profit_currency`. By default, this is USD. You can change this by clicking on the currency icon in the top right menu and selecting your preferred currency.
+rotki calculates everything, including your total profit/loss during the PnL report, in a given fiat currency, called the `profit_currency`. By default, this is USD. You can change this by clicking on the currency icon in the top right menu and selecting your preferred currency.
 
 ![Changing the profit currency](/images/sc_profit_currency.png)
 
@@ -98,7 +98,7 @@ In this menu you can also edit, delete or add more nodes.
 
 #### Connecting to a Kusama Client
 
-> Rotki attempts to connect to a local Kusama node running on the default port `9933`. If no client is running, blockchain queries will use an external service.
+> rotki attempts to connect to a local Kusama node running on the default port `9933`. If no client is running, blockchain queries will use an external service.
 
 #### Connecting to a Polkadot Client
 
@@ -283,7 +283,7 @@ The above does not happen.
 
 #### Have Summary
 
-> Specify whether the all_events CSV export should include a summary of all events and the total profit/loss at the end. This summary would also include the Rotki version and the settings used during the PnL report, making it easier to reproduce a report run.
+> Specify whether the all_events CSV export should include a summary of all events and the total profit/loss at the end. This summary would also include the rotki version and the settings used during the PnL report, making it easier to reproduce a report run.
 
 ## Data & Security Settings
 
@@ -320,13 +320,13 @@ There are two options to reset the assets database:
 
 ### Purging Data
 
-Rotki keeps a lot of data cached locally. Clean this data periodically from the "Manage Data" section in the settings. Remove specific exchanges by first removing any active API keys.
+rotki keeps a lot of data cached locally. Clean this data periodically from the "Manage Data" section in the settings. Remove specific exchanges by first removing any active API keys.
 
 ![Purging user data](/images/sc_purge_data.png)
 
 ### Manage Historical Price Oracle Cache
 
-Querying historical prices from oracles such as CryptoCompare and CoinGecko is slow and can be slower due to rate limiting. Rotki creates historical price caches during idle times.
+Querying historical prices from oracles such as CryptoCompare and CoinGecko is slow and can be slower due to rate limiting. rotki creates historical price caches during idle times.
 
 Request the creation of such a cache by going to the Oracle cache section, selecting the oracle, the from asset of the pair, the to asset of the pair, and then pressing "Cache pair prices".
 
@@ -350,7 +350,7 @@ View all modules in the table. Some are activated by default. Enable/disable a m
 
 ![Select address for modules](/images/module_settings_select_address.png)
 
-To limit querying to selected addresses, click the "edit/pencil" button on the module to select addresses. If no addresses are selected, Rotki checks all eligible addresses, increasing query duration.
+To limit querying to selected addresses, click the "edit/pencil" button on the module to select addresses. If no addresses are selected, rotki checks all eligible addresses, increasing query duration.
 
 ## Backend Settings
 

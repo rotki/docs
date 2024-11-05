@@ -2,7 +2,7 @@
 
 ## Adding manual trades
 
-Rotki will pull all your trade history from the exchanges whenever it needs it. But most of us have probably also done some OTC trades or taxable events at some point. Such events could even just be mining tokens, depending on your jurisdiction, participating in an ICO or getting paid in crypto.
+rotki will pull all your trade history from the exchanges whenever it needs it. But most of us have probably also done some OTC trades or taxable events at some point. Such events could even just be mining tokens, depending on your jurisdiction, participating in an ICO or getting paid in crypto.
 
 You can go to this page via `History → Exch. Trades`.
 Clicking on the "Add an external trade" button will open a menu like the following.
@@ -19,7 +19,7 @@ Currently rotki tracks your balance by querying the different supported protocol
 
 ## Filtering trades
 
-Rotki supports filtering your trades with a combination of filters. All of the filters are applied at the same time
+rotki supports filtering your trades with a combination of filters. All of the filters are applied at the same time
 limiting the trades to the ones that satisfy all the applied filters.
 
 ![Filtering trades](/images/sc_history_trades_filter.png)
@@ -70,7 +70,7 @@ You can select the checkbox on the left part of each entry and click `Ignore`/`U
 
 ## History events
 
-Rotki is capable of pulling and decoding a bunch of different events, ranging from EVM chain transactions to exchanges events and more. When you visit the `History Events` section the process to obtain all the information will start. You will be able to check the status in an informative breakdown per blockchain address. Free users are limited to a number of latest events.
+rotki is capable of pulling and decoding a bunch of different events, ranging from EVM chain transactions to exchanges events and more. When you visit the `History Events` section the process to obtain all the information will start. You will be able to check the status in an informative breakdown per blockchain address. Free users are limited to a number of latest events.
 
 History events can be filtered if you have a premium subscription activated. You can filter by:
 
