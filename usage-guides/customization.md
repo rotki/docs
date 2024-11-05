@@ -10,35 +10,43 @@ rotki calculates everything, including your total profit/loss during the PnL rep
 
 ## Application Settings
 
-Access the settings menu via `User icon → Settings`. By choosing the "General" settings button, you can customize general application settings.
+Access the settings menu via `User icon → Settings`.
+
+## Account Settings
+
+### Changing Password
+
+Choose the "User & Security" section to change the user password.
+
+![Changing the user's password](/images/sc_user_password_change.png)
+
+## General Settings
 
 ![Customizing the general app settings](/images/sc_general_settings.png)
-
-### General Settings
-
-#### Language
-
-> Set the language used in the app. This feature is experimental and may not work as expected for some languages. Help us speed up the translation process by contributing [here](/contribution-guides/contribute-as-developer.html#add-a-new-language-or-translation).
 
 #### Anonymous Usage Analytics
 
 > Specify whether the application can submit anonymous usage analytics. This helps measure active users while ensuring data is anonymized and contains no sensitive information.
 
+#### Auto detect tokens
+
+> Specify whether to automatically detect tokens and refresh balances by periodically checking historical events.
+
+#### CSV Export
+
+> Specify your preferred date format and delimiter for CSV exports.
+
+#### Automatic database sync
+
+> Whether to force push when a size discrepancy occurs during automatic db sync.
+
+#### Version update check
+
+> Set how often (in hours) the version will be checked for updates.
+
 #### Balance Data Saving Frequency
 
 > Set how often (in hours) the balance data is saved. This data helps calculate statistics and historical data for the user.
-
-#### Date Display Format
-
-> Set the date display format in the rotki user interface, such as `%m/%d/%Y %H:%M:%S` for month/day/year hour:minutes:seconds. Check [here](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) for valid formats.
-
-#### Display in Local Time
-
-> Choose whether to display local time or UTC in CSV exports, user logs, and other locations.
-
-#### BTC Derivation Gap Limit
-
-> Set the derivation gap limit for deriving addresses from a bitcoin xpub. More information [here](https://insights.blockonomics.co/bitcoin-what-is-this-gap-limit/).
 
 #### Treat Staked ETH as ETH
 
@@ -48,17 +56,25 @@ Access the settings menu via `User icon → Settings`. By choosing the "General"
 
 > Configure which EVM chains should not automatically detect tokens. By default, EVM chains detect activities of all registered EVM accounts in other EVM chains.
 
+#### BTC Derivation Gap Limit
+
+> Set the derivation gap limit for deriving addresses from a bitcoin xpub. More information [here](https://insights.blockonomics.co/bitcoin-what-is-this-gap-limit/).
+
+#### Date Format
+
+> Set the date display and date input format in the rotki user interface, such as `%m/%d/%Y %H:%M:%S` for month/day/year hour:minutes:seconds. Check [here](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) for valid formats.
+
 ### Amount Settings
 
 ![Customizing the app's amount settings](/images/sc_amount_settings.png)
 
-#### Floating Precision
-
-> Set the number of decimal points shown in the UI for floating point numbers.
-
 #### Main Currency
 
 > Same as [changing the profit currency](#profit-currency).
+
+#### Floating Precision
+
+> Set the number of decimal points shown in the UI for floating point numbers.
 
 #### Thousands Separator
 
@@ -68,7 +84,7 @@ Access the settings menu via `User icon → Settings`. By choosing the "General"
 
 > Set the symbol separating the floating part of a number, e.g., `5.42`.
 
-#### Use Abbreviations for Large Numbers
+#### Abbreviation for large numbers
 
 > If enabled, large numbers will be abbreviated, e.g., `1,234,567` as `1.23 M`. Set the minimum value to be abbreviated.
 
@@ -79,42 +95,6 @@ Access the settings menu via `User icon → Settings`. By choosing the "General"
 #### Amount Rounding
 
 > Choose the rounding mechanism: `Round up`, `Round down`, or `Half even`. Customize how amounts and values are rounded.
-
-### RPC Node Setting
-
-This setting lets you change the nodes used to connect to blockchains. We give you a list of public nodes, but sometimes they are busy or down. You will see a green or red icon showing if a node is working.
-
-It is good to add more nodes and set their priority. We always try your own nodes first, then use some random public nodes if needed. If you don't have your own node, we use public nodes.
-
-The node's weight (percentage) shows how likely it is to be used. You can turn nodes on or off with the toggle button.
-
-![Customizing the app's connection to EVM nodes](/images/rotki_nodes_management.png)
-
-In this menu you can also edit, delete or add more nodes.
-
-![Add an EVM node](/images/rotki_nodes_management_addition.png)
-
-### Local Nodes
-
-#### Connecting to a Kusama Client
-
-> rotki attempts to connect to a local Kusama node running on the default port `9933`. If no client is running, blockchain queries will use an external service.
-
-#### Connecting to a Polkadot Client
-
-> Set the RPC endpoint for a Polkadot node here.
-
-#### Connecting to an ETH Consensus Layer Beacon Node
-
-> Set the RPC endpoint for the Ethereum consensus layer beacon node. If unreachable, beaconcha.in will be used. For DAppNode Ethereum validator users, find the RPC node setting in the DAppNode Package for the Execution Client.
-
-### Price Oracle Settings
-
-![Customizing the app's price oracle settings](/images/sc_priceoracle_settings.png)
-
-Here, you can customize the order in which price oracles are queried, both for current and historical prices. This determines which price source to check first, second, and so on.
-
-DeFi oracles like Uniswap V2 and Uniswap V3 use only on-chain information to get current prices. This makes querying a bit slower, but it relies solely on the Ethereum chain. Prices for some assets may differ from Coingecko or CryptoCompare, depending on the conditions of the pools at the time of the query.
 
 ### NFT Settings
 
@@ -132,49 +112,42 @@ DeFi oracles like Uniswap V2 and Uniswap V3 use only on-chain information to get
 
 > Define rules for retry and timeout for external service calls made by rotki.
 
-### Frontend Only Settings
+## Database Settings
 
-![Customizing the app's frontend only settings](/images/sc_frontendonly_settings1.png)
+### Database Info & User Database Backups
 
-#### Animation Effect
+View information about your user and global database, such as directory, size, and version.
 
-> Reduce animation effects to improve performance. This affects animation quality but optimizes resource usage.
+![Creating database backups](/images/sc_db_backup.png)
 
-#### Alias Name for Addresses
+Create new database backups, delete backups, and download backups locally.
 
-> Enable or disable alias names for blockchain addresses. Aliases are obtained from `ENS`, `addressbook`, or `blockchain account label`. Change the order of resolution as needed.
+### Purging Data
 
-#### Data Scrambling
+rotki keeps a lot of data cached locally. Clean this data periodically from the "Manage Data" section in the settings. Remove specific exchanges by first removing any active API keys.
 
-> Enable data scrambling to randomize amounts, dates, and other data for privacy in screenshots. This setting does not persist across sessions.
+![Purging user data](/images/sc_purge_data.png)
 
-#### Dashboard Graph Default Timeframe
+### Exporting and Importing User Assets
 
-> Set the default timeframe for the dashboard graph, which will be pre-selected upon login.
+Use the export/import function to migrate user assets between computers. This function creates a zip archive of user assets for transfer.
 
-#### Graph Basis
+![Importing user assets](/images/sc_custom_import_export.png)
 
-> Configure whether the graph y-axis starts at 0 or the minimum amount for the period.
+::: warning
+This archive cannot be used as a backup/restore across different versions of rotki since there is no guarantee of compatibility across versions.
+:::
 
-#### Automatic Balance Refresh
+### Reset Assets Database
 
-> Enable or disable automatic balance refresh and set the refresh interval. Disabled by default due to potential slow queries and rate limits.
+There are two options to reset the assets database:
 
-#### Periodic Status Query
-
-> Set the frequency of backend data updates. Default is 5 seconds.
-
-![Customizing the app's frontend only settings](/images/sc_frontendonly_settings2.png)
-
-#### Blockchain Explorer Customization
-
-> Customize which explorer is used for transaction and address links.
-
-#### Theme [Premium]
-
-> Premium users can customize colors for light or dark mode.
+1. **Soft Reset**: This option will not reset assets added by the user.
+2. **Hard Reset**: This option will reset assets added by the user.
 
 ## Accounting Settings
+
+![Customizing the accounting rules](/images/sc_accounting_custom_rule.png)
 
 By choosing the "Accounting" settings button, you can customize application settings related to accounting calculations.
 
@@ -184,13 +157,11 @@ The default settings are currently tailored for the German tax jurisdiction. For
 
 ### Custom Accounting Rules
 
-![Customizing the accounting rules](/images/sc_accounting_custom_rule.png)
-
 Customize accounting rules based on `Event type`, `Event sub type`, and `Counterparty`.
 
 ### Trade Settings
 
-![Customizing the accounting trade settings](/images/sc_accounting_settings.png)
+![Customizing the accounting trade settings](/images/sc_accounting_trade_settings.png)
 
 #### Crypto to Crypto Trades
 
@@ -285,54 +256,51 @@ The above does not happen.
 
 > Specify whether the all_events CSV export should include a summary of all events and the total profit/loss at the end. This summary would also include the rotki version and the settings used during the PnL report, making it easier to reproduce a report run.
 
-## Data & Security Settings
+## Price Oracle Settings
 
-### Changing Password
+![Change the order of price sources](/images/sc_price_oracle_order.png)
 
-Choose the "User & Security" section to change the user password.
+Here, you can customize the order in which price oracles are queried, both for current and historical prices. This determines which price source to check first, second, and so on.
 
-![Changing the user's password](/images/sc_user_password_change.png)
+DeFi oracles like Uniswap V2 and Uniswap V3 use only on-chain information to get current prices. This makes querying a bit slower, but it relies solely on the Ethereum chain. Prices for some assets may differ from Coingecko or CryptoCompare, depending on the conditions of the pools at the time of the query.
 
-### Database Info & User Database Backups
+### Oracle cache
 
-View information about your user and global database, such as directory, size, and version.
-
-![Creating database backups](/images/sc_db_backup.png)
-
-Create new database backups, delete backups, and download backups locally.
-
-### Exporting and Importing User Assets
-
-Use the export/import function to migrate user assets between computers. This function creates a zip archive of user assets for transfer.
-
-![Importing user assets](/images/sc_custom_import_export.png)
-
-::: warning
-This archive cannot be used as a backup/restore across different versions of rotki since there is no guarantee of compatibility across versions.
-:::
-
-### Reset Assets Database
-
-There are two options to reset the assets database:
-
-1. **Soft Reset**: This option will not reset assets added by the user.
-2. **Hard Reset**: This option will reset assets added by the user.
-
-### Purging Data
-
-rotki keeps a lot of data cached locally. Clean this data periodically from the "Manage Data" section in the settings. Remove specific exchanges by first removing any active API keys.
-
-![Purging user data](/images/sc_purge_data.png)
-
-### Manage Historical Price Oracle Cache
+![Creating a historical price cache](/images/sc_historical_price_cache.png)
 
 Querying historical prices from oracles such as CryptoCompare and CoinGecko is slow and can be slower due to rate limiting. rotki creates historical price caches during idle times.
 
 Request the creation of such a cache by going to the Oracle cache section, selecting the oracle, the from asset of the pair, the to asset of the pair, and then pressing "Cache pair prices".
 
-![Creating a historical price cache](/images/sc_historical_price_cache.png)
-
 Manage existing historical price cache entries, inspect start and end dates, and delete caches if needed.
+
+## RPC Node Setting
+
+This setting lets you change the nodes used to connect to blockchains. We give you a list of public nodes, but sometimes they are busy or down. You will see a green or red icon showing if a node is working.
+
+It is good to add more nodes and set their priority. We always try your own nodes first, then use some random public nodes if needed. If you don't have your own node, we use public nodes.
+
+The node's weight (percentage) shows how likely it is to be used. You can turn nodes on or off with the toggle button.
+
+![Customizing the app's connection to EVM nodes](/images/rotki_nodes_management.png)
+
+In this menu you can also edit, delete or add more nodes.
+
+![Add an EVM node](/images/rotki_nodes_management_addition.png)
+
+### Local Nodes
+
+#### Connecting to a Kusama Client
+
+> rotki attempts to connect to a local Kusama node running on the default port `9933`. If no client is running, blockchain queries will use an external service.
+
+#### Connecting to a Polkadot Client
+
+> Set the RPC endpoint for a Polkadot node here.
+
+#### Connecting to an ETH Consensus Layer Beacon Node
+
+> Set the RPC endpoint for the Ethereum consensus layer beacon node. If unreachable, beaconcha.in will be used. For DAppNode Ethereum validator users, find the RPC node setting in the DAppNode Package for the Execution Client.
 
 ## Module Settings
 
@@ -351,6 +319,52 @@ View all modules in the table. Some are activated by default. Enable/disable a m
 ![Select address for modules](/images/module_settings_select_address.png)
 
 To limit querying to selected addresses, click the "edit/pencil" button on the module to select addresses. If no addresses are selected, rotki checks all eligible addresses, increasing query duration.
+
+## Interface-only Settings
+
+![Customizing the app's interface only settings](/images/sc_interface_only_settings.png)
+
+#### Language
+
+> Set the language used in the app. This feature is experimental and may not work as expected for some languages. Help us speed up the translation process by contributing [here](/contribution-guides/contribute-as-developer.html#add-a-new-language-or-translation).
+
+#### Animation Effect
+
+> Reduce animation effects to improve performance. This affects animation quality but optimizes resource usage.
+
+#### Data Scrambling
+
+> Enable data scrambling to randomize amounts, dates, and other data for privacy in screenshots. This setting does not persist across sessions.
+
+#### Automatic Balance Refresh
+
+> Enable or disable automatic balance refresh and set the refresh interval. Disabled by default due to potential slow queries and rate limits.
+
+#### Periodic Status Query
+
+> Set the frequency of backend data updates. Default is 5 seconds.
+
+#### Blockchain Explorer Customization
+
+> Customize which explorer is used for transaction and address links.
+
+### Graph Settings
+
+#### Dashboard Graph Default Timeframe
+
+> Set the default timeframe for the dashboard graph, which will be pre-selected upon login.
+
+#### Graph Basis
+
+> Configure whether the graph y-axis starts at 0 or the minimum amount for the period.
+
+### Alias Name for Addresses
+
+> Enable or disable alias names for blockchain addresses. Aliases are obtained from `ENS`, `addressbook`, or `blockchain account label`. Change the order of resolution as needed.
+
+### Theme Customization [Premium]
+
+> Premium users can customize colors for light or dark mode.
 
 ## Backend Settings
 
