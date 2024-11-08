@@ -39,3 +39,7 @@ If you still cannot find your asset, it might be ignored. By default, rotki only
 After whitelisting the token, you may need to re-detect it to see it in your balances (read: [token detection methods](/usage-guides/assets.html#whitelisting-and-re-detecting-missing-tokens)).
 
 If the asset is still not showing, you may need to add it manually.
+
+## My balances are not showing after importing my history/creating history events
+
+It's not a bug. At the moment, we don't use events to simulate current holdings. Balances are only calculated from connected exchanges, connected blockchain addresses, and manual balances.
