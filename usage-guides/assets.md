@@ -17,6 +17,36 @@ To solve this problem we added a whitelist which you can add assets to as can be
 
 ![Whitelist asset](/images/asset_whitelist_menu.png)
 
+## Whitelisting and Re-detecting Missing Tokens
+
+If a token doesn't appear in your balances, there are several ways to troubleshoot this. First you should check if it's been automatically or manually ignored. And then run a manual token detection.
+
+### Check Token is not Ignored or Marked as Spam
+
+Go to the Manage Assets -> Assets page. Use the search to find the token by name or address. Verify if the token is ignored. If ignored, unignore it. If you did not ignore it on purpose click to whitelist it so the spam detection algorithm does not falsely flag it as spam.
+
+![Example of managing assets and whitelisting a token in the Manage Assets page.](/images/manage-assets-refresh.png)
+
+### Token Detection Methods
+
+**Single Account Per-Chain Detection**
+
+The best way to detect tokens for a single address is to go to blockchain & accounts balances, scroll down to the EVM accounts view, expand the dropdown at the account, go to the per chain tab and click on the detect tokens toggle 🔃.
+
+![Example of detecting tokens for a specific chain](/images/redetect-per-chain-view.png)
+
+**All Accounts Per-Chain Detection**
+
+Go to Account & Balances -> Blockchain Balances. Scroll down to EVM accounts and click on Re-detect tokens (🔃). Here you can select specific chains to detect tokens for all your wallets. This will take a bit of time depending on tracked addresses per chain. The slowest chain for detection is ethereum.
+
+![Example of re-detecting tokens for all EVM chains in the Blockchain Balances section.](/images/redetect-tokens-chain.png)
+
+**Dashboard Full Detection**
+
+For a complete re-detection of all tokens across all your addresses and all supported chains, use the re-detect toggle (🔃) in the main dashboard view. This will perform a full scan of your addresses on every chain but will probably take quite a long time depending on amount of tracked addresses and chains.
+
+![Example of performing a full token detection using the re-detect toggle on the dashboard.](/images/redetect-tokens-dashboard.png)
+
 ## Adding/editing an asset
 
 ![Add or edit an asset](/images/rotki_add_edit_asset.png)

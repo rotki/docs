@@ -217,3 +217,64 @@ instead of:
   }
 }
 ```
+
+## Working with UI Library
+
+### Testing Component Changes
+
+To test unpublished UI library changes in the main application:
+
+1. **Build the Library**
+
+   ```sh
+   pnpm run build:prod
+   ```
+
+2. **Link to Application**
+   - Open `package.json` in rotki main directory `frontend/app/package.json`
+   - Change UI library version to point to local build:
+     ```json
+     {
+       "dependencies": {
+         "@rotki/ui-library": "file:../../../ui-library" // adjust path based on your UI library location
+       }
+     }
+     ```
+3. **Update Application**
+
+   ```sh
+   pnpm install
+   ```
+
+4. **Refresh Changes**
+   - Rebuild library after changes
+   - Run `pnpm install` in frontend directory
+   - Restart development server
+
+### Troubleshooting
+
+If experiencing display issues:
+
+1. Clean modules:
+
+   ```sh
+   pnpm run clean:modules
+   ```
+
+2. Reinstall dependencies:
+
+   ```sh
+   pnpm install
+   ```
+
+3. Restart development server
+   ```sh
+   pnpm run dev
+   ```
+
+### Branch Compatibility
+
+- UI Library: `main` branch
+- Rotki App: `develop` branch
+
+These branches should be compatible. If encountering issues, try cleaning and reinstalling modules to resolve caching problems.

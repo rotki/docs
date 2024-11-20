@@ -34,6 +34,8 @@ If you just registered your ENS name and you don't see the name and/or avatar be
 
 If your asset is not showing in rotki, even though you are sure that you have a balance, you need to first ensure that the asset is present on the list of assets (read [inspecting list of assets](/usage-guides/assets.html#inspecting-list-of-assets)).
 
-If you still cannot find your asset, it might be ignored. By default, rotki only displays un-ignored assets in the table. To also show the ignored assets, choose the `Filter by ignored status → Show all`, and then unignore the asset manually. Additionally, you can whitelist the asset to prevent it from being automatically ignored by rotki's spam detection. (read: [whitelisting of ignored assets](/usage-guides/assets.html#whitelisting-of-ignored-assets))
+If you still cannot find your asset, it might be ignored. By default, rotki only displays un-ignored assets in the table. To also show the ignored assets, choose the `Filter by ignored status → Show all`, and then unignore the asset manually. Additionally, you can whitelist the asset to prevent it from being automatically ignored by rotki's spam detection (read: [whitelisting of ignored assets](/usage-guides/assets.html#whitelisting-of-ignored-assets)).
+
+After whitelisting the token, you may need to re-detect it to see it in your balances (read: [token detection methods](/usage-guides/assets.html#whitelisting-and-re-detecting-missing-tokens)).
 
 If the asset is still not showing, you may need to add it manually.
