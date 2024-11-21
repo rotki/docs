@@ -33,6 +33,22 @@ Set your editor up to use isort as seen in the Makefile (format command) before 
 
 You can also bulk apply formatting changes to all files by running `make format`.
 
+To catch spelling mistakes before pushing, you can install [typos](https://github.com/crate-ci/typos). The CI will check for typos, so running it locally can help avoid CI failures:
+
+```sh
+cargo install typos-cli  # or other installation methods from the docs
+typos                   # check for typos
+typos -w               # automatically fix typos
+```
+
+If you encounter false positives, add exceptions in `_typos.toml`:
+
+```toml
+[default.extend-words]
+# Add exceptions for names, technical terms, etc
+teh = "teh"    # Example: preserving "teh" as a surname
+```
+
 ## Where to make changes
 
 - If you want to contribute by fixing a bug, use the [bugfixes](https://github.com/rotki/rotki/tree/bugfixes) branch.
