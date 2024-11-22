@@ -76,11 +76,11 @@ rotki is capable of pulling and decoding a bunch of different events, ranging fr
 
 Currently, these events are detected automatically by rotki:
 
-- Transactions from registered **EVM accounts**. (Events from non-EVM accounts are not retrieved at the moment)
+- Transactions from registered **EVM accounts** (except Avalanche). Events from non-EVM accounts are not retrieved at the moment
 - Events from registered exchanges.
-- ETH withdrawal event
-- ETH block event
-- ETH deposit event
+- ETH withdrawal events
+- ETH block events
+- ETH deposit events
 
 Additionally, you can add your custom events.
 
