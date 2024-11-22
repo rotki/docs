@@ -72,6 +72,20 @@ You can select the checkbox on the left part of each entry and click `Ignore`/`U
 
 rotki is capable of pulling and decoding a bunch of different events, ranging from EVM chain transactions to exchanges events and more. When you visit the `History Events` section the process to obtain all the information will start. You will be able to check the status in an informative breakdown per blockchain address. Free users are limited to a number of latest events.
 
+---
+
+Currently, these events are detected automatically by rotki:
+
+- Transactions from registered **EVM accounts**. (Events from non-EVM accounts are not retrieved at the moment)
+- Events from registered exchanges.
+- ETH withdrawal event
+- ETH block event
+- ETH deposit event
+
+Additionally, you can add your custom events.
+
+---
+
 History events can be filtered if you have a premium subscription activated. You can filter by:
 
 - Account (a tracked blockchain address)

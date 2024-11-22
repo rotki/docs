@@ -87,6 +87,7 @@ export default defineConfig({
           { text: 'Premium', link: '/faq#questions-on-premium' },
           { text: 'Roadmap & Features', link: '/faq#questions-on-roadmap-and-features' },
           { text: 'Miscellaneous', link: '/faq#miscellaneous-questions' },
+          { text: 'Common Issues', link: '/faq#common-issues' },
         ],
       },
       {
