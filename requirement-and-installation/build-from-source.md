@@ -28,6 +28,7 @@ Create a new [virtual environment](http://docs.python-guide.org/en/latest/dev/vi
 
 ```sh
 mkvirtualenv rotki -p /usr/bin/python3.11
+workon rotki
 ```
 
 Then install all the Python requirements:
