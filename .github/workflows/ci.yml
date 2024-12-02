@@ -19,6 +19,15 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  check-typos:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@v4
+
+      - name: Run typos checker
+        uses: crate-ci/typos@master
+
   commit-lint:
     runs-on: ubuntu-latest
     steps:
