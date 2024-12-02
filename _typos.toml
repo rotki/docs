@@ -1,0 +1,14 @@
+[files]
+extend-exclude = [
+    "public/**/*.svg",
+    "public/**/*.csv",
+    "pnpm-lock.yaml",
+]
+
+[default]
+extend-ignore-re = [
+    "PnL"
+]
+
+[default.extend-words]
+teh = "teh"     # example variable
