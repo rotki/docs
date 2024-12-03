@@ -181,9 +181,7 @@ Example:
   "logfromothermodules": true,
   "sleep-secs": 22,
   "max_size_in_mb_all_logs": 550,
-  "max_logfiles_num":
-
-3,
+  "max_logfiles_num": 3,
   "sqlite_instructions": 0
 }
 ```
