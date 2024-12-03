@@ -346,6 +346,73 @@ After passing the basic authentication step, you will be greeted with the famili
 
 > **Note:** As a bonus, you should now be able to also access rotki from your mobile phone.
 
+### Using Watchtower for Continuous Deployment
+
+Add a watchtower service to the `docker-compose.yml`. Using `--rolling-restart` ensures zero downtime when pulling and switching to the latest version:
+
+```yaml
+version: '3.11'
+
+services:
+  watchtower:
+    image: containrrr/watchtower
+    command:
+      - --label-enable
+      - --interval
+      - '60'
+      - --rolling-restart
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+  proxy:
+    image: traefik:2.9
+    restart: always
+    command:
+      - --global.sendAnonymousUsage=false
+      - --providers.docker
+      - --providers.docker.exposedByDefault=false
+      - '--entrypoints.web.address=:80'
+      - '--entrypoints.websecure.address=:443'
+      - --certificatesresolvers.le.acme.httpchallenge=true
+      - --certificatesresolvers.le.acme.httpchallenge.entrypoint=web
+      - '--certificatesresolvers.le.acme.email=${LETSENCRYPT_EMAIL}'
+      - --certificatesresolvers.le.acme.storage=/etc/acme/acme.json
+    ports:
+      - '80:80'
+      - '443:443'
+    networks:
+      - rotki-net
+    volumes:
+      - $HOME/.rotki/.htpasswd:/auth/.htpasswd
+      - $HOME/.rotki/acme/:/etc/acme/
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  rotki:
+    environment:
+      - TZ=Europe/Berlin # TimeZone Databases on Wikipedia: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+    image: rotki/rotki:latest
+    networks:
+      - rotki-net
+    volumes:
+      - $HOME/.rotki/data:/data
+      - $HOME/.rotki/logs:/logs
+    labels:
+      - traefik.enable=true
+      - traefik.http.services.rotki.loadbalancer.server.port=80
+      - traefik.http.middlewares.redirect.redirectscheme.scheme=https
+      - 'traefik.http.middlewares.rotki-auth.basicauth.realm=${AUTH_USER}'
+      - traefik.http.middlewares.rotki-auth.basicauth.usersfile=/auth/.htpasswd
+      - 'traefik.http.routers.rotki-insecure.rule=Host(`${FQDN}`)'
+      - traefik.http.routers.rotki-insecure.middlewares=redirect
+      - 'traefik.http.routers.rotki.rule=Host(`${FQDN}`)'
+      - traefik.http.routers.rotki.middlewares=rotki-auth
+      - traefik.http.routers.rotki.entrypoints=websecure
+      - traefik.http.routers.rotki.tls.certresolver=le
+      - com.centurylinklabs.watchtower.enable=true
+
+networks:
+  rotki-net:
+```
+
 ### Using Docker on a Private Network
 
 **Using Docker Defined Volume:**
