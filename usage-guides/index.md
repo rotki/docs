@@ -94,6 +94,10 @@ To back up your data on the rotki Server:
 
 If you use multiple accounts/devices, the one with the most recent login will upload the latest data to the rotki Server. Using the same account from another device may prompt you to replace your local database with the remote one.
 
+:::warning
+Do not run rotki on multiple accounts/devices at the same time, as this opens up the risk of several issues relating to data consistency.
+:::
+
 ![Replace local database with remote backup](/images/rotki_premium_replace_local_db_with_remote.png)
 
 ### Manually Move Global Database
