@@ -12,24 +12,24 @@ For now, the following chains are supported in rotki (and the list will be growi
 
 - **EVM Chains**:
 
-  - Ethereum
-  - Optimism
-  - Polygon PoS
-  - Arbitrum One
-  - Base
-  - Gnosis
-  - Scroll
-  - Avalanche
-  - zkSync Lite
+  - Ethereum (eth)
+  - Optimism (optimism)
+  - Polygon PoS (polygon_pos)
+  - Arbitrum One (arbitrum_one)
+  - Base (base)
+  - Gnosis (gnosis)
+  - Scroll (scroll)
+  - Avalanche (avax)
+  - zkSync Lite (zksync_lite)
 
 - **Bitcoin Chains**:
 
-  - Bitcoin
-  - Bitcoin Cash
+  - Bitcoin (btc)
+  - Bitcoin Cash (bch)
 
 - **Substrate Chains**:
-  - Polkadot
-  - Kusama
+  - Polkadot (dot)
+  - Kusama (ksm)
 
 To add or modify an account navigate to the `Blockchain Balances` sub-page and click the "**Add Account**" button on the top right. Now choose the blockchain on which you want to add an account. Then type or paste the address in the "Account" textbox and press the "Save" Button. Note that you can add multiple accounts if you click the "**Add multiple addresses**" checkbox and provide a comma separated list of addresses.
 
@@ -92,6 +92,22 @@ For EVM accounts, it is possible to trigger the process of detecting tokens befo
 2. To re-detect tokens for all addresses of one EVM chain, click `Re-detect tokens` in the EVM accounts section.
 
 3. To re-detect tokens for only one account, click the refresh button in the corresponding row.
+
+## Import and Export Blockchain Accounts (CSV)
+
+You can export your blockchain accounts to CSV and then import them again into another rotki account (if you need to do it for your tax accountant, etc.). Also, if you have many accounts that you want to add to rotki, you can create your CSV and import it into rotki.
+
+You can do it in the menu `Accounts & Balances > Blockchain Balances` by clicking the three-dot menu.
+
+![Import and Export Blockchain Accounts](/images/import_and_export_blockchain_accounts.png)
+
+<CsvTable title="Blockchain Accounts CSV" csvUrl="/files/blockchain-accounts.csv" />
+
+1. The `address` field is **required**. For an xpub, input the xpub address. For a validator, input the publicKey.
+2. The `address extras` field is **optional**. You can specify `ownershipPercentage=xx` for validators and `derivationPath=xx` for xpubs.
+3. The `chain` field is **required**. You can find supported chain IDs in the [supported blockchain](#adding-and-removing-blockchain-accounts) section. Use `evm` to add to all EVM chains.
+4. The `label` field is **optional**.
+5. The `tags` field is **optional**. Multiple tags should be separated by semicolons (`;`).
 
 ## Checking Exchange Balances
 
