@@ -3,6 +3,7 @@ import process from 'node:process';
 import { URL, fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitepress';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
+import { markdownFitMedia } from './plugins/markdown-fit-media';
 
 const __dirname = path.dirname(fileURLToPath(new URL(import.meta.url)));
 
@@ -122,6 +123,13 @@ export default defineConfig({
   markdown: {
     config(md) {
       md.use(tabsMarkdownPlugin);
+      md.use(markdownFitMedia, {
+        imgDir: './public',
+        lazyLoad: true,
+        decoding: 'auto',
+        aspectRatio: true,
+        imgSizeHint: true,
+      });
     },
   },
   vite: {
