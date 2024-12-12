@@ -2,6 +2,8 @@
 
 rotki provides a calendar view where you can add and track events for your activities. You can also set reminders to perform some actions related to these events.
 
+You can see today's selected events and upcoming events on the right pane.
+
 ![Calendar view](/images/rotki_calendar.png)
 
 ![Add calendar event](/images/rotki_add_calendar_event.png)
