@@ -81,6 +81,7 @@ Currently, these events are detected automatically by rotki:
 - ETH withdrawal events
 - ETH block events
 - ETH deposit events
+- Asset movement events (deposits and withdrawals).
 
 Additionally, you can add your custom events.
 
@@ -126,7 +127,7 @@ If you see this warning button, it means the event won't be processed correctly 
 
 ![The button indicates that the event won't be processed correctly.](/images/event_not_processed.png)
 
-There are 5 types of events in rotki:
+There are 6 types of events in rotki:
 
 :::tabs
 == History Event
@@ -172,6 +173,9 @@ Here the non obvious fields are:
 == ETH Deposit Event
 
 ![ETH deposit event form](/images/events_eth_deposit_event_form.png)
+
+== Asset Movement Event
+![Asset movement event form](/images/asset_movement_event_form.png)
 
 :::
 

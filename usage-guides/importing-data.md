@@ -80,11 +80,11 @@ rotki relies on various external services for data such as historical crypto pri
 
 Go to `API Keys → External Services`.
 
+![External services](/images/external_services.png)
+
 ### Etherscan
 
 At the moment, there is no compulsory API key. But if you don't use your own node, Etherscan queries without an API key are really slow. So if you don't already have an account with them, please create one [here](https://etherscan.io/register) and then generate a free API key and set it in the app as explained above. It's free of charge.
-
-![Add Etherscan keys](/images/add_etherscan_keys.png)
 
 ### Loopring balances
 
@@ -93,8 +93,6 @@ To have your Loopring balances detected, you will need an API Key from Loopring.
 ![Get Loopring keys](/images/get_loopring_keys.png)
 
 Then in rotki, you need to add the API key in the `Loopring` section.
-
-![Add Loopring key](/images/loopring_add_key.png)
 
 After following these steps, your balances in the dashboard will be updated including the Loopring information.
 
@@ -110,8 +108,6 @@ As long as you provide Monerium credentials, all Monerium transactions on Mainne
 ![Monerium decorated transactions](/images/monerium_transactions.png)
 
 > **Note**: Monerium API can only use basic authentication at the moment. We are in contact with their team and they will add API keys eventually. But for now, they only have basic authentication, which means your username and password are stored in rotki (encrypted). Take necessary security precautions and don't use unless you understand the potential risks.
-
-![Add Monerium](/images/monerium_add_key.png)
 
 ### Gnosis Pay
 
