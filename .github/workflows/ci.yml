@@ -24,6 +24,8 @@ jobs:
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Run typos checker
         uses: crate-ci/typos@master
@@ -33,6 +35,8 @@ jobs:
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
