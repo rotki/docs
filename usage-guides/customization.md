@@ -206,10 +206,6 @@ A setting to determine whether crypto to crypto trades or any events that spend 
 
 > Specify if there is a tax-free holding period for crypto assets.
 
-#### Asset Movements Fees
-
-> Specify if deposit/withdrawal fees should count as expenses in profit/loss reports.
-
 #### Calculate Past Cost Basis
 
 > Enable or disable calculating cost basis from all past events, even before the report period.
