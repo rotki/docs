@@ -84,6 +84,14 @@ Choose the "User & Security" section to change the user password.
 
 > Set the symbol separating the floating part of a number, e.g., `5.42`.
 
+### Subscript Format
+
+> Whether to apply subscript formatting for consecutive zeros after the decimal point in small numbers, e.g., `0.000000087` => `0.0₇87`.
+
+#### Amount Rounding
+
+> Choose the rounding mechanism: `Round up`, `Round down`, or `Half even`. Customize how amounts and values are rounded.
+
 #### Abbreviation for large numbers
 
 > If enabled, large numbers will be abbreviated, e.g., `1,234,567` as `1.23 M`. Set the minimum value to be abbreviated.
@@ -91,10 +99,6 @@ Choose the "User & Security" section to change the user password.
 #### Currency Location
 
 > Set whether the currency symbol appears before or after the number, e.g., `$1,000` or `1,000$`.
-
-#### Amount Rounding
-
-> Choose the rounding mechanism: `Round up`, `Round down`, or `Half even`. Customize how amounts and values are rounded.
 
 ### NFT Settings
 

@@ -63,6 +63,7 @@ export default defineConfig({
           { text: 'Adding missing prices', link: '/usage-guides/custom-price' },
           { text: 'Decentralized Finance', link: '/usage-guides/decentralized-finance' },
           { text: 'Creating a profit/loss report', link: '/usage-guides/pnl' },
+          { text: 'Tag Management', link: '/usage-guides/tag-management' },
           { text: 'Statistic', link: '/usage-guides/statistic' },
           { text: 'Global Search', link: '/usage-guides/global-search' },
           { text: 'Taking Notes In-App', link: '/usage-guides/user-notes' },

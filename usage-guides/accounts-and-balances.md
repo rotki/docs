@@ -126,12 +126,6 @@ You can also filter the manual balances by `location`, `name` or `asset`.
 
 ![The manually tracked balances](/images/sc_manually_tracked_balances.png)
 
-## Adding/Editing Labels and tags
-
-You can edit any of your blockchain accounts and add a label. The label is unique to the account and will show up in the accounts tables instead of the address. You will still be able to see the address if you hover over the label in the tables.
-
-![Add a label and create a tag](/images/add_tag_label.png)
-
 By pressing the edit button for the account you can also add tags to the blockchain account. If you want to create a new tag or edit an existing one you can open the tag manager and choose the name, description and colors of the tag.
 
 ## Filtering by tags
@@ -141,6 +135,17 @@ You can filter the tables by a combination of tags.
 ![Filter the accounts by tag](/images/filter_by_tag.png)
 
 Simply add the tags you wish to filter by in the filter textbox above the tables.
+
+## Hide small balances
+
+You can filter out small balances and set the threshold yourself.
+
+By default, this setting will apply to all balance types (blockchain balances, exchange balances, and manual balances).
+You can uncheck the checkbox to apply the setting only to the current balances view.
+
+> Note: you need to press "Apply Changes" for the setting to take effect.
+
+![Hide small balances](/images/hide_small_balances.png)
 
 ## Loopring balances
 
