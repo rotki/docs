@@ -121,6 +121,10 @@ The second option is to redecode all EVM transactions that have been queried. To
 
 EVM Transactions and the events can be deleted, but to restore them you will have to either purge all transactions or add by the transaction hash.
 
+![Add transaction by hash](/images/add_tx_by_hash.png)
+
+If you want to add a transaction that was either deleted or for some reason missed, or was not found by rotki, you can add it by transaction hash by clicking the menu as seen in the picture.
+
 ![Menu to delete EVM transactions events](/images/delete_transaction_events.png)
 
 If you see this warning button, it means the event won't be processed correctly in accounting. It could be due to improper decoding or a missing accounting rule for that event. You can fix it by editing the event or adding the missing accounting rule. You can also edit the events if they have special meaning to you, such as OTC trades or transfers between accounts.
