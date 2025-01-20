@@ -105,21 +105,37 @@ History events can be filtered if you have a premium subscription activated. You
 
 ![History events query status breakdown](/images/events_query_process.png)
 
+### Ignore events in accounting
+
 By default, all events will be processed in accounting, but you can ignore unwanted events, so they won't be processed. You can click on the three dots to display the options for the group of events, and click `Ignore events in accounting`/`Unignore events in accounting`.
+
+### Export History Events as CSV
 
 Events can be exported as CSV, click on `Export CSV` button and accept prompt to download exported events.
 
 ![Button to download events as csv](/images/events_query_process_export.png)
 
-It is possible that you need to redecode events for an evm transaction. To do that you have two options. The first of them is to click on the three dots to display the options for an EVM transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them. If there are any custom events in the transaction, there will be one more confirmation, asking whether to also reset these custom events or not.
+### Redecoding EVM transactions
 
-![Menu to redecode events for an EVM transaction](/images/redecode_events.png)
+It is possible that you need to redecode events for an EVM transaction. To do that you have two options. The first of them is to click on the three dots to display the options for an EVM transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them. If there are any custom events in the transaction, there will be one more confirmation, asking whether to also reset these custom events or not.
+
+![Redecode events for an EVM transaction](/images/redecode_events.png)
 
 The second option is to redecode all EVM transactions that have been queried. To do so you need to click on `Redecode EVM Events` at the top of the page.
 
 ![Menu to redecode all queried EVM transactions events](/images/redecode_all_events.png)
 
+To see the status of the event's decoding, you can click the menu button and go to `Transaction Decoding Status.`
+
+![Menu to redecode events for an EVM transaction](/images/redecode_events_status_button.png)
+
+You will see the status of the EVM events redecoding.
+
+![EVM events redecoding breakdown](/images/redecode_events_status.png)
+
 EVM Transactions and the events can be deleted, but to restore them you will have to either purge all transactions or add by the transaction hash.
+
+### Add transaction by hash
 
 ![Add transaction by hash](/images/add_tx_by_hash.png)
 
