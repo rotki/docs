@@ -78,4 +78,23 @@ It's not a bug. At the moment, we don't use events to determine current holdings
 
 ### I receive a notification error: `can't deserialize XXX,  unknown asset YY found`
 
-The most common reason for this issue is that when you moved your user database to a new computer (either by doing it manually or using premium sync), you forgot to move the `global database` from your old computer. The global database contains some important data, including your assets (especially custom ones), so it also needs to be moved. You can follow the instructions here to manually move the global database: [manually move global database](/usage-guides/#manually-move-global-database).
+The most common reason for this issue is that when you moved your user database to a new computer (either by doing it manually or using premium sync), you forgot to move the `global database` from your old computer. The global database contains some important data, including your assets (especially custom ones), so it also needs to be moved.
+
+Important to remember that the global DB is not moved by the premium sync mechanism. You can follow the instructions here to manually move the global database: [manually move global database](/usage-guides/#manually-move-global-database).
+
+If you are affected by this, there are a number of things you can do.
+
+- For assets that are EVM tokens with identifiers like `eip155:10/erc20:0x99C59ACeBFEF3BBFB7129DC90D1a11DB0E91187f` if you press [redecode all history events](/usage-guides/historical-events.html#redecoding-evm-transactions) then the redecoding process should repopulate them in the global db.
+- If you have an asset with a unique identifier that looks like `a19964d9-20da-a6dc-1b50-9f293eb85c0d` then that means it's a custom asset or a manually input asset and we have no idea what it is. To figure out you would need to [access the database manually](/usage-guides/accessing-db-manually) and query the event or trade that had it. For example for trades:
+
+```sql
+SELECT * from trades WHERE base_asset='a19964d9-20da-a6dc-1b50-9f293eb85c0d' OR quote_asset='a19964d9-20da-a6dc-1b50-9f293eb85c0d';
+```
+
+Or for history events:
+
+```sql
+SELECT * from history_events WHERE asset='a19964d9-20da-a6dc-1b50-9f293eb85c0d';
+```
+
+Then, from the response, understand which asset it is, recreate it, and merge it with the old identifier following the merging process outlined [here](/usage-guides/assets#merging-two-assets)
