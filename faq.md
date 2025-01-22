@@ -72,6 +72,14 @@ After whitelisting the token, you may need to re-detect it to see it in your bal
 
 If the asset is still not showing, you may need to add it manually.
 
+### My transaction is not showing in rotki
+
+If a transaction is not showing in rotki, it may be due to an ignored asset being part of the transaction.
+
+To view transactions with ignored assets, enable `Show entries with ignored assets`, and if your transaction is now visible, check which assets used in the transaction are ignored and then un-ignore them manually.
+
+For more information on un-ignoring and optionally whitelisting assets, see [My asset is not showing in rotki](/faq.html#my-asset-is-not-showing-in-rotki) above.
+
 ### My balances are not showing after importing my history/creating history events
 
 It's not a bug. At the moment, we don't use events to determine current holdings. Balances are only calculated from connected exchanges, connected blockchain addresses, and manual balances.
