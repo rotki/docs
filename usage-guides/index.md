@@ -52,7 +52,7 @@ Refer to the [Sync data with rotki server](#sync-data-with-rotki-server) section
 ### Important Considerations
 
 - **User Database vs. Global Database**: Syncing only involves the user database, not the global database.
-- **Global Database**: Contains all assets data, global address book for names, and historical prices. It’s recommended to manually move this database as well. It is located in the [rotki data directory](/usage-guides/data-directory).
+- **Global Database**: Contains all assets data, global address book for names, and historical prices. Premium syncing does not store your global database, so it is **recommended** to manually move this database as well. You can see the guide [here](/usage-guides/#manually-move-global-database).
 
 Alternatively, you can use the [Exporting and importing user asset](/usage-guides/customization.html#exporting-and-importing-user-assets) function instead of moving the entire global database.
 
