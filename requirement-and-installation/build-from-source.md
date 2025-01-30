@@ -328,3 +328,18 @@ Then go [here](https://visualstudio.microsoft.com/downloads/) and get the Micros
 
 You also need to add them to the path. The tools were probably installed here: `C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Common7\Tools`
 Environment variable should be: `VS140COMNTOOLS`
+
+### Blank screen when running the dev server
+
+If you get a blank screen on electron when starting the development server check the console for
+any messages like the following:
+
+![Syntax Error](/images/troubleshooting_syntax_error.png)
+
+If you see any syntax error message like the one above, go to `Help` and press `Clear Cache`.
+After that go to the `View` menu and press `Force Reload`.
+
+This should resolve your issue.
+
+If the issue persists,
+try following the frontend [troubleshooting steps](/contribution-guides/vue-typescript.html#troubleshooting).
