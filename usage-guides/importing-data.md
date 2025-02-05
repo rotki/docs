@@ -4,8 +4,6 @@ In this section, we will explain how you can import data by integrating with ext
 
 ### Adding an exchange
 
-![Adding exchanges](/images/rotki_add_exchange_1.png)
-
 You can integrate many different exchanges with rotki. Currently supported exchanges are:
 
 - Kraken
@@ -30,9 +28,9 @@ You can integrate many different exchanges with rotki. Currently supported excha
 
 To do so, you need to go to your exchange and create an API key (see the section [API key permissions](#api-key-permissions)).
 
-Click on the "API keys" on the left sidebar. This will take you to the place where you can add new exchange API keys. Press the plus button to open the exchange addition menu.
+Click on the `API Keys > Exchanges` on the left sidebar. This will take you to the place where you can add new exchange API keys. Press the plus button to open the exchange addition menu.
 
-![Add API keys for a new exchange](/images/rotki_add_exchange_2.png)
+![Add API keys for a new exchange](/images/rotki_add_exchange_1.png)
 
 Then copy and paste the `API Key` and the `API Secret` in the respective text fields and press Save.
 
@@ -42,7 +40,7 @@ You also have the option to enable/disable synchronization for the connected exc
 
 > **Note**: At the moment, [margin trades](https://github.com/rotki/rotki/issues/1980) and [future trades](https://github.com/rotki/rotki/issues/1606) are not yet supported in rotki.
 
-![List of connected exchanges](/images/rotki_add_exchange_3.png)
+![List of connected exchanges](/images/rotki_add_exchange_2.png)
 
 ## API key permissions
 
