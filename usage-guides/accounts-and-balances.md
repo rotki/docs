@@ -1,8 +1,8 @@
 # Tracking accounts & balances
 
-To manage Accounts & Balances (Blockchain Balances, Exchange Balances, and Manual Balances including fiat) you need to visit the `Accounts & Balances` section from the left sidebar.
+To manage Blockchain Accounts, you need to visit the `Accounts` section from the left sidebar.
 
-![Accounts & Balances page](/images/sc_accounts_balances.png)
+![Blockchain accounts page](/images/accounts.png)
 
 ## Adding and Removing Blockchain Accounts
 
@@ -19,6 +19,7 @@ For now, the following chains are supported in rotki (and the list will be growi
   - Base (base)
   - Gnosis (gnosis)
   - Scroll (scroll)
+  - Binance Smart Chain (binance_sc)
   - Avalanche (avax)
   - zkSync Lite (zksync_lite)
 
@@ -28,21 +29,20 @@ For now, the following chains are supported in rotki (and the list will be growi
   - Bitcoin Cash (bch)
 
 - **Substrate Chains**:
+
   - Polkadot (dot)
   - Kusama (ksm)
 
-To add or modify an account navigate to the `Blockchain Balances` sub-page and click the "**Add Account**" button on the top right. Now choose the blockchain on which you want to add an account. Then type or paste the address in the "Account" textbox and press the "Save" Button. Note that you can add multiple accounts if you click the "**Add multiple addresses**" checkbox and provide a comma separated list of addresses.
+To add or modify an account navigate to the particular chain category sub-page and click the "**Add Account**" button on the top right. Now choose the blockchain on which you want to add an account. Then type or paste the address in the "Account" textbox and press the "Save" Button. Note that you can add multiple accounts if you click the "**Add multiple addresses**" checkbox and provide a comma separated list of addresses.
 
 ![Add a blockchain account](/images/add_blockchain_account.png)
 
 You can edit or delete an account using the buttons at the end of the row.
 For editing, you can modify the label or the tags.
 
-![Edit or delete a blockchain account](/images/edit_or_delete_blockchain_account.png)
+### Add to all EVM Chains
 
-### EVM Chains
-
-If the selected chain is an EVM chain you will see `Add to all supported EVM chains` checkbox. It is checked by default and it means that rotki will try to add the address for all EVM chains. If the address is a contract in Ethereum mainnet it will only be added to Ethereum. Otherwise for each chain rotki will check whether the address had any activity there and will add only if it has at least one transaction. If you uncheck the checkbox, then the address will only be added to the selected chain.
+You can add to all EVM chains, by selecting `All Supported Chains` in the chain selector.
 
 If an EVM account also contains tracked tokens you can click on the arrow under **Actions** in order to expand its view and show the balance breakdown for the account over all assets it holds.
 
@@ -97,7 +97,7 @@ For EVM accounts, it is possible to trigger the process of detecting tokens befo
 
 You can export your blockchain accounts to CSV and then import them again into another rotki account (if you need to do it for your tax accountant, etc.). Also, if you have many accounts that you want to add to rotki, you can create your CSV and import it into rotki.
 
-You can do it in the menu `Accounts & Balances > Blockchain Balances` by clicking the three-dot menu.
+You can do it in from any submenu from the menu `Accounts` by clicking the three-dot menu.
 
 ![Import and Export Blockchain Accounts](/images/import_and_export_blockchain_accounts.png)
 
@@ -109,7 +109,13 @@ You can do it in the menu `Accounts & Balances > Blockchain Balances` by clickin
 4. The `label` field is **optional**.
 5. The `tags` field is **optional**. Multiple tags should be separated by semicolons (`;`).
 
-## Checking Exchange Balances
+## Blockchain aggregated balances
+
+You can see the list of aggregated assets from Blockchain Accounts from menu `Balances > Blockchain Balances`.
+
+![Aggregated list of assets from blockchain accounts](/images/sc_blockchain_balances.png)
+
+## Exchange Balances
 
 You can check all of the asset balances that you have in each connected exchange in the "Exchange Balances" sub-page. Clicking the "Add exchange" button takes you to the API Keys page where you can manage your exchange connections (see [Adding an exchange](/usage-guides/importing-data.html#adding-an-exchange)).
 
@@ -124,7 +130,7 @@ There choose the asset from the dropdown menu, input a unique label for the acco
 
 You can also filter the manual balances by `location`, `name` or `asset`.
 
-![The manually tracked balances](/images/sc_manually_tracked_balances.png)
+![The manually tracked balances](/images/sc_manual_balances.png)
 
 By pressing the edit button for the account you can also add tags to the blockchain account. If you want to create a new tag or edit an existing one you can open the tag manager and choose the name, description and colors of the tag.
 
@@ -165,7 +171,7 @@ You have an overview of the total value of your NFTs in the application dashboar
 
 An estimation of the value of the NFTs you own is counted into your total net worth. The estimation strategy is currently the maximum of either the floor price of the collection or the last sale of the NFT. If a manual price has been given this is always preferred.
 
-![NFT Value Dashboard](/images/sc_nf_price.png)
+![NFT Value Dashboard](/images/sc_nft_balances.png)
 
 If a price cannot be found for an NFT asset or if you want to change the calculated price estimate you can easily set the price for an NFT asset manually. You can do this by either clicking on the `>` button in the NFTs table in the dashboard or by going to `Blockchains & Accounts → Non Fungible balances`. And then click on the pen icon for the NFT you are interested in.
 
@@ -195,14 +201,14 @@ This will enable image rendering of only whitelisted NFT domains.
 
 There are two ways to track ETH2 Staking. The first is by adding tracking the account of an ETH account that deposited
 the ETH for the validator. This will auto-detect any associated validators with the ETH1 address and it will start
-tracking them. The second way is by adding a validator using the `Add account button` in the `Blockchain Balances → Accounts & Balances` page. It can be added using its public key, its index or both of them for a faster query. Finally it
+tracking them. The second way is by adding a validator using the `Add account button` in the `Accounts → EVM Account > Validators` page. It can be added using its public key, its index or both of them for a faster query. Finally it
 is also possible to customize the proportion of the validator owned for users who share one validator with more people.
 
-![Track an ETH2 validator](/images/rotki_eth2_add_validator.png)
+![Track an ETH2 validator](/images/eth2_add_validator.png)
 
 After adding a new validator you will see the list of balances for each of these validators.
 
-![ETH2 validator balances](/images/rotki_eth2_balances.png)
+![ETH2 validator balances](/images/eth2_validators.png)
 
 If you are an ETH2 staker you can see the total value earned both in the current ETH price (2) but also counting the price of the daily payouts of ETH2 staking (3).
 
