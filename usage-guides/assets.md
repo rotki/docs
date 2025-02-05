@@ -29,23 +29,7 @@ Go to the Manage Assets -> Assets page. Use the search to find the token by name
 
 ### Token Detection Methods
 
-**Single Account Per-Chain Detection**
-
-The best way to detect tokens for a single address is to go to blockchain & accounts balances, scroll down to the EVM accounts view, expand the dropdown at the account, go to the per chain tab and click on the detect tokens toggle 🔃.
-
-![Example of detecting tokens for a specific chain](/images/redetect-per-chain-view.png)
-
-**All Accounts Per-Chain Detection**
-
-Go to Account & Balances -> Blockchain Balances. Scroll down to EVM accounts and click on Re-detect tokens (🔃). Here you can select specific chains to detect tokens for all your wallets. This will take a bit of time depending on tracked addresses per chain. The slowest chain for detection is ethereum.
-
-![Example of re-detecting tokens for all EVM chains in the Blockchain Balances section.](/images/redetect-tokens-chain.png)
-
-**Dashboard Full Detection**
-
-For a complete re-detection of all tokens across all your addresses and all supported chains, use the re-detect toggle (🔃) in the main dashboard view. This will perform a full scan of your addresses on every chain but will probably take quite a long time depending on amount of tracked addresses and chains.
-
-![Example of performing a full token detection using the re-detect toggle on the dashboard.](/images/redetect-tokens-dashboard.png)
+You can check token detection guide [here](/usage-guides/accounts-and-balances#token-detection)
 
 ## Adding/editing an asset
 
@@ -149,6 +133,6 @@ You can ignore/un-ignore the assets by toggling the switch on the table. You can
 
 You can also ignore assets by clicking asset icons anywhere on the app, that will redirect you to this overview asset page. In this page, you can ignore or un-ignore a selected asset.
 
-It is also possible to ignore NFTs. To do this navigate to `Accounts & Balances → Non fungible balances` and toggle the ignore NFT switch. Then you can use the filter to view the ignored NFTs.
+It is also possible to ignore NFTs. To do this navigate to `Balances → NFT Balances` and toggle the ignore NFT switch. Then you can use the filter to view the ignored NFTs.
 
 ![Ignoring NFTs](/images/rotki_ignore_nfts.png)

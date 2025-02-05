@@ -60,7 +60,7 @@ Please, make sure all your accounts have the "Allow data sync with rotki Server"
 
 ### ENS data not updating for newly registered name/address combination
 
-If you just registered your ENS name and you don't see the name and/or avatar being properly displayed in rotki, then that means that the value is cached and you need to force a refresh. You can do that by going to `Accounts & Balances → Blockchain Balances` view and pressing the refresh button next to the Ethereum balances table.
+If you just registered your ENS name and you don't see the name and/or avatar being properly displayed in rotki, then that means that the value is cached and you need to force a refresh. You can do that by going to `Accounts → EVM Accounts` view and pressing the refresh button on the top.
 
 ### My asset is not showing in rotki
 
