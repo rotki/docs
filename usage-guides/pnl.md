@@ -31,7 +31,10 @@ Additionally below the overview you get a table containing all of the events tha
 
 Finally you can get a CSV export by pressing the "Export CSV" button. This export is meant to be imported into
 Google Sheets. Press the button and then choose a directory to write the CSV files to. Once done you can import the CSV
-files into Google Sheets via its import menu. CSV export only works for the latest report generated in the active session.
+files into Google Sheets via its import menu.
+
+> [!IMPORTANT]
+> CSV export only works for the latest report generated in the active session.
 
 Following are definitions for the all_event document's columns
 
