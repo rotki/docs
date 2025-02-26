@@ -1,6 +1,8 @@
 # Historical events
 
-## Adding manual trades
+## Exchange Trades
+
+### Adding manual trades
 
 rotki will pull all your trade history from the exchanges whenever it needs it. But most of us have probably also done some OTC trades or taxable events at some point. Such events could even just be mining tokens, depending on your jurisdiction, participating in an ICO or getting paid in crypto.
 
@@ -17,7 +19,7 @@ In the Trades page you can see a table of all your external trades. You can edit
 
 Currently rotki tracks your balance by querying the different supported protocols, exchanges and blockchains. If you manually add information about a trade your balances will not be updated since trades are not consulted when updating the accounts' balances. If you want to manually update your balance for an asset please refer to the [manual balances section](/usage-guides/accounts-and-balances.html#adding-manual-balances).
 
-## Filtering trades
+### Filtering trades
 
 rotki supports filtering your trades with a combination of filters. All of the filters are applied at the same time
 limiting the trades to the ones that satisfy all the applied filters.
@@ -49,26 +51,7 @@ You can select the checkbox on the left part of each entry and click `Ignore`/`U
 
 ![Ignore trades](/images/sc_history_trades_ignore.png)
 
-## Filtering deposits & withdrawals
-
-You can filter your deposits and withdrawals in the same way you can filter your trades.
-
-![Deposit filters](/images/sc_history_deposits_filter.png)
-
-For deposits you can use the following filters:
-
-- **asset:** the asset that was deposited or withdrawn.
-- **action:** the actions (withdrawal or deposit).
-- **start:** will only filter any trades from that date onwards.
-- **end:** will only filter any trades that happened before the selected date.
-- **location:** the location of the trade, e.g. kraken, uniswap etc.
-
-By default, all deposits/withdrawals will be processed in accounting, but you can ignore unwanted deposit/withdrawals, so they won't be processed.
-You can select the checkbox on the left part of each entry and click `Ignore`/`Unignore`.
-
-![Ignore deposits/withdrawals](/images/sc_history_deposits_ignore.png)
-
-## History events
+## History Events
 
 rotki is capable of pulling and decoding a bunch of different events, ranging from EVM chain transactions to exchanges events and more. When you visit the `History Events` section the process to obtain all the information will start. You will be able to check the status in an informative breakdown per blockchain address. Free users are limited to a number of latest events.
 
