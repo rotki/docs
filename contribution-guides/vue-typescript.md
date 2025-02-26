@@ -34,7 +34,10 @@ If you are doing frontend development, it is highly recommended to enable the av
 pnpm run setup:hooks
 ```
 
-You will see a message saying `husky - Git hooks installed`. Now you should have a pre-commit hook that runs whenever you commit a file and lints the staged files.
+Now you should have a pre-commit hook that runs whenever you commit a file and lints the staged files.
+
+> [!NOTE]
+> If the hook was installed successfully, you should see lint-staged running every time you commit.
 
 Before committing and pushing your commits, ensure that you fix any lint issues. You can do this by running:
 
