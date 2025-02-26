@@ -1,9 +1,9 @@
 # Adding missing prices
 
-Sometimes rotki might be unable to retrieve prices for some assets. In order to always have the ability to show a price we provide two types of manual price additions: `Manage Prices → Latest Prices` and `Manage Prices → Historical Prices`.
+Sometimes rotki might be unable to retrieve prices for some assets. In order to always have the ability to show a price we provide two types of manual price additions in the menu `Manage Prices`:
 
-- Latest price: Will be the price displayed when we need to display the current price of an asset.
-- Historical price: The price used in a specific time in the past for an asset.
+- **Latest price**: Will be the price displayed when we need to display the current price of an asset.
+- **Historical price**: The price used in a specific time in the past for an asset.
 
 ![Price management](/images/price_management.png)
 

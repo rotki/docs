@@ -26,13 +26,26 @@ All the assets graphs as well as the dashboard graph have the possibility of sel
 
 ![Zooming in the graphs](/images/zooming_in_graph.png)
 
-![Zooming in the graphs](/images/zooming_in_graph_statistics.png)
-
 ### Use historical events and prices
 
-By default, the asset amount and value use snapshot data, which is typically taken daily (depends on the setting). If you want to view more detailed data, you can use `historical events and prices`. Additionally, you can click `Refresh daily prices`, and rotki will attempt to populate the graph with daily prices, allowing you to observe price movements over time.
-
 ![Asset amount and value from historical events processing](/images/asset_amount_and_value_from_historical.png)
+
+By default, the asset amount and value use snapshot data, which is typically taken daily (depends on the setting). If you want to view more detailed data, you can use `Historical events and prices`.
+If you haven't fetched the prices before, some points might be hidden. You can click `Fetch prices`, and rotki will attempt to fetch the prices and also populate the graph with daily prices, allowing you to observe price movements over time.
+
+Additionally, you can `Remember your selection` for each asset. So when you reopen the graph for the asset, it will remember the source.
+
+### Mismatch between amount from historical events and current balance
+
+![Asset amount and value warning](/images/asset_amount_and_value_warning.png)
+
+Sometimes you might see this warning, if there is mismatch between amount at the last event with amount in current balance.
+Here are the possible reasons:
+
+1. The history events or the balances haven't fully loaded. If this is the case, you need to wait until all sources are queried.
+2. You have a manual balance that increases the amount, but you haven't specified the custom event to acquire the asset. Conversely, you have custom events (e.g., from a CSV import), but you haven't specified the manual balance.
+3. The asset is accruing value in staking or defi LPing but there is no event yet for this accrual.
+4. Some of your events are not properly decoded by rotki, or there may be missing events or there may be mistakes in the custom events you created.
 
 ## Value distribution by location
 

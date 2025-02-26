@@ -1,4 +1,4 @@
-# Customization of the list of supported assets
+# Assets Management
 
 ## Inspecting list of assets
 
