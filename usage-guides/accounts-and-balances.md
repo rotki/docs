@@ -173,13 +173,11 @@ An estimation of the value of the NFTs you own is counted into your total net wo
 
 ![NFT Value Dashboard](/images/sc_nft_balances.png)
 
-If a price cannot be found for an NFT asset or if you want to change the calculated price estimate you can easily set the price for an NFT asset manually. You can do this by either clicking on the `>` button in the NFTs table in the dashboard or by going to `Blockchains & Accounts → Non Fungible balances`. And then click on the pen icon for the NFT you are interested in.
+If a price cannot be found for an NFT asset or if you want to change the calculated price estimate you can easily set the price for an NFT asset manually. You can do this by either clicking on the `>` button in the NFTs table in the dashboard or by going to `Blockchains & Accounts → NFT Balances`. And then click on the pen icon for the NFT you are interested in.
 
 For privacy concerns, it is possible to allow all or only a certain list of domains for images rendered, this can be done here by clicking on the icon highlighted below.
 
 More details here [Critical Privacy Vulnerability: Getting Exposed by MetaMask](https://medium.com/@alxlpsc/critical-privacy-vulnerability-getting-exposed-by-metamask-693c63c2ce94)
-
-![NFT Image Render Settings Toggle](/images/sc_nf_image_render_settings_btn.png)
 
 The configuration menu:
 

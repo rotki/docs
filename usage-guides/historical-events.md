@@ -96,7 +96,7 @@ By default, all events will be processed in accounting, but you can ignore unwan
 
 Events can be exported as CSV, click on `Export CSV` button and accept prompt to download exported events.
 
-![Button to download events as csv](/images/events_query_process_export.png)
+![Button to download events as csv](/images/events_csv_export.png)
 
 ### Redecoding EVM transactions
 
@@ -178,7 +178,7 @@ Here the non obvious fields are:
 ![ETH deposit event form](/images/events_eth_deposit_event_form.png)
 
 == Asset Movement Event
-![Asset movement event form](/images/asset_movement_event_form.png)
+![Asset movement event form](/images/events_asset_movement_form.png)
 
 :::
 
