@@ -96,7 +96,7 @@ By default, all events will be processed in accounting, but you can ignore unwan
 
 Events can be exported as CSV, click on `Export CSV` button and accept prompt to download exported events.
 
-![Button to download events as csv](/images/events_query_process_export.png)
+![Button to download events as csv](/images/events_csv_export.png)
 
 ### Redecoding EVM transactions
 

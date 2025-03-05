@@ -78,7 +78,7 @@ If you decide to purchase [rotki Premium](https://rotki.com/products/) later, se
 
 To replace or disassociate keys with your current account after setting up premium, use the same page.
 
-![Delete rotki premium API key/secret pair in a premium account](/images/rotki_premium_del.png)
+![Delete rotki premium API key/secret pair in a premium account](/images/rotki_premium_set_sync_data.png)
 
 ## Sync Data with rotki Server
 
