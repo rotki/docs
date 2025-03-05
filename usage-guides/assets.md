@@ -3,7 +3,7 @@
 ## Inspecting list of assets
 
 You can now manage the list of supported assets by your local rotki instance.
-You can inspect the list of all supported assets, edit them, delete them or add new ones. They're divided into 3 sections; assets, custom assets, and more sections (consist of "Manage CEX (Centralized Exchange) Mapping" and "Newly Detected Tokens" section).
+You can inspect the list of all supported assets, edit them, delete them or add new ones. They're divided into 3 sections; `Assets`, `Custom Assets`, and more sections (consist of `Manage CEX (Centralized Exchange) Mapping` and `Newly Detected Tokens` section).
 
 ![Manage the list of assets](/images/rotki_manage_assets.png)
 
@@ -11,7 +11,7 @@ You can inspect the list of all supported assets, edit them, delete them or add 
 
 Spam assets are a plague in EVM chains. rotki has an automatic algorithm trying to match assets as spam to not bother the user with automatically ignoring them. You can see all ignored assets in `Manage Assets → Assets` and filter by ignored. A problem with automatic algorithms marking something as spam is that mistakes can be made and a legit token may be ignored.
 
-![Filter ignored assets](/images/asset_whitelist_filter.png)
+![Filter ignored assets](/images/asset_filter_ignored.png)
 
 To solve this problem we added a whitelist which you can add assets to as can be seen below. Once an asset is added to the whitelist it will be removed from the ignore list and the automatic algorithm will not mark it as spam in the future.
 
@@ -23,9 +23,9 @@ If a token doesn't appear in your balances, there are several ways to troublesho
 
 ### Check Token is not Ignored or Marked as Spam
 
-Go to the Manage Assets -> Assets page. Use the search to find the token by name or address. Verify if the token is ignored. If ignored, unignore it. If you did not ignore it on purpose click to whitelist it so the spam detection algorithm does not falsely flag it as spam.
+Go to the `Manage Assets -> Assets page`. Use the search to find the token by name or address. Verify if the token is ignored. If ignored, unignore it. If you did not ignore it on purpose click to whitelist it so the spam detection algorithm does not falsely flag it as spam.
 
-![Example of managing assets and whitelisting a token in the Manage Assets page.](/images/manage-assets-refresh.png)
+![Example of managing assets and whitelisting a token in the Manage Assets page.](/images/manage-assets.png)
 
 ### Token Detection Methods
 
