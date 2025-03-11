@@ -35,6 +35,15 @@ If you haven't fetched the prices before, some points might be hidden. You can c
 
 Additionally, you can `Remember your selection` for each asset. So when you reopen the graph for the asset, it will remember the source.
 
+### Compare "historical events and prices" and "snapshot" data.
+
+You can show both sources at the same time to compare the data directly:
+
+1. You need to select "Historical events and prices" as the source.
+2. By default, the snapshot data is hidden in this graph. You need to enable it by clicking the legend on the button. (Clicking on the legend will toggle the corresponding line on the chart.)
+
+![Asset amount and value legend](/images/asset_amount_and_value_legend.png)
+
 ### Mismatch between amount from historical events and current balance
 
 ![Asset amount and value warning](/images/asset_amount_and_value_warning.png)
