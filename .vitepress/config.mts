@@ -1,6 +1,6 @@
 import path from 'node:path';
 import process from 'node:process';
-import { URL, fileURLToPath } from 'node:url';
+import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vitepress';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import { markdownFitMedia } from './plugins/markdown-fit-media';

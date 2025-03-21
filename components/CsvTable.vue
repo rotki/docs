@@ -1,6 +1,6 @@
 <script setup>
-import { onMounted, ref } from 'vue';
 import Papa from 'papaparse';
+import { onMounted, ref } from 'vue';
 
 const props = defineProps({
   csvUrl: {

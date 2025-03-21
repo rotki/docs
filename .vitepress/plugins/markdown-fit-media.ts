@@ -1,7 +1,8 @@
+import type MarkdownIt from 'markdown-it';
+
 // Modified from https://github.com/ulfschneider/markdown-it-fitmedia
 import * as cheerio from 'cheerio';
 import sizeOf from 'image-size';
-import type MarkdownIt from 'markdown-it';
 
 interface FitMediaOptions {
   imgDir?: string;
