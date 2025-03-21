@@ -31,7 +31,7 @@
   },
   "devDependencies": {
     "@rotki/eslint-config": "3.6.0",
-    "@types/node": "20.17.16",
+    "@types/node": "22.13.11",
     "@vue/compiler-sfc": "3.5.13",
     "@vue/runtime-dom": "3.5.13",
     "cheerio": "1.0.0",
@@ -46,7 +46,7 @@
     "vitepress-plugin-tabs": "0.5.0"
   },
   "engines": {
-    "node": ">=20 <21",
+    "node": ">=22 <23",
     "pnpm": ">=10 <11"
   },
   "lint-staged": {
