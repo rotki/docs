@@ -37,7 +37,7 @@
     "cheerio": "1.0.0",
     "eslint": "9.22.0",
     "husky": "9.1.7",
-    "image-size": "1.2.0",
+    "image-size": "1.2.1",
     "lint-staged": "15.5.0",
     "markdown-it": "14.1.0",
     "papaparse": "5.5.2",
