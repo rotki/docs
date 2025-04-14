@@ -248,15 +248,14 @@ The import is split into two types:
 This is solely for importing generic trades. The expected file format is **CSV** with the following headers and descriptions as a guide:
 
 1. **Location**: This is the source of the data. It should be one of rotki's [supported locations](#supported-locations). If it is not supported, use `"external"`.
-2. **Base Currency**: The currency bought in a `"Buy"` and sold in a `"Sell"`. e.g., BTC/ETH where BTC is the base currency.
-3. **Quote Currency**: The currency sold in a `"Buy"` and bought in a `"Sell"`, e.g., BTC/ETH where ETH is the quote currency.
-4. **Type**: The type of trade made. It can either be a `"Buy"` or a `"Sell"`.
-5. **Buy Amount**: The amount of the currency bought.
-6. **Sell Amount**: The amount of the currency sold.
-7. **Fee**: The amount charged for the trade. This is optional.
-8. **Fee Currency**: The currency in which the fee was charged. This is optional.
-9. **Description**: A description of the trade if any. This is optional.
-10. **Timestamp**: The UTC Unix timestamp at which the trade took place. This is a milliseconds timestamp.
+2. **Spend Currency**: The currency you spent in the trade, can be a token address (e.g., `eip155:1/erc20:0xdAC17F958D2ee523a2206206994597C13D831ec7`) or symbol (e.g., `BTC`).
+3. **Spend Amount**: The amount of currency you spent.
+4. **Receive Currency**: The currency you received in the trade, can be a token address or symbol.
+5. **Receive Amount**: The amount of currency you received.
+6. **Fee**: The amount charged for the trade. This is optional.
+7. **Fee Currency**: The currency in which the fee was charged. This is optional.
+8. **Description**: A description of the trade if any. This is optional.
+9. **Timestamp**: The UTC Unix timestamp at which the trade took place. This is a milliseconds timestamp.
 
 A sample generic trades template can be found below:
 
