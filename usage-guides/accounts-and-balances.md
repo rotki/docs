@@ -1,4 +1,4 @@
-# Tracking accounts & balances
+# Tracking Accounts & Balances
 
 To manage Blockchain Accounts, you need to visit the `Accounts` section from the left sidebar.
 
@@ -77,7 +77,7 @@ An xpub does not allow spending your coins but provides information about your w
 
 ## ENS names resolution
 
-rotki automatically resolves ens name and ens avatar for every evm address that has ens name set in ethereum mainnet. If there is a primary ens name specified for an address, this name will be shown instead of a raw blockchain address across the app. You can find the blockchain address by hovering the mouse over the ens name. If an ens avatar is set, it will be shown instead of the address blockie.
+rotki automatically resolves ENS name and ENS avatar for every EVM address that has ENS name set in ethereum mainnet. If there is a primary ENS name specified for an address, this name will be shown instead of a raw blockchain address across the app. You can find the blockchain address by hovering the mouse over the ENS name. If an ENS avatar is set, it will be shown instead of the address blockie.
 
 ## Token detection
 
@@ -284,6 +284,8 @@ The list of currently supported airdrops is:
 - Degen 2
 - Omni
 - Eigen token
+
+For some airdrops, you may see the status 'Unknown.' This means rotki can't determine the status of the airdrop, whether it has been claimed or not. You need to check it yourself.
 
 ## Snapshots
 
