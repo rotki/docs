@@ -1,11 +1,7 @@
 # Build from Source
 
-:::warning
-Please note that you should not switch between running unreleased code
-from git branches and official releases of Rotki on the same [data
-set](../usage-guides/data-directory.md), as unreleased code does not
-provide guarantees around forward-compatibility of data schemas etc.
-:::
+> [!WARNING]
+> Please note that you should not switch between running unreleased code from git branches and official releases of rotki on the same [data set](/usage-guides/data-directory.md), as unreleased code does not provide guarantees around forward-compatibility of data schemas etc.
 
 ## Prerequisites
 
