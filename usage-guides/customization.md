@@ -1,4 +1,4 @@
-# Customizing
+# Settings
 
 This section provides information on how to customize the application through the settings. Click on the user icon on the top right and choose "Settings" to access basic customization options.
 
