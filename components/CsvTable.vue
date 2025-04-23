@@ -1,6 +1,6 @@
 <script setup>
 import Papa from 'papaparse';
-import { onMounted, ref } from 'vue';
+import { onBeforeMount, ref } from 'vue';
 
 const props = defineProps({
   csvUrl: {
@@ -17,7 +17,7 @@ const props = defineProps({
 const headers = ref([]);
 const rows = ref([]);
 
-onMounted(async () => {
+onBeforeMount(async () => {
   try {
     const response = await fetch(props.csvUrl);
     const csvData = await response.text();

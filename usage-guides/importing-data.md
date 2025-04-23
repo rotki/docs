@@ -2,7 +2,7 @@
 
 In this section, we will explain how you can import data by integrating with external services such as crypto exchanges.
 
-### Adding an exchange
+## Adding an exchange
 
 You can integrate many different exchanges with rotki. Currently supported exchanges are:
 
@@ -26,17 +26,27 @@ You can integrate many different exchanges with rotki. Currently supported excha
 - Bybit
 - HTX
 
-To do so, you need to go to your exchange and create an API key (see the section [API key permissions](#api-key-permissions)).
-
-Click on the `API Keys > Exchanges` on the left sidebar. This will take you to the place where you can add new exchange API keys. Press the plus button to open the exchange addition menu.
-
 ![Add API keys for a new exchange](/images/rotki_add_exchange_1.png)
 
-Then copy and paste the `API Key` and the `API Secret` in the respective text fields and press Save.
+### Steps to Add Exchange API Key:
 
-If all went well, you should be able to see your newly added exchange. If not, please double-check that the key and secret are correct.
+1. Create API key on your exchange (see [API key permissions](#api-key-permissions))
+2. Navigate to `API Keys > Exchanges` in the left sidebar
+3. Click button `Add an exchange` to open addition menu
+4. Enter your:
+   - API Key
+   - API Secret
+5. Click `Save`
 
-You also have the option to enable/disable synchronization for the connected exchanges. Usually, you may want to disable synchronization to prevent your IP from getting banned due to too many syncs.
+### After Adding:
+
+- Successful addition: Exchange will appear in your list
+- If failed: Verify key and secret are correct
+
+### Sync Settings:
+
+- Option to enable/disable exchange synchronization
+- Consider disabling to avoid IP bans from frequent syncs
 
 > **Note**: At the moment, [margin trades](https://github.com/rotki/rotki/issues/1980) and [future trades](https://github.com/rotki/rotki/issues/1606) are not yet supported in rotki.
 
@@ -74,9 +84,21 @@ Once finished, click on save.
 
 ## External services
 
-rotki relies on various external services for data such as historical crypto prices or EVM transactions. To get that data, some of these services require API keys. So you should go to their webpage, create a free account, and generate an API key. Once this is done, you can enter the API key in the section of the API keys page.
+### Why External API Keys Are Needed
 
-Go to `API Keys → External Services`.
+Required for accessing:
+
+- Historical crypto prices
+- EVM transactions
+- Other external data services
+
+### How to External Add API Keys:
+
+1. Create free account on service website
+2. Generate API key
+3. In rotki:
+   - Go to `API Keys → External Services`
+   - Enter your API key(s)
 
 ![External services](/images/external_services.png)
 
@@ -157,15 +179,29 @@ rotki uses CoinGecko for cryptocurrency data. An API key is not required, but a 
 
 ## Import exchange data (CSV)
 
-For exchanges that don't support integration through API keys (or haven't integrated to rotki), you can still import your trades or transactions. First, export the CSV file from the exchange's user interface. Then, import this CSV file into rotki.
-
-Go to `Import Data`.
+For exchanges that don't support integration through API keys (or haven't integrated to rotki), you can still import your trades or transactions.
 
 ![Import CSV Data](/images/sc_data_import.png)
 
-You can only use a CSV file here. Additionally, the time format in the CSV might differ from what rotki expects. To address this, enable the `Use custom date format to parse your file` setting before clicking `Import`. Then, specify the time format used in the CSV file.
+## Steps to Import CSV Files:
 
-For each data source click on "Import Data" on the left sidebar and then following the instructions.
+1. Export CSV from your exchange
+2. In rotki:
+   - Navigate to `Import Data`
+   - Select your CSV file
+
+### Date Format Settings:
+
+If time format doesn't match rotki's default:
+
+1. Enable `Use custom date format to parse your file`
+2. Specify your CSV's time format
+
+### Import Process:
+
+- Select data source
+- Click "Import Data" in left sidebar
+- Follow provided instructions
 
 ### Cointracking.info
 

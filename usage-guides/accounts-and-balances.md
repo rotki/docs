@@ -33,18 +33,27 @@ For now, the following chains are supported in rotki (and the list will be growi
   - Polkadot (dot)
   - Kusama (ksm)
 
-To add or modify an account navigate to the particular chain category sub-page and click the "**Add Account**" button on the top right. Now choose the blockchain on which you want to add an account. Then type or paste the address in the "Account" textbox and press the "Save" Button. Note that you can add multiple accounts if you click the "**Add multiple addresses**" checkbox and provide a comma separated list of addresses.
+### Steps to Add an Account:
+
+1. Go to the chain category sub-page
+2. Click `Add Account` (top right)
+3. Select your blockchain
+4. Enter the address in `Account` textbox
+5. Click `Save`
+
+### Adding Multiple Accounts:
+
+- Check `Add multiple addresses` box
+- Enter addresses as comma-separated list
+
+### Adding Account to all EVM Chains
+
+- Choose `All Supported Chains` in the chain selector.
 
 ![Add a blockchain account](/images/add_blockchain_account.png)
 
 You can edit or delete an account using the buttons at the end of the row.
 For editing, you can modify the label or the tags.
-
-### Add to all EVM Chains
-
-You can add to all EVM chains, by selecting `All Supported Chains` in the chain selector.
-
-If an EVM account also contains tracked tokens you can click on the arrow under **Actions** in order to expand its view and show the balance breakdown for the account over all assets it holds.
 
 ### Aggregated view filtering
 
@@ -195,66 +204,6 @@ Highlight details:
 
 This will enable image rendering of only whitelisted NFT domains.
 
-## ETH2 Staking
-
-There are two ways to track ETH2 Staking. The first is by adding tracking the account of an ETH account that deposited
-the ETH for the validator. This will auto-detect any associated validators with the ETH1 address and it will start
-tracking them. The second way is by adding a validator using the `Add account button` in the `Accounts → EVM Account > Validators` page. It can be added using its public key, its index or both of them for a faster query. Finally it
-is also possible to customize the proportion of the validator owned for users who share one validator with more people.
-
-![Track an ETH2 validator](/images/eth2_add_validator.png)
-
-After adding a new validator you will see the list of balances for each of these validators.
-
-![ETH2 validator balances](/images/eth2_validators.png)
-
-If you are an ETH2 staker you can see the total value earned both in the current ETH price (2) but also counting the price of the daily payouts of ETH2 staking (3).
-
-![See ETH2 value earned](/images/rotki_eth2_staking.png)
-
-You can see the summary of how much ETH was earned each day, on the daily stats section.
-
-![See ETH2 value earned](/images/rotki_eth2_daily_stats.png)
-
-Finally this can also be taken into account in the profit/loss report for any given period of time and also exported via CSV to a spreadsheet.
-
-![See ETH2 value earned](/images/rotki_eth2_pnl.png)
-
-## Liquity Staking
-
-If you stake LQTY in the protocol you can see stability pool deposits, staked amount, and the stake events.
-
-![See your Liquity staking gains](/images/sc_staking_liquity.png)
-
-On the left side, we display information for your current deposited amount of `LUSD` in the stability pool along with the `ETH` and `LQTY` rewards that you haven't claimed yet. On the right side, we display the staked `LQTY` and the `ETH` and `LUSD` that are available to claim.
-
-The Liquity statistics are calculated using the queried events and you might need to wait for some time until all the events are queried to get the final values. The values in terms of USD can be displayed using prices at the moment of the different events (`historical`) or using prices at the present (`current`).
-
-- Total Gains Stability Pool: This is the value of Ether and `LQTY` claimed from the stability pool.
-- Total Deposited Stability Pool: This is the value of `LUSD` deposited in the stability pool.
-- Total Withdrawn Stability Pool: This is the value of `LUSD` withdrawn from the stability pool.
-- Stability Pool Gains: A breakdown of the gains already claimed from the pool.
-- Estimated PnL: This value represents your returns from the stability pool after losing LUSD in exchange for `ETH` and `LQTY`. For more information on how the stability pool works check [the Liquity docs](https://docs.liquity.org/faq/stability-pool-and-liquidations#how-do-i-benefit-as-a-stability-provider-from-liquidations). This amount is calculated in rotki as follows:
-
-```
-A = Total Deposited Stability Pool - Total Withdrawn Stability Pool
-LG = Claimed Liquity gains in current price.
-R = Not claimed rewards in current price.
-B = Total Gains Stability Pool + LG + R
-C = (A - Current deposited amount) in current price
-PnL = B - C
-```
-
-For `LQTY` staking we display the claimed rewards.
-
-![Liquity Statistics](/images/liquity_stats.png)
-
-## Kraken Staking
-
-If you stake on Kraken you can see your gains, and events in the various staked assets.
-
-![See your Kraken staking gains](/images/sc_staking_kraken.png)
-
 ## Airdrops
 
 rotki can detect some airdrops for you
@@ -285,26 +234,64 @@ The list of currently supported airdrops is:
 - Omni
 - Eigen token
 
-For some airdrops, you may see the status 'Unknown.' This means rotki can't determine the status of the airdrop, whether it has been claimed or not. You need to check it yourself.
+For some airdrops, you may see the status `Unknown`. This means rotki can't determine the status of the airdrop, whether it has been claimed or not. You need to check it yourself.
 
-## Snapshots
+## Balances Snapshots
 
-The application will automatically snapshot the information about balances from all tracked sources to disk upon login every 24 hours by default (this interval is configurable). This information is saved directly to your local database. You can manually initiate a snapshot by clicking the `arrow down` near the graph and then selecting `Force Save.`
+The application automatically saves balance snapshots to your local database:
+
+- Occurs at login
+- Default interval: every 24 hours (configurable)
+
+To manually create a snapshot:
+
+1. Click the `arrow down` near the graph
+2. Select `Force Save`
 
 ![Force snapshots saves](/images/rotki_snapshot_forcing.png)
 
-Snapshots won't be saved if there is any error querying information for external sources. If you want to force the snapshot to be saved when an external source is reporting an error you can select the option `Ignore Errors`.
+### Error Handling
 
-It is possible to remove balance snapshots from the history or edit them in case the information is not correct or needs to be modified. To do so click on a snapshot's point at the dashboard's net value graph and this will open a menu.
+- Snapshots won't save if there are external source query errors
+- To save despite errors, select `Ignore Errors`
+
+### Modify a snapshot point
+
+1. Click on a snapshot point in the dashboard's net value graph
+2. From the menu you can:
+   - Edit snapshot data
+   - Remove the snapshot
+   - Download the snapshot
 
 ![Delete snapshot](/images/delete_snapshot_menu.png)
 
-Clicking on delete will remove the saved information for that snapshot. The same menu allows exporting the information of the balance snapshot to an external file. Four files are then generated, two meant to be used if you want to import information about snapshots later and the other 2 have the same information in a human readable format to be used in accounting. `balances_snapshot` contains information about the balances at the snapshot time for all the different assets rotki knew you had and `location_data_snapshot` has the value per location for the same assets.
+### Edit Snapshots Value
 
-If you choose to edit the snapshot you can modify the values per asset and location as shown in the screenshot
+- Click a snapshot point
+- Select edit
+- Modify values for assets and locations as needed
 
 ![Edit snapshot](/images/edit_snapshot_menu.png)
 
-Finally information about snapshots can be imported back into the app using the files you exported with the suffix `_import`. To import them use the import functionality by clicking on the `Arrow down button` near the chart and then click `Import`.
+### Delete Snapshots
+
+Click a snapshot point and select delete to remove saved information.
+
+### Download/Export Snapshots
+
+When exporting, four files are generated:
+
+1. Two files for future data import
+2. Two human-readable files for accounting:
+   - `balances_snapshot`: Asset balances at snapshot time
+   - `location_data_snapshot`: Value per location for each asset
+
+### Import Snapshot Back
+
+To import previously exported snapshot data:
+
+1. Use files with `_import` suffix
+2. Click the `Arrow down` button near the chart
+3. Select `Import`
 
 ![Import snapshots information](/images/import_snapshot.png)

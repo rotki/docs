@@ -130,9 +130,8 @@ Since v1.11.0, rotki provides official Docker images of nightly versions and rel
 
 You can find all the available Docker images on [DockerHub](https://hub.docker.com/r/rotki/rotki).
 
-:::warning
-It is advisable to run the Docker image in a secure environment. For example, running the Docker image on the host machine and accessing it only via NAT. Do not expose the Docker image directly to public or local networks to avoid security issues and unauthorized access to your data.
-:::
+> [!WARNING]
+> It is advisable to run the Docker image in a secure environment. For example, running the Docker image on the host machine and accessing it only via NAT. Do not expose the Docker image directly to public or local networks to avoid security issues and unauthorized access to your data.
 
 To get the latest version of rotki, pull the `latest` tag:
 

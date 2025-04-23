@@ -59,6 +59,7 @@ export default defineConfig({
           { text: 'Importing Data', link: '/usage-guides/importing-data' },
           { text: 'Historical Events', link: '/usage-guides/historical-events' },
           { text: 'Statistics', link: '/usage-guides/statistic' },
+          { text: 'Staking', link: '/usage-guides/staking' },
           { text: 'Profit/Loss Report', link: '/usage-guides/pnl' },
           { text: 'Tag Management', link: '/usage-guides/tag-management' },
           { text: 'Assets Management', link: '/usage-guides/assets' },

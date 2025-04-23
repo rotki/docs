@@ -133,9 +133,8 @@ The big changes to the code all happen in the `develop` branch. Those might incl
 
 To avoid losing information, we recommend copying your account from `data` to `develop_data` each time you pull new changes in develop, especially if you know that any DB schema changes happened.
 
-:::warning
-If your production data in `data` has syncing with Rotki Premium enabled, please ensure that you disable this after copying to `develop_data`, otherwise there is a strong risk of syncing non-production data back to your production environment, and this could cause problems.
-:::
+> [!WARNING]
+> If your production data in `data` has syncing with rotki Premium enabled, please ensure that you disable this after copying to `develop_data`, otherwise there is a strong risk of syncing non-production data back to your production environment, and this could cause problems.
 
 ## Adding new Centralized Exchanges (CEXes)
 
