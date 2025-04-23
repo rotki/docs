@@ -49,10 +49,10 @@ If you need to move your rotki database to a new device (e.g., if your old one w
 
 Refer to the [Sync data with rotki server](#sync-data-with-rotki-server) section to understand how the premium subscription works with multiple accounts/devices and how to sync your data with the rotki server. Syncing is disabled by default.
 
-### Important Considerations
-
-- **User Database vs. Global Database**: Syncing only involves the user database, not the global database.
-- **Global Database**: Contains all assets data, global address book for names, and historical prices. Premium syncing does not store your global database, so it is **essential** to manually move this database as well. You can see the guide of how to accomplish it [here](/usage-guides/#manually-move-global-database).
+> [!IMPORTANT] Important Considerations
+>
+> - **User Database vs. Global Database**: Syncing only involves the user database, not the global database.
+> - **Global Database**: Contains all assets data, global address book for names, and historical prices. Premium syncing does not store your global database, so it is **essential** to manually move this database as well. You can see the guide of how to accomplish it [here](/usage-guides/#manually-move-global-database).
 
 Alternatively, you can use the [Exporting and importing user asset](/usage-guides/customization.html#exporting-and-importing-user-assets) function instead of moving the entire global database.
 
@@ -94,9 +94,8 @@ To back up your data on the rotki Server:
 
 If you use multiple accounts/devices, the one with the most recent login will upload the latest data to the rotki Server. Using the same account from another device may prompt you to replace your local database with the remote one.
 
-:::warning
-Do not run rotki on multiple accounts/devices at the same time, as this opens up the risk of several issues relating to data consistency.
-:::
+> [!WARNING]
+> Do not run rotki on multiple accounts/devices at the same time, as this opens up the risk of several issues relating to data consistency.
 
 ![Replace local database with remote backup](/images/rotki_premium_replace_local_db_with_remote.png)
 

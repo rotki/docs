@@ -138,9 +138,8 @@ Use the export/import function to migrate user assets between computers. This fu
 
 ![Importing user assets](/images/sc_custom_import_export.png)
 
-::: warning
-This archive cannot be used as a backup/restore across different versions of rotki since there is no guarantee of compatibility across versions.
-:::
+> [!WARNING]
+> This archive cannot be used as a backup/restore across different versions of rotki since there is no guarantee of compatibility across versions.
 
 ### Reset Assets Database
 
@@ -155,9 +154,20 @@ There are two options to reset the assets database:
 
 By choosing the "Accounting" settings button, you can customize application settings related to accounting calculations.
 
-Understand each setting, consult with a tax accountant for your jurisdiction, and then set them appropriately.
+> [!IMPORTANT]
+> Before changing any settings:
+>
+> 1. Review each option carefully
+> 2. Check with your tax advisor about what's required in your country
+> 3. Make adjustments based on their guidance
 
-The default settings are currently tailored for the German tax jurisdiction. For example, all profit/loss calculations are done on a first-in/first-out basis, and profits from selling crypto assets after 1 year are non-taxable. These settings can be adjusted.
+**Current Default Settings:**
+
+- Based on German tax rules
+- Uses first-in/first-out (FIFO) method for calculating profits/losses
+- Treats crypto sales as tax-free after holding for 1 year
+
+You can change these settings to match your country's tax requirements.
 
 ### Custom Accounting Rules
 
