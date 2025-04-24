@@ -10,24 +10,24 @@ rotki allows to track balances of blockchain accounts.
 
 For now, the following chains are supported in rotki (and the list will be growing as we add more chains in the future):
 
-| Chain Type           | Blockchain          | Chain ID     |
-| -------------------- | ------------------- | ------------ |
-| **EVM Chains**       | Ethereum            | eth          |
-|                      | Optimism            | optimism     |
-|                      | Polygon PoS         | polygon_pos  |
-|                      | Arbitrum One        | arbitrum_one |
-|                      | Base                | base         |
-|                      | Gnosis              | gnosis       |
-|                      | Scroll              | scroll       |
-|                      | Binance Smart Chain | binance_sc   |
-|                      | Avalanche           | avax         |
-|                      | zkSync Lite         | zksync_lite  |
-|                      |                     |              |
-| **Bitcoin Chains**   | Bitcoin             | btc          |
-|                      | Bitcoin Cash        | bch          |
-|                      |                     |              |
-| **Substrate Chains** | Polkadot            | dot          |
-|                      | Kusama              | ksm          |
+| Chain Type           | Blockchain          | Chain ID for importing purposes |
+| -------------------- | ------------------- | ------------------------------- |
+| **EVM Chains**       | Ethereum            | eth                             |
+|                      | Optimism            | optimism                        |
+|                      | Polygon PoS         | polygon_pos                     |
+|                      | Arbitrum One        | arbitrum_one                    |
+|                      | Base                | base                            |
+|                      | Gnosis              | gnosis                          |
+|                      | Scroll              | scroll                          |
+|                      | Binance Smart Chain | binance_sc                      |
+|                      | Avalanche           | avax                            |
+|                      | zkSync Lite         | zksync_lite                     |
+|                      |                     |                                 |
+| **Bitcoin Chains**   | Bitcoin             | btc                             |
+|                      | Bitcoin Cash        | bch                             |
+|                      |                     |                                 |
+| **Substrate Chains** | Polkadot            | dot                             |
+|                      | Kusama              | ksm                             |
 
 ### Steps to Add an Account:
 
@@ -51,8 +51,6 @@ For now, the following chains are supported in rotki (and the list will be growi
 You can edit or delete an account using the buttons at the end of the row.
 For editing, you can modify the label or the tags.
 
-Here's a more user-friendly version of the text:
-
 ### Bitcoin Chains
 
 There are two ways to add your Bitcoin or Bitcoin Cash addresses to rotki:
@@ -64,8 +62,8 @@ There are two ways to add your Bitcoin or Bitcoin Cash addresses to rotki:
 
 An xpub is a special key that lets rotki find all your wallet addresses without giving access to your funds. When you provide an xpub, rotki will:
 
-- Generate your addresses locally on your device
-- Check the blockchain for each address
+- Generate your addresses locally
+- Query the blockchain activity for each address
 - Stop when it finds unused addresses
 - Store this information securely in your local database
 

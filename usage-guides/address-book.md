@@ -1,6 +1,6 @@
 # Address Book
 
-You can manage address book in `Manage Address Book` menu in the sidebar.
+You can manage the address book in `Manage Address Book` menu in the sidebar.
 
 rotki provides an address book for blockchains. This replaces addresses with names provided by the user across the application. You can click on `Save this name for all chains` to use the name for the provided address on all chains where that address appears. The address book is split into two different kinds:
 

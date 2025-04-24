@@ -50,13 +50,17 @@ Currently supported exchanges are:
 3. Click button `Add an exchange` to open addition menu
 4. Enter your:
    - API Key
-   - API Secret
+   - API Secret (for the majority of exchanges)
+   - Password (for some exchanges)
 5. Click `Save`
 
 ### After Adding:
 
 - Successful addition: Exchange will appear in your list
-- If failed: Verify key and secret are correct
+- If failed:
+
+  - Verify key and secret are correct
+  - Some exchanges may have issues due to timestamp difference between the computer and the server (e.g. binance, read [this](https://github.com/tiagosiebler/awesome-crypto-examples/wiki/Timestamp-for-this-request-is-outside-of-the-recvWindow))
 
 ### Sync Settings:
 
@@ -117,7 +121,12 @@ Required for accessing:
 
 ### Etherscan
 
-At the moment, there is no compulsory API key. But if you don't use your own node, Etherscan queries without an API key are really slow. So if you don't already have an account with them, please create one [here](https://etherscan.io/register) and then generate a free API key and set it in the app as explained above. It's free of charge.
+We **strongly recommend** getting an Etherscan API Key - it's completely free and will make the queries much faster!
+Without it, the queries will be really slow. You just need to:
+
+1. Create an account at [here](https://etherscan.io/register)
+2. Generate a free API Key
+3. Add the key to rotki.
 
 ### Loopring balances
 
@@ -144,7 +153,7 @@ As long as you provide Monerium credentials, all Monerium transactions on Mainne
 
 ### Gnosis Pay
 
-You can integrate Gnosis Pay with rotki to import your transaction data. Note that this feature is **experimental** and is only available for premium users.
+You can integrate Gnosis Pay with rotki to import your transaction data. This feature is only available for premium users.
 
 #### Adding Gnosis Pay Session Token
 
