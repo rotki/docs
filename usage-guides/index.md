@@ -68,17 +68,14 @@ To move your data to another system or restore it:
 
 ## Sign-In
 
-To sign in with your local rotki account, enter your profile name and password at the sign-in prompt. This is not the same as the online account you create at [rotki.com](https://rotki.com/) for a premium subscription.
+To sign in with your local rotki account, enter your profile name and password at the sign-in prompt.
+
+> [!NOTE]
+> This is not the same as the online account you create at [rotki.com](https://rotki.com/) for a premium subscription.
 
 ## Set Up rotki Premium
 
-If you decide to purchase [rotki Premium](https://rotki.com/products/) later, set it up via **API Keys > rotki Premium**.
-
-![Set up rotki premium API key/secret pair in an existing account](/images/rotki_premium_set.png)
-
-To replace or disassociate keys with your current account after setting up premium, you can do it in the same page.
-
-![Delete rotki premium API key/secret pair in a premium account](/images/rotki_premium_set_sync_data.png)
+If you decide to purchase [rotki Premium](https://rotki.com/products/) later, you can set it up [here](/usage-guides/api-keys#rotki-premium)
 
 ## Sync Data with rotki Server
 
