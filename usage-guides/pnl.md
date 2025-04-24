@@ -53,7 +53,8 @@ This ensures your reports are accurate even when looking at specific time period
 - You can view, download, or delete old reports
 - **Free Account Limit**: You can store up to 20 reports
 
-> Note: Before generating a new report, make sure all your transactions are properly imported and your accounting settings are correct to ensure accurate results.
+> [!NOTE]
+> Before generating a new report, make sure all your transactions are properly imported and your accounting settings are correct to ensure accurate results.
 
 ## Results of the PnL report
 
@@ -86,7 +87,8 @@ Following are definitions for the all_event document's columns
 - `cost_basis` If this is a spending event, this field contains information about where the amount that is spent came from according to the user's setting. Which buys contributed to this spend. If not enough information is known then this is also stated.
 - `notes` Information about the event.
 
-> Note: To learn more about `profit_currency` or to adjust it, see the section [change profit currency](/usage-guides/customization.html#profit-currency)
+> [!NOTE]
+> To learn more about `profit_currency` or to adjust it, see the section [change profit currency](/usage-guides/customization.html#profit-currency)
 
 Results from past profit and loss reports are saved so the user can later review them without the need to run a new execution.
 
@@ -148,4 +150,5 @@ If you have any question or are confused about the settings, feel free to send u
 
 It's possible that many errors could occur during the PnL report generation due to certain event(s) not accounted for properly. In such a scenario if all else fails, exporting the PnL debug data allows us to fully replicate the issue encountered and find a solution.
 
-> Note: Only share PnL debug data with the developers as it may contain sensitive information.
+> [!WARNING]
+> Only share PnL debug data with the developers as it may contain sensitive information.

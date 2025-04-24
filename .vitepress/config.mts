@@ -56,7 +56,6 @@ export default defineConfig({
         items: [
           { text: 'Introduction', link: '/usage-guides/' },
           { text: 'Tracking Accounts & Balances', link: '/usage-guides/accounts-and-balances' },
-          { text: 'Importing Data', link: '/usage-guides/importing-data' },
           { text: 'Historical Events', link: '/usage-guides/historical-events' },
           { text: 'Statistics', link: '/usage-guides/statistic' },
           { text: 'Staking', link: '/usage-guides/staking' },
@@ -65,6 +64,8 @@ export default defineConfig({
           { text: 'Assets Management', link: '/usage-guides/assets' },
           { text: 'Add Missing Prices', link: '/usage-guides/custom-price' },
           { text: 'Address Book', link: '/usage-guides/address-book' },
+          { text: 'API Keys', link: '/usage-guides/api-keys' },
+          { text: 'Import CSV', link: '/usage-guides/import-csv' },
           { text: 'Calendar', link: '/usage-guides/calendar' },
           { text: 'Taking Notes In-App', link: '/usage-guides/user-notes' },
           { text: 'Global Search', link: '/usage-guides/global-search' },

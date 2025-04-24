@@ -1,9 +1,11 @@
 # Address Book
 
+You can manage address book in `Manage Address Book` menu in the sidebar.
+
 rotki provides an address book for blockchains. This replaces addresses with names provided by the user across the application. You can click on `Save this name for all chains` to use the name for the provided address on all chains where that address appears. The address book is split into two different kinds:
 
-1. **Global Addressbook**: It replaces addresses with the names provided across the entire application irrespective of the user logged in.
-2. **Private Addressbook**: It replaces addresses with the names provided for the user currently logged in. It takes precedence over names found in the global address book.
+1. **Global Address Book**: It replaces addresses with the names provided across the entire application irrespective of the user logged in.
+2. **Private Address Book**: It replaces addresses with the names provided for the user currently logged in. It takes precedence over names found in the global address book.
 
 ![Adding entry to EVM address book](/images/add_evm_address_book.png)
 
@@ -28,5 +30,5 @@ You can add multiple address book entries at once with CSV import. You can find 
 
 1. The `address` field is **required**.
 2. The `name` field is **required**.
-3. The `blockchain` field is **optional**. You can find supported chain IDs in the [supported blockchains](/usage-guides/accounts-and-balances#adding-and-removing-blockchain-accounts) section. Leave it blank to add the entry to all chains.
+3. The `blockchain` field is **optional**. You can find supported chain IDs in the [supported blockchains](/usage-guides/accounts-and-balances#blockchain-accounts) section. Leave it blank to add the entry to all chains.
 4. The `location` field is **optional**. You can set it to either `global` or `private`. By default, it will be saved as `private`.
