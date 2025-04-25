@@ -67,6 +67,7 @@ export default defineConfig({
           { text: 'API Keys', link: '/usage-guides/api-keys' },
           { text: 'Import CSV', link: '/usage-guides/import-csv' },
           { text: 'Calendar', link: '/usage-guides/calendar' },
+          { text: 'On-Chain Transactions', link: '/usage-guides/onchain' },
           { text: 'Taking Notes In-App', link: '/usage-guides/user-notes' },
           { text: 'Global Search', link: '/usage-guides/global-search' },
           { text: 'Settings', link: '/usage-guides/customization' },
