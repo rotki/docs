@@ -68,7 +68,8 @@ There are also some other fields that are completely optional and expand if you 
 6. And here add the underlying token's weight.
 7. Here you can edit or delete underlying token address/weights. Note: The weight of the underlying tokens should add up to 100%.
 
-> Note: Underlying tokens only apply to asset type of `EVM Token`.
+> [!NOTE]
+> Underlying tokens only apply to asset type of `EVM Token`.
 
 ## Adding/editing a custom asset
 

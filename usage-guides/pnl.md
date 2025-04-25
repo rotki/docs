@@ -1,23 +1,60 @@
 # Creating a profit/loss report
 
-rotki creates a profit/loss report (called PnL for short) for you based on your trades and other events and the provided accounting settings. This is essentially a calculation of profit or loss for all your events based on the given dates. Before getting into the details of generating a report, here's a few important details regarding the report generation algorithm:
+rotki helps you track your cryptocurrency profits and losses (PnL) by analyzing your trading history and other transactions. Here's what you need to know about how these reports work:
 
-- By default, rotki uses an accounting strategy called "First In - First Out" (short: FIFO). There are plans to implement other strategies (e.g. ["Last In - First Out"](https://github.com/rotki/rotki/issues/44)).
-- rotki allows users in jurisdictions offering a tax free holding period (e.g. Germany with 1 year) to specify the period in days. To adjust this value, see the section [accounting settings](/usage-guides/customization.html#tax-free-period).
-- When generating a report for a custom period, where rotki is aware of the user's previous crypto holdings (e.g. we trade BTC between the years 2017 - 2019 but we ask for a report between 2018 - 2019), it takes all prior crypto holdings into account to calculate a starting balance for the given period. For example, say you traded BTC between 2017 - 2019 with a balance of 0.1 BTC on December 31, 2017. When generating a pnl report for 2018 - 2019, rotki will take the 0.1 BTC from December 31, 2017 as a start balance for its calculations in the period of 2018.
+## Key Features
 
-## How to run the PnL report
+### Multiple Accounting Methods
 
-To create a PnL report click on the "Profit and Loss Report" button from the left menu. Choose a period for the report (or click on Custom to set a custom time range) and press on "Generate" to start the report.
+You can choose how rotki calculates your profits:
+
+- **FIFO (First In - First Out)** - Default method: Assets bought first are sold first
+- **LIFO (Last In - First Out)** - Most recently bought assets are sold first
+- **HIFO (Highest In - First Out)** - Highest-priced purchases are sold first
+- **ACB (Average Cost Basis)** - Uses the average purchase price of all your assets
+
+### Tax-Free Period Support
+
+If your country has tax-free holding periods (like Germany's 1-year rule), you can set this in rotki. Just go to "Accounting Settings" to specify the period in days.
+
+### Smart Balance Tracking
+
+When you generate a report for a specific time period, rotki is smart about your previous holdings.
+
+For example:
+
+- You traded Bitcoin from 2017 to 2019
+- You had 0.1 BTC on December 31, 2017
+- If you generate a report for 2018-2019, rotki will include that 0.1 BTC as your starting balance
+
+This ensures your reports are accurate even when looking at specific time periods.
+
+## Creating Your PnL Report
 
 ![View profit/loss report list](/images/sc_pnl_report.png)
 
-The calculation may take some time. You can also see a summary of the accounting setting the report is running with in the "Accounting settings" section.
+### Step-by-Step Guide
 
-If you encounter any problems during the profit/loss report check out the [PnL report creation problem](/usage-guides/pnl.html#pnl-report-creation-problems) section.
+1. Find and click the `Profit and Loss Report` button in the left menu
+2. Select your preferred time period:
+   - Choose from preset periods
+   - Or click "Custom" to set specific start and end dates
+3. Click `Generate` to create your report
 
-In the report screen you can also see any previously generated profit and loss reports, and manage them. Free users
-are limited to 20 stored reports in total.
+### Important Notes
+
+- Report generation might take a few minutes, especially for longer periods
+- You can review your current accounting settings in the "Accounting settings" section
+- Having problems? Check our [troubleshooting guide](/usage-guides/pnl.html#pnl-report-creation-problems)
+
+### Managing Your Reports
+
+- All your previously generated reports are visible on the same screen
+- You can view, download, or delete old reports
+- **Free Account Limit**: You can store up to 20 reports
+
+> [!NOTE]
+> Before generating a new report, make sure all your transactions are properly imported and your accounting settings are correct to ensure accurate results.
 
 ## Results of the PnL report
 
@@ -50,7 +87,8 @@ Following are definitions for the all_event document's columns
 - `cost_basis` If this is a spending event, this field contains information about where the amount that is spent came from according to the user's setting. Which buys contributed to this spend. If not enough information is known then this is also stated.
 - `notes` Information about the event.
 
-> Note: To learn more about `profit_currency` or to adjust it, see the section [change profit currency](/usage-guides/customization.html#profit-currency)
+> [!NOTE]
+> To learn more about `profit_currency` or to adjust it, see the section [change profit currency](/usage-guides/customization.html#profit-currency)
 
 Results from past profit and loss reports are saved so the user can later review them without the need to run a new execution.
 
@@ -112,4 +150,5 @@ If you have any question or are confused about the settings, feel free to send u
 
 It's possible that many errors could occur during the PnL report generation due to certain event(s) not accounted for properly. In such a scenario if all else fails, exporting the PnL debug data allows us to fully replicate the issue encountered and find a solution.
 
-> Note: Only share PnL debug data with the developers as it may contain sensitive information.
+> [!WARNING]
+> Only share PnL debug data with the developers as it may contain sensitive information.

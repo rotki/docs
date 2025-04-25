@@ -17,7 +17,7 @@ In the `amount` field you can register the amount of the base asset bought or so
 
 In the Trades page you can see a table of all your external trades. You can edit or delete a trade by clicking on the appropriate icon at the rightmost part of each trade under the "Actions" column.
 
-Currently rotki tracks your balance by querying the different supported protocols, exchanges and blockchains. If you manually add information about a trade your balances will not be updated since trades are not consulted when updating the accounts' balances. If you want to manually update your balance for an asset please refer to the [manual balances section](/usage-guides/accounts-and-balances.html#adding-manual-balances).
+Currently rotki tracks your balance by querying the different supported protocols, exchanges and blockchains. If you manually add information about a trade your balances will not be updated since trades are not consulted when updating the accounts' balances. If you want to manually update your balance for an asset please refer to the [manual balances section](/usage-guides/accounts-and-balances.html#manual-balances).
 
 ### Filtering trades
 

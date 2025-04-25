@@ -49,10 +49,10 @@ If you need to move your rotki database to a new device (e.g., if your old one w
 
 Refer to the [Sync data with rotki server](#sync-data-with-rotki-server) section to understand how the premium subscription works with multiple accounts/devices and how to sync your data with the rotki server. Syncing is disabled by default.
 
-### Important Considerations
-
-- **User Database vs. Global Database**: Syncing only involves the user database, not the global database.
-- **Global Database**: Contains all assets data, global address book for names, and historical prices. Premium syncing does not store your global database, so it is **essential** to manually move this database as well. You can see the guide of how to accomplish it [here](/usage-guides/#manually-move-global-database).
+> [!IMPORTANT] Important Considerations
+>
+> - **User Database vs. Global Database**: Syncing only involves the user database, not the global database.
+> - **Global Database**: Contains all assets data, global address book for names, and historical prices. Premium syncing does not store your global database, so it is **essential** to manually move this database as well. You can see the guide of how to accomplish it [here](/usage-guides/#manually-move-global-database).
 
 Alternatively, you can use the [Exporting and importing user asset](/usage-guides/customization.html#exporting-and-importing-user-assets) function instead of moving the entire global database.
 
@@ -68,17 +68,14 @@ To move your data to another system or restore it:
 
 ## Sign-In
 
-To sign in with your local rotki account, enter your profile name and password at the sign-in prompt. This is not the same as the online account you create at [rotki.com](https://rotki.com/) for a premium subscription.
+To sign in with your local rotki account, enter your profile name and password at the sign-in prompt.
+
+> [!NOTE]
+> This is not the same as the online account you create at [rotki.com](https://rotki.com/) for a premium subscription.
 
 ## Set Up rotki Premium
 
-If you decide to purchase [rotki Premium](https://rotki.com/products/) later, set it up via **API Keys > rotki Premium**.
-
-![Set up rotki premium API key/secret pair in an existing account](/images/rotki_premium_set.png)
-
-To replace or disassociate keys with your current account after setting up premium, use the same page.
-
-![Delete rotki premium API key/secret pair in a premium account](/images/rotki_premium_set_sync_data.png)
+If you decide to purchase [rotki Premium](https://rotki.com/products/) later, you can set it up [here](/usage-guides/api-keys#rotki-premium)
 
 ## Sync Data with rotki Server
 
@@ -94,9 +91,8 @@ To back up your data on the rotki Server:
 
 If you use multiple accounts/devices, the one with the most recent login will upload the latest data to the rotki Server. Using the same account from another device may prompt you to replace your local database with the remote one.
 
-:::warning
-Do not run rotki on multiple accounts/devices at the same time, as this opens up the risk of several issues relating to data consistency.
-:::
+> [!WARNING]
+> Do not run rotki on multiple accounts/devices at the same time, as this opens up the risk of several issues relating to data consistency.
 
 ![Replace local database with remote backup](/images/rotki_premium_replace_local_db_with_remote.png)
 

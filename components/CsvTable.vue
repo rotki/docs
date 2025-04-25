@@ -1,6 +1,6 @@
 <script setup>
-import Papa from 'papaparse';
-import { onMounted, ref } from 'vue';
+import { computed } from 'vue';
+import { data } from './csv-loader.data';
 
 const props = defineProps({
   csvUrl: {
@@ -14,26 +14,7 @@ const props = defineProps({
   },
 });
 
-const headers = ref([]);
-const rows = ref([]);
-
-onMounted(async () => {
-  try {
-    const response = await fetch(props.csvUrl);
-    const csvData = await response.text();
-
-    Papa.parse(csvData, {
-      complete: (result) => {
-        headers.value = result.data[0];
-        rows.value = result.data.slice(1);
-      },
-      header: false,
-    });
-  }
-  catch (error) {
-    console.error('Error fetching or parsing CSV:', error);
-  }
-});
+const csvData = computed(() => data[props.csvUrl]);
 </script>
 
 <template>
@@ -52,7 +33,7 @@ onMounted(async () => {
     <thead>
       <tr>
         <th
-          v-for="header in headers"
+          v-for="header in csvData.headers"
           :key="header"
         >
           {{ header }}
@@ -61,7 +42,7 @@ onMounted(async () => {
     </thead>
     <tbody>
       <tr
-        v-for="(row, index) in rows"
+        v-for="(row, index) in csvData.rows"
         :key="index"
       >
         <td

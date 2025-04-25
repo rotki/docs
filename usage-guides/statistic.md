@@ -8,7 +8,8 @@ Click on the `Statistic` page on the left sidebar to go to your statistics page.
 
 Since rotki is tracking all your assets over time the first thing you can see is a value/time graph of your entire net value.
 
-> Note: The starting point of these statistics will be when you started using the application as rotki takes balance snapshots daily. We also plan to provide analytics on data before that in a best effort basis as detailed in [this](https://github.com/rotki/rotki/issues/1379) issue.
+> [!NOTE]
+> This graph shows your data from the day you first used the app, as rotki takes daily snapshots. In the future, we plan to show older data using historical events, where possible (see [this issue](https://github.com/rotki/rotki/issues/1379)).
 
 ![Net value over time graph](/images/sc_stats_netvalue.png)
 
@@ -58,12 +59,15 @@ Here are the possible reasons:
 
 ## Value distribution by location
 
-Furthermore you can see a piechart of the distribution of your netvalue across different locations. So you can determine how exposed you are to having a big part of your net value in exchanges, in banks e.t.c.
+Furthermore, you can see a pie chart of the distribution of your net value across different locations. So you can determine how exposed you are to having a big part of your net value in exchanges, in banks e.t.c.
 
 ![Distribution of networth by location](/images/sc_stats_distribution_location.png)
 
 ## Value distribution by asset
 
-Moreover you can see a piechart of the distribution of your netvalue across all of the assets you own. This is an important analytics tool as it can help you determine your exposure on each asset and if some rebalancing of your portfolio is in order.
+Moreover, you can see a pie chart of the distribution of your net value across all the assets you own. This is an important analytics tool as it can help you determine your exposure on each asset and if some re-balancing of your portfolio is in order.
 
 ![Distribution of networth by asset](/images/sc_stats_distribution_asset.png)
+
+> [!NOTE]
+> The pie charts showing value distribution by location and asset use data from your latest snapshot, not your current balance. To see the most recent data, you'll need to [create a new snapshot](/usage-guides/accounts-and-balances#balances-snapshots).
