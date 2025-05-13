@@ -1,61 +1,8 @@
-# Historical events
-
-## Exchange Trades
-
-### Adding manual trades
-
-rotki will pull all your trade history from the exchanges whenever it needs it. But most of us have probably also done some OTC trades or taxable events at some point. Such events could even just be mining tokens, depending on your jurisdiction, participating in an ICO or getting paid in crypto.
-
-You can go to this page via `History → Exch. Trades`.
-Clicking on the "Add an external trade" button will open a menu like the following.
-
-![Add an external trade](/images/external_trade.png)
-
-To add a new trade, fill in all the fields and press the "Save" button.
-
-In the `amount` field you can register the amount of the base asset bought or sold. The `rate` field represents the rate of quote asset per base asset that was bought or sold. If there was a fee for the trade you should input it in the corresponding box and also enter the currency the fee was paid in. This field is optional so if the Fee was 0 you can leave this field empty. You can optionally provide additional notes or even links to blockchain explorers for each trade.
-
-In the Trades page you can see a table of all your external trades. You can edit or delete a trade by clicking on the appropriate icon at the rightmost part of each trade under the "Actions" column.
-
-Currently rotki tracks your balance by querying the different supported protocols, exchanges and blockchains. If you manually add information about a trade your balances will not be updated since trades are not consulted when updating the accounts' balances. If you want to manually update your balance for an asset please refer to the [manual balances section](/usage-guides/accounts-and-balances.html#manual-balances).
-
-### Filtering trades
-
-rotki supports filtering your trades with a combination of filters. All of the filters are applied at the same time
-limiting the trades to the ones that satisfy all the applied filters.
-
-![Filtering trades](/images/sc_history_trades_filter.png)
-
-You can filter using the following keys:
-
-- **base:** the base asset of the trades.
-- **quote:** the quote asset of the trades.
-- **action:** it can be buy or sell.
-- **start:** will only filter any trades from that date onwards.
-- **end:** will only filter any trades that happened before the selected date.
-- **location:** the location of the trade, e.g. kraken, uniswap etc.
-
-![Trade filter suggestions](/images/sc_history_trades_filter_suggestions.png)
-
-When selecting a filter, by clicking or typing the filter you will get some suggestions based on the available data.
-
-When a suggestion appears you can navigate to the next available suggestion using the tab button or you can also change
-the select suggestion using the up/down arrows in your keyboard. You can submit the selected filter by pressing enter.
-
-![Multiple trade filters applied](/images/sc_history_trades_filter_multi.png)
-
-After adding your filters you can press enter to close the menu.
-
-By default, all trades will be processed in accounting, but you can ignore unwanted trades, so they won't be processed.
-You can select the checkbox on the left part of each entry and click `Ignore`/`Unignore`.
-
-![Ignore trades](/images/sc_history_trades_ignore.png)
-
-## History Events
+# History events
 
 rotki is capable of pulling and decoding a bunch of different events, ranging from EVM chain transactions to exchanges events and more. When you visit the `History Events` section the process to obtain all the information will start. You will be able to check the status in an informative breakdown per blockchain address. Free users are limited to a number of latest events.
 
----
+## Supported events
 
 Currently, these events are detected automatically by rotki:
 
@@ -65,10 +12,11 @@ Currently, these events are detected automatically by rotki:
 - ETH block events
 - ETH deposit events
 - Asset movement events (deposits and withdrawals).
+- Swap events (trades).
 
 Additionally, you can add your custom events.
 
----
+## Events filtering
 
 History events can be filtered if you have a premium subscription activated. You can filter by:
 
@@ -78,27 +26,28 @@ History events can be filtered if you have a premium subscription activated. You
 - Protocol that interacted in the transaction
 - Location of the event (ethereum, optimism, kraken, etc.)
 - Event type (deposit, withdrawal, etc.)
-- Event sub type (fee, spend, etc.)
+- Event subtype (fee, spend, etc.)
 - Entry type (EVM event, ETH block event, etc.)
 - Counterparty address
 - Tx hash of a particular transaction that you want to check
 - Index of an eth2 validator that you want to see events for
-- Only show customized events
-- ... more
+- Show only customized events
+- Show entries with ignored assets
+- Should match exact filter (whether to only show the events that match the filter, excluding the other events in the same group)
 
-![History events query status breakdown](/images/events_query_process.png)
+![History events query status](/images/events_filter.png)
 
-### Ignore events in accounting
-
-By default, all events will be processed in accounting, but you can ignore unwanted events, so they won't be processed. You can click on the three dots to display the options for the group of events, and click `Ignore events in accounting`/`Unignore events in accounting`.
-
-### Export History Events as CSV
+## Export history events as CSV
 
 Events can be exported as CSV, click on `Export CSV` button and accept prompt to download exported events.
 
 ![Button to download events as csv](/images/events_csv_export.png)
 
-### Redecoding EVM transactions
+## Ignore events in accounting
+
+By default, all events will be processed in accounting, but you can ignore unwanted events, so they won't be processed. You can click on the three dots to display the options for the group of events, and click `Ignore events in accounting`/`Unignore events in accounting`.
+
+## Redecoding EVM transactions
 
 It is possible that you need to redecode events for an EVM transaction. To do that you have two options. The first of them is to click on the three dots to display the options for an EVM transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them. If there are any custom events in the transaction, there will be one more confirmation, asking whether to also reset these custom events or not.
 
@@ -118,17 +67,27 @@ You will see the status of the EVM events redecoding.
 
 EVM Transactions and the events can be deleted, but to restore them you will have to either purge all transactions or add by the transaction hash.
 
-### Add transaction by hash
+## Delete event
+
+![Menu to delete EVM transactions events](/images/delete_transaction_events.png)
+
+## Add transaction by hash
 
 ![Add transaction by hash](/images/add_tx_by_hash.png)
 
 If you want to add a transaction that was either deleted or for some reason missed, or was not found by rotki, you can add it by transaction hash by clicking the menu as seen in the picture.
 
-![Menu to delete EVM transactions events](/images/delete_transaction_events.png)
+## Re-Pulling Transactions
+
+You can re-pull EVM transactions for a specific account within a selected time range, in case any past issues prevented events from being retrieved properly.
+
+## Missing accounting rule
 
 If you see this warning button, it means the event won't be processed correctly in accounting. It could be due to improper decoding or a missing accounting rule for that event. You can fix it by editing the event or adding the missing accounting rule. You can also edit the events if they have special meaning to you, such as OTC trades or transfers between accounts.
 
 ![The button indicates that the event won't be processed correctly.](/images/event_not_processed.png)
+
+## Add / edit events
 
 There are 6 types of events in rotki:
 
@@ -145,7 +104,7 @@ Here the non obvious fields are:
 
 == EVM Event
 
-![History event form](/images/events_evm_event_form.png)
+![EVM event form](/images/events_evm_event_form.png)
 
 Currently we support EVM events for these chains:
 
@@ -165,6 +124,13 @@ Here the non obvious fields are:
 - `Address`: Registered rotki account which this event is linked to.
 - `Counterparty`: This is the other part of the transaction, the address you are interacting with. Can be a protocol identifier if the transaction is decoded as part of a protocol.
 
+== EVM Swap Event
+
+![EVM swap event form](/images/events_evm_swap_event_form.png)
+
+Basically it's similar to `EVM Event`, but it's specifically for swap events.
+You can add multiple `spend` and `receive` assets.
+
 == ETH Withdrawal Event
 
 ![ETH withdrawal event form](/images/events_eth_withdrawal_event_form.png)
@@ -178,8 +144,12 @@ Here the non obvious fields are:
 ![ETH deposit event form](/images/events_eth_deposit_event_form.png)
 
 == Asset Movement Event
+
 ![Asset movement event form](/images/events_asset_movement_form.png)
 
+== Swap Event
+
+![Swap event form](/images/events_swap_event_form.png)
 :::
 
 For history event, and EVM history event, if any event was not decoded the way you expected it to be, you can always customize events using the settings described above or file a bug report on our github repository / in our discord server. The customizations that you make also affect how events are processed in accounting.

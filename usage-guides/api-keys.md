@@ -128,6 +128,8 @@ Without it, the queries will be really slow. You just need to:
 2. Generate a free API Key
 3. Add the key to rotki.
 
+You only need one Etherscan API key for all EVM chains since the key is now unified.
+
 ### Loopring balances
 
 To have your Loopring balances detected, you will need an API Key from Loopring. To get one, visit [Loopring Security](https://loopring.io/#/layer2/security) and unlock your account. In the list of options, click on **Export Account**.
