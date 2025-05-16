@@ -32,6 +32,16 @@ rotki is an open-source and free application. In order to fund development, we a
 
 If you like rotki, you can support us with a premium subscription and you not only get to fund open-source but also get additional features. To get a rotki subscription register on [our website](https://rotki.com/products). There you can also see what exactly is offered in premium.
 
+### Is there a lifetime premium plan?
+
+Short answer: **No**
+
+At rotki, we believe in building sustainable, long-term software that delivers continuous value to our users. Offering a lifetime subscription may sound appealing on the surface, but in reality, it’s a model that often leads to the collapse of the very products it’s meant to support. Many companies that adopt this approach either shut down within a few years or abandon the product once the initial influx of revenue dries up.
+
+rotki has been around since 2017, delivering continuous, original improvements every month. Offering a lifetime subscription would require us to put a fixed price on the indefinite future work of our entire team, which is simply not realistic or fair. Building and maintaining a privacy-respecting, local-first, open-source financial tool involves real and growing costs.
+
+It’s also worth noting that our current pricing model hasn’t changed since 2017. We’re currently re-evaluating it to better reflect the actual cost of development, support, and infrastructure, especially in light of inflation and the expanded scope of what rotki offers today. Our goal is to keep rotki accessible while ensuring its long-term health and independence.
+
 ## Questions on Roadmap and Features
 
 ### How can I see what's planned for rotki?
