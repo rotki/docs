@@ -1,3 +1,6 @@
+> [!NOTE]
+> This is an experimental feature, and you may find some imperfections. However, we are going to continuously improve it.
+
 # Onchain Transactions
 
 rotki allows you to perform onchain transactions by connecting your wallet (either through a browser wallet or WalletConnect).
@@ -33,3 +36,17 @@ If you're using rotki via the Electron app, you won't be able to connect directl
    ![Wallet Connect bridge start pairing](/images/onchain_browser_wallet_bridge_6.png)
 
 You're now connected and can perform transactions from the Electron app.
+
+## Troubleshooting
+
+1. **I keep getting this error:**
+
+```
+Error: could not coalesce error (error={ "code": "INVALID_ARGUMENT", "message": "" }, payload={ "id": 6, "jsonrpc": "2.0", "method": "eth_sendTransaction", "params": [ { "from": "0xfoo", "gas": "0x5208", "nonce": "0x1f4", "to": "0x6ea158145907a1fac74016087611913a96d96624", "value": "0x38d7ea4c68000" } ] }, code=UNKNOWN_ERROR, version=6.14.0)
+```
+
+You can clear the cache (Help > Clear Cache), and then restart the app.
+
+2. **Cannot switch chain from the app.**
+
+At the moment, if you connect using the browser wallet bridge, you can switch chains only through the wallet directly and not from the rotki app.
