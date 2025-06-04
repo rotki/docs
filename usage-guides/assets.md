@@ -3,29 +3,9 @@
 ## Inspecting list of assets
 
 You can now manage the list of supported assets by your local rotki instance.
-You can inspect the list of all supported assets, edit them, delete them or add new ones. They're divided into 3 sections; `Assets`, `Custom Assets`, and more sections (consist of `Manage CEX (Centralized Exchange) Mapping` and `Newly Detected Tokens` section).
+You can inspect the list of all supported assets, edit them, delete them or add new ones. They're divided into 3 sections; `Assets`, `Custom Assets`, and more sections (consist of `Manage CEX (Centralized Exchange) Mappings`, `Manage Counterparty Mappings`, `Newly Detected Tokens` and `Missing CEX Mappings` section).
 
 ![Manage the list of assets](/images/rotki_manage_assets.png)
-
-## Whitelisting of ignored assets
-
-Spam assets are a plague in EVM chains. rotki has an automatic algorithm trying to match assets as spam to not bother the user with automatically ignoring them. You can see all ignored assets in `Manage Assets → Assets` and filter by ignored. A problem with automatic algorithms marking something as spam is that mistakes can be made and a legit token may be ignored.
-
-![Filter ignored assets](/images/asset_filter_ignored.png)
-
-To solve this problem we added a whitelist which you can add assets to as can be seen below. Once an asset is added to the whitelist it will be removed from the ignore list and the automatic algorithm will not mark it as spam in the future.
-
-![Whitelist asset](/images/asset_whitelist_menu.png)
-
-## Whitelisting and Re-detecting Missing Tokens
-
-If a token doesn't appear in your balances, there are several ways to troubleshoot this. First you should check if it's been automatically or manually ignored. And then run a manual token detection.
-
-### Check Token is not Ignored or Marked as Spam
-
-Go to the `Manage Assets -> Assets page`. Use the search to find the token by name or address. Verify if the token is ignored. If ignored, unignore it. If you did not ignore it on purpose click to whitelist it so the spam detection algorithm does not falsely flag it as spam.
-
-![Example of managing assets and whitelisting a token in the Manage Assets page.](/images/manage-assets.png)
 
 ### Token Detection Methods
 
@@ -91,6 +71,12 @@ Users can link assets on exchanges to those recognized by rotki. If you encounte
 
 ![Manage centralized exchange asset mapping](/images/rotki_manage_cex_mapping.png)
 
+## Manage Counterparty Mappings
+
+Users can also link assets on any counterparty to those recognized by rotki.
+
+![Manage counterparty asset mappings](/images/rotki_manage_counterparty_mapping.png)
+
 ## Newly detected tokens
 
 All newly detected EVM tokens will appear in the list of newly detected tokens. You should inspect this list often and accept valid tokens and reject spam assets by adding them to the ignored tokens list.
@@ -137,3 +123,23 @@ You can also ignore assets by clicking asset icons anywhere on the app, that wil
 It is also possible to ignore NFTs. To do this navigate to `Balances → NFT Balances` and toggle the ignore NFT switch. Then you can use the filter to view the ignored NFTs.
 
 ![Ignoring NFTs](/images/rotki_ignore_nfts.png)
+
+## Whitelisting of ignored assets
+
+Spam assets are a plague in EVM chains. rotki has an automatic algorithm trying to match assets as spam to not bother the user with automatically ignoring them. You can see all ignored assets in `Manage Assets → Assets` and filter by ignored. A problem with automatic algorithms marking something as spam is that mistakes can be made and a legit token may be ignored.
+
+![Filter ignored assets](/images/asset_filter_ignored.png)
+
+To solve this problem we added a whitelist which you can add assets to as can be seen below. Once an asset is added to the whitelist it will be removed from the ignore list and the automatic algorithm will not mark it as spam in the future.
+
+![Whitelist asset](/images/asset_whitelist_menu.png)
+
+## Whitelisting and Re-detecting Missing Tokens
+
+If a token doesn't appear in your balances, there are several ways to troubleshoot this. First you should check if it's been automatically or manually ignored. And then run a manual token detection.
+
+### Check Token is not Ignored or Marked as Spam
+
+Go to the `Manage Assets -> Assets page`. Use the search to find the token by name or address. Verify if the token is ignored. If ignored, unignore it. If you did not ignore it on purpose click to whitelist it so the spam detection algorithm does not falsely flag it as spam.
+
+![Example of managing assets and whitelisting a token in the Manage Assets page.](/images/manage-assets.png)
