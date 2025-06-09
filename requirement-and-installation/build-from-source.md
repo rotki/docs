@@ -9,7 +9,7 @@ Before starting, ensure you have the following installed:
 
 - [Git](https://git-scm.com/downloads)
 - [Python 3.11.x](https://www.python.org/downloads/)
-- [VirtualEnv](https://virtualenv.pypa.io) (for macOS and Linux)
+- [uv](https://github.com/astral-sh/uv) (Python package manager)
 - [Node.js](https://nodejs.org/en/)
 - [pnpm](https://pnpm.io/)
 
@@ -27,20 +27,17 @@ In your local rotki development directory, you should have all the files as they
 
 ### Set Up Python Environment
 
-Create a new [virtual environment](http://docs.python-guide.org/en/latest/dev/virtualenvs/) with Python 3.11 to install all the Python dependencies. If you don't have `mkvirtualenv`, check how to get it depending on your distribution. [Here](https://virtualenvwrapper.readthedocs.io/en/latest/install.html#basic-installation) is a guide for Ubuntu and [here](https://wiki.archlinux.org/index.php/Python/Virtual_environment) is one for ArchLinux:
+Install uv, the modern Python package manager:
 
 ```sh
-mkvirtualenv rotki -p /usr/bin/python3.11
-workon rotki
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Then install all the Python requirements:
+Then set up the development environment:
 
 ```sh
-pip install -r requirements.txt
-# Developer requirements
-pip install -r requirements_dev.txt
-pip install -e .
+# Install all dependencies including dev and lint groups
+uv sync --group dev --group lint
 ```
 
 Follow the [Frontend setup](#frontend-setup) to complete the setup.
@@ -56,36 +53,17 @@ Install [Homebrew](https://brew.sh/) first if not installed yet.
 
 ### Set Up Python Environment
 
+Install uv, the modern Python package manager:
+
 ```sh
-pip3 install virtualenv virtualenvwrapper
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Add the following to your shell startup file (e.g. .bashrc, .bash_profile, or .zshrc):
+Then set up the development environment:
 
 ```sh
-# Virtualenvwrapper settings:
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/rotki_dev
-export VIRTUALENVWRAPPER_PYTHON=/Library/Frameworks/Python.framework/Versions/3.11/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/Library/Frameworks/Python.framework/Versions/3.11/bin/virtualenv
-source /Library/Frameworks/Python.framework/Versions/3.11/bin/virtualenvwrapper.sh
-```
-
-Reload the shell startup file and activate the Python virtual environment:
-
-```sh
-source ~/.bash_profile
-workon rotki
-```
-
-Install all the requirements:
-
-```sh
-pip3 install --upgrade pip
-pip3 install -r requirements.txt
-# Developer requirements
-pip3 install -r requirements_dev.txt
-pip3 install -e .
+# Install all dependencies including dev and lint groups
+uv sync --group dev --group lint
 ```
 
 Follow the [Frontend setup](#frontend-setup) to complete the setup.
@@ -102,38 +80,24 @@ Follow the [Frontend setup](#frontend-setup) to complete the setup.
    - By default, the Windows MSI installer places Python in the `C:\Users\<username>\AppData\Local\Programs\` directory.
 3. Test Python installation by opening a command prompt and typing `python`. The Python CLI should run, showing the Python version you installed. Press `CTRL+Z`, then Enter to exit.
    > **Note:** In newer versions of Windows, typing "python" may open the Windows Store. Fix this by opening "App execution aliases" (search for it via Windows Search) and toggling off the aliases for python.exe and python3.exe.
-4. Ensure you have [pip](https://pip.pypa.io/en/stable/installing/#do-i-need-to-install-pip) installed. Check by typing `pip -V` into a command prompt.
-5. Ensure you have the latest version of pip:
+4. Install uv, the modern Python package manager. Open PowerShell as Administrator and run:
    ```sh
-   pip install --upgrade pip
+   powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
    ```
-6. Using pip, install `virtualenv` and `virtualenvwrapper-win`:
-   ```sh
-   pip install virtualenv virtualenvwrapper-win
-   ```
-7. Install [Microsoft Visual Studio build tools](https://visualstudio.microsoft.com/vs/) with the "Desktop development with C++" workload.
+5. Install [Microsoft Visual Studio build tools](https://visualstudio.microsoft.com/vs/) with the "Desktop development with C++" workload.
 
 ### Set Up Python Environment
 
 1. Open a terminal (Command Prompt / PowerShell prompt) in your root development directory.
-2. Create a new virtual environment:
+2. Ensure you are in the directory where you downloaded/cloned the rotki source.
+3. Install all dependencies:
    ```sh
-   mkvirtualenv rotki-develop
+   # Install all dependencies including dev and lint groups
+   uv sync --group dev --group lint
    ```
-3. Ensure you are in the directory where you downloaded/cloned the rotki source and bind the virtualenv to the directory:
+4. Download [miniupnpc for Windows](https://github.com/mrx23dot/miniupnp/releases/download/miniupnpd_2_2_24/miniupnpc_64bit_py39-2.2.24.zip) and copy `miniupnpc.dll` to your virtual environment's `Lib > site-packages` directory. Locate this directory using:
    ```sh
-   setprojectdir .
-   ```
-4. Install Python requirements:
-   ```sh
-   pip install -r requirements.txt
-   # Developer requirements
-   pip install -r requirements_dev.txt
-   pip install -e .
-   ```
-5. Download [miniupnpc for Windows](https://github.com/mrx23dot/miniupnp/releases/download/miniupnpd_2_2_24/miniupnpc_64bit_py39-2.2.24.zip) and copy `miniupnpc.dll` to your virtual environment's `Lib > site-packages` directory. Locate this directory using the command:
-   ```sh
-   pip show cryptography
+   uv run python -c "import site; print(site.getsitepackages()[0])"
    ```
 
 Then follow the [Frontend setup](#frontend-setup) to complete the setup.
@@ -141,7 +105,7 @@ Then follow the [Frontend setup](#frontend-setup) to complete the setup.
 To ensure rotki backend works, try starting it:
 
 ```sh
-python -m rotkehlchen
+uv run python -m rotkehlchen
 ```
 
 This should greet you with the message:
@@ -213,18 +177,17 @@ pnpm run dev:web
 
 ## Packaging
 
-To package the application for your platform, you need to run the packaging script. To do so, make sure that `packaging` and `requests` are installed in your virtual environment:
+To package the application for your platform, you need to run the packaging script:
 
 ```sh
-pip3 install packaging requests
-
 # Use this command if you are in Linux or macOS
-./package.py --build full
+uv run ./package.py --build full
 
 # Use this command if you are in Windows
-python .\package.py --build full
-
+uv run python .\package.py --build full
 ```
+
+> Note: The packaging dependencies are already included in the `packaging` dependency group in pyproject.toml.
 
 ## Nix
 
@@ -232,12 +195,12 @@ You can use the [Nix](https://nixos.org/download) package manager to start rotki
 
 ```nix
 {
-  description = "rotki project with virtualenv";
+  description = "rotki project with uv-managed virtualenv";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url          = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
+    flake-utils.url      = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }:
@@ -245,42 +208,30 @@ You can use the [Nix](https://nixos.org/download) package manager to start rotki
       let
         pkgs = nixpkgs.legacyPackages.${system};
 
-        python311 = pkgs.python311;
-        nodejsWithPython311 = pkgs.nodejs.override { python3 = python311; };
-        nodePackages = pkgs.nodePackages.override { nodejs = nodejsWithPython311; };
+        python311         = pkgs.python311;
+        nodejsWithPython  = pkgs.nodejs.override { python3 = python311; };
+        nodePackages      = pkgs.nodePackages.override { nodejs = nodejsWithPython; };
         pnpmWithPython311 = nodePackages.pnpm;
 
-        myPythonEnv = pkgs.mkShell {
-          name = "my-python-env";
+        devShell = pkgs.mkShell {
+          name = "rotki-dev";
           buildInputs = [
             pkgs.gcc
             pkgs.stdenv.cc.cc.lib
             pkgs.bash
-            pkgs.lzma
             pkgs.git
+            pkgs.lzma
             pnpmWithPython311
-            pkgs.python311
-            pkgs.python311Packages.virtualenv
-            pkgs.python311Packages.pip
+            python311   # interpreter uv will bind into the venv
+            pkgs.uv     # blazing-fast venv + installer
           ];
 
           shellHook = ''
-            ${pkgs.pkgs.python311Packages.virtualenv}/bin/virtualenv --no-setuptools --no-wheel .venv
-            source .venv/bin/activate
-            export RUFF_PATH=${pkgs.ruff}/bin/ruff
-            export PYTHONPATH=.venv/${pkgs.python311.sitePackages}/:$PYTHONPATH
-            export LD_LIBRARY_PATH=${pkgs.stdenv.cc.cc.lib}/lib:$LD_LIBRARY_PATH
-            pip install setuptools
-            pip install -r ${./requirements.txt}
-            pip install -r ${./requirements_dev.txt}
-            pip install -r ${./requirements_lint.txt}
+            # Installs deps and auto-creates .venv if missing
+            uv sync
           '';
         };
-      in
-      {
-        devShell = myPythonEnv;
-      }
-    );
+      in { inherit devShell; });
 }
 ```
 

@@ -9,7 +9,7 @@ To use the flamegraph profiler, follow these steps:
 1. Install the latest dependencies required for profiling:
 
    ```sh
-   pip install -r requirements_profiling.txt
+   uv sync --group profiling
    ```
 
 2. Install the [flamegraph](https://github.com/brendangregg/FlameGraph) package in your system. Some OSes, such as Archlinux, have [ready-made packages](https://aur.archlinux.org/packages/flamegraph/).
@@ -28,11 +28,7 @@ Finally, open the SVG with any compatible viewer and explore the flamegraph. It 
 
 ### Viztracer
 
-Viztracer is a good tool for profiling the actual code as it runs. You can install it with:
-
-```sh
-pip install viztracer
-```
+Viztracer is a good tool for profiling the actual code as it runs. It's included in the profiling dependency group.
 
 Then, run rotki's dev mode and add profiling arguments for Viztracer:
 
