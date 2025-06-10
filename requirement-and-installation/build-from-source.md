@@ -177,17 +177,15 @@ pnpm run dev:web
 
 ## Packaging
 
-To package the application for your platform, you need to run the packaging script:
+To package the application for your platform, you need to install the packaging dependencies and run the packaging script:
 
 ```sh
-# Use this command if you are in Linux or macOS
-uv run ./package.py --build full
+# Install packaging dependencies
+uv sync --group packaging
 
-# Use this command if you are in Windows
-uv run python .\package.py --build full
+# Run the packaging script (works on all platforms)
+uv run python ./package.py --build full
 ```
-
-> Note: The packaging dependencies are already included in the `packaging` dependency group in pyproject.toml.
 
 ## Nix
 
@@ -198,7 +196,7 @@ You can use the [Nix](https://nixos.org/download) package manager to start rotki
   description = "rotki project with uv-managed virtualenv";
 
   inputs = {
-    nixpkgs.url          = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs.url          = "github:NixOS/nixpkgs/nixos-24.05";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url      = "github:numtide/flake-utils";
   };
@@ -229,6 +227,11 @@ You can use the [Nix](https://nixos.org/download) package manager to start rotki
           shellHook = ''
             # Installs deps and auto-creates .venv if missing
             uv sync
+            
+            # Install frontend dependencies
+            cd frontend
+            pnpm install
+            cd ..
           '';
         };
       in { inherit devShell; });
