@@ -227,7 +227,7 @@ You can use the [Nix](https://nixos.org/download) package manager to start rotki
           shellHook = ''
             # Installs deps and auto-creates .venv if missing
             uv sync
-            
+
             # Install frontend dependencies
             cd frontend
             pnpm install
