@@ -1,9 +1,9 @@
 # Python Code Testing
 
-To run the Python test suite, ensure the virtual environment is activated, the developer requirements are installed, and then execute:
+To run the Python test suite, ensure you have installed all dependencies including the dev group, and then execute:
 
 ```sh
-python pytestgeventwrapper.py -xs rotkehlchen/tests
+uv run python pytestgeventwrapper.py -xs rotkehlchen/tests
 ```
 
 We require this wrapper as a drop-in replacement for pytest due to quirks with gevent and monkeypatching.
@@ -18,7 +18,7 @@ We run the test suite in GitHub CI but only a subset of the tests since not all 
 
 ## Linting
 
-Before each commit, you should run the linting checks. They run `flake8`, `mypy`, and `pylint` in order. Invoke these checks by running `make lint` from the root directory of the project.
+Before each commit, you should run the linting checks. They run `ruff`, `mypy`, and `pylint` in order. Invoke these checks by running `make lint` from the root directory of the project.
 
 ## Mocking Networking in the Tests
 

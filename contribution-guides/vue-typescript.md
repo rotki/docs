@@ -10,7 +10,7 @@ pnpm run --filter rotki test:unit
 
 These are small tests ensuring that parts of the code work well in isolation.
 
-The second type of tests is an end-to-end (`e2e`) test suite using `cypress`. The e2e tests require the Python virtual environment because they depend on the actual Python backend. These tests ensure proper e2e functionality and application integration and try to replicate scenarios of real user interaction through the application.
+The second type of tests is an end-to-end (`e2e`) test suite using `cypress`. The e2e tests require the Python environment with all dependencies installed because they depend on the actual Python backend. These tests ensure proper e2e functionality and application integration and try to replicate scenarios of real user interaction through the application.
 
 To run the e2e tests, use the following command inside the frontend directory:
 

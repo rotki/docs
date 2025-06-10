@@ -27,9 +27,7 @@ For more information about signing commits, check out [Verify commit signatures]
 
 ## Linting / Formatting
 
-Make sure to run `make lint` before pushing your commit. This runs isort, flake8, mypy, and pylint on the code to make sure that formatting rules and common mistakes are not committed in the code.
-
-Set your editor up to use isort as seen in the Makefile (format command) before saving each file.
+Make sure to run `make lint` before pushing your commit. This runs ruff, mypy, and pylint on the code to make sure that formatting rules and common mistakes are not committed in the code.
 
 You can also bulk apply formatting changes to all files by running `make format`.
 
@@ -78,7 +76,7 @@ This will update the file `info.json`. Finally, execute the tests to detect poss
 pytest tests
 ```
 
-In order to do so, you will need to install the dependencies in the `requirements.txt` file.
+In order to do so, you will need to install the dependencies using `uv sync`.
 
 ### Get CoinGecko asset identifier
 
