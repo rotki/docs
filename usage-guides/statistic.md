@@ -2,7 +2,7 @@
 
 If you have a premium subscription you can get statistics on all your assets and trades.
 
-Click on the `Statistic` page on the left sidebar to go to your statistics page.
+Click on the `Statistic > Graph` page on the left sidebar to go to your statistics page.
 
 ## Net value over time
 
@@ -71,3 +71,10 @@ Moreover, you can see a pie chart of the distribution of your net value across a
 
 > [!NOTE]
 > The pie charts showing value distribution by location and asset use data from your latest snapshot, not your current balance. To see the most recent data, you'll need to [create a new snapshot](/usage-guides/accounts-and-balances#balances-snapshots).
+
+## Event Analysis
+
+It's available under the `Statistic > Event Analysis` menu.
+You can view the summary of your activities by checking your history events data, including ETH spent, exchanges/protocols used, and Gnosis Pay usage.
+
+![Event Analysis](/images/event_analysis.png)
