@@ -47,6 +47,24 @@ Events can be exported as CSV, click on `Export CSV` button and accept prompt to
 
 By default, all events will be processed in accounting, but you can ignore unwanted events, so they won't be processed. You can click on the three dots to display the options for the group of events, and click `Ignore events in accounting`/`Unignore events in accounting`.
 
+## Refreshing Events
+
+You can choose to refresh all events by clicking the main `Refresh` button, or you can open the menu and choose to refresh an individual type of event or events on a certain account.
+
+![Refreshing events](/images/refreshing_events.png)
+
+To see the status, you can click the button here:
+
+![See query status](/images/see_query_status.png)
+
+Basically, what happens when you refresh the transactions/events are:
+
+1. It will query the transactions from the "last queried time" to the current time.
+2. For EVM events, after rotki queries these new transactions, it will try to decode them.
+3. The events will be displayed correctly in the UI only after they are properly decoded.
+
+![Events query status](/images/events_query_status.png)
+
 ## Redecoding EVM transactions
 
 It is possible that you need to redecode events for an EVM transaction. To do that you have two options. The first of them is to click on the three dots to display the options for an EVM transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them. If there are any custom events in the transaction, there will be one more confirmation, asking whether to also reset these custom events or not.
