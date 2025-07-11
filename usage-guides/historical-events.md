@@ -53,9 +53,15 @@ You can choose to refresh all events by clicking the main `Refresh` button, or y
 
 ![Refreshing events](/images/refreshing_events.png)
 
-To see the query status, you can click the button here:
+To see the status, you can click the button here:
 
 ![See query status](/images/see_query_status.png)
+
+Basically, what happens when you refresh the transactions/events are:
+
+1. It will query the transactions from the "last queried time" to the current time.
+2. For EVM events, after rotki queries these new transactions, it will try to decode them.
+3. The events will be displayed correctly in the UI only after they are properly decoded.
 
 ![Events query status](/images/events_query_status.png)
 
