@@ -188,7 +188,6 @@ A setting to determine whether crypto to crypto trades or any events that spend 
 > You trade your `1 ETH`, to get `11 USDT`. Current price of ETH is `10 EUR`, but you bought it when it was `5 EUR`.
 
 1. If `True`, virtual trades are generated, and profits/losses are calculated based on the difference in asset prices. By making this trade, we will create two virtual trade, which are:
-
    - **Virtual Trade 1**: Sell `1 ETH` for `10 EUR`. PnL of this virtual trade is calculated as `the value when you sell this ETH (10 EUR)` minus `the value when you bought this ETH (5 EUR)` = `5 EUR`.
    - **Virtual Trade 2**: Buy `11 USDT` with `10 EUR`. PnL of this virtual trade is `0 EUR` because it's a buy. However, later on, when you trade this `USDT` with another crypto, point (1) will also be applied.
      > **Total PnL** = `5 EUR`.
@@ -202,7 +201,6 @@ A setting to determine whether crypto to crypto trades or any events that spend 
 > You have `1` ETH that you bought with price `50 EUR`. Then you spend this `1` ETH for gas fees, and the price at the moment is `100 EUR`.
 
 1. If `True`, when you use crypto for fees, donations, or purchases, the profit and loss (PnL) calculation shows two things: the loss from spending the crypto and any profit or loss from the difference between the asset's current price and its buying price.
-
    - **Loss from spending** = `-100 EUR`.
    - **Profit from price difference** = `100 EUR (spend price) - 50 EUR (buy price) = 50 EUR`.
      > **Total PnL** = `-100 EUR + 50 EUR` = `-50 EUR`.

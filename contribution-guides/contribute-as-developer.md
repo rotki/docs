@@ -300,7 +300,6 @@ rotki's main language is `English`. The language file for it is [here](https://g
 To fill in the translation for another language, you should pay attention to the following things:
 
 1. The `JSON` structure from the `English` language file is absolute, meaning you can't change the JSON structure (the keys), because this is how rotki reads which value to use. So for translations of other languages, please follow the same structure as the `English` language JSON file. For example:
-
    - **en.json**
 
    ```json
@@ -326,7 +325,6 @@ To fill in the translation for another language, you should pay attention to the
 
 2. You may notice that there are some words that are wrapped inside curly brackets, for example the word `length` in the sentence `Use total from {length} asset(s) value`.
    This is how rotki inserts a variable inside a sentence. You **must** keep this variable name, when translating to a different language. What you can do though is to reposition the variable inside the sentence. For example:
-
    - **en.json**
 
    ```json

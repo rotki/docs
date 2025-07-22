@@ -58,7 +58,6 @@ Currently supported exchanges are:
 
 - Successful addition: Exchange will appear in your list
 - If failed:
-
   - Verify key and secret are correct
   - Some exchanges may have issues due to timestamp difference between the computer and the server (e.g. binance, read [this](https://github.com/tiagosiebler/awesome-crypto-examples/wiki/Timestamp-for-this-request-is-outside-of-the-recvWindow))
 
@@ -162,11 +161,9 @@ You can integrate Gnosis Pay with rotki to import your transaction data. This fe
 To add your Gnosis Pay session token:
 
 1. **Login to Gnosis Pay:**
-
    - Go to [Gnosis Pay](https://app.gnosispay.com/dashboard) and log in to your account.
 
 2. **Retrieve the Session Token:**
-
    - Open your browser's developer tools (right-click on the page and select `Inspect` or press `F12` / `Ctrl+Shift+I`/`Cmd+Option+I`).
    - Go to the **Application** tab in the developer tools.
    - In the **Storage** section on the left sidebar, click on **Cookies** and select `https://app.gnosispay.com` (marked as **1** in the image).
@@ -176,7 +173,6 @@ To add your Gnosis Pay session token:
    ![Retrieve Gnosis Pay Session Token](/images/gnosispay_add_key.png)
 
 3. **Add Session Token to rotki:**
-
    - In rotki, navigate to `API Keys → External Services`.
    - Scroll to the **Gnosis Pay** section.
    - Paste the session token into the **Session Token** field.
