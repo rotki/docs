@@ -95,9 +95,30 @@ EVM Transactions and the events can be deleted, but to restore them you will hav
 
 If you want to add a transaction that was either deleted or for some reason missed, or was not found by rotki, you can add it by transaction hash by clicking the menu as seen in the picture.
 
-## Re-Pulling Transactions
+## Re-Pulling transactions missed in the past
 
-You can re-pull EVM transactions for a specific account within a selected time range, in case any past issues prevented events from being retrieved properly.
+It is possible that due to network issues, RPC errors, or other problems, some transactions may have been missed during the initial sync. This can happen when:
+
+- An RPC node provided broken information.
+- Etherscan or other indexers had wrong data.
+- Sources used were not fully synced.
+- Other kind of bugs.
+
+You can re-pull EVM transactions for a specific account or all accounts within a selected time range by clicking on the 3 dots menu on the top right and selecting "Repull transactions".
+
+![Repull transactions](/images/repull_transactions.png)
+
+If any missed transactions are found, you'll see a notification indicating how many new transactions were discovered.
+
+![Repulled transactions result](/images/repull_transactions2.png)
+
+After the transactions are pulled, they need to be decoded. You can either:
+
+- Wait a few moments for automatic decoding
+- Click the refresh button to trigger decoding manually
+- Check the transaction decoding status to monitor progress
+
+Once decoded, the transactions will appear in the history view with all their associated events.
 
 ## Missing accounting rule
 
