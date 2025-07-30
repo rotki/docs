@@ -44,9 +44,9 @@ Choose the "User & Security" section to change the user password.
 
 > Set how often (in hours) the version will be checked for updates.
 
-#### Balance Data Saving Frequency
+#### Balance Snapshots Saving Frequency
 
-> Set how often (in hours) the balance data is saved. This data helps calculate statistics and historical data for the user.
+> Set how often (in hours) the balance data snapshots are saved. This data helps calculate statistics historical and graph data for the user.
 
 #### Treat Staked ETH as ETH
 
