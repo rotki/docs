@@ -49,9 +49,13 @@ By default, all events will be processed in accounting, but you can ignore unwan
 
 ## Refreshing Events
 
-You can choose to refresh all events by clicking the main `Refresh` button, or you can open the menu and choose to refresh an individual type of event or events on a certain account.
+You can choose to refresh all events by clicking the main `Refresh` button, or you can open the menu and choose to refresh only certain types of events or accounts.
 
-![Refreshing events](/images/refreshing_events.png)
+### By Chain
+
+Refreshes specific chains, optionally limited to only specific accounts on those chains.
+
+![Refreshing onchain events](/images/refreshing_onchain_events.png)
 
 To see the status, you can click the button here:
 
@@ -64,6 +68,24 @@ Basically, what happens when you refresh the transactions/events are:
 3. The events will be displayed correctly in the UI only after they are properly decoded.
 
 ![Events query status](/images/events_query_status.png)
+
+### Exchange Events
+
+Refreshes the events from specific exchanges.
+
+![Refreshing exchange events](/images/refreshing_exchange_events.png)
+
+### ETH Staking Events
+
+Refreshes ETH withdrawals and block production events.
+
+![Refreshing eth staking events](/images/refreshing_eth_staking_events.png)
+
+### Protocol Events
+
+Refreshes events from specific protocols such as Monerium and Gnosis Pay, pulling data from the protocol's API to enrich the existing onchain events.
+
+![Refreshing protocols events](/images/refreshing_protocols_events.png)
 
 ## Redecoding EVM transactions
 
