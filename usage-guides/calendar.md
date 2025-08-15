@@ -36,7 +36,7 @@ You can sync rotki calendar events, to your Google Calendar for notifications an
 1. Click the `Cog button` on the calendar page.
    ![Click cog button](/images/connect_google_calendar_1.png)
 
-2. Click the `Connect to Google Calendar` button. It will open a page in your browser to continue the Google authentication.
+2. Click the `Connect to Google Calendar` button. It will open a page in your browser to continue the Google authentication. In Linux for the electron app, this will open a clean rotki browser window. This is due to known limitations in Linux at the moment. If you need to use passkeys, or already connected google accounts in your default browser copy paste the URL to it. The URL is`https://rotki.com/oauth/google?mode=app`.
 
 3. Click `Continue with Google` and choose your Gmail account to continue.
    ![Continue with google](/images/connect_google_calendar_2.png)
