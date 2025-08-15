@@ -136,6 +136,7 @@ You can do it in from any submenu from the menu `Accounts` by clicking the three
 ### Blockchain aggregated balances
 
 You can see the list of aggregated assets from Blockchain Accounts from menu `Balances > Blockchain Balances`.
+You can also see the breakdown of the assets, which locations they belong to, whether they are in the wallet, or being put into some protocol.
 
 ![Aggregated list of assets from blockchain accounts](/images/sc_blockchain_balances.png)
 
