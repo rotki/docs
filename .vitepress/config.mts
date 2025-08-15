@@ -70,7 +70,6 @@ export default defineConfig({
           { text: 'Calendar', link: '/usage-guides/calendar' },
           { text: 'Taking Notes In-App', link: '/usage-guides/user-notes' },
           { text: 'Global Search', link: '/usage-guides/global-search' },
-          { text: 'Solana Tokens Migration', link: '/usage-guides/solana-tokens-migration' },
           { text: 'Settings', link: '/usage-guides/customization' },
         ],
       },
