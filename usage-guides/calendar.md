@@ -28,3 +28,18 @@ You can customize how rotki handles automatic events by clicking the `setting` i
 The notification for the reminder of your event looks like this.
 
 ![Notification for the reminder](/images/rotki_calendar_reminder.png)
+
+## Sync with google calendar
+
+You can sync rotki calendar events, to your Google Calendar for notifications and reminders.
+
+1. Click the `Cog button` on the calendar page.
+   ![Click cog button](/images/connect_google_calendar_1.png)
+
+2. Click the `Connect to Google Calendar` button. It will open a page in your browser to continue the Google authentication.
+
+3. Click `Continue with Google` and choose your Gmail account to continue.
+   ![Continue with google](/images/connect_google_calendar_2.png)
+
+4. After it's done, it will look like this. Click `Sync Now` to sync the events to Google Calendar on your selected account.
+   ![Connected to google calendar](/images/connect_google_calendar_3.png)
