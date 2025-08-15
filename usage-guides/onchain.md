@@ -12,30 +12,36 @@ At the moment rotki only supports sending native tokens and ERC-20 tokens on all
 You can only send tokens from an address that is registered as an EVM account in rotki. Otherwise, rotki won't be able to retrieve the list of tokens.
 :::
 
-## Connect to a Browser Wallet from the Electron App
+There are 2 ways to connect the wallet:
 
-If you're using rotki via the Electron app, you won't be able to connect directly to your browser wallet. Instead, rotki provides a bridge for this purpose. Follow these steps:
+## Connect using Wallet Connect
 
-1. Click the "Open Browser Wallet Bridge" button. This will open a page in your browser.
-   ![Open browser wallet bridge](/images/onchain_browser_wallet_bridge_1.png)
+You can connect the wallet via Wallet Connect. For example, if you want to connect to the wallet on your phone, or by using Safe Wallet.
 
-2. On the bridge page, the first step is to connect it to your browser wallet.
-   ![Connect wallet in browser wallet bridge](/images/onchain_browser_wallet_bridge_2.png)
+1. Select the tab `Wallet Connect`
 
-3. Once connected, the page should display your wallet status.
-   ![Wallet connect bridge connected](/images/onchain_browser_wallet_bridge_3.png)
+2. Click `Connect Wallet` button and proceed from there
 
-4. Now you’ll need the `WalletConnect Pair URI`. Go back to the Electron app, click `Connect Wallet`, and choose `WalletConnect`.
-   ![Wallet Connect](/images/onchain_browser_wallet_bridge_4.png)
+![Onchain wallet connect](/images/onchain_wallet_connect.png)
 
-5. Wait for the QR code to appear, then click `Copy Link`. The Pair URI will be copied to your clipboard. It will look something like this:
-   `wc:0579c1fee69aad512b6ef19a977a08f6c60b19415661cfa2882039da038a24fb@2?relay-protocol=irn&symKey=55d16a7cfc2198dfc1058254a7862c98aad401814bb86219041687d5b6de4020&expiryTimestamp=1744297123`
-   ![Copy Wallet Connect pairing URI](/images/onchain_browser_wallet_bridge_5.png)
+## Connect using Browser Wallet
 
-6. Return to the bridge page in your browser, paste the Pair URI, and click `Start Pairing`.
-   ![Wallet Connect bridge start pairing](/images/onchain_browser_wallet_bridge_6.png)
+If you don't want to connect via Wallet Connect, you can also connect locally to your browser wallet.
 
-You're now connected and can perform transactions from the Electron app.
+1. Select the tab `Local`
+
+2. Click `Connect Wallet` button
+
+3. If you access rotki via the app, it will open a tab in your browser. It attempts to scan the wallet you have in your browser. You need to keep this browser tab open while doing transactions.
+   ![Open browser wallet bridge](/images/onchain_browser_wallet_1.png)
+
+4. Go back to your main app. You will see this popup after rotki scans which browser wallet you have. You can choose any and finish the connection.
+   ![Select browser wallet](/images/onchain_browser_wallet_2.png)
+
+5. If it's successful, it will look like this, and show your connected address on top.
+   ![Browser wallet connection success](/images/onchain_browser_wallet_3.png)
+
+You're now connected and can perform transactions.
 
 ## Troubleshooting
 
