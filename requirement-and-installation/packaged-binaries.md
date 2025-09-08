@@ -55,7 +55,13 @@ To verify that the generated hash matches, open the `rotki-win32-vx.x.x.exe.sha5
 > - **Windows:** The signature will display "Rotki Solutions GmbH".
 > - **macOS:** In the "Get Info" window, the copyright should read "Rotki Solutions GmbH".
 
-It is also possible to verify the integrity of a binary and obtain the workflow that created it using GitHub attestations. You can find more information in the [GitHub docs](https://cli.github.com/manual/gh_attestation_verify).
+## GitHub Artifact Attestations
+
+Rotki uses **GitHub Artifact Attestations** to help you verify that your downloaded binary is authentic and hasn't been tampered with. This feature creates a cryptographic link between the source code and the final executable, showing you exactly which code version, build environment, and workflow created your binary.
+
+When you verify an attestation, you're confirming that the software was genuinely built from the expected repository and commit, providing protection against supply chain attacks. This gives you confidence that what you're downloading is exactly what the developers intended to release.
+
+You can verify any rotki binary using the GitHub CLI to check its attestation and see the workflow that created it. For detailed instructions, see the [GitHub docs](https://cli.github.com/manual/gh_attestation_verify).
 
 Example:
 
@@ -69,6 +75,15 @@ sha256:12bb7aa1cf8d5b568f925e7c772b946a29efaf66ae030026a1f113da528c8e39 was atte
 REPO         PREDICATE_TYPE                  WORKFLOW
 rotki/rotki  https://slsa.dev/provenance/v1  .github/workflows/rotki_release.yaml@refs/tags/v1.34.0
 ```
+
+> [!WARNING]
+>
+> GitHub artifact attestations will fail for Windows binaries (`rotki-win32_x64-v1.x.x.exe`) that have been published after August 2025.
+>
+> To have a verified Publisher on Windows, binaries have to be re-signed locally using a hardware key (Yubikey) using an OV Certificate.
+> This causes the binary hash to change, which in turn causes the GitHub artifact attestation to fail.
+>
+> For windows binaries verify that the binary is signed by **Rotki Solutions GmbH**.
 
 ## Linux
 
