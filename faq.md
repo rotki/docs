@@ -116,3 +116,11 @@ SELECT * from history_events WHERE asset='a19964d9-20da-a6dc-1b50-9f293eb85c0d';
 ```
 
 Then, from the response, understand which asset it is, recreate it, and merge it with the old identifier following the merging process outlined [here](/usage-guides/assets#merging-two-assets)
+
+### PnL report generation gets stuck
+
+There are some known reasons why PnL report generation gets stuck:
+
+1. If you have a Binance API key registered, please check these notes about [Binance API key rate limiting](/usage-guides/api-keys.md#market-pairs-required)
+
+If your PnL report is stuck for a different reason, contact us in [Discord](https://discord.rotki.com)
