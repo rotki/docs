@@ -81,7 +81,6 @@ export default defineConfig({
           { text: 'Accessing the database manually', link: '/usage-guides/accessing-db-manually' },
           { text: 'Long running tasks', link: '/usage-guides/long-running-tasks' },
           { text: 'Using rotki from mobile', link: '/usage-guides/using-rotki-from-mobile' },
-          { text: 'Troubleshooting', link: '/usage-guides/troubleshooting' },
         ],
       },
       {

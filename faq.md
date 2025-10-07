@@ -60,18 +60,6 @@ rotki is an abbreviation for Rotkehlchen. That is the German word for the bird k
 
 ## Common Issues
 
-### Restoring backed up database at new account creation fails
-
-Please, make sure you are using your premium subscription API keys/secret and the same password.
-
-### Data with multiple accounts/devices is not synced
-
-Please, make sure all your accounts have the "Allow data sync with rotki Server" switched on, and that on each log-in you make the appropriate choice when prompted to replace the local database. See the section [Sync data with rotki server](/usage-guides/#sync-data-with-rotki-server) for more information about how to sync data with multiple accounts/devices.
-
-### ENS data not updating for newly registered name/address combination
-
-If you just registered your ENS name and you don't see the name and/or avatar being properly displayed in rotki, then that means that the value is cached and you need to force a refresh. You can do that by going to `Accounts → EVM Accounts` view and pressing the refresh button on the top.
-
 ### My asset is not showing in rotki
 
 If your asset is not showing in rotki, even though you are sure that you have a balance, you need to first ensure that the asset is present on the list of assets (read [inspecting list of assets](/usage-guides/assets.html#inspecting-list-of-assets)).
@@ -90,9 +78,33 @@ To view transactions with ignored assets, enable `Show entries with ignored asse
 
 For more information on un-ignoring and optionally whitelisting assets, see [My asset is not showing in rotki](/faq.html#my-asset-is-not-showing-in-rotki) above.
 
+### Transactions for an EVM chain are missing
+
+If you notice that some transactions are missing for an EVM chain, you can re-pull transactions for a specific time range. See [Re-Pulling transactions missed in the past](/usage-guides/historical-events.md#re-pulling-transactions-missed-in-the-past) for detailed instructions.
+
 ### My balances are not showing after importing my history/creating history events
 
 It's not a bug. At the moment, we don't use events to determine current holdings. Balances are only calculated from connected exchanges, connected blockchain addresses, and manual balances.
+
+### Restoring backed up database at new account creation fails
+
+Please, make sure you are using your premium subscription API keys/secret and the same password.
+
+### Data with multiple accounts/devices is not synced
+
+Please, make sure all your accounts have the "Allow data sync with rotki Server" switched on, and that on each log-in you make the appropriate choice when prompted to replace the local database. See the section [Sync data with rotki server](/usage-guides/#sync-data-with-rotki-server) for more information about how to sync data with multiple accounts/devices.
+
+### ENS data not updating for newly registered name/address combination
+
+If you just registered your ENS name and you don't see the name and/or avatar being properly displayed in rotki, then that means that the value is cached and you need to force a refresh. You can do that by going to `Accounts → EVM Accounts` view and pressing the refresh button on the top.
+
+### PnL report generation gets stuck
+
+There are some known reasons why PnL report generation gets stuck:
+
+1. If you have a Binance API key registered, please check these notes about [Binance API key rate limiting](/usage-guides/api-keys.md#market-pairs-required)
+
+If your PnL report is stuck for a different reason, contact us in [Discord](https://discord.rotki.com)
 
 ### I receive a notification error: `can't deserialize XXX,  unknown asset YY found`
 
@@ -117,10 +129,20 @@ SELECT * from history_events WHERE asset='a19964d9-20da-a6dc-1b50-9f293eb85c0d';
 
 Then, from the response, understand which asset it is, recreate it, and merge it with the old identifier following the merging process outlined [here](/usage-guides/assets#merging-two-assets)
 
-### PnL report generation gets stuck
+### Out of gas error during eth_call
 
-There are some known reasons why PnL report generation gets stuck:
+If you see an error like the following:
 
-1. If you have a Binance API key registered, please check these notes about [Binance API key rate limiting](/usage-guides/api-keys.md#market-pairs-required)
+```log
+[17/12/2020 18:31:29 CET] WARNING rotkehlchen.chain.ethereum.manager: Failed to query own node for <bound method EthereumManager._call_contract of <rotkehlchen.chain.ethereum.manager.EthereumManager object at 0x7f4b16b8bc90>> due to Error doing call on contract 0x06FE76B2f432fdfEcAEf1a7d4f6C3d41B5861672: {'code': -32000, 'message': 'out of gas'}
+```
 
-If your PnL report is stuck for a different reason, contact us in [Discord](https://discord.rotki.com)
+while rotki is querying your local geth node for something, then it means that the query has hit the gas limit cap.
+
+You can fix this by simply adding the `--rpc.gascap 0` argument to your geth node. This will have an unlimited gas cap. Be careful if it's a node exposed to the public as this may allow a malicious `eth_call` to crash your node.
+
+### Local system clock is not synchronized
+
+Your local system clock must be synchronized with certain remote servers, such as exchanges. If your clock is not synchronized, requests to these servers will fail. rotki will either display a specific error message (e.g., a 409 status code indicating a local system clock synchronization issue) or a generic 500 error message (please, report it to us).
+
+To resolve this issue, follow the official guidelines provided by your operating system on how to synchronize your clock with an Internet Time Server. You can find detailed instructions for fixing this problem on Windows, Mac, and Linux in this link: [Fixing Clock Synchronization](https://github.com/tiagosiebler/awesome-crypto-examples/wiki/Timestamp-for-this-request-is-outside-of-the-recvWindow). Once synchronized, try the request again.
