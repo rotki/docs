@@ -92,7 +92,13 @@ To improve the speed of querying trade information using the Binance API, you ca
 
 ![Edit Binance in the exchanges section](/images/exchanges_edit_binance.png)
 
-And choose the markets in the `Filter market pair(s)` search.
+##### Market Pairs (required)
+
+Choose the markets in the `Filter market pair(s)` search.
+
+::: warning
+**Due to Binance API limitations**, querying trade information does not work without specifying market pairs. Binance's endpoint requires every possible market pair to be queried individually, and their rate limits make it impossible to query all markets for your entire history. This API issue has existed for years and has not been fixed by Binance. You must select which specific markets you want to query for the integration to work properly.
+:::
 
 ![Binance markets selection](/images/binance_markets_selection.png)
 
