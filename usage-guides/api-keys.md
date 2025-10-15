@@ -167,12 +167,12 @@ You can integrate Gnosis Pay with rotki to import your transaction data. This fe
 To add your Gnosis Pay session token:
 
 1. **Login to Gnosis Pay:**
-   - Go to [Gnosis Pay](https://app.gnosispay.com/dashboard) and log in to your account.
+   - Go to [Gnosis Pay](https://old.gnosispay.com/dashboard) and log in to your account.
 
 2. **Retrieve the Session Token:**
    - Open your browser's developer tools (right-click on the page and select `Inspect` or press `F12` / `Ctrl+Shift+I`/`Cmd+Option+I`).
    - Go to the **Application** tab in the developer tools.
-   - In the **Storage** section on the left sidebar, click on **Cookies** and select `https://app.gnosispay.com` (marked as **1** in the image).
+   - In the **Storage** section on the left sidebar, click on **Cookies** and select `https://old.gnosispay.com` (marked as **1** in the image).
    - Look for the cookie named `__Secure-authjs.session-token` in the list (marked as **2** in the image).
    - Copy the value of the cookie from the **Cookie Value** section at the bottom (marked as **3** in the image).
 
