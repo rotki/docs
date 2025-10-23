@@ -216,7 +216,9 @@ You can add multiple `spend` and `receive` assets.
 
 For history event, and EVM history event, if any event was not decoded the way you expected it to be, you can always customize events using the settings described above or file a bug report on our github repository / in our discord server. The customizations that you make also affect how events are processed in accounting.
 
-Examples of customization. You can set:
+### Common customization
+
+These are some common customizations you may want to do, based on the issue:
 
 - `Event Type` to `Transfer` if you are sending money to a friend / (another account you own) and don't want the event to be taxable. The `Event Subtype` should be `None` in that case.
 - `Event Type` to `Deposit` / `Withdrawal` and `Event Subtype` to `Deposit Asset` / `Remove Asset` if you are depositing or withdrawing assets from an exchange or a protocol. Then this event won't be considered taxable in P&L reports. Currently rotki doesn't detect deposits / withdrawals automatically for all exchanges and protocols.
