@@ -8,6 +8,7 @@ Currently, these events are detected automatically by rotki:
 
 - Transactions from registered **EVM accounts** (except Avalanche).
 - Transactions from registered **Bitcoin** and **Bitcoin Cash** accounts.
+- Transactions from registered **Solana** accounts.
 - Events from registered exchanges.
 - ETH withdrawal events
 - ETH block events
@@ -19,9 +20,10 @@ Additionally, you can add your custom events.
 
 ## Events filtering
 
-History events can be filtered if you have a premium subscription activated. You can filter by:
+History events can be filtered with these advanced filters.
+The filters will persist, meaning if you go to another page or log out, the last filter will still be applied when you open the history events page.
 
-- Account (a tracked blockchain address)
+- Accounts (tracked blockchain / exchange accounts)
 - Time range
 - Asset involved in the transaction
 - Protocol that interacted in the transaction
@@ -30,7 +32,7 @@ History events can be filtered if you have a premium subscription activated. You
 - Event subtype (fee, spend, etc.)
 - Entry type (EVM event, ETH block event, etc.)
 - Counterparty address
-- Tx hash of a particular transaction that you want to check
+- Tx hash/signature of a particular transaction that you want to check
 - Index of an eth2 validator that you want to see events for
 - Show only customized events
 - Show entries with ignored assets
@@ -88,13 +90,13 @@ Refreshes events from specific protocols such as Monerium and Gnosis Pay, pullin
 
 ![Refreshing protocols events](/images/refreshing_protocols_events.png)
 
-## Redecoding EVM transactions
+## Redecoding blockchain transactions
 
-It is possible that you need to redecode events for an EVM transaction. To do that you have two options. The first of them is to click on the three dots to display the options for an EVM transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them. If there are any custom events in the transaction, there will be one more confirmation, asking whether to also reset these custom events or not.
+It is possible that you need to redecode events for blockchain transactions (EVM and Solana). To do that you have two options. The first of them is to click on the three dots to display the options for an transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them. If there are any custom events in the transaction, there will be one more confirmation, asking whether to also reset these custom events or not.
 
-![Redecode events for an EVM transaction](/images/redecode_events.png)
+![Redecode events for an transaction](/images/redecode_events.png)
 
-The second option is to redecode all EVM transactions that have been queried. To do so you need to click on `Redecode EVM Events` at the top of the page.
+The second option is to redecode all transactions that have been queried. To do so you need to click on `Redecode All Transactions` at the top of the page.
 
 ![Menu to redecode all queried EVM transactions events](/images/redecode_all_events.png)
 
