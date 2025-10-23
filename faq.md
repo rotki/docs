@@ -98,13 +98,9 @@ Please, make sure all your accounts have the "Allow data sync with rotki Server"
 
 If you just registered your ENS name and you don't see the name and/or avatar being properly displayed in rotki, then that means that the value is cached and you need to force a refresh. You can do that by going to `Accounts → EVM Accounts` view and pressing the refresh button on the top.
 
-### PnL report generation gets stuck
+### Issues related to PnL report generation
 
-There are some known reasons why PnL report generation gets stuck:
-
-1. If you have a Binance API key registered, please check these notes about [Binance API key rate limiting](/usage-guides/api-keys.md#market-pairs-required)
-
-If your PnL report is stuck for a different reason, contact us in [Discord](https://discord.rotki.com)
+You can go to [PnL report creation problems](/usage-guides/pnl#pnl-report-creation-problems)
 
 ### I receive a notification error: `can't deserialize XXX,  unknown asset YY found`
 

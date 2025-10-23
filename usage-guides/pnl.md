@@ -126,6 +126,18 @@ This can happen for many reasons. The asset may have been acquired in a non-supp
 
 The way to fix it is to add either a [manual trade](/usage-guides/historical-events.html#adding-manual-trades) to tell rotki how you acquired that asset or an acquisition history event.
 
+### Event counted as taxable / count as spend where they shouldn't
+
+If you have an event that is counted as taxable / counts as spend when it shouldn't, you may need to edit the event type / subtype of the event. Read: [Common customization](/usage-guides/historical-events.html#common-customization)
+
+### PnL report generation gets stuck
+
+There are some known reasons why PnL report generation gets stuck:
+
+1. If you have a Binance API key registered, please check these notes about [Binance API key rate limiting](/usage-guides/api-keys.md#market-pairs-required)
+
+If your PnL report is stuck for a different reason, contact us in [Discord](https://discord.rotki.com)
+
 ### Error when importing CSV formulas to Google Docs
 
 This is caused by the different Google Doc language configurations.
