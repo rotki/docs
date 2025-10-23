@@ -78,9 +78,9 @@ To view transactions with ignored assets, enable `Show entries with ignored asse
 
 For more information on un-ignoring and optionally whitelisting assets, see [My asset is not showing in rotki](/faq.html#my-asset-is-not-showing-in-rotki) above.
 
-### Transactions for an EVM chain are missing
+### Events are missing
 
-If you notice that some transactions are missing for an EVM chain, you can re-pull transactions for a specific time range. See [Re-Pulling transactions missed in the past](/usage-guides/historical-events.md#re-pulling-transactions-missed-in-the-past) for detailed instructions.
+If you notice that some events are missing for an EVM chain or from exchanges, you can re-pull events for a specific time range. See [Re-pulling events missed in the past](/usage-guides/historical-events.md#re-pulling-events-missed-in-the-past) for detailed instructions.
 
 ### My balances are not showing after importing my history/creating history events
 

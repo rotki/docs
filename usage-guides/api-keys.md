@@ -149,6 +149,8 @@ After following these steps, your balances in the dashboard will be updated incl
 
 ### Monerium
 
+You can integrate Monerium with rotki to import your transaction data. This feature is only available for premium users.
+
 As long as you provide Monerium credentials, all Monerium transactions on Mainnet, Polygon, and Gnosis chain will be decorated with bank data (or chain bridging data), which you can also see in the Monerium app.
 
 1. For bank transfers from/to your address, you will be able to see the destination/source IBAN along with the memo of the transfer.
@@ -156,35 +158,52 @@ As long as you provide Monerium credentials, all Monerium transactions on Mainne
 
 ![Monerium decorated transactions](/images/monerium_transactions.png)
 
-> **Note**: Monerium API can only use basic authentication at the moment. We are in contact with their team and they will add API keys eventually. But for now, they only have basic authentication, which means your username and password are stored in rotki (encrypted). Take necessary security precautions and don't use unless you understand the potential risks.
+#### Adding Monerium OAuth Token
+
+![Monerium get access token](/images/monerium_get_access_token.png)
+![Monerium OAuth](/images/monerium_oauth.png)
+
+To connect your Monerium account:
+
+1. **Get Access Token:**
+   - In rotki, navigate to `API Keys → External Services → Monerium`.
+   - Click the **Get access token** button.
+
+2. **Complete OAuth Flow:**
+   - You will be redirected to rotki.com to connect via Monerium OAuth.
+   - Follow the authentication flow on the Monerium OAuth page.
+
+3. **Return to rotki:**
+   - **Standard mode**: You will be automatically redirected back to the app after completing the OAuth flow.
+   - **Docker mode**: You will need to manually copy the access token and refresh token from the OAuth page and input them into rotki.
+
+4. **Redecode Transactions:**
+   - After successfully adding your Monerium credentials, you need to redecode the Monerium transactions in the history events section to see the updated bank data.
+
+> **Note**: The Monerium credentials only provide read-only access to your Monerium data. The OAuth authentication flow described above is mandated by Monerium's API requirements, not a design choice by rotki. rotki simply integrates with their authentication system as required.
 
 ### Gnosis Pay
 
+![Gnosis Pay SIWE](/images/gnosis_pay_siwe.png)
+
 You can integrate Gnosis Pay with rotki to import your transaction data. This feature is only available for premium users.
 
-#### Adding Gnosis Pay Session Token
+#### Adding Gnosis Pay Access Token
 
-To add your Gnosis Pay session token:
+To connect your Gnosis Pay account:
 
-1. **Login to Gnosis Pay:**
-   - Go to [Gnosis Pay](https://old.gnosispay.com/dashboard) and log in to your account.
+1. **Connect Wallet:**
+   - In rotki, navigate to `API Keys → External Services → Gnosis Pay`.
+   - Click the **Sign in with Ethereum** button.
+   - Connect the wallet that controls the Safe wallet of your Gnosis Pay account.
 
-2. **Retrieve the Session Token:**
-   - Open your browser's developer tools (right-click on the page and select `Inspect` or press `F12` / `Ctrl+Shift+I`/`Cmd+Option+I`).
-   - Go to the **Application** tab in the developer tools.
-   - In the **Storage** section on the left sidebar, click on **Cookies** and select `https://old.gnosispay.com` (marked as **1** in the image).
-   - Look for the cookie named `__Secure-authjs.session-token` in the list (marked as **2** in the image).
-   - Copy the value of the cookie from the **Cookie Value** section at the bottom (marked as **3** in the image).
+2. **Sign Message:**
+   - Sign the message to authenticate and get the access token.
 
-   ![Retrieve Gnosis Pay Session Token](/images/gnosispay_add_key.png)
+3. **Redecode Transactions:**
+   - After successfully connecting your Gnosis Pay account, you need to redecode the Gnosis Pay transactions in the history events section to enrich the transaction details.
 
-3. **Add Session Token to rotki:**
-   - In rotki, navigate to `API Keys → External Services`.
-   - Scroll to the **Gnosis Pay** section.
-   - Paste the session token into the **Session Token** field.
-   - Click **Save**.
-
-> **Note**: The session token only provides read-only access to your Gnosis Pay data
+> **Note**: The access token only provides read-only access to your Gnosis Pay data. The "Sign in with Ethereum" authentication process described above is mandated by Gnosis Pay's API requirements, not a design choice by rotki. rotki simply integrates with their authentication system as required.
 
 ### The Graph
 

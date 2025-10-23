@@ -152,7 +152,7 @@ There are two options to reset the assets database:
 
 ![Customizing the accounting rules](/images/sc_accounting_custom_rule.png)
 
-By choosing the "Accounting" settings button, you can customize application settings related to accounting calculations.
+In this accounting menu, you can customize application settings related to accounting calculations. These settings will affect the PnL report calculations.
 
 > [!IMPORTANT]
 > Before changing any settings:
@@ -169,9 +169,22 @@ By choosing the "Accounting" settings button, you can customize application sett
 
 You can change these settings to match your country's tax requirements.
 
-### Custom Accounting Rules
+### Add/Edit Accounting Rules
 
-Customize accounting rules based on `Event type`, `Event sub type`, and `Counterparty`.
+![Add new accounting rules](/images/sc_accounting_add_rule.png)
+
+You can add or edit accounting rules based on `Event type`, `Event subtype`, and `Counterparty`.
+
+### Special Accounting Rules For Specific Events
+
+![Special Accounting Rules](/images/sc_accounting_rules_special.png)
+
+You can set custom accounting rules for individual events or groups of events directly from the History Events page. This allows you to override the default accounting behavior for specific events.
+
+There are two ways to apply special rules:
+
+- Use the [Edit accounting rule](/usage-guides/historical-events.html#edit-accounting-rule) menu for individual events
+- Use [Select multiple events](/usage-guides/historical-events.html#select-multiple-events) to apply rules to multiple events at once
 
 ### Trade Settings
 

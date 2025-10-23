@@ -8,6 +8,7 @@ Currently, these events are detected automatically by rotki:
 
 - Transactions from registered **EVM accounts** (except Avalanche).
 - Transactions from registered **Bitcoin** and **Bitcoin Cash** accounts.
+- Transactions from registered **Solana** accounts.
 - Events from registered exchanges.
 - ETH withdrawal events
 - ETH block events
@@ -19,9 +20,10 @@ Additionally, you can add your custom events.
 
 ## Events filtering
 
-History events can be filtered if you have a premium subscription activated. You can filter by:
+History events can be filtered with these advanced filters.
+The filters will persist, meaning if you go to another page or log out, the last filter will still be applied when you open the history events page.
 
-- Account (a tracked blockchain address)
+- Accounts (tracked blockchain / exchange accounts)
 - Time range
 - Asset involved in the transaction
 - Protocol that interacted in the transaction
@@ -30,23 +32,11 @@ History events can be filtered if you have a premium subscription activated. You
 - Event subtype (fee, spend, etc.)
 - Entry type (EVM event, ETH block event, etc.)
 - Counterparty address
-- Tx hash of a particular transaction that you want to check
+- Tx hash/signature of a particular transaction that you want to check
 - Index of an eth2 validator that you want to see events for
 - Show only customized events
 - Show entries with ignored assets
 - Should match exact filter (whether to only show the events that match the filter, excluding the other events in the same group)
-
-![History events query status](/images/events_filter.png)
-
-## Export history events as CSV
-
-Events can be exported as CSV, click on `Export CSV` button and accept prompt to download exported events.
-
-![Button to download events as csv](/images/events_csv_export.png)
-
-## Ignore events in accounting
-
-By default, all events will be processed in accounting, but you can ignore unwanted events, so they won't be processed. You can click on the three dots to display the options for the group of events, and click `Ignore events in accounting`/`Unignore events in accounting`.
 
 ## Refreshing Events
 
@@ -62,7 +52,7 @@ To see the status, you can click the button here:
 
 ![See query status](/images/see_query_status.png)
 
-Basically, what happens when you refresh the transactions/events are:
+Basically, what happens when you refresh the transactions/events is:
 
 1. It will query the transactions from the "last queried time" to the current time.
 2. For EVM events, after rotki queries these new transactions, it will try to decode them.
@@ -88,13 +78,13 @@ Refreshes events from specific protocols such as Monerium and Gnosis Pay, pullin
 
 ![Refreshing protocols events](/images/refreshing_protocols_events.png)
 
-## Redecoding EVM transactions
+## Redecoding blockchain transactions
 
-It is possible that you need to redecode events for an EVM transaction. To do that you have two options. The first of them is to click on the three dots to display the options for an EVM transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them. If there are any custom events in the transaction, there will be one more confirmation, asking whether to also reset these custom events or not.
+It is possible that you need to redecode events for blockchain transactions (EVM and Solana). To do that you have two options. The first of them is to click on the three-dots `⋮` menu to display the options for an transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them. If there are any custom events in the transaction, there will be one more confirmation, asking whether to also reset these custom events or not.
 
-![Redecode events for an EVM transaction](/images/redecode_events.png)
+![Redecode events for an transaction](/images/redecode_events.png)
 
-The second option is to redecode all EVM transactions that have been queried. To do so you need to click on `Redecode EVM Events` at the top of the page.
+The second option is to redecode all transactions that have been queried. To do so you need to click on `Redecode All Transactions` at the top of the page.
 
 ![Menu to redecode all queried EVM transactions events](/images/redecode_all_events.png)
 
@@ -108,7 +98,15 @@ You will see the status of the EVM events redecoding.
 
 EVM Transactions and the events can be deleted, but to restore them you will have to either purge all transactions or add by the transaction hash.
 
-## Delete event
+![History events query status](/images/events_filter.png)
+
+## Export history events as CSV
+
+Events can be exported as CSV, click on `Export CSV` button and accept prompt to download exported events.
+
+![Button to download events as csv](/images/events_csv_export.png)
+
+## Delete transactions & events
 
 ![Menu to delete EVM transactions events](/images/delete_transaction_events.png)
 
@@ -118,16 +116,17 @@ EVM Transactions and the events can be deleted, but to restore them you will hav
 
 If you want to add a transaction that was either deleted or for some reason missed, or was not found by rotki, you can add it by transaction hash by clicking the menu as seen in the picture.
 
-## Re-Pulling transactions missed in the past
+## Re-Pulling events missed in the past
 
-It is possible that due to network issues, RPC errors, or other problems, some transactions may have been missed during the initial sync. This can happen when:
+It is possible that due to network issues, RPC errors, or other problems, some events may have been missed during the initial sync. This can happen when:
 
 - An RPC node provided broken information.
 - Etherscan or other indexers had wrong data.
 - Sources used were not fully synced.
 - Other kind of bugs.
 
-You can re-pull EVM transactions for a specific account or all accounts within a selected time range by clicking on the 3 dots menu on the top right and selecting "Repull transactions".
+You can find the menu by clicking the three-dots `⋮` menu in the top right and selecting `Re-pulling Events`.
+You can pull blockchain transaction events and events that come from exchanges.
 
 ![Repull transactions](/images/repull_transactions.png)
 
@@ -135,19 +134,47 @@ If any missed transactions are found, you'll see a notification indicating how m
 
 ![Repulled transactions result](/images/repull_transactions2.png)
 
-After the transactions are pulled, they need to be decoded. You can either:
+After the transactions are pulled, blockchain transactions need to be decoded, while events from exchanges will appear directly. For blockchain transactions, you can either:
 
 - Wait a few moments for automatic decoding
 - Click the refresh button to trigger decoding manually
 - Check the transaction decoding status to monitor progress
 
-Once decoded, the transactions will appear in the history view with all their associated events.
+Once decoded, the blockchain transactions will appear in the history view with all their associated events.
 
 ## Missing accounting rule
 
 If you see this warning button, it means the event won't be processed correctly in accounting. It could be due to improper decoding or a missing accounting rule for that event. You can fix it by editing the event or adding the missing accounting rule. You can also edit the events if they have special meaning to you, such as OTC trades or transfers between accounts.
 
 ![The button indicates that the event won't be processed correctly.](/images/event_not_processed.png)
+
+## Edit accounting rule
+
+![Edit accounting rule](/images/edit_accounting_rule.png)
+
+You can customize how events are processed in accounting by editing their accounting rules. When editing an accounting rule, you have two options:
+
+1. **Apply to all matching events** - Updates all existing events that share the same combination of event type, subtype, and counterparty. This creates a general rule that affects all similar events.
+
+2. **Apply to this specific event only** - Creates a special accounting rule that targets only the selected event, without affecting other similar events.
+
+## Ignore events in accounting
+
+By default, all events will be processed in accounting, but you can ignore unwanted events, so they won't be processed. You can click on the three-dots `⋮` menu to display the options for the group of events, and click `Ignore events in accounting`/`Unignore events in accounting`.
+
+## Select multiple events
+
+You can go to selection mode and select multiple events by clicking this menu in the top left:
+
+![Selection mode](/images/selection_mode.png)
+
+You can perform two actions:
+
+1. Delete the selected events
+2. Set regular accounting rules for specific events
+   - Note: Multiple selected events must have the same entry type/subtype combination to apply custom accounting rules.
+
+![Select multiple events](/images/select_multiple_events.png)
 
 ## Add / edit events
 
