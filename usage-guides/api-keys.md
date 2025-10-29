@@ -178,9 +178,9 @@ To connect your Monerium account:
    - **Docker mode**: You will need to manually copy the access token and refresh token from the OAuth page and input them into rotki.
 
 4. **Redecode Transactions:**
-   - After successfully adding your Monerium credentials, you need to redecode the Monerium transactions in the history events section to see the updated bank data.
+   - After successfully adding your Monerium credentials, you need to redecode the Monerium transactions in the history events section to see the updated bank data. See [Redecoding blockchain transactions](/usage-guides/historical-events#redecoding-blockchain-transactions) for more information on how to redecode transactions.
 
-> **Note**: The Monerium credentials only provide read-only access to your Monerium data. The OAuth authentication flow described above is mandated by Monerium's API requirements, not a design choice by rotki. rotki simply integrates with their authentication system as required.
+> **Note**: The Monerium credentials only provide read-only access to your Monerium data. When you authenticate, Monerium's OAuth consent screen may show that rotki is requesting broad permissions. This is because Monerium's API doesn't currently support granular permission scopes, so all OAuth tokens appear to request full access. However, rotki only performs read-only operations and cannot modify your account, initiate transfers, or make changes to your Monerium data. The OAuth authentication flow described above is mandated by Monerium's API requirements, not a design choice by rotki. rotki simply integrates with their authentication system as required.
 
 ### Gnosis Pay
 
@@ -201,7 +201,7 @@ To connect your Gnosis Pay account:
    - Sign the message to authenticate and get the access token.
 
 3. **Redecode Transactions:**
-   - After successfully connecting your Gnosis Pay account, you need to redecode the Gnosis Pay transactions in the history events section to enrich the transaction details.
+   - After successfully connecting your Gnosis Pay account, you need to redecode the Gnosis Pay transactions in the history events section to enrich the transaction details. See [Redecoding blockchain transactions](/usage-guides/historical-events#redecoding-blockchain-transactions) for more information on how to redecode transactions.
 
 > **Note**: The access token only provides read-only access to your Gnosis Pay data. The "Sign in with Ethereum" authentication process described above is mandated by Gnosis Pay's API requirements, not a design choice by rotki. rotki simply integrates with their authentication system as required.
 

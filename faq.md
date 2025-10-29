@@ -80,7 +80,7 @@ For more information on un-ignoring and optionally whitelisting assets, see [My 
 
 ### Events are missing
 
-If you notice that some events are missing for an EVM chain or from exchanges, you can re-pull events for a specific time range. See [Re-pulling events missed in the past](/usage-guides/historical-events.md#re-pulling-events-missed-in-the-past) for detailed instructions.
+If you notice that some events are missing for a chain or from exchanges, you can re-pull events for a specific time range. See [Re-pulling events missed in the past](/usage-guides/historical-events.md#re-pulling-events-missed-in-the-past) for detailed instructions.
 
 ### My balances are not showing after importing my history/creating history events
 
