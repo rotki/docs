@@ -28,6 +28,8 @@ For now, the following chains are supported in rotki (and the list will be growi
 |                      |                     |                                 |
 | **Substrate Chains** | Polkadot            | dot                             |
 |                      | Kusama              | ksm                             |
+|                      |                     |                                 |
+| **Solana Chains**    | Solana              | solana                          |
 
 ### Steps to Add an Account:
 
