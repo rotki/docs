@@ -84,6 +84,19 @@ export default defineConfig({
         ],
       },
       {
+        text: 'Premium',
+        items: [
+          { text: 'Overview', link: '/premium/' },
+          { text: 'Plans & Pricing', link: '/premium/plans-and-pricing' },
+          { text: 'Payment Process', link: '/premium/payment' },
+          { text: 'Subscription Management', link: '/premium/subscription' },
+          { text: 'API Keys & Secrets', link: '/premium/api-keys' },
+          { text: 'Payment Methods', link: '/premium/payment-methods' },
+          { text: 'Device Management', link: '/premium/devices' },
+          { text: 'Referral Program', link: '/premium/referrals' },
+        ],
+      },
+      {
         text: 'Frequently Asked Questions',
         items: [
           { text: 'Application', link: '/faq#questions-on-the-application' },

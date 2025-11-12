@@ -36,11 +36,35 @@ If you like rotki, you can support us with a premium subscription and you not on
 
 Short answer: **No**
 
-At rotki, we believe in building sustainable, long-term software that delivers continuous value to our users. Offering a lifetime subscription may sound appealing on the surface, but in reality, it’s a model that often leads to the collapse of the very products it’s meant to support. Many companies that adopt this approach either shut down within a few years or abandon the product once the initial influx of revenue dries up.
+At rotki, we believe in building sustainable, long-term software that delivers continuous value to our users. Offering a lifetime subscription may sound appealing on the surface, but in reality, it's a model that often leads to the collapse of the very products it's meant to support. Many companies that adopt this approach either shut down within a few years or abandon the product once the initial influx of revenue dries up.
 
 rotki has been around since 2017, delivering continuous, original improvements every month. Offering a lifetime subscription would require us to put a fixed price on the indefinite future work of our entire team, which is simply not realistic or fair. Building and maintaining a privacy-respecting, local-first, open-source financial tool involves real and growing costs.
 
-It’s also worth noting that our current pricing model hasn’t changed since 2017. We’re currently re-evaluating it to better reflect the actual cost of development, support, and infrastructure, especially in light of inflation and the expanded scope of what rotki offers today. Our goal is to keep rotki accessible while ensuring its long-term health and independence.
+It's also worth noting that our current pricing model hasn't changed since 2017. We're currently re-evaluating it to better reflect the actual cost of development, support, and infrastructure, especially in light of inflation and the expanded scope of what rotki offers today. Our goal is to keep rotki accessible while ensuring its long-term health and independence.
+
+### How do I manage my premium subscription?
+
+You can manage your premium subscription, payment methods, devices, and referrals through your rotki.com account. See the [Premium documentation](/premium/) for detailed guides on:
+
+- [Managing your subscription](/premium/subscription) - View payment history, cancel subscription
+- [Payment methods](/premium/payment-methods) - Add, remove, or change cards
+- [Device management](/premium/devices) - Manage device limits
+- [Referral program](/premium/referrals) - Create and share referral codes
+
+### How do device limits work?
+
+Each premium tier has a device limit. You can manage your devices from the app (**Settings → Account → Premium Devices**) or from the [website](https://rotki.com/home/devices).
+
+If you exceed your device limit, remove unused devices to continue using rotki. See [Device Management](/premium/devices) for more information.
+
+### Need help with premium?
+
+If you have questions about premium subscriptions, payment, billing, or account management:
+
+- Check the answers above in this FAQ section
+- Visit the [Premium documentation](/premium/) for detailed guides
+- Contact support at [info@rotki.com](mailto:info@rotki.com)
+- Join our [Discord community](https://discord.rotki.com)
 
 ## Questions on Roadmap and Features
 
