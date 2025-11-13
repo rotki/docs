@@ -323,6 +323,11 @@ In this menu you can also edit, delete or add more nodes.
 
 > Set the RPC endpoint for the Ethereum consensus layer beacon node. If unreachable, beaconcha.in will be used. For DAppNode Ethereum validator users, find the RPC node setting in the DAppNode Package for the Execution Client.
 
+#### Connecting to a Bitcoin Mempool instance
+
+> A local Bitcoin node can be used to query balances and transactions via [Mempool](https://mempool.space)'s API. [Mempool](https://github.com/mempool/mempool) is an open source project that can be self-hosted on Bitcoin nodes. It is readily available to install on many full-node distros such as Umbrel or Raspiblitz. Mempool uses port 4080 by default. Please include this when setting the endpoint (e.g. `http://localhost:4080`). Other custom ports should also work.
+> Please note that transaction querying is currently not supported and historical transaction fetching will fail. Only address balance querying is supported when using a custom mempool instance.
+
 ## Module Settings
 
 Choose the "Module" section of the settings to customize the enabled modules and the queried addresses for each module.
