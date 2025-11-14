@@ -15,8 +15,6 @@ You must have an active premium subscription to create and share referral codes.
 
 ## Creating a Referral Code
 
-### Create Your Code
-
 1. Go to your [subscription page](https://rotki.com/home/subscription)
 2. Navigate to the **Referral** section
 3. Click **Create**
@@ -24,8 +22,6 @@ You must have an active premium subscription to create and share referral codes.
 5. Copy and share your code
 
 ## Using a Referral Code
-
-### For New Subscribers
 
 If someone shared a referral code with you:
 
@@ -55,7 +51,6 @@ For referees:
 - 10% discount applies to first subscription only
 - One referral code per subscription
 - Cannot be combined with other promotions (unless specified)
-- Discount is forfeited if subscription is immediately canceled
 
 ## Troubleshooting
 

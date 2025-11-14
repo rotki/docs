@@ -1,24 +1,22 @@
-# API Keys & Secrets
+# API Credentials
 
-rotki premium uses API Keys and Secrets to connect your subscription to the rotki application. This guide explains how to create, manage, and secure your API credentials.
+rotki premium uses API credentials to connect your subscription to the rotki application. This guide explains how to create, manage, and secure your API credentials.
 
-## What are rotki Premium API Keys?
+## What are rotki Premium API Credentials?
 
-API Keys and Secrets are authentication credentials that:
+The API Key and Secret are authentication credentials that:
 
 - Link your rotki app to your premium subscription
 - Enable premium features in the application
 - Allow cloud backup and sync across devices
 - Identify your account for device limit management
 
-## Creating API Keys
-
-### First-Time Creation
+## Creating API Credentials
 
 After purchasing a subscription, you need to manually generate your API credentials:
 
 1. Go to your [subscription page](https://rotki.com/home/subscription)
-2. Navigate to the **API Keys** section
+2. Navigate to the **API Credentials** section
 3. Click the **Create** button
 4. Your credentials will be generated and displayed:
    - **API Key** - Your public identifier
@@ -26,32 +24,23 @@ After purchasing a subscription, you need to manually generate your API credenti
 5. You can view both credentials anytime from your subscription page
 
 ::: info Manual Generation Required
-API Keys and Secrets are not automatically created after payment. You must click the button to generate them for the first time.
+API Credentials are not automatically created after payment. You must click the button to generate them for the first time.
 :::
 
-### Where to Find Existing Keys
-
-You can view both your API Key and Secret anytime:
-
-1. Visit your [subscription page](https://rotki.com/home/subscription)
-2. Look in the API Keys section
-3. Both your API Key and Secret will be displayed
-
-## Using API Keys in the App
+## Using API Credentials in the App
 
 After creating your API credentials, add them to rotki:
 
 1. Open the rotki application
 2. Navigate to **API Keys** → **rotki Premium** in the sidebar
-3. Enter your **API Key**
-4. Enter your **API Secret**
-5. Click **Save**
+3. Enter your **API Key** and **API Secret**
+4. Click **Setup**
 
-For detailed app setup instructions, see the [API Keys Usage Guide](/usage-guides/api-keys#rotki-premium).
+![Set up rotki premium API key/secret pair in an existing account](/images/rotki_premium_set.png)
 
-## Managing API Keys
+## Managing API Credentials
 
-### Viewing Your Keys
+### Viewing Your Credentials
 
 From your [subscription page](https://rotki.com/home/subscription):
 
@@ -59,7 +48,7 @@ From your [subscription page](https://rotki.com/home/subscription):
 - You can copy them anytime you need
 - You can see when the key was created
 
-### Regenerating Keys
+### Regenerating Credentials
 
 If you need to create new credentials:
 
@@ -105,29 +94,11 @@ If you believe your API credentials have been exposed:
 
 ## API Keys and Device Limits
 
-Each premium tier has a device limit. When you add your API credentials to rotki:
+Each premium tier has a device limit. Each rotki app account where you add your
+API credentials is registered as a new device and counts toward your device limit.
 
-- The device is registered to your account
-- It counts toward your device limit
-- You can view and manage devices from the [devices page](/premium/devices)
-
-### Checking Device Usage
-
-From your [subscription page](https://rotki.com/home/subscription):
-
-- View current device count
-- See your tier's device limit
-- Access the [device list](https://rotki.com/home/devices) for details
-
-### Device Limit Exceeded
-
-If you reach your device limit:
-
-- New devices cannot authenticate
-- You'll see an error in the rotki app
-- Remove unused devices to free up slots
-
-See [Device Management](/premium/devices) for details on managing devices.
+For more information about managing your devices, device limits, and what to do
+when you exceed your device limit, see the [Device Management](/premium/devices) documentation.
 
 ## Troubleshooting
 
@@ -158,6 +129,10 @@ If premium features aren't activating:
 3. Ensure you haven't exceeded your device limit
 4. Try removing and re-adding the credentials
 5. Check the app logs for specific errors
+
+When premium is successfully activated in the app you should see a `rotki Premium is active` banner in the rotki Premium view.
+
+![Active rotki premium](/images/active_premium.png)
 
 ### Multiple Devices Not Syncing
 

@@ -1,6 +1,6 @@
 # Premium Overview
 
-rotki premium is a paid subscription tier that unlocks additional features while supporting the ongoing development of rotki as an open-source project.
+rotki premium is a paid subscription with several tiers unlocking additional features depending on your needs while supporting the ongoing development of rotki as an open-source project.
 
 ## What is rotki Premium?
 
@@ -13,7 +13,7 @@ When you subscribe to rotki premium, you get:
 - Cloud backup and sync across multiple devices
 - Premium-only integrations (Monerium, Gnosis Pay, etc.)
 - Priority support
-- And more premium features
+- And more
 
 To see the complete list of premium features and current pricing, visit [rotki.com/products](https://rotki.com/products/).
 
@@ -33,28 +33,26 @@ See [Plans & Pricing](/premium/plans-and-pricing) for details.
 
 Choose from three payment methods:
 
-- **Crypto** - Manual transfer (non-renewable)
-- **Credit/Debit Card** - Auto-renewable via Braintree
+- **Crypto** - Manual transfer (renewal is done manually)
+- **Credit/Debit Card** - Auto-renewable
 - **PayPal** - Auto-renewable
 
 See [Payment Process](/premium/payment) for step-by-step instructions.
 
 ### 3. Generate Your API Keys
 
-After successful payment, you need to generate your API Key and Secret:
+After successful payment, generate your **API Key** and **API Secret**
+by clicking the **Create** button on your [subscription page](https://rotki.com/home/subscription).
 
-1. Go to your [subscription page](https://rotki.com/home/subscription)
-2. Click the button to create/generate API credentials
-3. Your API Key and Secret will be displayed
-4. You can view both credentials anytime on this page
-
-See [API Keys & Secrets](/premium/api-keys) for detailed instructions on creating and managing your keys.
+For detailed instructions, see [Creating API Keys](/premium/api-keys.html#creating-api-keys).
 
 ### 4. Add Keys to the App
 
-Input your API Key and Secret into the rotki application to activate premium features.
+Navigate to **API Keys** → **rotki Premium** in the rotki application and enter the
+**API Key** and **API Secret** generated in the last step to activate the premium features
+included in your subscription.
 
-For detailed instructions, see [API Keys in the Usage Guide](/usage-guides/api-keys#rotki-premium).
+For detailed instructions, see [Using API Keys in the App](/premium/api-keys.html#using-api-keys-in-the-app).
 
 ## Managing Your Premium Subscription
 

@@ -1,55 +1,16 @@
 # API Keys
 
 In this section, we will explain various API Keys you can add to rotki.
-Go to `API Keys` menu in the sidebar.
+Go to the `API Keys` menu in the sidebar.
 
 ## rotki Premium
 
-You can input the API Key and API Secret needed for rotki premium.
-
-### Getting Premium
-
-If you don't have a premium subscription yet, you can subscribe at [rotki.com/products](https://rotki.com/products/). For detailed information about premium plans, pricing, and payment options, see the [Premium documentation](/premium/).
-
-### Adding API Keys
-
-If you already have a subscription, you can find your API key and secret on your [subscription page](https://rotki.com/home/subscription). For more details on managing your subscription, API keys, and premium features, see [Premium Subscription Management](/premium/subscription).
-
 ![Set up rotki premium API key/secret pair in an existing account](/images/rotki_premium_set.png)
 
-To replace or disassociate keys with your current account after setting up premium, you can regenerate them from the same page by clicking **Regenerate**.
+A rotki premium subscription is activated in the app by adding your **API Key** and **API Secret**.
+If you don't have a premium subscription yet, you can subscribe at [rotki.com/products](https://rotki.com/products/).
 
-![Regenerate rotki premium API key/secret pair in a premium account](/images/rotki_premium_set_sync_data.png)
-
-### Device Limits
-
-Premium subscriptions have device limits based on your plan tier. You can manage your devices both from the app (see [Managing Premium Devices](#managing-premium-devices) below) and from the [website](/premium/devices).
-
-If you exceed the device limit, you'll see an error in the app. You'll need to remove some devices to continue using rotki with your premium subscription.
-
-### Managing Premium Devices
-
-Premium subscriptions include a device limit based on your selected tier. You can view and manage your devices directly from the app:
-
-1. Go to **Settings** → **Account** → **Premium Devices**
-2. Here you can:
-   - View all devices currently using your API key
-   - See how many devices are active vs. your limit
-   - Edit device names for easier identification
-   - Remove devices you no longer use
-
-![Premium devices management in the app](/images/premium_devices_app.png)
-
-#### Device Limit Exceeded
-
-If you try to use rotki on a new device and have reached your limit, you'll see an error message. To resolve this:
-
-1. Open rotki on any currently active device
-2. Go to **API Keys** → **rotki Premium** → **Devices list**
-3. Remove devices you no longer use
-4. Alternatively, manage devices from the [website device list page](https://rotki.com/home/devices)
-
-For more information about device limits per tier and managing devices via the website, see [Device Management](/premium/devices).
+For detailed information about premium plans, pricing, payment options, and how to use your premium API key see the [Premium documentation](/premium/).
 
 ## Exchanges API Keys
 

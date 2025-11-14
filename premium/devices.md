@@ -4,31 +4,15 @@ Manage devices using your rotki premium subscription and understand device limit
 
 ## What are Device Limits?
 
-Each rotki premium tier includes a limit on how many devices can use the same API Key and Secret simultaneously. This prevents unauthorized sharing while allowing you to use rotki on multiple devices you own.
+Each rotki premium tier includes a limit on how many devices can use the same rotki API credentials simultaneously. This prevents unauthorized sharing while allowing you to use rotki on multiple devices you own.
 
 Device limits vary by tier - check the [pricing page](https://rotki.com/pricing) for your tier's specific limit.
 
-## Accessing Device Management
+## Viewing Your Devices
 
 You can manage devices from two locations:
 
-### Website (rotki.com)
-
-Visit the [devices list page](https://rotki.com/home/devices) to manage devices online.
-
-### rotki Application
-
-Manage devices directly from the app:
-
-1. Open rotki
-2. Go to **Settings** → **Account** → **Premium Devices**
-3. View and manage all registered devices
-
-For detailed app instructions, see [Managing Premium Devices](/usage-guides/api-keys#managing-premium-devices).
-
-## Viewing Your Devices
-
-### On the Website
+**On the Website:**
 
 From the [devices list page](https://rotki.com/home/devices), you can see:
 
@@ -38,36 +22,32 @@ From the [devices list page](https://rotki.com/home/devices), you can see:
 - **Current count** - How many devices are active
 - **Your limit** - Maximum allowed for your tier
 
-### In the App
+**In the App:**
 
-From **Settings** → **Account** → **Premium Devices**:
+From **API Keys** → **rotki Premium**:
 
 - View all devices using your API credentials
 - See active device count vs. your limit
 - Identify which device you're currently using
 - Access device management options
 
-## Managing Device Names
+![Premium devices management in the app](/images/premium_devices_app.png)
 
-### Editing Device Names
+For detailed app instructions, see [Managing Premium Devices](/usage-guides/api-keys#managing-premium-devices).
+
+## Editing Device Names
 
 Device names help you identify which device is which (e.g., "Work Laptop", "Home Desktop", "MacBook Pro").
 
-**On the Website:**
-
-1. Go to the [devices list page](https://rotki.com/home/devices)
-2. Find the device you want to rename
-3. Click **Edit** or the edit icon
-4. Enter a new name
-5. Click **Save**
-
-**In the App:**
-
-1. Go to **Settings** → **Account** → **Premium Devices**
+1. Navigate to **API Keys** → **rotki Premium** in the sidebar of the App
 2. Find the device to rename
 3. Click the edit option
 4. Enter a new name
 5. Save changes
+
+![Edit device name](/images/edit_device_name.png)
+
+![Edit device name dialog](/images/edit_device_name_dialog.png)
 
 ::: tip Naming Strategy
 Use descriptive names to easily identify devices:
@@ -122,7 +102,7 @@ If you try to use rotki on a new device after reaching your limit:
 - Premium features won't activate
 - The app may prompt you to manage devices
 
-### Resolving Device Limit Issues
+### What to Do When You Exceed the Limit
 
 To continue using rotki on a new device:
 
@@ -146,11 +126,7 @@ For detailed troubleshooting, see the [Usage Guide](/usage-guides/api-keys#devic
 
 ### When is a Device Registered?
 
-A device is registered when you:
-
-1. Add rotki premium API credentials to the app
-2. Successfully authenticate
-3. The app connects to rotki servers
+A device is registered when you add rotki premium API credentials to the app and successfully authenticate with rotki servers.
 
 ### How Devices are Identified
 
@@ -197,17 +173,9 @@ Avoid running rotki on multiple devices at the same time to prevent data sync co
 
 To see your tier's device limit:
 
-**Option 1: Subscription Page**
-
-Visit your [subscription page](https://rotki.com/home/subscription) to see your current tier and limits.
-
-**Option 2: Pricing Page**
-
-Check the [pricing page](https://rotki.com/pricing) for device limits across all tiers.
-
-**Option 3: Devices Page**
-
-The [devices list page](https://rotki.com/home/devices) shows your current count and limit.
+- Visit your [subscription page](https://rotki.com/home/subscription) to see your current tier and limits.
+- Check the [devices list page](https://rotki.com/home/devices) to view a list of all your current devices.
+- Navigate to **API Keys** → **rotki Premium** in the app to see your limit and a list of your current devices.
 
 ## Troubleshooting
 

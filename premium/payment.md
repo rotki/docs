@@ -107,27 +107,15 @@ After completing payment:
 2. An invoice will be generated and available on your [subscription page](https://rotki.com/home/subscription)
 3. Your premium subscription is now active
 
-## Step 5: Generate Your API Keys
+## Step 5: Activate your subscription in the App
 
-After successful payment, you need to manually generate your API credentials:
+After successful payment, you need to manually generate your API credentials and
+add them to the rotki application.
 
-1. Go to your [subscription page](https://rotki.com/home/subscription)
-2. Click the **Create** button
-3. Your API Key and Secret will be generated and displayed
-4. You can view both credentials anytime from your subscription page
+1. Create your API key via the [subscription page](https://rotki.com/home/subscription)
+2. Navigate to **API Keys** → **rotki Premium** in the app and enter your **API Key** and **API Secret**
 
 See [API Keys & Secrets](/premium/api-keys) for detailed instructions.
-
-## Step 6: Activate Premium in the App
-
-Add your API credentials to the rotki application:
-
-1. Open rotki
-2. Navigate to **API Keys** → **rotki Premium**
-3. Enter your API Key and Secret
-4. Click **Save**
-
-See the [Usage Guide](/usage-guides/api-keys#rotki-premium) for detailed app setup instructions.
 
 ## Invoices and Receipts
 
