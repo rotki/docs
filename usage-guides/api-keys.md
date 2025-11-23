@@ -22,6 +22,7 @@ You can integrate many different exchanges with rotki via API Keys.
 Currently supported exchanges are:
 
 - Kraken
+- Kraken Futures
 - Poloniex
 - Binance
 - Bitmex
