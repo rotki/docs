@@ -1,18 +1,16 @@
 # API Keys
 
 In this section, we will explain various API Keys you can add to rotki.
-Go to `API Keys` menu in the sidebar.
+Go to the `API Keys` menu in the sidebar.
 
 ## rotki Premium
 
-You can input the API Key and API Secret needed for rotki premium.
-If you already subscribe, you will see the API key [here](https://rotki.com/home/subscription)
-
 ![Set up rotki premium API key/secret pair in an existing account](/images/rotki_premium_set.png)
 
-To replace or disassociate keys with your current account after setting up premium, you can delete it in the same page.
+A rotki premium subscription is activated in the app by adding your **API Key** and **API Secret**.
+If you don't have a premium subscription yet, you can subscribe at [rotki.com/products](https://rotki.com/products/).
 
-![Delete rotki premium API key/secret pair in a premium account](/images/rotki_premium_set_sync_data.png)
+For detailed information about premium plans, pricing, payment options, and how to use your premium API key see the [Premium documentation](/premium/).
 
 ## Exchanges API Keys
 
