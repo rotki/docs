@@ -21,8 +21,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     logo: '/logo.png',
     nav: [
-      { text: 'Home', link: '/' },
-      { text: 'Documentation', link: '/requirement-and-installation' },
+      { text: 'Documentation', link: '/' },
       { text: 'Download', link: 'https://rotki.com/download' },
       {
         text: isLatest ? 'Latest' : 'Stable',
@@ -44,9 +43,13 @@ export default defineConfig({
 
     sidebar: [
       {
+        text: 'Introduction',
+        link: '/',
+      },
+      {
         text: 'System Requirements & Installation',
         items: [
-          { text: 'Introduction', link: '/requirement-and-installation/' },
+          { text: 'Installation', link: '/requirement-and-installation/' },
           { text: 'Packaged Binaries', link: '/requirement-and-installation/packaged-binaries' },
           { text: 'Build From Source', link: '/requirement-and-installation/build-from-source' },
         ],
