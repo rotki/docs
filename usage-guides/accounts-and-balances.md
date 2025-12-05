@@ -53,6 +53,11 @@ For now, the following chains are supported in rotki (and the list will be growi
 You can edit or delete an account using the buttons at the end of the row.
 For editing, you can modify the label or the tags.
 
+> [!WARNING] Account detection on Binance SC
+>
+> We verify whether an address should be tracked by querying its on-chain activity through the indexers you have configured.
+> Since Binance Smart Chain is not accessible under the free tier for any supported indexer, a paid Etherscan API key is required to detect activity there. If that key is not provided, BSC address detection will not work.
+
 ### Bitcoin Chains
 
 There are two ways to add your Bitcoin or Bitcoin Cash addresses to rotki:

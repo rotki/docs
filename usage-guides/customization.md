@@ -48,14 +48,6 @@ Choose the "User & Security" section to change the user password.
 
 > Set how often (in hours) the balance data snapshots are saved. This data helps calculate statistics historical and graph data for the user.
 
-#### Treat Staked ETH as ETH
-
-> If enabled, ETH2 (staked ETH) will appear as ETH in the UI, and all tables and charts will combine the values of ETH and ETH2.
-
-#### EVM Chains for Automatic Detection
-
-> Configure which EVM chains should not automatically detect tokens. By default, EVM chains detect activities of all registered EVM accounts in other EVM chains.
-
 #### BTC Derivation Gap Limit
 
 > Set the derivation gap limit for deriving addresses from a bitcoin xpub. More information [here](https://insights.blockonomics.co/bitcoin-what-is-this-gap-limit/).
@@ -276,6 +268,34 @@ The above does not happen.
 #### Have Summary
 
 > Specify whether the all_events CSV export should include a summary of all events and the total profit/loss at the end. This summary would also include the rotki version and the settings used during the PnL report, making it easier to reproduce a report run.
+
+## EVM
+
+![EVM settings](/images/sc_evm_settings.png)
+
+#### Treat Staked ETH as ETH
+
+> If enabled, ETH2 (staked ETH) will appear as ETH in the UI, and all tables and charts will combine the values of ETH and ETH2.
+
+#### EVM Chains for Automatic Detection
+
+> Configure which EVM chains should not automatically detect tokens. By default, EVM chains detect activities of all registered EVM accounts in other EVM chains.
+
+### Indexers
+
+rotki uses several indexers to identify which transactions belong to your tracked addresses. The order used for each chain can be adjusted in the default settings and will apply unless a specific chain configuration overrides it. For example you may want to avoid using etherscan on Optimism and Base if you do not have a paid API key for those networks.
+
+This lets you control which sources are queried and change the configuration if one of them is unreliable for a particular chain.
+
+In addition to querying historical events, indexers are used when detecting onchain activity, for example when you add a new address to all supported EVM chains or when the periodic task performs this check in the background.
+
+At the time of writing the only chain that cannot be queried for free is Binance SC because neither blockscout nor routescan are available and etherscan requires an API key under the Lite plan.
+
+Regarding the need for API keys:
+
+- Etherscan requires an API key in the free tier to perform API calls.
+- Blockscout does not require an API key and has a default limit of 10 requests per second.
+- Routescan offers a free tier comparable to etherscan and does not require an API key.
 
 ## Price Oracle Settings
 
