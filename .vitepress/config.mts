@@ -79,6 +79,7 @@ export default defineConfig({
       {
         text: 'Advanced',
         items: [
+          { text: 'Troubleshooting', link: '/usage-guides/troubleshooting' },
           { text: 'Set the backend\'s arguments', link: '/usage-guides/backend-arguments' },
           { text: 'rotki data directory', link: '/usage-guides/data-directory' },
           { text: 'Accessing the database manually', link: '/usage-guides/accessing-db-manually' },

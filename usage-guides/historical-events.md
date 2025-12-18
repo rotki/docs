@@ -80,15 +80,33 @@ Refreshes events from specific protocols such as Monerium and Gnosis Pay, pullin
 
 ## Redecoding blockchain transactions
 
-It is possible that you need to redecode events for blockchain transactions (EVM and Solana). To do that you have two options. The first of them is to click on the three-dots `⋮` menu to display the options for an transaction and click on `Redecode events`. This will start the process to read the transaction's events again and try to understand what happened in them. If there are any custom events in the transaction, there will be one more confirmation, asking whether to also reset these custom events or not.
+Sometimes you may need to redecode events for blockchain transactions (EVM and Solana).
 
-![Redecode events for an transaction](/images/redecode_events.png)
+### Redecode a single transaction
 
-The second option is to redecode all transactions that have been queried. To do so you need to click on `Redecode All Transactions` at the top of the page.
+1. Click the three-dots `⋮` menu on the transaction row
+2. Click `Redecode events`
+
+This will re-read and re-decode the transaction's events and try to understand what happened. If the transaction contains custom events, you will get an extra confirmation asking whether to also reset these custom events.
+
+![Redecode events for a transaction](/images/redecode_events.png)
+
+::: tip Advanced: Redecode with options
+If you need more control, use `Redecode with options` (button at the right of `Redecode events`) to:
+
+- Select how custom events should be handled by the redecoding logic
+- Choose the priority for indexers that we want to use when re-querying remote information about the transaction
+  :::
+
+### Redecode all queried transactions
+
+To redecode all transactions that have been queried, click `Redecode All Transactions` at the top of the page.
 
 ![Menu to redecode all queried EVM transactions events](/images/redecode_all_events.png)
 
-To see the status of the event's decoding, you can click the menu button and go to `Transaction Decoding Status.`
+### Transaction decoding status
+
+To see the status of event decoding, click the menu button and go to `Transaction Decoding Status`.
 
 ![Menu to redecode events for an EVM transaction](/images/redecode_events_status_button.png)
 
@@ -96,7 +114,9 @@ You will see the status of the EVM events redecoding.
 
 ![EVM events redecoding breakdown](/images/redecode_events_status.png)
 
-EVM Transactions and the events can be deleted, but to restore them you will have to either purge all transactions or add by the transaction hash.
+### Notes
+
+EVM transactions and events can be deleted, but to restore them you will have to either purge all transactions or add by the transaction hash.
 
 ![History events query status](/images/events_filter.png)
 
