@@ -1,8 +1,9 @@
 import type MarkdownIt from 'markdown-it';
 
 // Modified from https://github.com/ulfschneider/markdown-it-fitmedia
+import * as fs from 'node:fs';
 import * as cheerio from 'cheerio';
-import sizeOf from 'image-size';
+import { imageSize } from 'image-size';
 
 interface FitMediaOptions {
   imgDir?: string;
@@ -28,10 +29,10 @@ interface Token {
 }
 
 function getDimensions(src: string, fitMediaOptions: FitMediaOptions): Dimensions {
-  if (fitMediaOptions.imgDir) {
-    return sizeOf(`${fitMediaOptions.imgDir}${src}`);
-  }
-  return sizeOf(src);
+  const filePath = fitMediaOptions.imgDir ? `${fitMediaOptions.imgDir}${src}` : src;
+  const buffer = fs.readFileSync(filePath);
+  const result = imageSize(buffer);
+  return { width: result.width ?? 0, height: result.height ?? 0 };
 }
 
 function styleAspectRatio(style: string | undefined, width: number, height: number): string {
