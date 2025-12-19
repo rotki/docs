@@ -122,13 +122,13 @@ Make sure you have Node.js installed. You can check https://nodejs.org/en/downlo
 
 Check the required PNPM version in `frontend/package.json` under the `packageManager` key. For example, if it says:
 
-```sh
+```json
 {
-  "packageManager": "pnpm@9.9.0"
+  "packageManager": "pnpm@10.0.0"
 }
 ```
 
-It means you need to have pnpm version `9.9.0` installed. To check the current version of pnpm you have, run:
+It means you need to have pnpm version `10.0.0` installed. To check the current version of pnpm you have, run:
 
 ```sh
 pnpm --version
@@ -137,16 +137,10 @@ pnpm --version
 If you are on an older version of pnpm, you can install it by:
 
 ```sh
-pnpm install -g pnpm@9.9.0
-# or if you don't have it installed you can
-npm install -g pnpm@9.9.0
+corepack enable pnpm
 ```
 
-The first time you run pnpm, you need to run:
-
-```sh
-pnpm setup
-```
+This will automatically use the version specified in `packageManager`.
 
 ### Install Node.js Dependencies
 

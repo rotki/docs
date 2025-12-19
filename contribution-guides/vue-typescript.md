@@ -10,21 +10,21 @@ pnpm run --filter rotki test:unit
 
 These are small tests ensuring that parts of the code work well in isolation.
 
-The second type of tests is an end-to-end (`e2e`) test suite using `cypress`. The e2e tests require the Python environment with all dependencies installed because they depend on the actual Python backend. These tests ensure proper e2e functionality and application integration and try to replicate scenarios of real user interaction through the application.
+The second type of tests is an end-to-end (`e2e`) test suite using [Playwright](https://playwright.dev/). The e2e tests require the Python environment with all dependencies installed because they depend on the actual Python backend. These tests ensure proper e2e functionality and application integration and try to replicate scenarios of real user interaction through the application.
 
 To run the e2e tests, use the following command inside the frontend directory:
 
 ```sh
-pnpm run --filter rotki test:integration-ci
+pnpm run --filter rotki test:e2e
 ```
 
 The above command will run the e2e tests in headless mode. If you want to debug specific tests, you can also run:
 
 ```sh
-pnpm run --filter rotki test:integration
+pnpm run --filter rotki test:e2e:ui
 ```
 
-This command will open the Cypress Test Runner window where you can select specific suites to execute.
+This command will open the Playwright UI mode where you can select specific tests to execute and see detailed traces.
 
 ## Linting
 
