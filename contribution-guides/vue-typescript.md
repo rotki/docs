@@ -177,19 +177,24 @@ export const useCounterStore = defineStore('counter', () => {
 });
 ```
 
-### useCssModules
-
-It should be only used if there is some access to the css module class names inside the script tag.
-If the only usage is in the template then use `$style` instead
-
 ### useAttrs
 
 It should be only used if there is some access to the `attrs` inside the script tag.
 If the only usage is in the template part then use `$attrs` instead.
 
-### Style Tag
+### Styling
 
-Initially, the style tag was using scoped SCSS with [BEM](https://getbem.com/naming/) for naming. Any scoped style should eventually be replaced with [CSS Modules](https://vuejs.org/api/sfc-css-features.html#css-modules), and we should simplify naming and move away from BEM.
+Use [Tailwind CSS](https://tailwindcss.com/) utility classes directly in the template for styling components. Avoid using scoped styles, CSS modules, or BEM naming conventions.
+
+```vue
+<template>
+  <div class="flex items-center gap-2 p-4 rounded-lg bg-rui-grey-100">
+    <span class="text-rui-text font-medium">{{ title }}</span>
+  </div>
+</template>
+```
+
+If you encounter components using legacy scoped styles or CSS modules, consider migrating them to Tailwind classes when making changes to those components.
 
 ## Dependencies
 
