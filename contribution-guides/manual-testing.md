@@ -56,27 +56,49 @@ If time allows, test the following on the binaries for all OSes. If not, test on
 - Remove a fiat balance and verify that it works.
 - Check that adding non-numeric or negative values is handled properly.
 
-### Ethereum Accounts
+### EVM Accounts
 
-- Add an Ethereum account and verify that it works.
-- Add an invalid Ethereum account and check that it is handled properly.
-- Remove an Ethereum account and verify that it works.
+- Add an EVM account to a single chain (e.g., Ethereum) and verify that it works.
+- Add an EVM account to all supported chains and verify that it is added to each chain.
+- Add an invalid EVM account and check that it is handled properly.
+- Remove an EVM account and verify that it works.
 - After adding tokens to an account that has them, expand the account and check that all tokens owned by it are shown.
+- Use the chain filter in the aggregated view to filter accounts by specific chains.
+- Toggle between aggregated assets view and per-chain assets view.
 
-### Ethereum Tokens
+### EVM Tokens
 
-- Track an Ethereum token and verify that it is added:
+- Trigger token detection for all EVM accounts and verify tokens are discovered.
+- Trigger token detection for a single chain and verify it works.
+- Trigger token detection for a single account and verify it works.
+- Track an EVM token and verify that it is added:
   - In the dashboard.
   - In the owned tokens.
   - In total blockchain balances.
-  - In the expanded asset details of ETH accounts that own it.
-- Remove an Ethereum token and verify that it is removed from all the above locations.
+  - In the expanded asset details of EVM accounts that own it.
+- Remove an EVM token and verify that it is removed from all the above locations.
 
 ### Bitcoin Accounts
 
-- Add a Bitcoin account and verify that it works.
+- Add a Bitcoin account manually and verify that it works.
 - Add an invalid Bitcoin account and check that it is handled properly.
 - Remove a Bitcoin account and verify that it works.
+- Add an xpub and verify that addresses are automatically discovered.
+- Test different xpub types (P2PKH, P2SH-P2WPKH, WPKH, P2TR) and verify correct address generation.
+- Verify that ypub/zpub formats are automatically detected.
+
+### Substrate Accounts
+
+- Add a Polkadot account and verify that it works.
+- Add a Kusama account and verify that it works.
+- Add an invalid Substrate account and check that it is handled properly.
+- Remove a Substrate account and verify that it works.
+
+### Solana Accounts
+
+- Add a Solana account and verify that it works.
+- Add an invalid Solana account and check that it is handled properly.
+- Remove a Solana account and verify that it works.
 
 ## Tax Report
 
