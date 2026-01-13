@@ -268,7 +268,8 @@ For history event, and EVM history event, if any event was not decoded the way y
 These are some common customizations you may want to do, based on the issue:
 
 - `Event Type` to `Transfer` if you are sending money to a friend / (another account you own) and don't want the event to be taxable. The `Event Subtype` should be `None` in that case.
-- `Event Type` to `Deposit` / `Withdrawal` and `Event Subtype` to `Deposit Asset` / `Remove Asset` if you are depositing or withdrawing assets from an exchange or a protocol. Then this event won't be considered taxable in P&L reports. Currently rotki doesn't detect deposits / withdrawals automatically for all exchanges and protocols.
+- `Event Type` to `Deposit` / `Withdrawal` if you're moving assets between exchanges or wallets. Use `Event Subtype` of `Deposit Asset` / `Remove Asset`. These won't be taxable in P&L reports and ensure balance tracking is accurate.
+- `Event Type` to `Deposit` / `Withdrawal` with `Event Subtype` of `Deposit To Protocol` / `Withdraw From Protocol` if assets are going to or coming from a DeFi protocol (staking, lending, etc.) without receiving wrapped tokens. These won't be taxable in P&L reports and ensure balance tracking is accurate.
 - `Event Type` to `Withdrawal` and `Event Subtype` to `Bridge` if you are receiving something from another chain via some kind of bridge. And `Event Type` to `Deposit` and `Event Subtype` to `Bridge` if you are depositing to a bridge in order to move something to another chain.
 - For a swap: The first event should be `Event Type`: `Trade` and `Event Subtype`: `Spend`, while the second event should be `Event Type`: `Trade` and `Event Subtype`: `Receive`. But in swaps what's also important is the `sequence_index`. They need to be subsequent and the send should come before the receive.
 - `Event Type` to `Spend` / `Receive` and `Event Subtype` to `None` if it is a plain expenditure / receipt.
