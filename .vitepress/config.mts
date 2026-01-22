@@ -74,6 +74,7 @@ export default defineConfig({
           { text: 'Taking Notes In-App', link: '/usage-guides/user-notes' },
           { text: 'Global Search', link: '/usage-guides/global-search' },
           { text: 'Settings', link: '/usage-guides/customization' },
+          { text: 'Help & Support', link: '/usage-guides/help-support' },
         ],
       },
       {
