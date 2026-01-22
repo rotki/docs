@@ -124,6 +124,14 @@ It is also possible to ignore NFTs. To do this navigate to `Balances → NFT Bal
 
 ![Ignoring NFTs](/images/rotki_ignore_nfts.png)
 
+## Mark asset as spam
+
+If you encounter an asset that you believe is spam (such as airdropped scam tokens), you can manually mark it as spam. This will add the asset to the ignored list and help keep your portfolio clean from unwanted tokens.
+
+To mark an asset as spam, navigate to `Manage Assets → Assets`, find the asset you want to mark, and click the arrow button beside the ignore/unignore switch to access the spam option. Once marked as spam, the asset will be treated the same as other ignored assets and will be excluded from all calculations and balance queries. Additionally, spam assets will not be decoded in history events.
+
+![Mark asset as spam](/images/mark_as_spam.png)
+
 ## Whitelisting of ignored assets
 
 Spam assets are a plague in EVM chains. rotki has an automatic algorithm trying to match assets as spam to not bother the user with automatically ignoring them. You can see all ignored assets in `Manage Assets → Assets` and filter by ignored. A problem with automatic algorithms marking something as spam is that mistakes can be made and a legit token may be ignored.
