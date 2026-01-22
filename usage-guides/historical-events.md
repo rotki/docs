@@ -150,9 +150,9 @@ You can pull blockchain transaction events and events that come from exchanges.
 
 ![Repull transactions](/images/repull_transactions.png)
 
-If any missed transactions are found, you'll see a notification indicating how many new transactions were discovered.
+If any missed transactions are found, you'll see a notification indicating how many new transactions were discovered. You can click the action in the notification to view the pulled transactions.
 
-![Repulled transactions result](/images/repull_transactions2.png)
+![Repulled transactions result](/images/repull_transactions_notification.png)
 
 After the transactions are pulled, blockchain transactions need to be decoded, while events from exchanges will appear directly. For blockchain transactions, you can either:
 
