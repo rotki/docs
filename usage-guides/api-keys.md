@@ -19,7 +19,7 @@ For detailed information about premium plans, pricing, payment options, and how 
 You can integrate many different exchanges with rotki via API Keys.
 Currently supported exchanges are:
 
-- Kraken
+- Kraken (Spot and Future)
 - Poloniex
 - Binance
 - Bitmex
