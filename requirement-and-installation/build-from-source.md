@@ -149,12 +149,6 @@ cd frontend
 pnpm install --frozen-lockfile
 ```
 
-If you modified the `@rotki/common` package, you might need to rebuild it:
-
-```sh
-pnpm run --filter @rotki/common build
-```
-
 ### Running rotki
 
 Start the application from the `frontend` directory:
