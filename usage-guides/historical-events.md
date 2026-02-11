@@ -198,7 +198,7 @@ You can perform two actions:
 
 ## Add / edit events
 
-There are 6 types of events in rotki:
+There are 8 types of events in rotki:
 
 :::tabs
 == History Event
@@ -285,3 +285,77 @@ These are some common customizations you may want to do, based on the issue:
 Events that have been modified will appear marked in the UI.
 
 ![Customized events in the UI](/images/customized_events.png)
+
+## Resolving Issues
+
+rotki can detect certain issues with your history events that may affect accounting accuracy. When issues are found, you will see a warning button with a badge showing the total number of issues at the top of the History Events page.
+
+![Issue check button](/images/history_events_issue_check_button.png)
+
+Clicking the button opens a menu where you can check for specific types of issues. Currently, rotki detects the following:
+
+### Unmatched Asset Movements
+
+An unmatched asset movement is an exchange deposit or withdrawal that hasn't been linked to its corresponding on-chain blockchain transaction. For example:
+
+- You **withdraw** from an exchange, but there is no matching **receive** event on a tracked blockchain address.
+- You **deposit** to an exchange, but there is no matching **send** event from a tracked blockchain address.
+
+This can happen when:
+
+- The blockchain address involved is not tracked in rotki.
+- The corresponding on-chain event was missed or not yet synced.
+- There's a significant time or amount difference between the exchange record and the on-chain event.
+- The exchange doesn't provide enough information (such as the blockchain or transaction hash) to automatically link the movement to the corresponding on-chain event, even if that event already exists in your history.
+
+#### How to resolve
+
+![Match asset movements dialog](/images/history_events_unmatched_asset_movements.png)
+
+You have several options to resolve unmatched asset movements:
+
+1. **Auto Match** - Click the `Trigger automatic matching` button to let rotki automatically match movements with corresponding on-chain events based on amount, asset, and timestamp. You can configure the amount tolerance and time range settings before triggering auto match.
+
+2. **Find Match** (manual) - Click `Find Match` on a specific movement to search for potential matches. You can adjust the search criteria:
+   - **Time range** (in hours) - Maximum allowed time difference between the movement and the on-chain event.
+   - **Amount tolerance** (in %) - Maximum allowed percentage difference between the movement amount and the on-chain event amount.
+   - **Only show same assets** - Filter results to the same asset.
+
+   Potential matches are displayed in a list, with **recommended** matches highlighted. Select one or more matching events and click `Confirm Match`. A single asset movement can be linked to multiple on-chain events, which is useful when the on-chain side was split across multiple transactions.
+
+   ![Potential matches dialog](/images/history_events_unmatched_asset_movements_potential.png)
+
+3. **Ignore** - If a movement has no corresponding on-chain event (e.g., fiat currency deposits/withdrawals), click `Ignore` to mark it as having no match. Ignored movements are moved to the **Ignored** tab and can be restored later.
+
+4. **Ignore All Fiat** - Quickly ignore all fiat currency movements at once, since fiat movements don't have blockchain transactions.
+
+> [!TIP]
+> You can pin the matching dialog to the side of the History Events page, allowing you to browse events while working on matches side-by-side.
+
+### Duplicate Custom Events
+
+Duplicate custom events occur when you have customized (manually edited) a blockchain event, and a non-customized version of the same event also exists. This typically happens when:
+
+- A transaction is re-decoded after you had already customized one of its events, creating both the original decoded event and your customized version.
+- Events are re-pulled, generating new events alongside your existing customized ones.
+
+Duplicates can cause incorrect accounting since the same action may be counted more than once.
+
+rotki categorizes duplicates into two types:
+
+- **Auto-fixable** - The customized and non-customized events are exact matches (only differing by sequence index). These can be safely auto-fixed.
+- **Manual review** - The events share the same asset and direction but have other differences. These require manual inspection before resolving.
+
+When duplicates are detected, an alert banner will appear showing the count for each category, with a `View` button to navigate to the affected events.
+
+![Duplicate custom events alert](/images/history_events_duplicate_custom_events.png)
+
+#### How to resolve
+
+1. **Auto Fix All** - For auto-fixable duplicates, click `Auto Fix All` to remove all the duplicate non-customized events at once, keeping your customized versions.
+
+2. **Individual Fix** - Click the `Fix` button on a specific duplicate event to remove just that one duplicate.
+
+3. **Manual review** - For duplicates that need manual review, click `View` to see the affected events in the history view. Inspect the events and manually resolve them by editing or deleting the incorrect one.
+
+   ![Duplicate events in history view](/images/history_events_duplicate_custom_events_view.png)
