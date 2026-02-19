@@ -134,7 +134,7 @@ Important to remember that the global DB is not moved by the premium sync mechan
 
 If you are affected by this, there are a number of things you can do.
 
-- For assets that are EVM tokens with identifiers like `eip155:10/erc20:0x99C59ACeBFEF3BBFB7129DC90D1a11DB0E91187f` if you press [redecode all history events](/usage-guides/historical-events.html#redecoding-evm-transactions) then the redecoding process should repopulate them in the global db.
+- For assets that are EVM tokens with identifiers like `eip155:10/erc20:0x99C59ACeBFEF3BBFB7129DC90D1a11DB0E91187f` if you press [redecode all history events](/usage-guides/historical-events.html#redecoding-blockchain-transactions) then the redecoding process should repopulate them in the global db.
 - If you have an asset with a unique identifier that looks like `a19964d9-20da-a6dc-1b50-9f293eb85c0d` then that means it's a custom asset or a manually input asset and we have no idea what it is. To figure out you would need to [access the database manually](/usage-guides/accessing-db-manually) and query the event or trade that had it. For example for trades:
 
 ```sql
