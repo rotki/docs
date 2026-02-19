@@ -84,6 +84,8 @@ When inputting the API key for Kraken, you need to specify the type of your Krak
 
 ![Kraken account type](/images/exchanges_add_kraken.png)
 
+To track your Kraken Futures balances, you can optionally provide your Futures API key and Futures API secret in the same Kraken exchange form. Both fields must be provided together. When set, rotki will query your Kraken Futures cash, margin, and flex balances and merge them into your overall Kraken balance total.
+
 #### Binance / Binance US
 
 To improve the speed of querying trade information using the Binance API, you can specify which market pairs to query instead of querying all possible pairs. This reduces the number of requests made to Binance servers, avoiding potential rate limits and failures. To select specific markets, edit your Binance exchange instance configuration.

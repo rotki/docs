@@ -261,7 +261,7 @@ You can add multiple `spend` and `receive` assets.
 ![Swap event form](/images/events_swap_event_form.png)
 :::
 
-For history event, and EVM history event, if any event was not decoded the way you expected it to be, you can always customize events using the settings described above or file a bug report on our github repository / in our discord server. The customizations that you make also affect how events are processed in accounting.
+For history event, and EVM history event, if any event was not decoded the way you expected it to be, you can always customize events using the settings described above or file a bug report via the in-app Report Issue dialog (Help & Support > Report Issue), on our github repository, or in our discord server. The customizations that you make also affect how events are processed in accounting.
 
 ### Common customization
 

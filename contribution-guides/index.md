@@ -4,6 +4,8 @@ rotki is an open-source project, so help is really appreciated.
 
 ## Bug Reporting
 
+You can report issues directly from within rotki via **Help & Support** (in the app sidebar) > **Report Issue**. This opens a dialog where you enter a title and description, then choose to submit via GitHub (pre-fills a bug report template), a Google Form, or email. If you prefer, you can also report issues through GitHub or Discord as described below.
+
 Before reporting an issue, make sure to check the issue tracker for similar ones. If this is a new issue, then use the [proper template](https://github.com/rotki/rotki/issues/new?template=bug_report.md) providing a detailed description about:
 
 - **Problem**: What happened and what you were expecting to happen instead.
