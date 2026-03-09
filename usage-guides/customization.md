@@ -26,35 +26,35 @@ Choose the "User & Security" section to change the user password.
 
 #### Anonymous Usage Analytics
 
-> Specify whether the application can submit anonymous usage analytics. This helps measure active users while ensuring data is anonymized and contains no sensitive information.
+Specify whether the application can submit anonymous usage analytics. This helps measure active users while ensuring data is anonymized and contains no sensitive information.
 
 #### Auto detect tokens
 
-> Specify whether to automatically detect tokens and refresh balances by periodically checking historical events.
+Specify whether to automatically detect tokens and refresh balances by periodically checking historical events.
 
 #### CSV Export
 
-> Specify your preferred date format and delimiter for CSV exports.
+Specify your preferred date format and delimiter for CSV exports.
 
 #### Automatic database sync
 
-> Whether to force push when a size discrepancy occurs during automatic db sync.
+Whether to force push when a size discrepancy occurs during automatic db sync.
 
 #### Version update check
 
-> Set how often (in hours) the version will be checked for updates.
+Set how often (in hours) the version will be checked for updates.
 
 #### Balance Snapshots Saving Frequency
 
-> Set how often (in hours) the balance data snapshots are saved. This data helps calculate statistics historical and graph data for the user.
+Set how often (in hours) the balance data snapshots are saved. This data helps calculate statistics historical and graph data for the user.
 
 #### BTC Derivation Gap Limit
 
-> Set the derivation gap limit for deriving addresses from a bitcoin xpub. More information [here](https://insights.blockonomics.co/bitcoin-what-is-this-gap-limit/).
+Set the derivation gap limit for deriving addresses from a bitcoin xpub. More information [here](https://insights.blockonomics.co/bitcoin-what-is-this-gap-limit/).
 
 #### Date Format
 
-> Set the date display and date input format in the rotki user interface, such as `%m/%d/%Y %H:%M:%S` for month/day/year hour:minutes:seconds. Check [here](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) for valid formats.
+Set the date display and date input format in the rotki user interface, such as `%m/%d/%Y %H:%M:%S` for month/day/year hour:minutes:seconds. Check [here](https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes) for valid formats.
 
 ### Amount Settings
 
@@ -62,35 +62,35 @@ Choose the "User & Security" section to change the user password.
 
 #### Main Currency
 
-> Same as [changing the profit currency](#profit-currency).
+Same as [changing the profit currency](#profit-currency).
 
 #### Floating Precision
 
-> Set the number of decimal points shown in the UI for floating point numbers.
+Set the number of decimal points shown in the UI for floating point numbers.
 
 #### Thousands Separator
 
-> Set the symbol separating every 3 digits for large numbers, e.g., `1,000,000`.
+Set the symbol separating every 3 digits for large numbers, e.g., `1,000,000`.
 
 #### Decimal Separator
 
-> Set the symbol separating the floating part of a number, e.g., `5.42`.
+Set the symbol separating the floating part of a number, e.g., `5.42`.
 
 ### Subscript Format
 
-> Whether to apply subscript formatting for consecutive zeros after the decimal point in small numbers, e.g., `0.000000087` => `0.0₇87`.
+Whether to apply subscript formatting for consecutive zeros after the decimal point in small numbers, e.g., `0.000000087` => `0.0₇87`.
 
 #### Amount Rounding
 
-> Choose the rounding mechanism: `Round up`, `Round down`, or `Half even`. Customize how amounts and values are rounded.
+Choose the rounding mechanism: `Round up`, `Round down`, or `Half even`. Customize how amounts and values are rounded.
 
 #### Abbreviation for large numbers
 
-> If enabled, large numbers will be abbreviated, e.g., `1,234,567` as `1.23 M`. Set the minimum value to be abbreviated.
+If enabled, large numbers will be abbreviated, e.g., `1,234,567` as `1.23 M`. Set the minimum value to be abbreviated.
 
 #### Currency Location
 
-> Set whether the currency symbol appears before or after the number, e.g., `$1,000` or `1,000$`.
+Set whether the currency symbol appears before or after the number, e.g., `$1,000` or `1,000$`.
 
 ### NFT Settings
 
@@ -98,15 +98,15 @@ Choose the "User & Security" section to change the user password.
 
 #### Include NFTs in Graphs and Total Amounts
 
-> Decide whether to include NFTs in total net worth calculations and displayed graphs.
+Decide whether to include NFTs in total net worth calculations and displayed graphs.
 
 #### NFT Images Rendering Setting
 
-> For privacy, allow images from all or specific domains. More details [here](https://medium.com/@alxlpsc/critical-privacy-vulnerability-getting-exposed-by-metamask-693c63c2ce94).
+For privacy, allow images from all or specific domains. More details [here](https://medium.com/@alxlpsc/critical-privacy-vulnerability-getting-exposed-by-metamask-693c63c2ce94).
 
 ### External Service Settings
 
-> Define rules for retry and timeout for external service calls made by rotki.
+Define rules for retry and timeout for external service calls made by rotki.
 
 ## Database Settings
 
@@ -217,23 +217,23 @@ A setting to determine whether crypto to crypto trades or any events that spend 
 
 #### EVM Gas Costs
 
-> Specify if EVM transaction gas costs should be counted as a loss.
+Specify if EVM transaction gas costs should be counted as a loss.
 
 #### Tax Free Period
 
-> Specify if there is a tax-free holding period for crypto assets.
+Specify if there is a tax-free holding period for crypto assets.
 
 #### Calculate Past Cost Basis
 
-> Enable or disable calculating cost basis from all past events, even before the report period.
+Enable or disable calculating cost basis from all past events, even before the report period.
 
 #### Omit ETH Staking Events
 
-> Specify if ETH staking events are taxable only after the merge and withdrawals are enabled or at the point of receiving.
+Specify if ETH staking events are taxable only after the merge and withdrawals are enabled or at the point of receiving.
 
 #### Cost Basis Method
 
-> Select the cost basis calculation method: `FIFO`, `LIFO`, `HIFO`, or `ACB`.
+Select the cost basis calculation method: `FIFO`, `LIFO`, `HIFO`, or `ACB`.
 
 #### Include Fees in Cost Basis
 
@@ -263,11 +263,11 @@ The above does not happen.
 
 #### Export Formulas
 
-> Specify if formulas should be exported as formulas in the CSV or as actual values.
+Specify if formulas should be exported as formulas in the CSV or as actual values.
 
 #### Have Summary
 
-> Specify whether the all_events CSV export should include a summary of all events and the total profit/loss at the end. This summary would also include the rotki version and the settings used during the PnL report, making it easier to reproduce a report run.
+Specify whether the all_events CSV export should include a summary of all events and the total profit/loss at the end. This summary would also include the rotki version and the settings used during the PnL report, making it easier to reproduce a report run.
 
 ## EVM
 
@@ -275,11 +275,11 @@ The above does not happen.
 
 #### Treat Staked ETH as ETH
 
-> If enabled, ETH2 (staked ETH) will appear as ETH in the UI, and all tables and charts will combine the values of ETH and ETH2.
+If enabled, ETH2 (staked ETH) will appear as ETH in the UI, and all tables and charts will combine the values of ETH and ETH2.
 
 #### EVM Chains for Automatic Detection
 
-> Configure which EVM chains should not automatically detect tokens. By default, EVM chains detect activities of all registered EVM accounts in other EVM chains.
+Configure which EVM chains should not automatically detect tokens. By default, EVM chains detect activities of all registered EVM accounts in other EVM chains.
 
 ### Indexers
 
@@ -333,20 +333,20 @@ In this menu you can also edit, delete or add more nodes.
 
 #### Connecting to a Kusama Client
 
-> rotki attempts to connect to a local Kusama node running on the default port `9933`. If no client is running, blockchain queries will use an external service.
+rotki attempts to connect to a local Kusama node running on the default port `9933`. If no client is running, blockchain queries will use an external service.
 
 #### Connecting to a Polkadot Client
 
-> Set the RPC endpoint for a Polkadot node here.
+Set the RPC endpoint for a Polkadot node here.
 
 #### Connecting to an ETH Consensus Layer Beacon Node
 
-> Set the RPC endpoint for the Ethereum consensus layer beacon node. If unreachable, beaconcha.in will be used. For DAppNode Ethereum validator users, find the RPC node setting in the DAppNode Package for the Execution Client.
+Set the RPC endpoint for the Ethereum consensus layer beacon node. If unreachable, beaconcha.in will be used. For DAppNode Ethereum validator users, find the RPC node setting in the DAppNode Package for the Execution Client.
 
 #### Connecting to a Bitcoin Mempool instance
 
-> A local Bitcoin node can be used to query balances and transactions via [Mempool](https://mempool.space)'s API. [Mempool](https://github.com/mempool/mempool) is an open source project that can be self-hosted on Bitcoin nodes. It is readily available to install on many full-node distros such as Umbrel or Raspiblitz. Mempool uses port 4080 by default. Please include this when setting the endpoint (e.g. `http://localhost:4080`). Other custom ports should also work.
-> Please note that transaction querying is currently not supported and historical transaction fetching will fail. Only address balance querying is supported when using a custom mempool instance.
+A local Bitcoin node can be used to query balances and transactions via [Mempool](https://mempool.space)'s API. [Mempool](https://github.com/mempool/mempool) is an open source project that can be self-hosted on Bitcoin nodes. It is readily available to install on many full-node distros such as Umbrel or Raspiblitz. Mempool uses port 4080 by default. Please include this when setting the endpoint (e.g. `http://localhost:4080`). Other custom ports should also work.
+Please note that transaction querying is currently not supported and historical transaction fetching will fail. Only address balance querying is supported when using a custom mempool instance.
 
 ## Module Settings
 
@@ -372,45 +372,45 @@ To limit querying to selected addresses, click the "edit/pencil" button on the m
 
 #### Language
 
-> Set the language used in the app. This feature is experimental and may not work as expected for some languages. Help us speed up the translation process by contributing [here](/contribution-guides/contribute-as-developer.html#add-a-new-language-or-translation).
+Set the language used in the app. This feature is experimental and may not work as expected for some languages. Help us speed up the translation process by contributing [here](/contribution-guides/contribute-as-developer.html#add-a-new-language-or-translation).
 
 #### Animation Effect
 
-> Reduce animation effects to improve performance. This affects animation quality but optimizes resource usage.
+Reduce animation effects to improve performance. This affects animation quality but optimizes resource usage.
 
 #### Data Scrambling
 
-> Enable data scrambling to randomize amounts, dates, and other data for privacy in screenshots. This setting does not persist across sessions.
+Enable data scrambling to randomize amounts, dates, and other data for privacy in screenshots. This setting does not persist across sessions.
 
 #### Automatic Balance Refresh
 
-> Enable or disable automatic balance refresh and set the refresh interval. Disabled by default due to potential slow queries and rate limits.
+Enable or disable automatic balance refresh and set the refresh interval. Disabled by default due to potential slow queries and rate limits.
 
 #### Periodic Status Query
 
-> Set the frequency of backend data updates. Default is 5 seconds.
+Set the frequency of backend data updates. Default is 5 seconds.
 
 #### Blockchain Explorer Customization
 
-> Customize which explorer is used for transaction and address links.
+Customize which explorer is used for transaction and address links.
 
 ### Graph Settings
 
 #### Dashboard Graph Default Timeframe
 
-> Set the default timeframe for the dashboard graph, which will be pre-selected upon login.
+Set the default timeframe for the dashboard graph, which will be pre-selected upon login.
 
 #### Graph Basis
 
-> Configure whether the graph y-axis starts at 0 or the minimum amount for the period.
+Configure whether the graph y-axis starts at 0 or the minimum amount for the period.
 
 ### Alias Name for Addresses
 
-> Enable or disable alias names for blockchain addresses. Aliases are obtained from `ENS`, `addressbook`, or `blockchain account label`. Change the order of resolution as needed.
+Enable or disable alias names for blockchain addresses. Aliases are obtained from `ENS`, `addressbook`, or `blockchain account label`. Change the order of resolution as needed.
 
 ### Theme Customization [Premium]
 
-> Premium users can customize colors for light or dark mode.
+Premium users can customize colors for light or dark mode.
 
 ## Backend Settings
 
