@@ -108,6 +108,14 @@ For privacy, allow images from all or specific domains. More details [here](http
 
 Define rules for retry and timeout for external service calls made by rotki.
 
+### Backend Settings
+
+![Customizing the backend settings](/images/usage_guides_settings_general_backend_settings.webp)
+
+#### Log Level
+
+Specify the minimum severity level for recorded log messages. You can change this at runtime without restarting rotki. This is useful for temporarily enabling debug logs when troubleshooting issues, without needing to modify the [`rotki_config.json`](/usage-guides/backend-arguments.html) file or restart the application. Additional log-related settings such as max log size, max number of log files, and logging from other modules can be configured from the [login screen backend settings](#advanced-backend-settings).
+
 ## Database Settings
 
 ### Database Info & User Database Backups
