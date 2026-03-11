@@ -10,8 +10,9 @@ Before starting, ensure you have the following installed:
 - [Git](https://git-scm.com/downloads)
 - [Python 3.11.x](https://www.python.org/downloads/)
 - [uv](https://github.com/astral-sh/uv) (Python package manager)
-- [Node.js](https://nodejs.org/en/)
-- [pnpm](https://pnpm.io/)
+- [Node.js](https://nodejs.org/en/) (version `>=24 <25` — check `frontend/package.json` `engines` for the exact requirement)
+- [pnpm](https://pnpm.io/) (version `>=10 <11` — managed via `corepack`, see [Installing pnpm](#installing-pnpm))
+- [Rust/Cargo](https://www.rust-lang.org/tools/install) (needed to build the Colibri service locally)
 
 ## Downloading source
 
@@ -116,31 +117,21 @@ rotki REST API server is running at: 127.0.0.1:5042
 
 ## Frontend setup
 
-Make sure you have Node.js installed. You can check https://nodejs.org/en/download/package-manager for more information.
+Make sure you have Node.js installed (version `>=24 <25`). You can check https://nodejs.org/en/download/package-manager for more information.
 
-### Installing PNPM
+### Installing pnpm
 
-Check the required PNPM version in `frontend/package.json` under the `packageManager` key. For example, if it says:
-
-```json
-{
-  "packageManager": "pnpm@10.0.0"
-}
-```
-
-It means you need to have pnpm version `10.0.0` installed. To check the current version of pnpm you have, run:
-
-```sh
-pnpm --version
-```
-
-If you are on an older version of pnpm, you can install it by:
+The project uses [corepack](https://nodejs.org/api/corepack.html) to manage the pnpm version. Enable it and corepack will automatically use the version specified in `frontend/package.json` under the `packageManager` key:
 
 ```sh
 corepack enable pnpm
 ```
 
-This will automatically use the version specified in `packageManager`.
+To verify:
+
+```sh
+pnpm --version
+```
 
 ### Install Node.js Dependencies
 
@@ -157,11 +148,15 @@ Start the application from the `frontend` directory:
 pnpm run dev
 ```
 
-For non-Electron development:
+This starts the Electron app with the backend, Colibri service (if Cargo is available), and the frontend dev server. If `VITE_BACKEND_URL` is set in `frontend/app/.env.development.local`, the [development proxy](/contribution-guides/working-with-frontend#development-proxy) is also started automatically.
+
+For browser-only development (no Electron):
 
 ```sh
 pnpm run dev:web
 ```
+
+See [Working with the Frontend](/contribution-guides/working-with-frontend) for environment variables, feature flags, and proxy configuration.
 
 ## Packaging
 
