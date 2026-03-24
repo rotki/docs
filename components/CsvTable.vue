@@ -1,20 +1,13 @@
-<script setup>
+<script setup lang="ts">
 import { computed } from 'vue';
 import { data } from './csv-loader.data';
 
-const props = defineProps({
-  csvUrl: {
-    type: String,
-    required: true,
-  },
-  title: {
-    type: String,
-    required: false,
-    default: '',
-  },
-});
+const { csvUrl, title = '' } = defineProps<{
+  csvUrl: string;
+  title?: string;
+}>();
 
-const csvData = computed(() => data[props.csvUrl]);
+const csvData = computed(() => data[csvUrl]);
 </script>
 
 <template>

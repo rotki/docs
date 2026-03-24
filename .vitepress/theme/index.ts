@@ -1,10 +1,7 @@
 import type { Theme } from 'vitepress';
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import DefaultTheme from 'vitepress/theme';
-
-// https://vitepress.dev/guide/custom-theme
 import { h } from 'vue';
-
 import CsvTable from '@/components/CsvTable.vue';
 import './style.css';
 

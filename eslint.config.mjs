@@ -16,7 +16,7 @@ export default rotki({
     '@stylistic/spaced-comment': 'off',
   },
 }, {
-  files: ['.vitepress/theme/index.ts', '.vitepress/config.mts'],
+  files: ['.vitepress/theme/index.ts', '.vitepress/config.mts', '**/*.data.ts'],
   rules: {
     'import/no-default-export': 'off',
   },
