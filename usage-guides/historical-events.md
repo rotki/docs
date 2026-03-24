@@ -359,3 +359,77 @@ When duplicates are detected, an alert banner will appear showing the count for 
 3. **Manual review** - For duplicates that need manual review, click `View` to see the affected events in the history view. Inspect the events and manually resolve them by editing or deleting the incorrect one.
 
    ![Duplicate events in history view](/images/history_events_duplicate_custom_events_view.png)
+
+### Internal Transaction Conflicts
+
+Internal transaction conflicts occur when rotki detects inconsistencies in internal (trace-level) EVM transactions. These can arise from issues such as:
+
+- **All zero gas** - All internal transactions in the trace have zero gas values, which typically indicates incomplete or corrupt data from the data source. These conflicts trigger a **repull** from the data source.
+- **Duplicate exact rows** - Multiple identical internal transaction entries exist for the same transaction. These conflicts trigger a **fix & redecode** to remove duplicates and re-process the transaction.
+- **Mixed zero gas** - Some internal transactions in the trace have zero gas while others don't, indicating partial data corruption. These conflicts trigger a **fix & redecode**.
+- **Mixed zero gas & duplicate** - Both zero gas and duplicate conditions are present in the same transaction.
+
+> [!NOTE]
+> This feature was introduced in v1.42.1 as a one-time remediation for internal transaction data issues. The conflicts table is temporary and will be removed in a future release once all conflicts have been resolved.
+
+When conflicts are detected, a banner will appear in the History Events page alerting you to the number of conflicts that need attention.
+
+![Internal transaction conflicts banner](/images/internal_tx_conflicts_banner.webp)
+
+You can also access the conflicts dialog from the three-dot `⋮` menu at the top right of the History Events page by clicking `Check internal tx conflicts`. An orange dot indicator will appear when there are pending conflicts.
+
+![Internal transaction conflicts menu](/images/internal_tx_conflicts_menu.webp)
+
+Click `Review` in the banner or `Check internal tx conflicts` in the menu to open the Internal Transaction Conflicts dialog, which shows all detected conflicts organized into three tabs:
+
+- **Pending** - Conflicts that haven't been resolved yet.
+- **Failed** - Conflicts where the automatic resolution attempt failed.
+- **Fixed** - Conflicts that have been successfully resolved.
+
+![Internal transaction conflicts dialog](/images/internal_tx_conflicts_dialog.webp)
+
+Each conflict shows the transaction hash, chain, action type (repull or fix & redecode), timestamp, reason, last retry time, and any error from the last attempt. You can filter the list by chain or date range using the combined filters.
+
+#### How to resolve
+
+1. **Resolve individually** - Click the refresh button on a specific conflict to trigger resolution for that transaction.
+
+2. **Resolve in bulk** - Select multiple conflicts using the checkboxes and click `Resolve Selected` to process them all at once. A progress indicator will show the current status, and you can cancel the operation at any time.
+
+3. **Automatic resolution** - rotki will periodically attempt to resolve pending conflicts in the background. Conflicts that have never been retried are prioritized first, followed by those with the oldest retry timestamps. You can configure how often and how many conflicts are processed per run (see [Settings](#internal-transaction-conflict-settings) below).
+
+> [!TIP]
+> If you have manually customized any history events for a conflicting transaction, your edits are preserved. For fix & redecode conflicts, redecoding is skipped on customized transactions to protect your changes.
+
+#### Failed conflicts
+
+When a conflict resolution attempt fails (e.g., the data source is temporarily unavailable or returns an error), the conflict is moved to the **Failed** tab. This tab shows all conflicts where the last resolution attempt was unsuccessful, along with the error message from the last attempt.
+
+![Internal transaction conflicts failed tab](/images/internal_tx_conflicts_dialog_failed.webp)
+
+You can retry failed conflicts at any time by selecting them and clicking `Resolve Selected`, or by clicking the refresh button on individual entries. The automatic resolution system will also periodically retry failed conflicts.
+
+#### Pinning to sidebar
+
+You can pin the conflicts panel to the side of the History Events page by clicking the pin icon in the dialog header. This allows you to browse your history events while keeping the conflicts list visible for reference.
+
+![Internal transaction conflicts pinned sidebar](/images/internal_tx_conflicts_pinned.webp)
+
+#### Show in history events
+
+Click the external link icon on a conflict to highlight the corresponding transaction in the History Events view. If the panel is not already pinned, this will automatically pin it, allowing you to browse conflicts and events side-by-side.
+
+#### Internal transaction conflict settings
+
+You can configure the automatic conflict resolution behavior by clicking the gear icon in the dialog header.
+
+![Internal transaction conflicts settings](/images/internal_tx_conflicts_dialog_settings.webp)
+
+Two settings are available:
+
+- **Transactions per batch** - The number of conflicts to process per periodic task run (default: 20, minimum: 1).
+- **Repull frequency (minutes)** - How often the system automatically attempts to resolve conflicts (default: 60 minutes, minimum: 0.5 minutes).
+
+These settings are also available in `Settings > General > History Events`.
+
+![Internal transaction conflicts in general settings](/images/internal_tx_conflicts_general_settings.webp)
