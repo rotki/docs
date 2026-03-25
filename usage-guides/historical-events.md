@@ -296,6 +296,10 @@ Clicking the button opens a menu where you can check for specific types of issue
 
 ### Unmatched Asset Movements
 
+::: warning Premium Feature
+Asset movement matching is only available for certain premium subscription tiers. Visit the [pricing page](https://rotki.com/pricing) for details on which tiers include this feature.
+:::
+
 An unmatched asset movement is an exchange deposit or withdrawal that hasn't been linked to its corresponding on-chain blockchain transaction. For example:
 
 - You **withdraw** from an exchange, but there is no matching **receive** event on a tracked blockchain address.
