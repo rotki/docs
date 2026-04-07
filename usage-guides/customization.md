@@ -150,6 +150,9 @@ There are two options to reset the assets database:
 
 ## Accounting Settings
 
+> [!TIP]
+> For a detailed explanation of what each accounting option does (with worked examples), see [Accounting Rule Options Explained](/usage-guides/accounting-rules).
+
 ![Customizing the accounting rules](/images/sc_accounting_custom_rule.png)
 
 In the accounting menu, you can customize application settings related to accounting calculations. These settings will affect the PnL report calculations.
