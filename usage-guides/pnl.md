@@ -1,5 +1,8 @@
 # Creating a profit/loss report
 
+> [!TIP]
+> **New to rotki?** If you're looking for a step-by-step guide to doing your crypto taxes, start with the [Tax Accounting Guide](/usage-guides/tax-accounting) which walks you through the entire workflow. This page covers the PnL report feature in detail.
+
 rotki helps you track your cryptocurrency profits and losses (PnL) by analyzing your trading history and other transactions. Here's what you need to know about how these reports work:
 
 ## Key Features

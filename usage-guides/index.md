@@ -2,6 +2,9 @@
 
 This guide explains how to use the rotki application.
 
+> [!TIP]
+> **Using rotki for tax reporting?** Jump to the [Tax Accounting Guide](/usage-guides/tax-accounting) for a focused walkthrough of connecting your data, reviewing transactions, and generating your PnL report.
+
 ## First Time Sign-Up
 
 When you start rotki, you'll see a sign-in/signup prompt. rotki is a local app, so your account only exists on your local system. Your account on [rotki.com](https://rotki.com/) is only for managing premium subscription payments.

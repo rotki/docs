@@ -12,4 +12,8 @@ THE SERVICE IS NOT INTENDED FOR CONTINUOUS MONITORING OF TRANSACTION DATA OR FOR
 
 # Where to start?
 
-If this is the first time looking at rotki you will probably want to visit the [Installation Guide](/requirement-and-installation/). Once you have successfully managed to install rotki you can proceed to the [Usage Guide](/usage-guides/). If you wish to contribute to rotki please check the [Contribution Guide](/contribution-guides/).
+If this is the first time looking at rotki you will probably want to visit the [Installation Guide](/requirement-and-installation/). Once you have successfully managed to install rotki you can proceed to the [Usage Guide](/usage-guides/).
+
+**Looking to do your crypto taxes?** Check the [Tax Accounting Guide](/usage-guides/tax-accounting) for a step-by-step walkthrough from setup to generating your PnL report.
+
+If you wish to contribute to rotki please check the [Contribution Guide](/contribution-guides/).
