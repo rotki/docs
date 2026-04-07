@@ -28,12 +28,12 @@ A trade is an exchange of one asset for another. In rotki, trades are represente
 
 **When to use**: Any swap, trade, or exchange of one asset for another — whether on a CEX, a DEX, or OTC.
 
-| Subtype   | UI Category | Direction | Example                    |
-| --------- | ----------- | --------- | -------------------------- |
-| `Spend`   | swap        | Out       | Sending 1 ETH in a swap    |
-| `Receive` | swap        | In        | Getting 2000 USDC in swap  |
-| `None`    | info        | Neutral   | Informational trade event  |
-| `Fee`     | fee         | Out       | Trading fee on an exchange |
+| Subtype   | UI Category   | Direction | Example                    |
+| --------- | ------------- | --------- | -------------------------- |
+| `Spend`   | swap          | Out       | Sending 1 ETH in a swap    |
+| `Receive` | swap          | In        | Getting 2000 USDC in swap  |
+| `None`    | informational | Neutral   | Informational trade event  |
+| `Fee`     | fee           | Out       | Trading fee on an exchange |
 
 ### Multi-Trade
 
@@ -273,29 +273,33 @@ Transfers associated with exchange deposits/withdrawals that have both an on-cha
 
 The following table lists every valid combination of event type and subtype recognized by rotki. Combinations not listed here are not valid.
 
+<!-- BEGIN:GENERATED:valid-combinations -->
+
 | Event Type          | Valid Subtypes                                                                                                                                                   |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Trade               | Spend, Receive, None, Fee                                                                                                                                        |
-| Multi-Trade         | Spend, Receive, Fee                                                                                                                                              |
+| Staking             | Deposit Asset, Deposit For Wrapped, Reward, Remove Asset, Redeem Wrapped, Block Production, MEV Reward, Fee                                                      |
 | Deposit             | Deposit Asset, Deposit For Wrapped, Deposit To Protocol, Bridge, Place Order, Fee                                                                                |
 | Withdrawal          | Remove Asset, Redeem Wrapped, Withdraw From Protocol, Bridge, Cancel Order, Refund, Generate Debt, Fee                                                           |
-| Spend               | None, Fee, Return Wrapped, Payback Debt, Donate, Payment, Clawback, Burn                                                                                         |
-| Receive             | None, Reward, Airdrop, Receive Wrapped, Return Wrapped, Generate Debt, Donate, Liquidate, Payment, Grant, Interest, Cashback, Refund, Spam                       |
-| Transfer            | None, Donate, Fee                                                                                                                                                |
-| Staking             | Deposit Asset, Deposit For Wrapped, Remove Asset, Redeem Wrapped, Reward, Block Production, MEV Reward, Fee                                                      |
-| Migrate             | Spend, Receive                                                                                                                                                   |
-| Loss                | None, Liquidate, Hack, Liquidity Provision Loss                                                                                                                  |
+| Transfer            | Donate, None, Fee                                                                                                                                                |
+| Spend               | Return Wrapped, Payback Debt, Fee, Donate, Payment, None, Clawback, Burn                                                                                         |
+| Receive             | Reward, Receive Wrapped, Generate Debt, Return Wrapped, Airdrop, Donate, None, Liquidate, Payment, Grant, Interest, Cashback, Refund, Spam                       |
+| Adjustment          | Spend, Receive                                                                                                                                                   |
 | Informational       | None, Governance, Deposit Asset, Remove Asset, Place Order, Create, Update, Apply, Approve, Attest, MEV Reward, Block Production, Consolidate, Delegate, Message |
+| Migrate             | Spend, Receive                                                                                                                                                   |
 | Renew               | None                                                                                                                                                             |
 | Deploy              | None, Spend, NFT                                                                                                                                                 |
+| Fail                | Fee                                                                                                                                                              |
+| Loss                | Liquidate, Hack, Liquidity Provision Loss, None                                                                                                                  |
 | Mint                | NFT, Fee                                                                                                                                                         |
 | Burn                | NFT                                                                                                                                                              |
-| Fail                | Fee                                                                                                                                                              |
-| Adjustment          | Spend, Receive                                                                                                                                                   |
+| Multi Trade         | Spend, Receive, Fee                                                                                                                                              |
 | Margin              | Profit, Loss, Fee                                                                                                                                                |
-| Transaction to Self | None                                                                                                                                                             |
+| Transaction To Self | None                                                                                                                                                             |
 | Exchange Adjustment | Spend, Receive                                                                                                                                                   |
 | Exchange Transfer   | Spend, Receive, Fee                                                                                                                                              |
+
+<!-- END:GENERATED:valid-combinations -->
 
 ## Quick reference: common customizations
 
