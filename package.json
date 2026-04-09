@@ -51,11 +51,6 @@
     "node": ">=24 <25",
     "pnpm": ">=10 <11"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
-  },
   "lint-staged": {
     "*.{js,ts,vue,json,yml,md}": "eslint"
   }

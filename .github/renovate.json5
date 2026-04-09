@@ -3,11 +3,13 @@
   "extends": [
     "config:recommended",
     ":dependencyDashboard",
-    ":dependencyDashboardApproval"
+    ":dependencyDashboardApproval",
+    ":pinAllExceptPeerDependencies"
   ],
+  "minimumReleaseAge": "7 days",
   "packageRules": [
     {
-      "allowedVersions": "/^(22)\\./",
+      "allowedVersions": "/^(24)\\./",
       "groupName": "Node.js",
       "matchPackageNames": ["@types/node", "node"]
     }
