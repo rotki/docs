@@ -2,6 +2,7 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vitepress';
+import llmstxt from 'vitepress-plugin-llms';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import { markdownFitMedia } from './plugins/markdown-fit-media';
 
@@ -156,6 +157,7 @@ export default defineConfig({
     },
   },
   vite: {
+    plugins: [llmstxt()],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '../'),
