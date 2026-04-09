@@ -95,31 +95,14 @@ rotki can detect some airdrops for you
 
 ![rotki airdrops detection](/images/rotki_airdrops.png)
 
-The list of currently supported airdrops is:
+The list of supported airdrops is pulled from the [rotki/data](https://github.com/rotki/data/tree/main/airdrops) repository and is updated automatically. New airdrops may be added over time without requiring an app update.
 
-- Uniswap
-- 1INCH
-- Tornado
-- Cornichon
-- Grain
-- Furocombo
-- Lido
-- Curve
-- Convex
-- Shapeshift
-- ENS
-- ParaSwap
-- Saddle finance
-- Cow
-- Diva
-- Shutter
-- Starknet
-- Optimism 4
-- Degen 2
-- Omni
-- Eigen token
+Each airdrop shows one of the following statuses:
 
-For some airdrops, you may see the status `Unknown`. This means rotki can't determine the status of the airdrop, whether it has been claimed or not. You need to check it yourself.
+- **Claimed** — The airdrop has been claimed.
+- **Unclaimed** — The airdrop is available but has not been claimed yet.
+- **Missed** — The claim window has expired.
+- **Unknown** — rotki can't determine the status. You need to check it yourself.
 
 ## Balances Snapshots
 

@@ -26,9 +26,9 @@ When you press the + button on the top right, or edit an existing asset you can 
 You can fill in the following fields:
 
 1. The type of asset being created. This is required.
-2. The chain where the token is located. This is required if the asset type is `EVM Token`.
-3. The token kind. This is required if the asset type is `EVM Token`.
-4. The token address. This is required if the asset type is `EVM Token`.
+2. The chain where the token is located. This is required if the asset type is `EVM Token` or `Solana Token`.
+3. The token kind. This is required if the asset type is `EVM Token` (options: `ERC20`, `ERC721`) or `Solana Token` (options: `SPL Token`, `SPL NFT`).
+4. The token address. This is required if the asset type is `EVM Token` or `Solana Token`.
 5. The token name. This is required.
 6. The token symbol. This is required.
 7. The token decimals. This is required if the asset type is `EVM Token`.
@@ -68,6 +68,14 @@ You can fill in the following fields:
 1. The name to be given to the custom asset. This is required.
 2. The type of custom asset being represented. It's just a string. The type field remembers all previously used types. This is required.
 3. The note to be added to the custom asset. This is optional.
+
+## Missing Mappings
+
+The missing mappings page shows assets that rotki encountered from exchanges or protocols but could not map to a known asset in its database. This typically happens when an exchange reports a balance for an asset that rotki doesn't recognize yet.
+
+Each entry shows the exchange/location, the unrecognized asset identifier, and any available details. Click the add button on a row to create a CEX mapping for that asset, linking it to a known asset in rotki. Once mapped, the entry is removed from the missing list and the asset will be tracked correctly.
+
+You can filter the list by exchange location or asset symbol.
 
 ## Manage CEX (Centralized Exchange) Mapping
 

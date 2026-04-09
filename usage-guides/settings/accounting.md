@@ -96,6 +96,10 @@ Enable or disable calculating cost basis from all past events, even before the r
 
 Specify if ETH staking events are taxable only after the merge and withdrawals are enabled or at the point of receiving.
 
+#### Use Asset Collections in Cost Basis
+
+When enabled, assets that belong to the same collection share cost basis. For example, if WETH and ETH are in the same asset collection, buying WETH and later selling ETH will use the WETH purchase as the cost basis. By default, this setting is `True`.
+
 #### Cost Basis Method
 
 Select the cost basis calculation method: `FIFO`, `LIFO`, `HIFO`, or `ACB`.

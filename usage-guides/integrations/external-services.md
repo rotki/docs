@@ -33,6 +33,30 @@ Without it, the queries will be really slow. You just need to:
 
 You only need one Etherscan API key for all EVM chains since the key is now unified.
 
+## Blockscout
+
+Blockscout is an open-source blockchain explorer that rotki can use as an alternative data source for on-chain transactions and token transfers. You can add per-chain API keys, allowing rotki to query Blockscout instances for specific EVM chains. This can be useful as a fallback or supplement to Etherscan.
+
+## Helius
+
+Helius is a Solana indexer and RPC provider. Adding a Helius API key allows rotki to query Solana transaction data more reliably and with higher rate limits. You can get an API key from [helius.dev](https://www.helius.dev/).
+
+## CryptoCompare
+
+CryptoCompare provides historical cryptocurrency price data. While rotki can use CryptoCompare without an API key, adding one increases the rate limits for price queries. You can get a free API key from [cryptocompare.com](https://www.cryptocompare.com/cryptopian/api-keys).
+
+## Beaconchain
+
+Beaconchain provides Ethereum consensus layer (beacon chain) data. Adding an API key allows rotki to query validator information with higher rate limits. You can get an API key from [beaconcha.in](https://beaconcha.in/user/settings#api).
+
+## OpenSea
+
+OpenSea is an NFT marketplace and data provider. Adding an OpenSea API key allows rotki to fetch NFT data such as collection information and valuations. You can request an API key from [opensea.io](https://docs.opensea.io/reference/api-keys).
+
+## Alchemy
+
+Alchemy is a multi-chain data provider and price oracle. rotki can use Alchemy for blockchain data queries and as an additional price source. Adding an API key improves rate limits and reliability. You can get a free API key from [alchemy.com](https://www.alchemy.com/).
+
 ## Loopring balances
 
 To have your Loopring balances detected, you will need an API Key from Loopring. To get one, visit [Loopring Security](https://loopring.io/#/layer2/security) and unlock your account. In the list of options, click on **Export Account**.

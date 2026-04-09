@@ -38,7 +38,7 @@ Regarding the need for API keys:
 
 Here, you can customize the order in which price oracles are queried, both for current and historical prices. This determines which price source to check first, second, and so on.
 
-DeFi oracles like Uniswap V2 and Uniswap V3 use only on-chain information to get current prices. This makes querying a bit slower, but it relies solely on the Ethereum chain. Prices for some assets may differ from Coingecko or CryptoCompare, depending on the conditions of the pools at the time of the query.
+Available price oracles include CoinGecko, CryptoCompare, Uniswap V2, Uniswap V3, DefiLlama, Alchemy, and custom (manual) prices. DeFi oracles like Uniswap V2 and Uniswap V3 use only on-chain information to get current prices. This makes querying a bit slower, but it relies solely on the Ethereum chain. Prices for some assets may differ from Coingecko or CryptoCompare, depending on the conditions of the pools at the time of the query.
 
 ### Oracle cache
 
@@ -49,6 +49,18 @@ Querying historical prices from oracles such as CryptoCompare and CoinGecko is s
 Request the creation of such a cache by going to the Oracle cache section, selecting the oracle, the from asset of the pair, the to asset of the pair, and then pressing "Cache pair prices".
 
 Manage existing historical price cache entries, inspect start and end dates, and delete caches if needed.
+
+### Oracle Penalty Settings
+
+Configure penalty behavior for misbehaving price oracles at runtime.
+
+#### Oracle Penalty Duration
+
+The duration in seconds for which an oracle is penalized after exceeding the failure threshold. Default is 1800 seconds (30 minutes).
+
+#### Oracle Penalty Threshold Count
+
+The number of consecutive failures after which an oracle is penalized and temporarily skipped. Default is 5.
 
 ## RPC Node Setting
 

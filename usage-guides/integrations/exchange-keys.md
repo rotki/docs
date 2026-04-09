@@ -28,7 +28,7 @@ Currently supported exchanges are:
 - Binance
 - Bitmex
 - Coinbase
-- Coinbase Pro
+- Coinbase Prime
 - Gemini
 - Bitstamp
 - Binance US
@@ -42,6 +42,7 @@ Currently supported exchanges are:
 - Woo
 - Bybit
 - HTX
+- Crypto.com (experimental)
 
 ![Add API keys for a new exchange](/images/rotki_add_exchange_1.png)
 
@@ -72,7 +73,7 @@ Currently supported exchanges are:
 
 ### API key permissions
 
-rotki only needs read-only permissions for your accounts. As a general rule, exchanges (e.g., Binance, Coinbase Pro) group all the read-only permissions as "read" or "view".
+rotki only needs read-only permissions for your accounts. As a general rule, exchanges (e.g., Binance) group all the read-only permissions as "read" or "view".
 
 ![Simple API key permissions](/images/add_exchange_api_keys_binance.png)
 
@@ -107,3 +108,21 @@ Choose the markets in the `Filter market pair(s)` search.
 ![Binance markets selection](/images/binance_markets_selection.png)
 
 Once finished, click on save.
+
+#### Coinbase Prime
+
+Coinbase Prime requires an API Key, API Secret, and a Passphrase. Make sure you provide all three when adding the exchange.
+
+#### OKX
+
+OKX requires an API Key, API Secret, and a Passphrase. When adding OKX, you also need to select your **region**:
+
+- **Global** — the default OKX platform.
+- **EEA** — for European Economic Area users.
+- **US** — for United States users.
+
+Make sure to select the region that matches the OKX platform you registered on, as the API endpoints differ between regions.
+
+#### Crypto.com
+
+Crypto.com is currently listed as an **experimental** exchange. It requires an API Key and API Secret. Since it is experimental, some functionality may be incomplete or subject to change.

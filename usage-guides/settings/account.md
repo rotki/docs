@@ -12,6 +12,10 @@ Choose the "User & Security" section to change the user password.
 
 ![Changing the user's password](/images/sc_user_password_change.png)
 
+### Password Confirmation
+
+When using auto-login, you can enable periodic password confirmation to ensure you still remember your password. Toggle the setting on or off and set the confirmation interval in days (between 1 and 14). Disabling this setting will show a warning, since forgetting your password while using auto-login means losing access to your account.
+
 ## Database Settings
 
 ### Database Info & User Database Backups

@@ -205,7 +205,7 @@ You can perform two actions:
 
 ## Add / edit events
 
-There are 8 types of events in rotki:
+There are 10 types of events in rotki:
 
 :::tabs
 == History Event
@@ -230,6 +230,9 @@ Currently we support EVM events for these chains:
 - Arbitrum One
 - Base
 - Gnosis
+- Scroll
+- Binance Smart Chain
+- ZkSync Lite
 
 Here the non obvious fields are:
 
@@ -266,7 +269,29 @@ You can add multiple `spend` and `receive` assets.
 == Swap Event
 
 ![Swap event form](/images/events_swap_event_form.png)
-:::
+
+== Solana Event
+
+Similar to an EVM Event but for the Solana blockchain. The location is fixed to Solana. Key fields include:
+
+- `Signature`: The Solana transaction signature (equivalent to a transaction hash).
+- `Event Type` / `Event Subtype`: Same categorization as other event types.
+- `Sequence Index`: Order of the event within the transaction.
+- `Counterparty`: The protocol or address you interacted with.
+- `Address`: The Solana address related to the event.
+
+Advanced options include `Group Identifier` and `Extra Data` for additional context.
+
+== Solana Swap Event
+
+Similar to the EVM Swap Event but for the Solana blockchain. The location is fixed to Solana. You can add multiple `spend` and `receive` assets, along with optional fee entries. Key fields include:
+
+- `Signature`: The Solana transaction signature.
+- `Spend` / `Receive`: Lists of assets spent and received in the swap, each with an asset and amount.
+- `Fee`: Optional fee entries that can be enabled via the fee checkbox.
+- `Address`: The Solana program or contract address involved.
+- `Sequence Index` / `Counterparty`: Same as other event types.
+  :::
 
 For history event, and EVM history event, if any event was not decoded the way you expected it to be, you can always customize events using the settings described above or file a bug report via the in-app Report Issue dialog (Help & Support > Report Issue), on our github repository, or in our discord server. The customizations that you make also affect how events are processed in accounting.
 

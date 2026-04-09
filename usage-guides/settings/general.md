@@ -28,6 +28,10 @@ Specify whether the application can submit anonymous usage analytics. This helps
 
 Specify whether to automatically detect tokens and refresh balances by periodically checking historical events.
 
+#### Display Date in Localtime
+
+Specify whether dates in CSV exports should be displayed in local time rather than UTC. Enabled by default.
+
 #### CSV Export
 
 Specify your preferred date format and delimiter for CSV exports.
@@ -100,9 +104,41 @@ Decide whether to include NFTs in total net worth calculations and displayed gra
 
 For privacy, allow images from all or specific domains. More details [here](https://medium.com/@alxlpsc/critical-privacy-vulnerability-getting-exposed-by-metamask-693c63c2ce94).
 
+### History Event Settings
+
+Configure settings related to history event processing and management.
+
+#### Auto Create Profit Events
+
+Automatically create virtual profit/loss events when processing history. This setting controls whether rotki generates profit and loss events during history processing.
+
+#### Internal Transaction Conflict Repull
+
+Configure how rotki handles internal transaction conflicts. You can set the number of transactions to repull per batch and the frequency (in minutes) at which the system automatically attempts to repull conflicting internal transactions.
+
+#### Skipped External Events
+
+View and manage events that were skipped during external event processing. This section shows a summary of skipped events grouped by location. You can export the skipped events to CSV or attempt to reprocess them.
+
 ### External Service Settings
 
-Define rules for retry and timeout for external service calls made by rotki.
+Configure retry and timeout behavior for external service calls made by rotki.
+
+#### Query Retry Limit
+
+The number of times to retry a query to external services before giving up. Default is 5.
+
+#### Connect Timeout
+
+The number of seconds to wait before giving up on establishing a connection to an external service. Default is 30 seconds.
+
+#### Read Timeout
+
+The number of seconds to wait for the first byte after a connection to an external service has been established. Default is 30 seconds.
+
+#### Suppress Missing API Key Notifications
+
+Select services for which you do not want to receive notifications about missing API keys. Supported services include Etherscan, Beaconchain, The Graph, and Helius.
 
 ### Backend Settings
 

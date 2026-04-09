@@ -1,5 +1,5 @@
 ---
-description: How to track ETH2 validator staking, Liquity staking, and Kraken staking in rotki.
+description: How to track ETH2 validator staking, Liquity staking, Kraken staking, and Lido CSM node operation in rotki.
 ---
 
 # Staking
@@ -9,6 +9,7 @@ rotki currently supports staking tracking for:
 1. Ethereum (ETH2)
 2. Liquity
 3. Kraken
+4. Lido CSM
 
 ## ETH2 Staking
 
@@ -90,3 +91,21 @@ For `LQTY` staking we display the claimed rewards.
 If you stake on Kraken you can see your gains, and events in the various staked assets.
 
 ![See your Kraken staking gains](/images/sc_staking_kraken.png)
+
+## Lido CSM
+
+If you are a node operator in the [Lido Community Staking Module (CSM)](https://operatorportal.lido.fi/modules/community-staking-module), you can track your operators in rotki. Navigate to `Staking > Lido CSM` to view and manage your tracked node operators.
+
+To add a node operator, click the add button and provide:
+
+- **Ethereum address** — the reward address associated with the node operator.
+- **Node Operator ID** — the numeric ID assigned to your operator in the CSM.
+
+Once added, the table displays the following metrics for each tracked operator:
+
+- **Operator Type** — the operator category (e.g. Community, Permissioned).
+- **Bond Current / Required / Claimable** — current bond posted, required bond, and the amount available to claim, all denominated in stETH.
+- **Total Deposited Keys** — the number of validator keys deposited.
+- **Pending Rewards** — unclaimed stETH rewards.
+
+Click the refresh button to fetch updated metrics from the protocol. You can remove a tracked operator at any time using the delete action in the table.

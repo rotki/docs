@@ -133,6 +133,7 @@ export default defineConfig({
             text: 'Portfolio',
             collapsed: false,
             items: [
+              { text: 'Dashboard', link: '/usage-guides/portfolio/dashboard' },
               { text: 'Accounts', link: '/usage-guides/portfolio/accounts' },
               { text: 'Balances', link: '/usage-guides/portfolio/balances' },
             ],
