@@ -1,3 +1,7 @@
+---
+description: Managing supported assets, adding custom tokens, merging duplicates, and whitelisting spam tokens.
+---
+
 # Assets Management
 
 ## Inspecting list of assets
@@ -9,7 +13,7 @@ You can inspect the list of all supported assets, edit them, delete them or add 
 
 ### Token Detection Methods
 
-You can check token detection guide [here](/usage-guides/accounts-and-balances#token-detection)
+You can check token detection guide [here](/usage-guides/portfolio/accounts#token-detection)
 
 ## Adding/editing an asset
 

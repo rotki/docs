@@ -1,3 +1,7 @@
+---
+description: Importing trade and transaction data from CSV files exported by exchanges into rotki.
+---
+
 # Import CSV
 
 Go to `Import Data` menu in the sidebar.

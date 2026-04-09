@@ -1,6 +1,10 @@
+---
+description: Detailed explanation of every accounting setting in rotki including cost basis methods and tax-free periods.
+---
+
 # Accounting Rule Options Explained
 
-This page explains every accounting setting in rotki in detail. These settings control how your transactions are processed when generating a [Profit/Loss Report](/usage-guides/pnl). You can configure them under **Settings → Accounting Settings** ([screenshot guide](/usage-guides/customization#accounting-settings)).
+This page explains every accounting setting in rotki in detail. These settings control how your transactions are processed when generating a [Profit/Loss Report](/usage-guides/history/pnl). You can configure them under **Settings → Accounting Settings** ([screenshot guide](/usage-guides/settings/accounting#accounting-settings)).
 
 > [!IMPORTANT]
 > rotki's default settings are based on German tax rules. Check with your tax advisor about what's required in your country and adjust accordingly.
@@ -103,7 +107,7 @@ Whether trading fees are added to the cost basis of the asset you're buying.
 
 ## Understanding accounting rule properties
 
-When you create or edit an [accounting rule](/usage-guides/customization#add-edit-accounting-rules), or when you look at the default rules in rotki's codebase, each rule has several properties that control how events are processed:
+When you create or edit an [accounting rule](/usage-guides/settings/accounting#add-edit-accounting-rules), or when you look at the default rules in rotki's codebase, each rule has several properties that control how events are processed:
 
 ### Taxable
 
@@ -168,12 +172,12 @@ You can create custom rules that override the defaults for specific combinations
 - Event subtype
 - Counterparty (protocol identifier)
 
-See [Add/Edit accounting rules](/usage-guides/customization#add-edit-accounting-rules) for how to create them in the UI.
+See [Add/Edit accounting rules](/usage-guides/settings/accounting#add-edit-accounting-rules) for how to create them in the UI.
 
 ### Limitations
 
 - **Counterparty must be a known protocol**: You can only create rules for counterparties that rotki recognizes (e.g., "uniswap-v3", "aave", "makerdao_dsr"). Custom smart contract addresses cannot currently be used as counterparties for accounting rules. Support for custom counterparties is tracked in [rotki/rotki#9803](https://github.com/rotki/rotki/issues/9803).
-- **Rules are global**: A rule applies to all events matching the type/subtype/counterparty combination. For per-event overrides, use [special accounting rules for specific events](/usage-guides/customization#special-accounting-rules-for-specific-events).
+- **Rules are global**: A rule applies to all events matching the type/subtype/counterparty combination. For per-event overrides, use [special accounting rules for specific events](/usage-guides/settings/accounting#special-accounting-rules-for-specific-events).
 
 ## CSV export settings
 

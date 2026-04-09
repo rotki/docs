@@ -1,3 +1,7 @@
+---
+description: Step-by-step guide to purchasing a rotki premium subscription including plan selection and payment.
+---
+
 # Payment Process
 
 This guide walks you through the process of purchasing a rotki premium subscription.

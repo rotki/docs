@@ -1,3 +1,7 @@
+---
+description: Creating and editing tags with custom labels, descriptions, and colors for organizing accounts and balances.
+---
+
 # Tag Management
 
 You can find the menu on the left sidebar.

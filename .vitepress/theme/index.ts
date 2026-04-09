@@ -3,6 +3,7 @@ import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import DefaultTheme from 'vitepress/theme';
 import { h } from 'vue';
 import CsvTable from '@/components/CsvTable.vue';
+import NavCards from '@/components/NavCards.vue';
 import './style.css';
 
 export default {
@@ -13,5 +14,6 @@ export default {
   enhanceApp({ app }) {
     enhanceAppWithTabs(app);
     app.component('CsvTable', CsvTable);
+    app.component('NavCards', NavCards);
   },
 } satisfies Theme;

@@ -1,3 +1,7 @@
+---
+description: Workflow for picking up issues, opening PRs, and coordinating between backend and frontend teams.
+---
+
 # Working on issues
 
 The current workflow for working on issues is the following.

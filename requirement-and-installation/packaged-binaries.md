@@ -1,3 +1,7 @@
+---
+description: Installing rotki from packaged binaries on Linux, macOS, and Windows, including Docker and DAppNode.
+---
+
 # Packaged Binaries
 
 ## Verifying Integrity
@@ -476,7 +480,7 @@ networks:
 
 If you would like to move your accounts from the rotki application to Docker, you can do so by copying the data directory of the application to the Docker data volume.
 
-You can find where the rotki application data is stored in the [rotki data directory](/usage-guides/data-directory.html#rotki-data-directory).
+You can find where the rotki application data is stored in the [rotki data directory](/usage-guides/advanced/data-directory#rotki-data-directory).
 
 To move your existing accounts from the application, copy the contents of the application data directory to the data volume mount point.
 

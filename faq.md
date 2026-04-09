@@ -1,3 +1,7 @@
+---
+description: Frequently asked questions about rotki, premium subscriptions, supported exchanges, and common issues.
+---
+
 # Frequently Asked Questions
 
 ## Questions on the application
@@ -86,11 +90,11 @@ rotki is an abbreviation for Rotkehlchen. That is the German word for the bird k
 
 ### My asset is not showing in rotki
 
-If your asset is not showing in rotki, even though you are sure that you have a balance, you need to first ensure that the asset is present on the list of assets (read [inspecting list of assets](/usage-guides/assets.html#inspecting-list-of-assets)).
+If your asset is not showing in rotki, even though you are sure that you have a balance, you need to first ensure that the asset is present on the list of assets (read [inspecting list of assets](/usage-guides/data-management/assets#inspecting-list-of-assets)).
 
-If you still cannot find your asset, it might be ignored. By default, rotki only displays un-ignored assets in the table. To also show the ignored assets, choose the `Filter by ignored status → Show all`, and then unignore the asset manually. Additionally, you can whitelist the asset to prevent it from being automatically ignored by rotki's spam detection (read: [whitelisting of ignored assets](/usage-guides/assets.html#whitelisting-of-ignored-assets)).
+If you still cannot find your asset, it might be ignored. By default, rotki only displays un-ignored assets in the table. To also show the ignored assets, choose the `Filter by ignored status → Show all`, and then unignore the asset manually. Additionally, you can whitelist the asset to prevent it from being automatically ignored by rotki's spam detection (read: [whitelisting of ignored assets](/usage-guides/data-management/assets#whitelisting-of-ignored-assets)).
 
-After whitelisting the token, you may need to re-detect it to see it in your balances (read: [token detection methods](/usage-guides/assets.html#whitelisting-and-re-detecting-missing-tokens)).
+After whitelisting the token, you may need to re-detect it to see it in your balances (read: [token detection methods](/usage-guides/data-management/assets#whitelisting-and-re-detecting-missing-tokens)).
 
 If the asset is still not showing, you may need to add it manually.
 
@@ -104,7 +108,7 @@ For more information on un-ignoring and optionally whitelisting assets, see [My 
 
 ### Events are missing
 
-If you notice that some events are missing for a chain or from exchanges, you can re-pull events for a specific time range. See [Re-pulling events missed in the past](/usage-guides/historical-events.md#re-pulling-events-missed-in-the-past) for detailed instructions.
+If you notice that some events are missing for a chain or from exchanges, you can re-pull events for a specific time range. See [Re-pulling events missed in the past](/usage-guides/history/events#re-pulling-events-missed-in-the-past) for detailed instructions.
 
 ### My balances are not showing after importing my history/creating history events
 
@@ -124,7 +128,7 @@ If you just registered your ENS name and you don't see the name and/or avatar be
 
 ### Issues related to PnL report generation
 
-You can go to [PnL report creation problems](/usage-guides/pnl#pnl-report-creation-problems)
+You can go to [PnL report creation problems](/usage-guides/history/pnl#pnl-report-creation-problems)
 
 ### I receive a notification error: `can't deserialize XXX,  unknown asset YY found`
 
@@ -134,8 +138,8 @@ Important to remember that the global DB is not moved by the premium sync mechan
 
 If you are affected by this, there are a number of things you can do.
 
-- For assets that are EVM tokens with identifiers like `eip155:10/erc20:0x99C59ACeBFEF3BBFB7129DC90D1a11DB0E91187f` if you press [redecode all history events](/usage-guides/historical-events.html#redecoding-blockchain-transactions) then the redecoding process should repopulate them in the global db.
-- If you have an asset with a unique identifier that looks like `a19964d9-20da-a6dc-1b50-9f293eb85c0d` then that means it's a custom asset or a manually input asset and we have no idea what it is. To figure out you would need to [access the database manually](/usage-guides/accessing-db-manually) and query the event or trade that had it. For example for trades:
+- For assets that are EVM tokens with identifiers like `eip155:10/erc20:0x99C59ACeBFEF3BBFB7129DC90D1a11DB0E91187f` if you press [redecode all history events](/usage-guides/history/events#redecoding-blockchain-transactions) then the redecoding process should repopulate them in the global db.
+- If you have an asset with a unique identifier that looks like `a19964d9-20da-a6dc-1b50-9f293eb85c0d` then that means it's a custom asset or a manually input asset and we have no idea what it is. To figure out you would need to [access the database manually](/usage-guides/advanced/database-access) and query the event or trade that had it. For example for trades:
 
 ```sql
 SELECT * from trades WHERE base_asset='a19964d9-20da-a6dc-1b50-9f293eb85c0d' OR quote_asset='a19964d9-20da-a6dc-1b50-9f293eb85c0d';
@@ -147,7 +151,7 @@ Or for history events:
 SELECT * from history_events WHERE asset='a19964d9-20da-a6dc-1b50-9f293eb85c0d';
 ```
 
-Then, from the response, understand which asset it is, recreate it, and merge it with the old identifier following the merging process outlined [here](/usage-guides/assets#merging-two-assets)
+Then, from the response, understand which asset it is, recreate it, and merge it with the old identifier following the merging process outlined [here](/usage-guides/data-management/assets#merging-two-assets)
 
 ### Out of gas error during eth_call
 

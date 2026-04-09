@@ -1,3 +1,7 @@
+---
+description: How to track ETH2 validator staking, Liquity staking, and Kraken staking in rotki.
+---
+
 # Staking
 
 rotki currently supports staking tracking for:

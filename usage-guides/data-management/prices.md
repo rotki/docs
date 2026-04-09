@@ -1,3 +1,7 @@
+---
+description: Adding custom latest and historical prices for assets that rotki cannot retrieve automatically.
+---
+
 # Adding missing prices
 
 Sometimes rotki might be unable to retrieve prices for some assets. In order to always have the ability to show a price we provide two types of manual price additions in the menu `Manage Prices`:

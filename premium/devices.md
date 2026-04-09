@@ -1,3 +1,7 @@
+---
+description: Managing devices connected to your rotki premium subscription and understanding per-tier device limits.
+---
+
 # Device Management
 
 Manage devices using your rotki premium subscription and understand device limits for your plan tier.
@@ -32,8 +36,6 @@ From **API Keys** → **rotki Premium**:
 - Access device management options
 
 ![Premium devices management in the app](/images/premium_devices_app.png)
-
-For detailed app instructions, see [Managing Premium Devices](/usage-guides/api-keys#managing-premium-devices).
 
 ## Editing Device Names
 
@@ -119,8 +121,6 @@ If you genuinely need more devices:
 1. Review higher tiers on the [pricing page](https://rotki.com/pricing)
 2. Upgrade directly from your [subscription page](https://rotki.com/home/subscription)
 3. See [Upgrading Your Subscription](/premium/plans-and-pricing#upgrading-your-subscription) for details
-
-For detailed troubleshooting, see the [Usage Guide](/usage-guides/api-keys#device-limit-exceeded).
 
 ## Understanding Device Registration
 

@@ -1,3 +1,7 @@
+---
+description: Managing global and private address book entries to replace blockchain addresses with human-readable names.
+---
+
 # Address Book
 
 You can manage the address book in `Manage Address Book` menu in the sidebar.
@@ -30,5 +34,5 @@ You can add multiple address book entries at once with CSV import. You can find 
 
 1. The `address` field is **required**.
 2. The `name` field is **required**.
-3. The `blockchain` field is **optional**. You can find supported chain IDs in the [supported blockchains](/usage-guides/accounts-and-balances#blockchain-accounts) section. Leave it blank to add the entry to all chains.
+3. The `blockchain` field is **optional**. You can find supported chain IDs in the [supported blockchains](/usage-guides/portfolio/accounts#blockchain-accounts) section. Leave it blank to add the entry to all chains.
 4. The `location` field is **optional**. You can set it to either `global` or `private`. By default, it will be saved as `private`.

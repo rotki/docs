@@ -1,3 +1,7 @@
+---
+description: Using the calendar to track events, set reminders, and receive automatic alerts like ENS expiration.
+---
+
 # Calendar
 
 rotki provides a calendar view where you can add and track events for your activities. You can also set reminders to perform some actions related to these events.

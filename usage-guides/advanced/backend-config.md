@@ -1,3 +1,7 @@
+---
+description: Customizing rotki backend arguments via rotki_config.json for log levels, data directories, and more.
+---
+
 # Set the backend's arguments
 
 rotki runs a Python daemon on the backend. Most times you won't need to customize its arguments, but if you need to do so, especially for debugging purposes, this is how you can.

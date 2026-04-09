@@ -1,7 +1,11 @@
+---
+description: Generating profit/loss reports with FIFO, LIFO, HIFO, or ACB methods and exporting results.
+---
+
 # Creating a profit/loss report
 
 > [!TIP]
-> **New to rotki?** If you're looking for a step-by-step guide to doing your crypto taxes, start with the [Tax Accounting Guide](/usage-guides/tax-accounting) which walks you through the entire workflow. This page covers the PnL report feature in detail.
+> **New to rotki?** If you're looking for a step-by-step guide to doing your crypto taxes, start with the [Tax Accounting Guide](/usage-guides/tax-accounting/guide) which walks you through the entire workflow. This page covers the PnL report feature in detail.
 
 rotki helps you track your cryptocurrency profits and losses (PnL) by analyzing your trading history and other transactions. Here's what you need to know about how these reports work:
 
@@ -48,7 +52,7 @@ This ensures your reports are accurate even when looking at specific time period
 
 - Report generation might take a few minutes, especially for longer periods
 - You can review your current accounting settings in the "Accounting settings" section
-- Having problems? Check our [troubleshooting guide](/usage-guides/pnl.html#pnl-report-creation-problems)
+- Having problems? Check our [troubleshooting guide](/usage-guides/history/pnl#pnl-report-creation-problems)
 
 ### Managing Your Reports
 
@@ -91,7 +95,7 @@ Following are definitions for the all_event document's columns
 - `notes` Information about the event.
 
 > [!NOTE]
-> To learn more about `profit_currency` or to adjust it, see the section [change profit currency](/usage-guides/customization.html#profit-currency)
+> To learn more about `profit_currency` or to adjust it, see the section [change profit currency](/usage-guides/settings/general#profit-currency)
 
 Results from past profit and loss reports are saved so the user can later review them without the need to run a new execution.
 
@@ -127,17 +131,17 @@ It's possible that rotki is not able to find an acquisition event for a sale. In
 
 This can happen for many reasons. The asset may have been acquired in a non-supported exchange/protocol, some event not detected etc.
 
-The way to fix it is to add either a [manual trade](/usage-guides/historical-events.html#adding-manual-trades) to tell rotki how you acquired that asset or an acquisition history event.
+The way to fix it is to add either a [manual trade](/usage-guides/history/events#adding-manual-trades) to tell rotki how you acquired that asset or an acquisition history event.
 
 ### Event counted as taxable / count as spend where they shouldn't
 
-If you have an event that is counted as taxable / counts as spend when it shouldn't, you may need to edit the event type / subtype of the event. Read: [Common customization](/usage-guides/historical-events.html#common-customization)
+If you have an event that is counted as taxable / counts as spend when it shouldn't, you may need to edit the event type / subtype of the event. Read: [Common customization](/usage-guides/history/events#common-customization)
 
 ### PnL report generation gets stuck
 
 There are some known reasons why PnL report generation gets stuck:
 
-1. If you have a Binance API key registered, please check these notes about [Binance API key rate limiting](/usage-guides/api-keys.md#market-pairs-required)
+1. If you have a Binance API key registered, please check these notes about [Binance API key rate limiting](/usage-guides/integrations/exchange-keys#market-pairs-required)
 
 If your PnL report is stuck for a different reason, contact us in [Discord](https://discord.rotki.com)
 
@@ -150,12 +154,12 @@ Simply change the language on Google doc to United States. This can be done in F
 
 ![Missing prices asset](/images/sc_pnl_missing_prices.png)
 
-It's possible that rotki is not able to find the price of assets. You have to input the price manually, otherwise the event will be skipped from pnl reports. For example if you are creating a GBP profit/loss report and the asset is GNO then make sure to create the GNO -> GBP historical price cache. You can add the prices on the spot, or open [manage historical price cache](/usage-guides/customization.html#manage-historical-price-oracle-cache).
+It's possible that rotki is not able to find the price of assets. You have to input the price manually, otherwise the event will be skipped from pnl reports. For example if you are creating a GBP profit/loss report and the asset is GNO then make sure to create the GNO -> GBP historical price cache. You can add the prices on the spot, or open [manage historical price cache](/usage-guides/settings/general#manage-historical-price-oracle-cache).
 
 ### The result of the generated PnL report is not what you expected.
 
 The results of the generated PnL report can vary depending on the
-[accounting settings](/usage-guides/customization.html#accounting-settings). Check if any settings align with unusual treatments for your events, so you can adjust the settings to resolve the issue yourself.
+[accounting settings](/usage-guides/settings/accounting#accounting-settings). Check if any settings align with unusual treatments for your events, so you can adjust the settings to resolve the issue yourself.
 
 If you have any question or are confused about the settings, feel free to send us a message on [Discord](https://discord.rotki.com).
 

@@ -1,3 +1,7 @@
+---
+description: Default rotki data directory locations on Linux, macOS, and Windows, plus backup recommendations.
+---
+
 # rotki data directory
 
 rotki saves user data by default in a different directory per OS. For each OS, data is stored in the respective standards-compliant equivalent directory.
@@ -14,4 +18,4 @@ A very good idea for the rotki data directory would be to make frequent backups 
 
 If you are running rotki from unreleased code from git branches,
 please note that [the data directory is in a slightly different
-location](../contribution-guides/contribute-as-developer.html#working-with-the-develop-branch).
+location](/contribution-guides/contribute-as-developer#working-with-the-develop-branch).

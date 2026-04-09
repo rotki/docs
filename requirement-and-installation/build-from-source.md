@@ -1,7 +1,11 @@
+---
+description: Building rotki from source with prerequisites, backend setup, frontend setup, and Colibri service compilation.
+---
+
 # Build from Source
 
 > [!WARNING]
-> Please note that you should not switch between running unreleased code from git branches and official releases of rotki on the same [data set](/usage-guides/data-directory.md), as unreleased code does not provide guarantees around forward-compatibility of data schemas etc.
+> Please note that you should not switch between running unreleased code from git branches and official releases of rotki on the same [data set](/usage-guides/advanced/data-directory), as unreleased code does not provide guarantees around forward-compatibility of data schemas etc.
 
 ## Prerequisites
 

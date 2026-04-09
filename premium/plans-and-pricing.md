@@ -1,3 +1,7 @@
+---
+description: Comparing rotki premium subscription tiers, billing cycles, and choosing the right plan.
+---
+
 # Plans & Pricing
 
 rotki premium offers multiple subscription tiers with varying limits and capacities to suit different user needs.

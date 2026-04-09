@@ -1,3 +1,7 @@
+---
+description: Overview of rotki installation options with links to packaged binaries and building from source.
+---
+
 # Installation
 
 The easiest way to start rotki is to download the packaged binary for your operating system. Linux, macOS, and Windows are supported. To see how to do this, go to the [next section](/requirement-and-installation/packaged-binaries).

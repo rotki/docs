@@ -1,3 +1,7 @@
+---
+description: Frontend development setup including editor integration, environment variables, and development proxy config.
+---
+
 # Working with the Frontend
 
 ## Editor Integration

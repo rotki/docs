@@ -1,3 +1,7 @@
+---
+description: Creating, managing, and securing rotki premium API key and secret credentials for app activation.
+---
+
 # API Credentials
 
 rotki premium uses API credentials to connect your subscription to the rotki application. This guide explains how to create, manage, and secure your API credentials.

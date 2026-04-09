@@ -1,3 +1,7 @@
+---
+description: Complete reference of all event types and subtypes in rotki with examples and default tax treatments.
+---
+
 # Event Types and Subtypes Reference
 
 This page provides a complete reference for all event types and subtypes in rotki. Understanding these categories is essential for reviewing your transaction history and ensuring your PnL reports are accurate.
@@ -351,6 +355,6 @@ The entry type determines which fields are available when editing an event. For 
 
 ## Editing events
 
-If an event is miscategorized, you can edit it directly from the History Events page. See the [common customization guide](/usage-guides/historical-events#common-customization) for step-by-step instructions and examples.
+If an event is miscategorized, you can edit it directly from the History Events page. See the [common customization guide](/usage-guides/history/events#common-customization) for step-by-step instructions and examples.
 
 Changes you make to event types/subtypes directly affect how they are processed in the PnL report.

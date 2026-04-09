@@ -5,6 +5,76 @@ import { defineConfig } from 'vitepress';
 import llmstxt from 'vitepress-plugin-llms';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import { markdownFitMedia } from './plugins/markdown-fit-media';
+import { getRedirectPaths, redirectsPlugin } from './plugins/redirects';
+
+const redirects: Record<string, import('./plugins/redirects').RedirectValue> = {
+  // Simple redirects (1:1 moves)
+  'usage-guides/historical-events': '/usage-guides/history/events',
+  'usage-guides/onchain': '/usage-guides/history/onchain',
+  'usage-guides/pnl': '/usage-guides/history/pnl',
+  'usage-guides/import-csv': '/usage-guides/history/import-data',
+  'usage-guides/tax-accounting': '/usage-guides/tax-accounting/guide',
+  'usage-guides/event-types': '/usage-guides/tax-accounting/event-types',
+  'usage-guides/accounting-rules': '/usage-guides/tax-accounting/accounting-rules',
+  'usage-guides/statistic': '/usage-guides/statistics',
+  'usage-guides/assets': '/usage-guides/data-management/assets',
+  'usage-guides/custom-price': '/usage-guides/data-management/prices',
+  'usage-guides/address-book': '/usage-guides/data-management/address-book',
+  'usage-guides/tag-management': '/usage-guides/data-management/tags',
+  'usage-guides/calendar': '/usage-guides/integrations/calendar',
+  'usage-guides/global-search': '/usage-guides/utilities/#global-search',
+  'usage-guides/user-notes': '/usage-guides/utilities/#taking-notes-in-app',
+  'usage-guides/long-running-tasks': '/usage-guides/utilities/#background-tasks',
+  'usage-guides/help-support': '/usage-guides/utilities/help',
+  'usage-guides/troubleshooting': '/usage-guides/advanced/troubleshooting',
+  'usage-guides/backend-arguments': '/usage-guides/advanced/backend-config',
+  'usage-guides/data-directory': '/usage-guides/advanced/data-directory',
+  'usage-guides/accessing-db-manually': '/usage-guides/advanced/database-access',
+  'usage-guides/using-rotki-from-mobile': '/usage-guides/advanced/mobile',
+  // Anchor-aware redirects (split files)
+  'usage-guides/accounts-and-balances': {
+    default: '/usage-guides/portfolio/accounts',
+    anchors: {
+      '#exchange-balances': '/usage-guides/portfolio/balances',
+      '#manual-balances': '/usage-guides/portfolio/balances',
+      '#nfts': '/usage-guides/portfolio/balances',
+      '#filtering-by-tags': '/usage-guides/portfolio/balances',
+      '#hide-small-balances': '/usage-guides/portfolio/balances',
+      '#airdrops': '/usage-guides/portfolio/balances',
+      '#balances-snapshots': '/usage-guides/portfolio/balances',
+    },
+  },
+  'usage-guides/api-keys': {
+    default: '/usage-guides/integrations/exchange-keys',
+    anchors: {
+      '#external-services': '/usage-guides/integrations/external-services',
+      '#etherscan': '/usage-guides/integrations/external-services',
+      '#loopring-balances': '/usage-guides/integrations/external-services',
+      '#monerium': '/usage-guides/integrations/external-services',
+      '#gnosis-pay': '/usage-guides/integrations/external-services',
+      '#the-graph': '/usage-guides/integrations/external-services',
+      '#defillama': '/usage-guides/integrations/external-services',
+      '#coingecko': '/usage-guides/integrations/external-services',
+    },
+  },
+  'usage-guides/customization': {
+    default: '/usage-guides/settings/general',
+    anchors: {
+      '#accounting-settings': '/usage-guides/settings/accounting',
+      '#trade-settings': '/usage-guides/settings/accounting',
+      '#csv-export-settings': '/usage-guides/settings/accounting',
+      '#evm': '/usage-guides/settings/blockchain',
+      '#price-oracle-settings': '/usage-guides/settings/blockchain',
+      '#rpc-node-setting': '/usage-guides/settings/blockchain',
+      '#module-settings': '/usage-guides/settings/blockchain',
+      '#interface-only-settings': '/usage-guides/settings/interface',
+      '#disabling-the-tray-icon': '/usage-guides/settings/interface',
+      '#account-settings': '/usage-guides/settings/account',
+      '#database-settings': '/usage-guides/settings/account',
+      '#backend-settings': '/usage-guides/settings/account',
+    },
+  },
+};
 
 const __dirname = path.dirname(fileURLToPath(new URL(import.meta.url)));
 
@@ -58,38 +128,91 @@ export default defineConfig({
       {
         text: 'Usage Guides',
         items: [
-          { text: 'Introduction', link: '/usage-guides/' },
-          { text: 'Tax Accounting Guide', link: '/usage-guides/tax-accounting' },
-          { text: 'Tracking Accounts & Balances', link: '/usage-guides/accounts-and-balances' },
-          { text: 'Historical Events', link: '/usage-guides/historical-events' },
-          { text: 'Event Types & Subtypes', link: '/usage-guides/event-types' },
-          { text: 'On-Chain Transactions', link: '/usage-guides/onchain' },
-          { text: 'Staking', link: '/usage-guides/staking' },
-          { text: 'Statistics', link: '/usage-guides/statistic' },
-          { text: 'Profit/Loss Report', link: '/usage-guides/pnl' },
-          { text: 'Accounting Rule Options', link: '/usage-guides/accounting-rules' },
-          { text: 'Tag Management', link: '/usage-guides/tag-management' },
-          { text: 'Assets Management', link: '/usage-guides/assets' },
-          { text: 'Add Missing Prices', link: '/usage-guides/custom-price' },
-          { text: 'Address Book', link: '/usage-guides/address-book' },
-          { text: 'API Keys', link: '/usage-guides/api-keys' },
-          { text: 'Import CSV', link: '/usage-guides/import-csv' },
-          { text: 'Calendar', link: '/usage-guides/calendar' },
-          { text: 'Taking Notes In-App', link: '/usage-guides/user-notes' },
-          { text: 'Global Search', link: '/usage-guides/global-search' },
-          { text: 'Settings', link: '/usage-guides/customization' },
-          { text: 'Help & Support', link: '/usage-guides/help-support' },
-        ],
-      },
-      {
-        text: 'Advanced',
-        items: [
-          { text: 'Troubleshooting', link: '/usage-guides/troubleshooting' },
-          { text: 'Set the backend\'s arguments', link: '/usage-guides/backend-arguments' },
-          { text: 'rotki data directory', link: '/usage-guides/data-directory' },
-          { text: 'Accessing the database manually', link: '/usage-guides/accessing-db-manually' },
-          { text: 'Long running tasks', link: '/usage-guides/long-running-tasks' },
-          { text: 'Using rotki from mobile', link: '/usage-guides/using-rotki-from-mobile' },
+          { text: 'Getting Started', link: '/usage-guides/' },
+          {
+            text: 'Portfolio',
+            collapsed: false,
+            items: [
+              { text: 'Accounts', link: '/usage-guides/portfolio/accounts' },
+              { text: 'Balances', link: '/usage-guides/portfolio/balances' },
+            ],
+          },
+          {
+            text: 'History & Events',
+            collapsed: false,
+            items: [
+              { text: 'Historical Events', link: '/usage-guides/history/events' },
+              { text: 'On-Chain Transactions', link: '/usage-guides/history/onchain' },
+              { text: 'Import Data', link: '/usage-guides/history/import-data' },
+            ],
+          },
+          {
+            text: 'Tax & Accounting',
+            collapsed: false,
+            items: [
+              { text: 'Tax Accounting Guide', link: '/usage-guides/tax-accounting/guide' },
+              { text: 'Profit/Loss Report', link: '/usage-guides/history/pnl' },
+              { text: 'Event Types & Subtypes', link: '/usage-guides/tax-accounting/event-types' },
+              { text: 'Accounting Rules', link: '/usage-guides/tax-accounting/accounting-rules' },
+            ],
+          },
+          {
+            text: 'Tracking',
+            collapsed: false,
+            items: [
+              { text: 'Staking', link: '/usage-guides/staking' },
+              { text: 'Statistics', link: '/usage-guides/statistics' },
+            ],
+          },
+          {
+            text: 'Integrations',
+            collapsed: true,
+            items: [
+              { text: 'Exchange API Keys', link: '/usage-guides/integrations/exchange-keys' },
+              { text: 'External Services', link: '/usage-guides/integrations/external-services' },
+              { text: 'Calendar', link: '/usage-guides/integrations/calendar' },
+            ],
+          },
+          {
+            text: 'Utilities',
+            collapsed: true,
+            items: [
+              { text: 'Overview', link: '/usage-guides/utilities/' },
+              { text: 'Help & Support', link: '/usage-guides/utilities/help' },
+            ],
+          },
+          {
+            text: 'Data Management',
+            collapsed: true,
+            items: [
+              { text: 'Assets', link: '/usage-guides/data-management/assets' },
+              { text: 'Missing Prices', link: '/usage-guides/data-management/prices' },
+              { text: 'Address Book', link: '/usage-guides/data-management/address-book' },
+              { text: 'Tags', link: '/usage-guides/data-management/tags' },
+            ],
+          },
+          {
+            text: 'Settings',
+            collapsed: true,
+            items: [
+              { text: 'General', link: '/usage-guides/settings/general' },
+              { text: 'Interface', link: '/usage-guides/settings/interface' },
+              { text: 'Accounting', link: '/usage-guides/settings/accounting' },
+              { text: 'Blockchain & EVM', link: '/usage-guides/settings/blockchain' },
+              { text: 'Account & Database', link: '/usage-guides/settings/account' },
+            ],
+          },
+          {
+            text: 'Advanced',
+            collapsed: true,
+            items: [
+              { text: 'Troubleshooting', link: '/usage-guides/advanced/troubleshooting' },
+              { text: 'Backend Configuration', link: '/usage-guides/advanced/backend-config' },
+              { text: 'Data Directory', link: '/usage-guides/advanced/data-directory' },
+              { text: 'Database Access', link: '/usage-guides/advanced/database-access' },
+              { text: 'Mobile / Docker', link: '/usage-guides/advanced/mobile' },
+            ],
+          },
         ],
       },
       {
@@ -157,7 +280,10 @@ export default defineConfig({
     },
   },
   vite: {
-    plugins: [llmstxt()],
+    plugins: [
+      llmstxt({ ignoreFiles: getRedirectPaths(redirects) }),
+      redirectsPlugin({ redirects, base }),
+    ],
     resolve: {
       alias: {
         '@': path.resolve(__dirname, '../'),

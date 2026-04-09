@@ -1,3 +1,7 @@
+---
+description: Accessing rotki from a mobile device using DAppNode VPN or Docker with an authenticated proxy.
+---
+
 # Using rotki from mobile
 
 If you are using DAppNode or the Docker image instead of the Electron application, it is possible to access rotki from a mobile device.

@@ -1,7 +1,11 @@
+---
+description: Browsing, filtering, decoding, and editing historical events from exchanges and blockchains.
+---
+
 # History events
 
 > [!TIP]
-> **Trying to understand event types?** See the [Event Types & Subtypes Reference](/usage-guides/event-types) for a complete guide to what each event category means, with examples and default tax treatments.
+> **Trying to understand event types?** See the [Event Types & Subtypes Reference](/usage-guides/tax-accounting/event-types) for a complete guide to what each event category means, with examples and default tax treatments.
 
 rotki is capable of pulling and decoding a bunch of different events, ranging from EVM chain transactions to exchanges events and more. When you visit the `History Events` section the process to obtain all the information will start. You will be able to check the status in an informative breakdown per blockchain address. Free users are limited to a number of latest events.
 

@@ -1,3 +1,7 @@
+---
+description: Viewing net value graphs, asset amount/value charts, and balance snapshots with rotki premium.
+---
+
 # Statistics
 
 If you have a premium subscription you can get statistics on all your assets and trades.
@@ -70,7 +74,7 @@ Moreover, you can see a pie chart of the distribution of your net value across a
 ![Distribution of networth by asset](/images/sc_stats_distribution_asset.png)
 
 > [!NOTE]
-> The pie charts showing value distribution by location and asset use data from your latest snapshot, not your current balance. To see the most recent data, you'll need to [create a new snapshot](/usage-guides/accounts-and-balances#balances-snapshots).
+> The pie charts showing value distribution by location and asset use data from your latest snapshot, not your current balance. To see the most recent data, you'll need to [create a new snapshot](/usage-guides/portfolio/balances#balances-snapshots).
 
 ## Event Analysis
 

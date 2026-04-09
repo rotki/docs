@@ -1,3 +1,7 @@
+---
+description: Sending on-chain transactions from rotki via WalletConnect or browser wallet on supported EVM chains.
+---
+
 > [!NOTE]
 > This is an experimental feature, and you may find some imperfections. However, we are going to continuously improve it.
 

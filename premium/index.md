@@ -1,3 +1,7 @@
+---
+description: Overview of rotki premium subscription tiers, features, and how to get started with premium.
+---
+
 # Premium Overview
 
 rotki premium is a paid subscription with several tiers unlocking additional features depending on your needs while supporting the ongoing development of rotki as an open-source project.

@@ -1,3 +1,7 @@
+---
+description: Running the Python test suite, linting with ruff/mypy/pylint, and mocking network calls in tests.
+---
+
 # Python Code Testing
 
 To run the Python test suite, ensure you have installed all dependencies including the dev group, and then execute:
@@ -38,7 +42,7 @@ Mocking should be done in one of the following ways:
 
 ## Using VCR
 
-From version 1.27.0, we have introduced VCR to mock network queries in most tests to improve the speed of the test suite. VCR works by generating a `yaml` file that records information about all the requests made. Then, for every request that occurs in the test, VCR tries to match it to one of the recorded ones. We already have some pre-recorded cassettes (the name used by VCR for those yaml files), which are available on [GitHub](https://github.com/rotki/test-caching). During a fresh run, this repository will be cloned, and the cassettes will be replayed. This occurs in the path set by the `vcr_cassette_dir` fixture, which also sets the directory where the cassettes are located. By default, this is the `test-caching` directory under [rotki's data directory](/usage-guides/data-directory.html#rotki-data-directory).
+From version 1.27.0, we have introduced VCR to mock network queries in most tests to improve the speed of the test suite. VCR works by generating a `yaml` file that records information about all the requests made. Then, for every request that occurs in the test, VCR tries to match it to one of the recorded ones. We already have some pre-recorded cassettes (the name used by VCR for those yaml files), which are available on [GitHub](https://github.com/rotki/test-caching). During a fresh run, this repository will be cloned, and the cassettes will be replayed. This occurs in the path set by the `vcr_cassette_dir` fixture, which also sets the directory where the cassettes are located. By default, this is the `test-caching` directory under [rotki's data directory](/usage-guides/advanced/data-directory#rotki-data-directory).
 
 Locally, cassettes are only read and never written to prevent unexpected behavior during testing. To record a new test, we provide a make rule called `create-cassette`.
 

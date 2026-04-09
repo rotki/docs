@@ -1,3 +1,7 @@
+---
+description: Accessing help resources, reporting bugs, and submitting feature requests through the in-app support menu.
+---
+
 # Help & Support
 
 To access the Help & Support menu, click the **?** icon in the toolbar.

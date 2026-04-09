@@ -1,3 +1,7 @@
+---
+description: How to open and query the encrypted rotki SQLite database using DB Browser for SQLite or sqlcipher CLI.
+---
+
 # Accessing the database manually
 
 To detect potential problems with data or modify the state of the database, you might need to access it manually. Here’s a guide on how to do this using `DB Browser for SQLite` or `sqlcipher` CLI tool.
@@ -7,7 +11,7 @@ To detect potential problems with data or modify the state of the database, you 
 1. **Download and Install**: Get [DB Browser for SQLite](https://sqlitebrowser.org/dl/). It's available for Windows, macOS, and Linux.
 2. **Starting the Program**: Launch the program with the SQLCipher functionality.
 3. **Opening the rotki Database**:
-   - Navigate to the rotki database in the [rotki data directory](/usage-guides/data-directory.html#rotki-data-directory).
+   - Navigate to the rotki database in the [rotki data directory](/usage-guides/advanced/data-directory#rotki-data-directory).
    - Enter the password you use to unlock your rotki account to decrypt the database.
 4. **Browsing and Modifying Data**:
    - Use the `Browse Data` tab to view the information.
