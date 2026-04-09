@@ -4,5 +4,7 @@ saveExact: true
 shellEmulator: true
 strictDepBuilds: true
 trustPolicy: no-downgrade
+trustPolicyExclude:
+  - vite
 allowBuilds:
   esbuild: true
