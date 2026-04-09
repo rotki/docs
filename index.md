@@ -10,7 +10,7 @@ rotki is an open-source asset management and accounting application specializing
 
 <NavCards :cards="[
   { icon: '📦', title: 'Installation Guide', description: 'Download and install rotki on Linux, macOS, or Windows.', link: '/requirement-and-installation/' },
-  { icon: '🚀', title: 'Getting Started', description: 'Create your account and connect your first data sources.', link: '/usage-guides/' },
+  { icon: '🚀', title: 'Quick Start Guide', description: 'Step-by-step walkthrough from installation to your first PnL report.', link: '/usage-guides/quick-start' },
   { icon: '📊', title: 'Tax Accounting Guide', description: 'Step-by-step walkthrough from setup to generating your PnL report.', link: '/usage-guides/tax-accounting/guide' },
   { icon: '🤝', title: 'Contribution Guide', description: 'Report bugs, request features, or contribute code to rotki.', link: '/contribution-guides/' },
 ]" />

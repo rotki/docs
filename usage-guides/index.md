@@ -1,13 +1,13 @@
 ---
-description: Getting started with rotki including account creation, sign-in, premium setup, and data directory sync.
+description: Reference for rotki account setup, sign-in, premium sync, data restoration, and upgrading between versions.
 ---
 
-# Getting Started
+# Accounts & Sync
 
-This guide explains how to use the rotki application.
+This page covers account creation, sign-in, premium sync, restoring backups, moving installations, and upgrading rotki.
 
 > [!TIP]
-> **Using rotki for tax reporting?** Jump to the [Tax Accounting Guide](/usage-guides/tax-accounting/guide) for a focused walkthrough of connecting your data, reviewing transactions, and generating your PnL report.
+> **New to rotki?** Start with the [Quick Start Guide](/usage-guides/quick-start) for a step-by-step walkthrough from installation to your first PnL report.
 
 ## First Time Sign-Up
 
@@ -82,7 +82,7 @@ To sign in with your local rotki account, enter your profile name and password a
 
 ## Set Up rotki Premium
 
-If you decide to purchase [rotki Premium](https://rotki.com/products/) later, you can set it up [here](/usage-guides/integrations/exchange-keys#rotki-premium)
+If you purchased a [rotki Premium](https://rotki.com/products/) subscription after creating your local account, you can activate it at any time by adding your API key and secret under **API Keys → rotki Premium** in the app. See [rotki Premium](/usage-guides/integrations/exchange-keys#rotki-premium) for the full setup instructions.
 
 ## Sync Data with rotki Server
 

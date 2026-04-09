@@ -128,7 +128,8 @@ export default defineConfig({
       {
         text: 'Usage Guides',
         items: [
-          { text: 'Getting Started', link: '/usage-guides/' },
+          { text: 'Quick Start Guide', link: '/usage-guides/quick-start' },
+          { text: 'Accounts & Sync', link: '/usage-guides/' },
           {
             text: 'Portfolio',
             collapsed: false,
