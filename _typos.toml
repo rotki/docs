@@ -12,3 +12,4 @@ extend-ignore-re = [
 
 [default.extend-words]
 teh = "teh"     # example variable
+Sur = "Sur"     # macOS Big Sur
