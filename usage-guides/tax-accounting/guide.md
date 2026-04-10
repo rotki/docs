@@ -30,7 +30,7 @@ Before you can generate a tax report, rotki needs to know about your transaction
 
 ### 2. Configure your accounting settings
 
-Go to **Settings → Accounting Settings** ([detailed reference](/usage-guides/settings/accounting#accounting-settings)) and configure:
+Go to **Settings → Accounting Settings** ([detailed reference](/usage-guides/settings/accounting)) and configure:
 
 - **Cost basis method**: FIFO, LIFO, HIFO, or ACB — check which method your tax jurisdiction requires. See [accounting rule options explained](/usage-guides/tax-accounting/accounting-rules) for details.
 - **Crypto to crypto trades**: Whether swapping one crypto for another is a taxable event (it is in most jurisdictions).
@@ -41,7 +41,7 @@ Go to **Settings → Accounting Settings** ([detailed reference](/usage-guides/s
 
 Go to **History Events** in the left sidebar. This is where all your transactions live. rotki automatically decodes most on-chain transactions, but you should review them for accuracy:
 
-- **Check for missing events**: If you moved assets through unsupported protocols or peer-to-peer, you may need to [add events manually](/usage-guides/history/events#add--edit-events).
+- **Check for missing events**: If you moved assets through unsupported protocols or peer-to-peer, you may need to [add events manually](/usage-guides/history/events#add-edit-events).
 - **Fix incorrectly categorized events**: rotki may not always correctly identify what a transaction represents. See the [event types and subtypes reference](/usage-guides/tax-accounting/event-types) to understand each category, and the [common customization guide](/usage-guides/history/events#common-customization) for how to re-categorize events.
 - **Check for missing accounting rules**: Events with a warning icon won't be processed correctly. Either edit the event or add a [missing accounting rule](/usage-guides/history/events#missing-accounting-rule).
 - **Match asset movements**: If you have exchange deposits/withdrawals that aren't linked to on-chain transactions, use the [asset movement matching](/usage-guides/history/events#unmatched-asset-movements) feature.
@@ -70,13 +70,13 @@ The report shows:
 
 ## Common issues and how to fix them
 
-| Problem                                       | Likely cause                                                 | Solution                                                                                                                                                         |
-| --------------------------------------------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| "No documented acquisition found"             | rotki doesn't know when/where you originally bought an asset | [Add a manual trade](/usage-guides/history/events#add--edit-events) or acquisition event                                                                         |
-| Event counted as taxable when it shouldn't be | Wrong event type/subtype                                     | [Edit the event](/usage-guides/history/events#common-customization) to the correct type                                                                          |
-| Missing price for an asset                    | Oracle doesn't have data for that asset/timestamp            | [Add missing price manually](/usage-guides/data-management/prices)                                                                                               |
-| PnL numbers seem wrong                        | Accounting settings may not match your jurisdiction          | Review [accounting settings](/usage-guides/settings/accounting#accounting-settings) and [accounting rule options](/usage-guides/tax-accounting/accounting-rules) |
-| Report generation gets stuck                  | Often caused by exchange API rate limits                     | Check [troubleshooting](/usage-guides/history/pnl#pnl-report-generation-gets-stuck)                                                                              |
+| Problem                                       | Likely cause                                                 | Solution                                                                                                                                     |
+| --------------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| "No documented acquisition found"             | rotki doesn't know when/where you originally bought an asset | [Add a manual trade](/usage-guides/history/events#add-edit-events) or acquisition event                                                      |
+| Event counted as taxable when it shouldn't be | Wrong event type/subtype                                     | [Edit the event](/usage-guides/history/events#common-customization) to the correct type                                                      |
+| Missing price for an asset                    | Oracle doesn't have data for that asset/timestamp            | [Add missing price manually](/usage-guides/data-management/prices)                                                                           |
+| PnL numbers seem wrong                        | Accounting settings may not match your jurisdiction          | Review [accounting settings](/usage-guides/settings/accounting) and [accounting rule options](/usage-guides/tax-accounting/accounting-rules) |
+| Report generation gets stuck                  | Often caused by exchange API rate limits                     | Check [troubleshooting](/usage-guides/history/pnl#pnl-report-generation-gets-stuck)                                                          |
 
 ## What rotki currently does NOT support
 

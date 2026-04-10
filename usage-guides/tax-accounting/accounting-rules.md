@@ -4,7 +4,7 @@ description: Detailed explanation of every accounting setting in rotki including
 
 # Accounting Rule Options Explained
 
-This page explains every accounting setting in rotki in detail. These settings control how your transactions are processed when generating a [Profit/Loss Report](/usage-guides/history/pnl). You can configure them under **Settings → Accounting Settings** ([screenshot guide](/usage-guides/settings/accounting#accounting-settings)).
+This page explains every accounting setting in rotki in detail. These settings control how your transactions are processed when generating a [Profit/Loss Report](/usage-guides/history/pnl). You can configure them under **Settings → Accounting Settings** ([screenshot guide](/usage-guides/settings/accounting)).
 
 > [!IMPORTANT]
 > rotki's default settings are based on German tax rules. Check with your tax advisor about what's required in your country and adjust accordingly.
