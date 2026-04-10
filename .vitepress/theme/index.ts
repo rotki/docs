@@ -1,4 +1,5 @@
 import type { Theme } from 'vitepress';
+import CopyOrDownloadAsMarkdownButtons from 'vitepress-plugin-llms/vitepress-components/CopyOrDownloadAsMarkdownButtons.vue';
 import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client';
 import DefaultTheme from 'vitepress/theme';
 import { h } from 'vue';
@@ -15,5 +16,6 @@ export default {
     enhanceAppWithTabs(app);
     app.component('CsvTable', CsvTable);
     app.component('NavCards', NavCards);
+    app.component('CopyOrDownloadAsMarkdownButtons', CopyOrDownloadAsMarkdownButtons);
   },
 } satisfies Theme;

@@ -2,7 +2,7 @@ import path from 'node:path';
 import process from 'node:process';
 import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vitepress';
-import llmstxt from 'vitepress-plugin-llms';
+import llmstxt, { copyOrDownloadAsMarkdownButtons } from 'vitepress-plugin-llms';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
 import { markdownFitMedia } from './plugins/markdown-fit-media';
 import { getRedirectPaths, redirectsPlugin } from './plugins/redirects';
@@ -272,6 +272,7 @@ export default defineConfig({
   markdown: {
     config(md) {
       md.use(tabsMarkdownPlugin);
+      md.use(copyOrDownloadAsMarkdownButtons);
       md.use(markdownFitMedia, {
         imgDir: './public',
         lazyLoad: true,
