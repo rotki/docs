@@ -131,7 +131,7 @@ It's possible that rotki is not able to find an acquisition event for a sale. In
 
 This can happen for many reasons. The asset may have been acquired in a non-supported exchange/protocol, some event not detected etc.
 
-The way to fix it is to add either a [manual trade](/usage-guides/history/events#adding-manual-trades) to tell rotki how you acquired that asset or an acquisition history event.
+The way to fix it is to [add a history event](/usage-guides/history/events#add-edit-events) (such as a Swap or Receive event) to tell rotki how you acquired that asset.
 
 ### Event counted as taxable / count as spend where they shouldn't
 
@@ -154,12 +154,12 @@ Simply change the language on Google doc to United States. This can be done in F
 
 ![Missing prices asset](/images/sc_pnl_missing_prices.png)
 
-It's possible that rotki is not able to find the price of assets. You have to input the price manually, otherwise the event will be skipped from pnl reports. For example if you are creating a GBP profit/loss report and the asset is GNO then make sure to create the GNO -> GBP historical price cache. You can add the prices on the spot, or open [manage historical price cache](/usage-guides/settings/general#manage-historical-price-oracle-cache).
+It's possible that rotki is not able to find the price of assets. You have to input the price manually, otherwise the event will be skipped from pnl reports. For example if you are creating a GBP profit/loss report and the asset is GNO then make sure to create the GNO -> GBP historical price cache. You can add the prices on the spot, or open the [oracle cache](/usage-guides/settings/blockchain#oracle-cache) from the settings.
 
 ### The result of the generated PnL report is not what you expected.
 
 The results of the generated PnL report can vary depending on the
-[accounting settings](/usage-guides/settings/accounting#accounting-settings). Check if any settings align with unusual treatments for your events, so you can adjust the settings to resolve the issue yourself.
+[accounting settings](/usage-guides/settings/accounting). Check if any settings align with unusual treatments for your events, so you can adjust the settings to resolve the issue yourself.
 
 If you have any question or are confused about the settings, feel free to send us a message on [Discord](https://discord.rotki.com).
 
