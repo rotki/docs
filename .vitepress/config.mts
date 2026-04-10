@@ -47,6 +47,7 @@ const redirects: Record<string, import('./plugins/redirects').RedirectValue> = {
   'usage-guides/api-keys': {
     default: '/usage-guides/integrations/exchange-keys',
     anchors: {
+      '#rotki-premium': '/premium/api-keys',
       '#external-services': '/usage-guides/integrations/external-services',
       '#etherscan': '/usage-guides/integrations/external-services',
       '#loopring-balances': '/usage-guides/integrations/external-services',

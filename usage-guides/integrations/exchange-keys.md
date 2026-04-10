@@ -4,17 +4,7 @@ description: Connecting centralized exchanges to rotki via API keys, with per-ex
 
 # Exchange API Keys
 
-In this section, we will explain how to connect exchanges to rotki via API Keys.
-Go to the `API Keys` menu in the sidebar.
-
-## rotki Premium
-
-![Set up rotki premium API key/secret pair in an existing account](/images/rotki_premium_set.png)
-
-A rotki premium subscription is activated in the app by adding your **API Key** and **API Secret**.
-If you don't have a premium subscription yet, you can subscribe at [rotki.com/products](https://rotki.com/products/).
-
-For detailed information about premium plans, pricing, payment options, and how to use your premium API key see the [Premium documentation](/premium/).
+This page covers connecting centralized exchanges to rotki via read-only API keys. Go to the `API Keys` menu in the sidebar, then **Exchanges**.
 
 ## Exchanges API Keys
 
