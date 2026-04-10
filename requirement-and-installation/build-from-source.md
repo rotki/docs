@@ -1,11 +1,13 @@
 ---
-description: Building rotki from source with prerequisites, backend setup, frontend setup, and Colibri service compilation.
+description: Build rotki from source for development or to run unreleased code, with backend, frontend, and packaging instructions.
 ---
 
 # Build from Source
 
+Building rotki from source is for contributors and for users who want to run unreleased code from git branches. If you just want to use rotki, the [packaged binaries](/requirement-and-installation/download) are easier.
+
 > [!WARNING]
-> Please note that you should not switch between running unreleased code from git branches and official releases of rotki on the same [data set](/usage-guides/advanced/data-directory), as unreleased code does not provide guarantees around forward-compatibility of data schemas etc.
+> Don't switch between unreleased git builds and official releases on the same [data directory](/usage-guides/advanced/data-directory). Unreleased code has no forward-compatibility guarantees for the database schema.
 
 ## Prerequisites
 
@@ -13,148 +15,123 @@ Before starting, ensure you have the following installed:
 
 - [Git](https://git-scm.com/downloads)
 - [Python 3.11.x](https://www.python.org/downloads/)
-- [uv](https://github.com/astral-sh/uv) (Python package manager)
-- [Node.js](https://nodejs.org/en/) (version `>=24 <25` — check `frontend/package.json` `engines` for the exact requirement)
-- [pnpm](https://pnpm.io/) (version `>=10 <11` — managed via `corepack`, see [Installing pnpm](#installing-pnpm))
-- [Rust/Cargo](https://www.rust-lang.org/tools/install) (needed to build the Colibri service locally)
+- [uv](https://github.com/astral-sh/uv) — Python package manager
+- [Node.js](https://nodejs.org/en/) — check `frontend/package.json` `engines` for the exact supported range
+- [pnpm](https://pnpm.io/) — managed via `corepack` (see [Installing pnpm](#installing-pnpm))
+- [Rust / Cargo](https://www.rust-lang.org/tools/install) — needed to build the Colibri service locally
 
-## Downloading source
+## Get the source
 
-This guide assumes you want to use Git to clone the project into a development directory; if you prefer to download the source from GitHub as a zip, you can do that instead.
+Fork the rotki repository on GitHub, then clone your fork locally:
 
-1. Fork the relevant rotki branch into your own GitHub account.
-2. Open a terminal (Command Prompt / PowerShell prompt) in your root development directory (the parent directory of where you will place your rotki development directory).
-3. Clone your forked project into the local directory where you want to build rotki (e.g., if you forked the rotki/develop branch, you might clone into `c:\dev\rotki-develop`).
+```sh
+git clone https://github.com/your-user/rotki.git
+cd rotki
+```
 
-In your local rotki development directory, you should have all the files as they appear in the GitHub page for the rotki branch you chose to download/clone.
+This guide assumes you checked out the `develop` branch, which is the default for contributors.
 
-## Backend setup for Linux
+## Backend setup
 
-### Set Up Python Environment
+The backend setup is the same across Linux, macOS, and Windows — install `uv`, then run `uv sync` to create the development environment. OS-specific notes are below.
 
-Install uv, the modern Python package manager:
+### Install uv
+
+**Linux and macOS:**
 
 ```sh
 curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 
-Then set up the development environment:
+**Windows (PowerShell):**
 
 ```sh
-# Install all dependencies including dev and lint groups
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+### Install dependencies
+
+From the rotki repo root:
+
+```sh
 uv sync --group dev --group lint
 ```
 
-Follow the [Frontend setup](#frontend-setup) to complete the setup.
+This creates a `.venv` and installs the backend, dev, and lint dependency groups.
 
-## Backend setup for macOS
+### Verify the backend
 
-The tl;dr version is:
-
-- Use a virtual environment with Python 3.11.x.
-- Confirm `pip` (pip3) is installed correctly and up to date.
-
-Install [Homebrew](https://brew.sh/) first if not installed yet.
-
-### Set Up Python Environment
-
-Install uv, the modern Python package manager:
-
-```sh
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-Then set up the development environment:
-
-```sh
-# Install all dependencies including dev and lint groups
-uv sync --group dev --group lint
-```
-
-Follow the [Frontend setup](#frontend-setup) to complete the setup.
-
-## Backend setup for Windows
-
-### Dependencies
-
-1. Install [Python 3.11](https://www.python.org/downloads/release/python-3117/) (64-bit version for 64-bit Windows).
-2. Ensure Python is in the Path variable. If not:
-   - Go to Control Panel -> System -> Advanced system settings -> Advanced (tab) -> Environment Variables...
-   - Under "System Variables," open the "Path" variable and ensure both the root Python directory and the `Scripts` subdirectory are included.
-   - If not, add them by clicking "New" and then "Browse" and locating the correct directories.
-   - By default, the Windows MSI installer places Python in the `C:\Users\<username>\AppData\Local\Programs\` directory.
-3. Test Python installation by opening a command prompt and typing `python`. The Python CLI should run, showing the Python version you installed. Press `CTRL+Z`, then Enter to exit.
-   > **Note:** In newer versions of Windows, typing "python" may open the Windows Store. Fix this by opening "App execution aliases" (search for it via Windows Search) and toggling off the aliases for python.exe and python3.exe.
-4. Install uv, the modern Python package manager. Open PowerShell as Administrator and run:
-   ```sh
-   powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
-   ```
-5. Install [Microsoft Visual Studio build tools](https://visualstudio.microsoft.com/vs/) with the "Desktop development with C++" workload.
-
-### Set Up Python Environment
-
-1. Open a terminal (Command Prompt / PowerShell prompt) in your root development directory.
-2. Ensure you are in the directory where you downloaded/cloned the rotki source.
-3. Install all dependencies:
-   ```sh
-   # Install all dependencies including dev and lint groups
-   uv sync --group dev --group lint
-   ```
-4. Download [miniupnpc for Windows](https://github.com/mrx23dot/miniupnp/releases/download/miniupnpd_2_2_24/miniupnpc_64bit_py39-2.2.24.zip) and copy `miniupnpc.dll` to your virtual environment's `Lib > site-packages` directory. Locate this directory using:
-   ```sh
-   uv run python -c "import site; print(site.getsitepackages()[0])"
-   ```
-
-Then follow the [Frontend setup](#frontend-setup) to complete the setup.
-
-To ensure rotki backend works, try starting it:
+Start the backend once to confirm it runs:
 
 ```sh
 uv run python -m rotkehlchen
 ```
 
-This should greet you with the message:
+You should see:
 
 ```
 rotki REST API server is running at: 127.0.0.1:5042
 ```
 
+Stop it with `Ctrl+C` — we'll run everything together once the frontend is set up.
+
+### OS-specific notes
+
+::: tabs
+
+== macOS
+
+Install [Homebrew](https://brew.sh/) first if you don't have it. Homebrew is used as a bootstrap for Python 3.11 and other toolchain dependencies.
+
+== Windows
+
+1. Install [Python 3.11](https://www.python.org/downloads/release/python-3117/) (64-bit).
+2. Make sure Python is on your `Path`. If not, add both the root Python directory and the `Scripts` subdirectory via **Control Panel → System → Advanced system settings → Environment Variables**.
+3. Test with `python` in a Command Prompt. If Windows opens the Store instead, disable the `python.exe` and `python3.exe` aliases under **App execution aliases**.
+4. Install the [Visual Studio Build Tools](https://visualstudio.microsoft.com/vs/) with the **Desktop development with C++** workload.
+5. After `uv sync`, download [miniupnpc for Windows](https://github.com/mrx23dot/miniupnp/releases/download/miniupnpd_2_2_24/miniupnpc_64bit_py39-2.2.24.zip) and copy `miniupnpc.dll` into the venv's site-packages directory. Find the path with:
+
+   ```sh
+   uv run python -c "import site; print(site.getsitepackages()[0])"
+   ```
+
+== Linux
+
+No extra steps — `uv sync` handles everything.
+
+:::
+
 ## Frontend setup
 
-Make sure you have Node.js installed (version `>=24 <25`). You can check https://nodejs.org/en/download/package-manager for more information.
+The frontend lives under `frontend/` and uses pnpm.
 
 ### Installing pnpm
 
-The project uses [corepack](https://nodejs.org/api/corepack.html) to manage the pnpm version. Enable it and corepack will automatically use the version specified in `frontend/package.json` under the `packageManager` key:
+The repo uses [corepack](https://nodejs.org/api/corepack.html) to manage pnpm. Enable it and corepack will automatically use the version pinned in `frontend/package.json` under `packageManager`:
 
 ```sh
 corepack enable pnpm
-```
-
-To verify:
-
-```sh
 pnpm --version
 ```
 
-### Install Node.js Dependencies
+### Install dependencies
 
 ```sh
 cd frontend
 pnpm install --frozen-lockfile
 ```
 
-### Running rotki
+### Run rotki in development mode
 
-Start the application from the `frontend` directory:
+From the `frontend/` directory:
 
 ```sh
 pnpm run dev
 ```
 
-This starts the Electron app with the backend, Colibri service (if Cargo is available), and the frontend dev server. If `VITE_BACKEND_URL` is set in `frontend/app/.env.development.local`, the [development proxy](/contribution-guides/working-with-frontend#development-proxy) is also started automatically.
+This starts the Electron app together with the backend, the Colibri service (if Cargo is available), and the frontend dev server. If `VITE_BACKEND_URL` is set in `frontend/app/.env.development.local`, the [development proxy](/contribution-guides/working-with-frontend#development-proxy) starts as well.
 
-For browser-only development (no Electron):
+For browser-only development (no Electron), use:
 
 ```sh
 pnpm run dev:web
@@ -164,7 +141,7 @@ See [Working with the Frontend](/contribution-guides/working-with-frontend) for 
 
 ## Packaging
 
-To package the application for your platform, you need to install the packaging dependencies and run the packaging script:
+To build a distributable package for your platform:
 
 ```sh
 # Install packaging dependencies
@@ -176,7 +153,7 @@ uv run python ./package.py --build full
 
 ## Nix
 
-You can use the [Nix](https://nixos.org/download) package manager to start rotki development. Create `flake.nix` in the root of the project and copy the following into it:
+If you use [Nix](https://nixos.org/download), create a `flake.nix` at the repo root with the following:
 
 ```nix
 {
@@ -207,15 +184,12 @@ You can use the [Nix](https://nixos.org/download) package manager to start rotki
             pkgs.git
             pkgs.lzma
             pnpmWithPython311
-            python311   # interpreter uv will bind into the venv
-            pkgs.uv     # blazing-fast venv + installer
+            python311
+            pkgs.uv
           ];
 
           shellHook = ''
-            # Installs deps and auto-creates .venv if missing
             uv sync
-
-            # Install frontend dependencies
             cd frontend
             pnpm install
             cd ..
@@ -225,22 +199,17 @@ You can use the [Nix](https://nixos.org/download) package manager to start rotki
 }
 ```
 
-Then execute the following command to let Nix build the entire environment where you can start rotki development:
+Then enter the development environment with:
 
 ```sh
 nix develop
-```
-
-From this point onward, start backend/frontend:
-
-```sh
 cd frontend
 pnpm run dev:web
 ```
 
-## Docker
+## Building a Docker image
 
-To build Docker image from source using `Dockerfile`:
+To build a Docker image from source using the repo's `Dockerfile`:
 
 ```sh
 docker build -t rotki .
@@ -248,35 +217,14 @@ docker build -t rotki .
 
 ## Troubleshooting
 
-### anyapi-ms-win-crt-runtime missing
-
-If you get `anyapi-ms-win-crt-runtime-l1-1-0.dll is missing` error when running Python, follow [this guide](https://www.ghacks.net/2017/06/06/the-program-cant-start-because-api-ms-win-crt-runtime-l1-1-0-dll-is-missing/) to resolve it.
-
-### Microsoft Visual C++ 14.0 is required
-
-If you get:
-
-```sh
-building 'gevent.libev.corecext' extension
-error: Microsoft Visual C++ 14.0 is required. Get it with "Microsoft Visual C++ Build Tools": https://visualstudio.microsoft.com/downloads/
-```
-
-Then go [here](https://visualstudio.microsoft.com/downloads/) and get the Microsoft Visual Studio build tools and install them. The specific parts of the tools that need to be installed can be seen in [this Stack Overflow answer](https://stackoverflow.com/questions/29846087/microsoft-visual-c-14-0-is-required-unable-to-find-vcvarsall-bat/49986365#49986365).
-
-You also need to add them to the path. The tools were probably installed here: `C:\Program Files (x86)\Microsoft Visual Studio\2017\BuildTools\Common7\Tools`
-Environment variable should be: `VS140COMNTOOLS`
-
 ### Blank screen when running the dev server
 
-If you get a blank screen on electron when starting the development server check the console for
-any messages like the following:
+If you get a blank screen on Electron when starting the dev server, check the console for a syntax-error message:
 
 ![Syntax Error](/images/troubleshooting_syntax_error.png)
 
-If you see any syntax error message like the one above, go to `Help` and press `Clear Cache`.
-After that go to the `View` menu and press `Force Reload`.
+If you see one, go to `Help → Clear Cache`, then `View → Force Reload`. If the issue persists, follow the frontend [troubleshooting steps](/contribution-guides/vue-typescript#troubleshooting).
 
-This should resolve your issue.
+### Windows build tool errors
 
-If the issue persists,
-try following the frontend [troubleshooting steps](/contribution-guides/vue-typescript#troubleshooting).
+If `uv sync` fails on Windows with errors like `Microsoft Visual C++ 14.0 is required`, the Visual Studio Build Tools aren't installed correctly. Make sure you selected the **Desktop development with C++** workload when installing — see the [prerequisites](#backend-setup) above.

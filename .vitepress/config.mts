@@ -32,6 +32,22 @@ const redirects: Record<string, import('./plugins/redirects').RedirectValue> = {
   'usage-guides/accessing-db-manually': '/usage-guides/advanced/database-access',
   'usage-guides/using-rotki-from-mobile': '/usage-guides/advanced/mobile',
   // Anchor-aware redirects (split files)
+  'requirement-and-installation/packaged-binaries': {
+    default: '/requirement-and-installation/download',
+    anchors: {
+      '#verifying-integrity': '/requirement-and-installation/verify',
+      '#github-artifact-attestations': '/requirement-and-installation/verify#github-artifact-attestations',
+      '#docker': '/requirement-and-installation/docker',
+      '#configuring-the-backend-in-docker': '/requirement-and-installation/docker#configuring-the-backend',
+      '#setting-timezone-in-docker': '/requirement-and-installation/docker#setting-the-timezone',
+      '#updating-to-a-newer-version': '/requirement-and-installation/docker#updating-to-a-newer-version',
+      '#docker-compose': '/requirement-and-installation/docker#docker-compose',
+      '#using-docker-over-a-public-network': '/requirement-and-installation/docker#public-network-with-traefik-basic-auth',
+      '#using-watchtower-for-continuous-deployment': '/requirement-and-installation/docker#watchtower-for-auto-updates',
+      '#using-docker-on-a-private-network': '/requirement-and-installation/docker#private-network',
+      '#moving-the-accounts-from-the-desktop-application': '/requirement-and-installation/docker#moving-accounts-from-the-desktop-app',
+    },
+  },
   'usage-guides/accounts-and-balances': {
     default: '/usage-guides/portfolio/accounts',
     anchors: {
@@ -119,11 +135,13 @@ export default defineConfig({
         link: '/',
       },
       {
-        text: 'System Requirements & Installation',
+        text: 'Installation',
         items: [
-          { text: 'Installation', link: '/requirement-and-installation/' },
-          { text: 'Packaged Binaries', link: '/requirement-and-installation/packaged-binaries' },
-          { text: 'Build From Source', link: '/requirement-and-installation/build-from-source' },
+          { text: 'Overview', link: '/requirement-and-installation/' },
+          { text: 'Download & Install', link: '/requirement-and-installation/download' },
+          { text: 'Docker & Self-Hosting', link: '/requirement-and-installation/docker' },
+          { text: 'Verify Your Download', link: '/requirement-and-installation/verify' },
+          { text: 'Build from Source', link: '/requirement-and-installation/build-from-source' },
         ],
       },
       {

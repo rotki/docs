@@ -18,7 +18,7 @@ This way you can get the full rotki functionality on mobile.
 
 ## Docker
 
-Accessing rotki on mobile when you run Docker on your own can be a bit complicated and depends on the kind of setup you have. You have to make sure that [rotki is never directly accessible from a public network](/requirement-and-installation/packaged-binaries#docker).
+Accessing rotki on mobile when you run Docker on your own can be a bit complicated and depends on the kind of setup you have. You have to make sure that [rotki is never directly accessible from a public network](/requirement-and-installation/docker).
 
 One way to have rotki accessible on mobile over a public network is by making sure that an [authenticated proxy](#docker-rotki-public) intercepts all traffic directed to rotki. This way you can ensure that no one else can access your rotki instance.
 
