@@ -1,3 +1,7 @@
+---
+description: Developer contribution guide covering commit rules, linting, PR process, CLA, and development environment setup.
+---
+
 # Contributing as a Developer
 
 Being an open-source project, we welcome contributions in the form of source code. To do that, you will have to work on an issue and open a Pull Request for it.

@@ -1,3 +1,7 @@
+---
+description: Overview of rotki premium subscription tiers, features, and how to get started with premium.
+---
+
 # Premium Overview
 
 rotki premium is a paid subscription with several tiers unlocking additional features depending on your needs while supporting the ongoing development of rotki as an open-source project.
@@ -44,7 +48,7 @@ See [Payment Process](/premium/payment) for step-by-step instructions.
 After successful payment, generate your **API Key** and **API Secret**
 by clicking the **Create** button on your [subscription page](https://rotki.com/home/subscription).
 
-For detailed instructions, see [Creating API Keys](/premium/api-keys.html#creating-api-keys).
+For detailed instructions, see [Creating API Keys](/premium/api-keys#creating-api-keys).
 
 ### 4. Add Keys to the App
 
@@ -52,7 +56,7 @@ Navigate to **API Keys** → **rotki Premium** in the rotki application and ente
 **API Key** and **API Secret** generated in the last step to activate the premium features
 included in your subscription.
 
-For detailed instructions, see [Using API Keys in the App](/premium/api-keys.html#using-api-keys-in-the-app).
+For detailed instructions, see [Using API Keys in the App](/premium/api-keys#using-api-keys-in-the-app).
 
 ## Managing Your Premium Subscription
 

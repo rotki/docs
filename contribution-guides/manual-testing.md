@@ -1,3 +1,7 @@
+---
+description: Manual testing checklist for rotki release binaries covering startup, trades, imports, and exchanges.
+---
+
 # Manual Testing
 
 To ensure the final executable works as a complete package (including the UI), a bit of manual testing with the final binaries is required. This should eventually be reduced as the E2E test suite becomes more complete. Everything below that can be E2E tested should be.

@@ -1,9 +1,13 @@
-# Introduction
+---
+description: Reference for rotki account setup, sign-in, premium sync, data restoration, and upgrading between versions.
+---
 
-This guide explains how to use the rotki application.
+# Accounts & Sync
+
+This page covers account creation, sign-in, premium sync, restoring backups, moving installations, and upgrading rotki.
 
 > [!TIP]
-> **Using rotki for tax reporting?** Jump to the [Tax Accounting Guide](/usage-guides/tax-accounting) for a focused walkthrough of connecting your data, reviewing transactions, and generating your PnL report.
+> **New to rotki?** Start with the [Quick Start Guide](/usage-guides/quick-start) for a step-by-step walkthrough from installation to your first PnL report.
 
 ## First Time Sign-Up
 
@@ -57,7 +61,7 @@ Refer to the [Sync data with rotki server](#sync-data-with-rotki-server) section
 > - **User Database vs. Global Database**: Syncing only involves the user database, not the global database.
 > - **Global Database**: Contains all assets data, global address book for names, and historical prices. Premium syncing does not store your global database, so it is **essential** to manually move this database as well. You can see the guide of how to accomplish it [here](/usage-guides/#manually-move-global-database).
 
-Alternatively, you can use the [Exporting and importing user asset](/usage-guides/customization.html#exporting-and-importing-user-assets) function instead of moving the entire global database.
+Alternatively, you can use the [Exporting and importing user asset](/usage-guides/settings/account#exporting-and-importing-user-assets) function instead of moving the entire global database.
 
 ## Use an Account from a Different Installation
 
@@ -65,7 +69,7 @@ Alternatively, you can use the [Exporting and importing user asset](/usage-guide
 
 To move your data to another system or restore it:
 
-1. Identify the [rotki data directory](/usage-guides/data-directory) on both the source and destination systems.
+1. Identify the [rotki data directory](/usage-guides/advanced/data-directory) on both the source and destination systems.
 2. Move the entire data directory from the source system to the destination system.
 3. Ensure both systems use the same version of rotki.
 
@@ -78,7 +82,7 @@ To sign in with your local rotki account, enter your profile name and password a
 
 ## Set Up rotki Premium
 
-If you decide to purchase [rotki Premium](https://rotki.com/products/) later, you can set it up [here](/usage-guides/api-keys#rotki-premium)
+If you purchased a [rotki Premium](https://rotki.com/products/) subscription after creating your local account, you can activate it at any time by adding your API key and secret under **API Keys → rotki Premium** in the app. See [rotki Premium API Credentials](/premium/api-keys) for the full setup instructions.
 
 ## Sync Data with rotki Server
 
@@ -103,7 +107,7 @@ If you use multiple accounts/devices, the one with the most recent login will up
 
 You can also manually move the global database containing assets from one system to another:
 
-1. Locate the [rotki data directory](/usage-guides/data-directory) on the source system.
+1. Locate the [rotki data directory](/usage-guides/advanced/data-directory) on the source system.
 2. The global database is located at `/global/global.db` under the data directory above. Move it to the equivalent location on the new system.
 
 ![Manual DB sync](/images/rotki_premium_manual_db_sync.png)

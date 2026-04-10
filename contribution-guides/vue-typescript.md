@@ -1,3 +1,7 @@
+---
+description: Running Vue/TypeScript unit tests with vitest and end-to-end tests with Playwright for the rotki frontend.
+---
+
 # Vue/TypeScript
 
 ## Testing

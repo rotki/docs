@@ -1,3 +1,7 @@
+---
+description: Manual steps for building and publishing multi-architecture rotki Docker images to Docker Hub.
+---
+
 # Docker Publishing (Manual)
 
 If you need to publish on [hub.docker.com](https://hub.docker.com), follow these steps:

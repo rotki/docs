@@ -1,3 +1,7 @@
+---
+description: How to submit feature requests for rotki using the GitHub issue template.
+---
+
 # Feature Requests
 
 Use the [feature request](https://github.com/rotki/rotki/issues/new?template=feature_request.md) template.
