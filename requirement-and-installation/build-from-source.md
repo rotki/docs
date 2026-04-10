@@ -279,4 +279,4 @@ After that go to the `View` menu and press `Force Reload`.
 This should resolve your issue.
 
 If the issue persists,
-try following the frontend [troubleshooting steps](/contribution-guides/vue-typescript.html#troubleshooting).
+try following the frontend [troubleshooting steps](/contribution-guides/vue-typescript#troubleshooting).

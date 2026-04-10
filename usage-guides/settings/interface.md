@@ -10,7 +10,7 @@ description: Customizing the rotki interface including language, theme, animatio
 
 #### Language
 
-Set the language used in the app. This feature is experimental and may not work as expected for some languages. Help us speed up the translation process by contributing [here](/contribution-guides/contribute-as-developer.html#add-a-new-language-or-translation).
+Set the language used in the app. This feature is experimental and may not work as expected for some languages. Help us speed up the translation process by contributing [here](/contribution-guides/contribute-as-developer#add-a-new-language-or-translation).
 
 #### Animation Effect
 

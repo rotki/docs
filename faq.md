@@ -104,7 +104,7 @@ If a transaction is not showing in rotki, it may be due to an ignored asset bein
 
 To view transactions with ignored assets, enable `Show entries with ignored assets`, and if your transaction is now visible, check which assets used in the transaction are ignored and then un-ignore them manually.
 
-For more information on un-ignoring and optionally whitelisting assets, see [My asset is not showing in rotki](/faq.html#my-asset-is-not-showing-in-rotki) above.
+For more information on un-ignoring and optionally whitelisting assets, see [My asset is not showing in rotki](/faq#my-asset-is-not-showing-in-rotki) above.
 
 ### Events are missing
 
