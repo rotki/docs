@@ -309,7 +309,10 @@ export default defineConfig({
   },
   vite: {
     plugins: [
-      llmstxt({ ignoreFiles: [...getRedirectPaths(redirects), 'llms.md'] }),
+      llmstxt({
+        ignoreFiles: [...getRedirectPaths(redirects), 'llms.md'],
+        excludeIndexPage: false,
+      }),
       redirectsPlugin({ redirects, base }),
     ],
     resolve: {
