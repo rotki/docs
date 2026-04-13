@@ -260,6 +260,12 @@ export default defineConfig({
         ],
       },
       {
+        text: 'AI Tools',
+        items: [
+          { text: 'LLMs', link: '/llms' },
+        ],
+      },
+      {
         text: 'Contribution Guides',
         items: [
           { text: 'Bug Reporting', link: '/contribution-guides/' },
@@ -303,7 +309,7 @@ export default defineConfig({
   },
   vite: {
     plugins: [
-      llmstxt({ ignoreFiles: getRedirectPaths(redirects) }),
+      llmstxt({ ignoreFiles: [...getRedirectPaths(redirects), 'llms.md'] }),
       redirectsPlugin({ redirects, base }),
     ],
     resolve: {
