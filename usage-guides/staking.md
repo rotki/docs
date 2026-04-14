@@ -49,13 +49,7 @@ Validator profit is calculated from several different sources:
 
 ![ETH2 validator stats](/images/rotki_eth2_staking.png)
 
-You can see the summary of how much ETH was earned each day, on the daily stats section.
-
-![ETH2 validator daily stats](/images/rotki_eth2_daily_stats.png)
-
-These earnings are included in profit/loss reports and can be exported to CSV for spreadsheet analysis.
-
-![ETH2 validator earning CSV](/images/rotki_eth2_pnl.png)
+These earnings are included in profit/loss reports and can be exported to CSV for further analysis.
 
 ## Liquity Staking
 
