@@ -14,6 +14,11 @@ Before v1.6.0, rotki was saving data in `$USER/.rotkehlchen`. From v1.6.0, that 
 
 A very good idea for the rotki data directory would be to make frequent backups of it as it contains all of the data of all of your rotki accounts and cache data for historical price queries.
 
+> [!WARNING]
+> Do not copy the SQLite database files while rotki is running. The database may have pending writes in its WAL/journal files, so a filesystem copy can capture an inconsistent state that fails to open or is silently corrupted. Always fully close rotki before copying the data directory.
+>
+> For a safer alternative, use the [in-app backup feature](/usage-guides/settings/account#database-info-user-database-backups), which creates a consistent snapshot while rotki is running.
+
 ## Data directory for unreleased development code
 
 If you are running rotki from unreleased code from git branches,
