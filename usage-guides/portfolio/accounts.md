@@ -64,10 +64,12 @@ For editing, you can modify the label or the tags.
 
 ### Bitcoin Chains
 
-There are two ways to add your Bitcoin or Bitcoin Cash addresses to rotki:
+The Bitcoin and Bitcoin Cash account form has a single address field that accepts either:
 
-1. Manual entry of individual addresses
-2. Using an xpub (extended public key) for automatic address discovery
+- A **plain address** (a single BTC or BCH address), or
+- An **xpub** (extended public key) for automatic address discovery.
+
+rotki detects which one you pasted and adapts the form accordingly — you don't need to switch modes.
 
 #### What is an xpub?
 
@@ -78,7 +80,7 @@ An xpub is a special key that lets rotki find all your wallet addresses without 
 - Stop when it finds unused addresses
 - Store this information securely in your local database
 
-#### Types of XPUB
+#### Address types
 
 | Type        | Common Name   | Address Starts With | Description                         |
 | ----------- | ------------- | ------------------- | ----------------------------------- |
@@ -87,18 +89,21 @@ An xpub is a special key that lets rotki find all your wallet addresses without 
 | WPKH        | Native Segwit | "bc1"               | Most efficient for transactions     |
 | P2TR        | Taproot       | "bc1p"              | Newest type with enhanced privacy   |
 
-#### How to Use Your xpub
+#### How to add an account
 
-1. Check what type of addresses your wallet generates
-2. Select the matching type in rotki's dropdown menu
+Paste your address or xpub into the input. The form reacts as follows:
+
+- **Plain BTC/BCH address** — the address type is inferred from the prefix and no extra choice is needed.
+- **`ypub...`** — automatically tracked as Segwit (P2SH-P2WPKH).
+- **`zpub...`** — automatically tracked as Native Segwit (WPKH).
+- **`xpub...`** — ambiguous (it can back any of the four wallet layouts). All four address-type buttons appear inline, with **Native Segwit** selected by default. Pick the one your wallet uses; the picker stays visible so you can correct a misclick before saving.
+
+![Add a Bitcoin account](/images/add_btc_account.webp)
 
 > [!INFO] Good to know
 >
-> - If your xpub starts with "ypub" or "zpub", rotki will automatically detect the correct type
 > - For Ledger hardware wallet users, you can get your xpub by following [this guide](https://support.ledger.com/article/6275459128989-zd)
-> - Bitcoin Cash only works with Legacy (P2PKH) and Segwit (P2SH_P2WPKH) addresses
-
-![Add a bitcoin account using XPUB](/images/add_xpub_key.png)
+> - Bitcoin Cash only works with Legacy (P2PKH) and Segwit (P2SH-P2WPKH) addresses
 
 ### Aggregated view filtering
 
