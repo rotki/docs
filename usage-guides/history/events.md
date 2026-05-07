@@ -318,6 +318,25 @@ Events that have been modified will appear marked in the UI.
 
 ![Customized events in the UI](/images/customized_events.png)
 
+## Updating the price of an event
+
+The fiat value shown next to an asset on a history event row is computed from the historic price rotki has for that asset at the event timestamp. If the value looks wrong (for example, the oracle returned a bad price for that block, or no oracle has data that far back), you can override it directly from the event row without leaving the page.
+
+Click the asset chip on the event row to open its menu and pick the **Update price** action (the dollar icon).
+
+![Update price action on an event row](/images/event_price_edit_button.webp)
+
+This opens the price update dialog:
+
+![Update price dialog for a history event](/images/event_price_edit_dialog.webp)
+
+The dialog prefills with the price rotki currently has stored for `(asset, your main currency, event timestamp)`:
+
+- If a cached oracle entry exists for that timestamp, you can choose between **updating the oracle entry** (overriding the value the source returned, keeping the source attribution) or **saving a manual price** that takes precedence over the oracle. The toggle shows the actual source name (`Cryptocompare`, `CoinGecko`, `DefiLlama`, etc.).
+- If nothing is cached for that timestamp, the dialog only offers the manual option.
+
+Saving updates the stored historic price and invalidates rotki's in-memory cache, so any other view showing that price (other history events with the same asset/timestamp, balances, snapshots, P&L reports) updates immediately.
+
 ## Resolving Issues
 
 rotki can detect certain issues with your history events that may affect accounting accuracy. When issues are found, you will see a warning button with a badge showing the total number of issues at the top of the History Events page.

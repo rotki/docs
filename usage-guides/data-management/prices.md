@@ -1,23 +1,36 @@
 ---
-description: Adding custom latest and historical prices for assets that rotki cannot retrieve automatically.
+description: Adding manual latest and historical prices, and editing oracle-cached prices for assets.
 ---
 
-# Adding missing prices
+# Managing prices
 
-Sometimes rotki might be unable to retrieve prices for some assets. In order to always have the ability to show a price we provide two types of manual price additions in the menu `Manage Prices`:
+The `Manage Prices` menu lets you add manual prices that override oracle lookups and edit prices that rotki has already fetched and cached from oracles. It is split into three sections:
 
-- **Latest price**: Will be the price displayed when we need to display the current price of an asset.
-- **Historical price**: The price used in a specific time in the past for an asset.
+- **Latest Prices**: Manual prices used when the current price of an asset needs to be displayed.
+- **Historic Prices**: Manual prices used at a specific time in the past.
+- **Oracle Prices**: Prices that rotki fetched from an oracle (CryptoCompare, CoinGecko, DefiLlama, etc.) and cached, plus the per-asset oracle caches themselves.
 
-![Price management](/images/price_management.png)
+## Latest and historical prices
 
-To add a new price you have to press the plus button. This will open the add form.
+To add a new price, open `Latest Prices` or `Historic Prices` from the `Manage Prices` menu and press the plus button. This opens the add form where you can specify the assets, the price, and (for historical entries) the date.
 
-![Adding a new price](/images/price_management_add.png)
-
-There you can specify the assets, the price and the date of the price. Then you can proceed to save the entry.
-After saving you should be able to see the new entry.
-
-When a latest price is used it will be visually displayed in the UI. It will show an orange icon near the price, with a tooltip: "Manually defined price".
+After saving, the entry appears in the list. When a manual latest price is in use it is flagged in the UI with an orange icon next to the price; the tooltip reads "Manually defined price".
 
 ![Edited latest price UI indicator](/images/latest_price.png)
+
+## Oracle prices
+
+The `Oracle Prices` page has two tabs:
+
+- **Prices**: Every individual price rotki has cached from a price oracle, with the asset pair, value, source, and timestamp.
+- **Caches**: The per-asset historical price caches that rotki maintains so it does not have to refetch the same time series.
+
+![Oracle prices listing](/images/oracle_prices_list.webp)
+
+Each row in the **Prices** tab can be edited or deleted. Use this when you know the cached price is wrong (for example, an oracle returned a stale or incorrect value) and want to override it without adding a separate manual entry. Deleting an entry removes the cached value entirely; the next lookup will hit the oracle again.
+
+Click the edit icon on a row to open the edit dialog:
+
+![Editing an oracle price](/images/oracle_prices_edit.webp)
+
+Editing or deleting an oracle price entry invalidates rotki's in-memory historic price cache for that `(asset, timestamp)` pair, so any other place displaying that price (history events, balances, snapshots) updates immediately.
