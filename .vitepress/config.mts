@@ -279,6 +279,7 @@ export default defineConfig({
           { text: 'rotki Database', link: '/contribution-guides/rotki-database' },
           { text: 'Docker Publishing (manual)', link: '/contribution-guides/docker-publishing' },
           { text: 'Working with frontend', link: '/contribution-guides/working-with-frontend' },
+          { text: 'Releasing rotki', link: '/contribution-guides/releasing' },
         ],
       },
     ],
