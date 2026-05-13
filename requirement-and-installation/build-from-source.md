@@ -33,7 +33,7 @@ This guide assumes you checked out the `develop` branch, which is the default fo
 
 ## Backend setup
 
-The backend setup is the same across Linux, macOS, and Windows — install `uv`, then run `uv sync` to create the development environment. OS-specific notes are below.
+The backend setup is the same across Linux, macOS, and Windows — install `uv`, then run `uv sync --locked` to create the development environment. OS-specific notes are below.
 
 ### Install uv
 
@@ -54,7 +54,7 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 From the rotki repo root:
 
 ```sh
-uv sync --group dev --group lint
+uv sync --locked --group dev --group lint
 ```
 
 This creates a `.venv` and installs the backend, dev, and lint dependency groups.
@@ -145,7 +145,7 @@ To build a distributable package for your platform:
 
 ```sh
 # Install packaging dependencies
-uv sync --group packaging
+uv sync --locked --group packaging
 
 # Run the packaging script (works on all platforms)
 uv run python ./package.py --build full

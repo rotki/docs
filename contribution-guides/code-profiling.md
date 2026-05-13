@@ -13,7 +13,7 @@ To use the flamegraph profiler, follow these steps:
 1. Install the latest dependencies required for profiling:
 
    ```sh
-   uv sync --group profiling
+   uv sync --locked --group profiling
    ```
 
 2. Install the [flamegraph](https://github.com/brendangregg/FlameGraph) package in your system. Some OSes, such as Archlinux, have [ready-made packages](https://aur.archlinux.org/packages/flamegraph/).
