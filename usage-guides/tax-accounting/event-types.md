@@ -286,7 +286,7 @@ The following table lists every valid combination of event type and subtype reco
 | Deposit             | Deposit Asset, Deposit For Wrapped, Deposit To Protocol, Bridge, Place Order, Fee                                                                                |
 | Withdrawal          | Remove Asset, Redeem Wrapped, Withdraw From Protocol, Bridge, Cancel Order, Refund, Generate Debt, Fee                                                           |
 | Transfer            | Donate, None, Fee                                                                                                                                                |
-| Spend               | Return Wrapped, Payback Debt, Fee, Donate, Payment, None, Clawback, Burn                                                                                         |
+| Spend               | Return Wrapped, Payback Debt, Fee, Donate, Payment, None, Clawback, Burn, Refund                                                                                 |
 | Receive             | Reward, Receive Wrapped, Generate Debt, Return Wrapped, Airdrop, Donate, None, Liquidate, Payment, Grant, Interest, Cashback, Refund, Spam                       |
 | Adjustment          | Spend, Receive                                                                                                                                                   |
 | Informational       | None, Governance, Deposit Asset, Remove Asset, Place Order, Create, Update, Apply, Approve, Attest, MEV Reward, Block Production, Consolidate, Delegate, Message |
