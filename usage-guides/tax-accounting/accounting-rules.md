@@ -172,7 +172,7 @@ You can create custom rules that override the defaults for specific combinations
 - Event subtype
 - Counterparty (protocol identifier)
 
-See [Add/Edit accounting rules](/usage-guides/settings/accounting#add-edit-accounting-rules) for how to create them in the UI.
+See [Add/Edit accounting rules](/usage-guides/settings/accounting#add-edit-accounting-rules) for how to create them in the UI. You can also [import/export accounting rules](/usage-guides/settings/accounting#import-export-accounting-rules) as JSON to back them up or share them.
 
 ### Limitations
 
