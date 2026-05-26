@@ -32,6 +32,20 @@ You can change these settings to match your country's tax requirements.
 
 You can add or edit accounting rules based on `Event type`, `Event subtype`, and `Counterparty`.
 
+### Import/Export Accounting Rules
+
+![Export and import accounting rules](/images/sc_accounting_export_import.png)
+
+You can export your accounting rules to a JSON file and import them back later. This is useful for backing up your custom rules, sharing them with others, or moving them between rotki accounts.
+
+Both options are available from the three-dot menu next to the **Add accounting rule** button on the Accounting Rules page:
+
+- **Export accounting rules**: Saves all of your current accounting rules to a JSON file on your computer.
+- **Import accounting rules**: Loads accounting rules from a previously exported JSON file.
+
+> [!NOTE]
+> Imported rules can conflict with rules you already have. When any conflict exists, a **Resolve accounting rules conflicts** banner appears on the page, letting you choose which version of each conflicting rule to keep. This banner isn't specific to imports — it also shows up for conflicts introduced by manually added rules or by updates to rotki's built-in (source) rules.
+
 ### Special Accounting Rules For Specific Events
 
 ![Special Accounting Rules](/images/sc_accounting_rules_special.png)
