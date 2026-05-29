@@ -84,6 +84,82 @@ The proxy can mock backend responses using an `async-mock.json` file in the `fro
 
 Any endpoint without a mock entry is forwarded to the real backend.
 
+## Running Multiple Instances
+
+`pnpm dev` can run several isolated dev environments side by side, each with its own user-data directory and its own block of ports. This is useful for working on more than one branch at once (for example, paired with git worktrees) without the instances stepping on each other's data or ports.
+
+### Starting an Instance
+
+Run the dev environment with `--instance <name>` from the `frontend` directory:
+
+```bash
+# Named instance
+pnpm dev --instance scratch
+
+# Bare --instance derives the name from $INSTANCE_NAME, then the current git branch
+pnpm dev --instance
+
+# Force the default (non-instance) environment, even if INSTANCE_NAME is set
+pnpm dev --no-instance
+```
+
+Plain `pnpm dev` (no flag) continues to use the default ports and the production data directory, exactly as before.
+
+### Port Allocation
+
+Each instance is assigned a **slot**. Slot 0 is reserved for the default `pnpm dev` (ports 8080 dev / 4242 backend / 4243 proxy / 4343 colibri). Instance slots start at port `13000` and pack tightly — each slot owns four contiguous ports laid out as `dev`, `backend`, `proxy`, `colibri`, with a small gap between slots:
+
+| Slot | Dev   | Backend | Proxy | Colibri |
+| ---- | ----- | ------- | ----- | ------- |
+| 1    | 13000 | 13001   | 13002 | 13003   |
+| 2    | 13010 | 13011   | 13012 | 13013   |
+
+The browser URL is the round base port (e.g. `http://localhost:13000`). Slot assignments are recorded in a `.port-index.json` registry under the instances directory so the same instance name keeps its slot across runs. Ports that would collide with the Node inspector (`9229`) or the fixed e2e ports (`30301`–`30304`) are skipped.
+
+### Data Directories
+
+Instance data lives under `<app-data>/rotki-dev/<name>` (e.g. `~/.local/share/rotki-dev/scratch` on Linux). On first run the data directory is **seeded** from your production rotki data directory so the instance starts with your existing users and global DB:
+
+- Pass `--no-seed` to start with an empty data directory.
+- Pass `--include-backups` to also copy `*.backup` files (skipped by default to keep the seed lean).
+- Set `ROTKI_SEED_SOURCE` to seed from a different directory (e.g. an existing `develop_data` mirror).
+- Set `ROTKI_DEV_INSTANCES_DIR` to relocate the parent directory that holds all instances.
+
+### Managed Environment Block
+
+When running in instance mode, the dev script writes a managed block to `frontend/app/.env.development.local` so Vite and the renderer pick up the instance's ports:
+
+```bash
+# >>> rotki dev:web managed (do not edit by hand)
+INSTANCE_NAME=scratch
+INSTANCE_PORT_SLOT=1
+VITE_BACKEND_URL=http://localhost:13002
+VITE_COLIBRI_URL=http://localhost:13003
+DEV_PORT=13000
+# <<< rotki dev:web managed
+```
+
+Only the keys inside this block are managed; anything else in the file is left untouched. If you have manually set any of the managed keys yourself, the script stops and asks you to confirm with `--accept-managed-env` before it takes them over. Switching back with `--no-instance` removes the block.
+
+### Lifecycle Commands
+
+These subcommands inspect or clean up instances and then exit:
+
+| Command                   | Description                                                                                           |
+| ------------------------- | ----------------------------------------------------------------------------------------------------- |
+| `pnpm dev --list`         | List all instances with their branch, slot, size, last-used time, and whether they're currently live. |
+| `pnpm dev --clean <name>` | Remove a single instance (its data dir and slot). Prompts for confirmation.                           |
+| `pnpm dev --clean-all`    | Remove every instance (double-confirmed).                                                             |
+| `pnpm dev --prune`        | Remove instances whose git worktree no longer exists. Dry-run unless `--yes`.                         |
+| `pnpm dev --repair`       | Rebuild the `.port-index.json` registry from the per-instance sidecar files. Dry-run unless `--yes`.  |
+
+Additional modifiers:
+
+- `--yes` skips the confirmation prompts for `--clean`, `--clean-all`, `--prune`, and `--repair`.
+- `--older-than <duration>` narrows `--prune` to instances last used before a cutoff (e.g. `30d`, `12h`, `45m`).
+
+A live instance (one with ports currently in use) is never deleted — stop it first. Pressing <kbd>Ctrl+C</kbd> shuts a running instance down cleanly across the electron, vite, and cargo processes.
+
 ## Workspace Structure
 
 The frontend is a pnpm workspace with several packages:
