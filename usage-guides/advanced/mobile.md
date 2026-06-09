@@ -8,7 +8,7 @@ If you are using DAppNode or the Docker image instead of the Electron applicatio
 
 ## DAppNode
 
-If you are running rotki on a DAppNode, then in order to access rotki on mobile the only thing needed is to set up a [VPN connection](https://docs.dappnode.io/user-guide/ui/access/vpn/) between DAppNode and your phone or tablet.
+If you are running rotki on a DAppNode, then in order to access rotki on mobile the only thing needed is to set up a [VPN connection](https://docs.dappnode.io/docs/user/access-your-dappnode/vpn/overview/) between DAppNode and your phone or tablet.
 
 You can use either Wireguard or OpenVPN by following the guide linked above. When you are done with the configuration, you can activate the VPN connection on your device. With the VPN activated, you will be able to access rotki on `http://rotki.dappnode`.
 

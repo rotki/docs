@@ -146,9 +146,7 @@ As an example of how to add a new CEX you can check the [Bitpanda PR](https://gi
 
 ### Add Location
 
-You should add a new value to the [location Enum](https://github.com/rotki/rotki/blob/1039e04304cc034a57060757a1a8ae88b3c51806/rotke
-
-hlchen/types.py#L387) and also make sure that the value is mirrored in the DB's schema as seen [here](https://github.com/rotki/rotki/blob/1039e04304cc034a57060757a1a8ae88b3c51806/rotkehlchen/db/schema.py#L93-L94). Add it also in the `SUPPORTED_EXCHANGES` list [here](https://github.com/rotki/rotki/blob/1039e04304cc034a57060757a1a8ae88b3c51806/rotkehlchen/exchanges/manager.py#L31). Finally, don't forget to add it in the latest DB upgrade as seen in the Bitpanda PR linked at the start of this section.
+You should add a new value to the [location Enum](https://github.com/rotki/rotki/blob/1039e04304cc034a57060757a1a8ae88b3c51806/rotkehlchen/types.py#L387) and also make sure that the value is mirrored in the DB's schema as seen [here](https://github.com/rotki/rotki/blob/1039e04304cc034a57060757a1a8ae88b3c51806/rotkehlchen/db/schema.py#L93-L94). Add it also in the `SUPPORTED_EXCHANGES` list [here](https://github.com/rotki/rotki/blob/1039e04304cc034a57060757a1a8ae88b3c51806/rotkehlchen/exchanges/manager.py#L31). Finally, don't forget to add it in the latest DB upgrade as seen in the Bitpanda PR linked at the start of this section.
 
 ### Create exchange module
 
