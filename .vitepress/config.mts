@@ -105,6 +105,11 @@ export default defineConfig({
   title: 'rotki Documentation',
   base,
   description: 'All you need to start using rotki, or contributing to it.',
+  // Only emit a sitemap for the canonical stable build (base '/'). The versioned
+  // 'latest'/'patch' builds are previews and must not publish a competing sitemap.
+  sitemap: base === '/'
+    ? { hostname: 'https://docs.rotki.com' }
+    : undefined,
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/logo.png',
