@@ -100,6 +100,17 @@ const isLatest = DOCS_VERSION === 'latest';
 const isPatch = DOCS_VERSION === 'patch';
 const base = isLatest || isPatch ? `/${DOCS_VERSION}` : '/';
 
+// Version switcher entries. The current build is shown as the dropdown label;
+// the other two are listed as cross-links so every build — including the
+// bugfixes/patch one — can reach the others.
+const currentVersion = isLatest || isPatch ? DOCS_VERSION : 'stable';
+const VERSIONS = [
+  { id: 'stable', text: 'Stable', link: 'https://docs.rotki.com/' },
+  { id: 'latest', text: 'Latest', link: 'https://docs.rotki.com/latest/' },
+  { id: 'patch', text: 'Patch', link: 'https://docs.rotki.com/patch/' },
+];
+const currentVersionText = VERSIONS.find(version => version.id === currentVersion)?.text ?? 'Stable';
+
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: 'rotki Documentation',
@@ -117,20 +128,14 @@ export default defineConfig({
       { text: 'Documentation', link: '/' },
       { text: 'Download', link: 'https://rotki.com/download' },
       {
-        text: isLatest ? 'Latest' : 'Stable',
-        items: [
-          isLatest
-            ? {
-                text: 'Stable',
-                link: 'https://docs.rotki.com/',
-                target: '_blank',
-              }
-            : {
-                text: 'Latest',
-                link: 'https://docs.rotki.com/latest/',
-                target: '_blank',
-              },
-        ],
+        text: currentVersionText,
+        items: VERSIONS
+          .filter(version => version.id !== currentVersion)
+          .map(version => ({
+            text: version.text,
+            link: version.link,
+            target: '_blank',
+          })),
       },
     ],
 

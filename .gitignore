@@ -1,5 +1,6 @@
 .vitepress/cache
 .vitepress/dist
+build-output
 .idea
 .vscode/settings.json
 .DS_Store
