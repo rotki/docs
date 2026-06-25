@@ -1,5 +1,5 @@
 ---
-description: Running the Python test suite, linting with ruff/mypy/pylint, and mocking network calls in tests.
+description: Run rotki's Python test suite, lint with ruff, mypy, and pylint, mock network calls, and record HTTP interactions with VCR for fast, deterministic tests.
 ---
 
 # Python Code Testing

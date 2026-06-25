@@ -1,5 +1,5 @@
 ---
-description: Adding and managing blockchain accounts (EVM, Bitcoin, Substrate, Solana) and exchange connections.
+description: Add and manage blockchain accounts across EVM chains, Bitcoin, Substrate, and Solana in rotki, and connect exchanges to track all your balances in one place.
 ---
 
 # Tracking Accounts

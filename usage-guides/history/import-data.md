@@ -1,5 +1,5 @@
 ---
-description: Importing trade and transaction data from CSV files exported by exchanges into rotki.
+description: Import trades and transactions into rotki from exchange CSV exports or the generic import format, so your full history is tracked even without API access.
 ---
 
 # Import CSV

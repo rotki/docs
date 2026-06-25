@@ -1,5 +1,5 @@
 ---
-description: Adding manual latest and historical prices, and editing oracle-cached prices for assets.
+description: Add manual latest and historical prices that override oracle lookups in rotki, and view or edit the prices already fetched and cached from price oracles.
 ---
 
 # Managing prices

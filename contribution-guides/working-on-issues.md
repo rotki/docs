@@ -1,5 +1,5 @@
 ---
-description: Workflow for picking up issues, opening PRs, and coordinating between backend and frontend teams.
+description: The rotki contributor workflow for picking up issues, opening pull requests, writing changelog entries, and finalizing work across the backend and frontend.
 ---
 
 # Working on issues

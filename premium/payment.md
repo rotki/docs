@@ -1,5 +1,5 @@
 ---
-description: Step-by-step guide to purchasing a rotki premium subscription including plan selection and payment.
+description: "Purchase a rotki premium subscription step by step: select a plan, apply a discount or referral code, choose a payment method, and activate it in the app."
 ---
 
 # Payment Process

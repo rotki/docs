@@ -1,5 +1,5 @@
 ---
-description: Connecting centralized exchanges to rotki via API keys, with per-exchange setup instructions.
+description: Connect centralized exchanges to rotki using read-only API keys, with step-by-step setup instructions and exchange-specific notes for each platform.
 ---
 
 # Exchange API Keys

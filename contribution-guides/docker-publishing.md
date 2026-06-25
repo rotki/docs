@@ -1,5 +1,5 @@
 ---
-description: Manual steps for building and publishing multi-architecture rotki Docker images to Docker Hub.
+description: Manually build and publish rotki's multi-architecture Docker images to Docker Hub, covering the full release steps for pushing the images to hub.docker.com.
 ---
 
 # Docker Publishing (Manual)

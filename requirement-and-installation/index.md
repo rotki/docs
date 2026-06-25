@@ -1,5 +1,5 @@
 ---
-description: Install rotki from pre-built binaries, run it in Docker, or build from source.
+description: "Get started with rotki: install from pre-built binaries, run it in Docker, or build from source, plus the system requirements you need to run it locally."
 ---
 
 # Installation

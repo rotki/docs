@@ -1,5 +1,5 @@
 ---
-description: Comparing rotki premium subscription tiers, billing cycles, and choosing the right plan.
+description: Compare rotki premium subscription tiers and limits, understand billing cycles and custom plans, and choose or upgrade to the plan that fits your needs.
 ---
 
 # Plans & Pricing

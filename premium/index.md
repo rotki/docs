@@ -1,5 +1,5 @@
 ---
-description: Overview of rotki premium subscription tiers, features, and how to get started with premium.
+description: "Discover rotki premium: paid subscription tiers that unlock extra features, how to get started, and how to manage it while supporting ongoing development."
 ---
 
 # Premium Overview

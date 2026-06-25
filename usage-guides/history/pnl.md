@@ -1,5 +1,5 @@
 ---
-description: Generating profit/loss reports with FIFO, LIFO, HIFO, or ACB methods and exporting results.
+description: Generate profit/loss reports in rotki using FIFO, LIFO, HIFO, or ACB cost-basis methods, review the cost basis breakdown, and export the results to CSV.
 ---
 
 # Creating a profit/loss report

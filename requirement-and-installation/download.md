@@ -1,5 +1,5 @@
 ---
-description: Download and install rotki on Linux, macOS, or Windows using the official pre-built binaries.
+description: Download and install rotki on Linux, macOS, or Windows from the official pre-built binaries, with first-launch tips and troubleshooting for each platform.
 ---
 
 # Download & Install

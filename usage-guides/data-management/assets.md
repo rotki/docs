@@ -1,5 +1,5 @@
 ---
-description: Managing supported assets, adding custom tokens, merging duplicates, and whitelisting spam tokens.
+description: "Manage rotki's supported assets: inspect the asset list, add custom tokens, fix missing mappings, merge duplicates, and ignore or whitelist spam tokens."
 ---
 
 # Assets Management

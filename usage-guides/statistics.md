@@ -1,5 +1,5 @@
 ---
-description: Viewing net value graphs, asset amount/value charts, and balance snapshots with rotki premium.
+description: "Explore rotki premium statistics: net value over time, per-asset amount and value charts, value distribution by location and asset, plus event analysis."
 ---
 
 # Statistics

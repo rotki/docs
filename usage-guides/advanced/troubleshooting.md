@@ -1,5 +1,5 @@
 ---
-description: Fixing common rotki issues such as login errors, frontend settings corruption, and data problems.
+description: Fix common rotki problems such as invalid input errors on login, corrupted frontend settings, and other data issues, with step-by-step recovery instructions.
 ---
 
 # Troubleshooting

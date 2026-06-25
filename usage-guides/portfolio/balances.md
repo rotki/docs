@@ -1,5 +1,5 @@
 ---
-description: Viewing exchange balances, adding manual balances, tracking NFTs, airdrops, and managing snapshots.
+description: View exchange and manual balances in rotki, track NFTs and airdrops, filter holdings by tags, hide small balances, and capture balance snapshots over time.
 ---
 
 # Balances

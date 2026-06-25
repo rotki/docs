@@ -1,5 +1,5 @@
 ---
-description: Default rotki data directory locations on Linux, macOS, and Windows, plus backup recommendations.
+description: Find rotki's default data directory on Linux, macOS, and Windows, learn where development builds store their data, and get recommendations for backing it up.
 ---
 
 # rotki data directory

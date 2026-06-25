@@ -1,5 +1,5 @@
 ---
-description: Browsing, filtering, decoding, and editing historical events from exchanges and blockchains.
+description: Browse, filter, decode, and edit historical events from exchanges and blockchains in rotki, redecode transactions, add events by hash, and export them to CSV.
 ---
 
 # History events

@@ -1,5 +1,5 @@
 ---
-description: Profiling rotki Python code using flamegraphs and viztracer to identify performance bottlenecks.
+description: Profile rotki's Python code using flamegraphs and viztracer to find performance bottlenecks, with step-by-step instructions for running each profiler.
 ---
 
 # Code Profiling

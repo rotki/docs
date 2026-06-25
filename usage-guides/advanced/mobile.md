@@ -1,5 +1,5 @@
 ---
-description: Accessing rotki from a mobile device using DAppNode VPN or Docker with an authenticated proxy.
+description: Access rotki from a mobile device when running it via DAppNode or the Docker image, using a VPN or an authenticated reverse proxy to reach the web interface.
 ---
 
 # Using rotki from mobile

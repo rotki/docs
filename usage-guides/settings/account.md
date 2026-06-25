@@ -1,5 +1,5 @@
 ---
-description: Managing account passwords, database backups, data purging, and user settings import/export.
+description: "Manage rotki account and security settings: change your password, configure database backups, adjust backend options, and purge stored data when needed."
 ---
 
 # Account & Database Settings
