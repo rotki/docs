@@ -98,7 +98,21 @@ const __dirname = path.dirname(fileURLToPath(new URL(import.meta.url)));
 const DOCS_VERSION = process.env.DOCS_VERSION;
 const isLatest = DOCS_VERSION === 'latest';
 const isPatch = DOCS_VERSION === 'patch';
-const base = isLatest || isPatch ? `/${DOCS_VERSION}` : '/';
+const isPreview = isLatest || isPatch;
+const base = isPreview ? `/${DOCS_VERSION}` : '/';
+
+const STABLE_HOSTNAME = 'https://docs.rotki.com';
+
+// Map a source file's relativePath to its canonical URL on the stable site,
+// matching VitePress' own output paths (no clean URLs: `index.md` -> dir, the
+// rest -> `.html`). The preview builds share the same sources as stable, so the
+// canonical always points back to the stable equivalent.
+function stableCanonical(relativePath: string): string {
+  const pathPart = relativePath
+    .replace(/(?:^|\/)index\.md$/, match => match.slice(0, -'index.md'.length))
+    .replace(/\.md$/, '.html');
+  return `${STABLE_HOSTNAME}/${pathPart}`;
+}
 
 // Version switcher entries. The current build is shown as the dropdown label;
 // the other two are listed as cross-links so every build — including the
@@ -119,8 +133,20 @@ export default defineConfig({
   // Only emit a sitemap for the canonical stable build (base '/'). The versioned
   // 'latest'/'patch' builds are previews and must not publish a competing sitemap.
   sitemap: base === '/'
-    ? { hostname: 'https://docs.rotki.com' }
+    ? { hostname: STABLE_HOSTNAME }
     : undefined,
+  // The 'latest'/'patch' previews render the same pages as stable, which Bing
+  // flags as duplicate titles/content across the three URL trees. Tell crawlers
+  // not to index the previews and point every preview page at its stable twin.
+  transformPageData(pageData) {
+    if (!isPreview)
+      return;
+    pageData.frontmatter.head ??= [];
+    pageData.frontmatter.head.push(
+      ['meta', { name: 'robots', content: 'noindex, follow' }],
+      ['link', { rel: 'canonical', href: stableCanonical(pageData.relativePath) }],
+    );
+  },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: '/logo.png',
