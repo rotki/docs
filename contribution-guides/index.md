@@ -1,5 +1,5 @@
 ---
-description: How to contribute to rotki including bug reporting, debug mode, feature requests, and development setup.
+description: "How to contribute to rotki: reporting bugs, running it in debug mode, submitting feature requests, and setting up your environment for development."
 ---
 
 # rotki Contribution Guide

@@ -1,5 +1,5 @@
 ---
-description: Creating and editing tags with custom labels, descriptions, and colors for organizing accounts and balances.
+description: Create and edit tags in rotki with custom labels, descriptions, and colors to organize and filter your blockchain accounts and manual balances.
 ---
 
 # Tag Management

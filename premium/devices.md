@@ -1,5 +1,5 @@
 ---
-description: Managing devices connected to your rotki premium subscription and understanding per-tier device limits.
+description: Manage the devices connected to your rotki premium subscription, rename or remove them, and understand the per-tier device limits and registration rules.
 ---
 
 # Device Management

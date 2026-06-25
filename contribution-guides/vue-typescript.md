@@ -1,5 +1,5 @@
 ---
-description: Running Vue/TypeScript unit tests with vitest and end-to-end tests with Playwright for the rotki frontend.
+description: "Testing and maintaining the rotki frontend: unit tests with Vitest, end-to-end tests with Playwright, linting, and Vue/TypeScript code organization."
 ---
 
 # Vue/TypeScript

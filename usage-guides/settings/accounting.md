@@ -1,5 +1,5 @@
 ---
-description: Configuring accounting rules, cost basis methods, trade settings, and custom event rules for PnL reports.
+description: "Configure rotki's accounting settings: cost basis method, crypto-to-crypto and spending rules, gas costs, tax-free periods, and custom event rules."
 ---
 
 # Accounting Settings

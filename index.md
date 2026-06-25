@@ -1,5 +1,5 @@
 ---
-description: Documentation for rotki, an open-source crypto portfolio tracker and tax reporting tool.
+description: rotki is an open-source, privacy-focused crypto portfolio tracker, analytics, and tax reporting app that runs locally. Start here to learn what it does.
 ---
 
 # What is rotki?

@@ -1,5 +1,5 @@
 ---
-description: How to submit feature requests for rotki using the GitHub issue template.
+description: How to submit a feature request for rotki using the GitHub issue template, so the team can review, discuss, and prioritize your suggested improvements.
 ---
 
 # Feature Requests

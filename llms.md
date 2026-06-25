@@ -1,3 +1,7 @@
+---
+description: rotki's documentation in LLM-friendly formats (llms.txt and Markdown) to help developers and AI coding agents integrate with rotki faster.
+---
+
 # Using LLMs
 
 rotki's documentation is available in LLM-friendly formats to help developers and AI agents integrate with rotki faster.

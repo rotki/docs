@@ -1,5 +1,5 @@
 ---
-description: Configuring external service API keys such as Etherscan, CryptoCompare, and other data providers.
+description: Add external service API keys in rotki such as Etherscan, Blockscout, CryptoCompare, and others to enable on-chain data, prices, and integrations.
 ---
 
 # External Services

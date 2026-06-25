@@ -1,5 +1,5 @@
 ---
-description: How to open and query the encrypted rotki SQLite database using DB Browser for SQLite or sqlcipher CLI.
+description: Open and query rotki's encrypted SQLite database manually using DB Browser for SQLite or the sqlcipher CLI tool to inspect or repair your stored data.
 ---
 
 # Accessing the database manually

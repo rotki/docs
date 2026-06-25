@@ -1,5 +1,5 @@
 ---
-description: Managing saved credit/debit cards and setting default payment methods for rotki premium renewals.
+description: Add, view, and remove saved credit and debit cards for rotki premium, set a default payment method, and update card details used for renewals.
 ---
 
 # Payment Methods

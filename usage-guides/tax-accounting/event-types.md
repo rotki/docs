@@ -1,5 +1,5 @@
 ---
-description: Complete reference of all event types and subtypes in rotki with examples and default tax treatments.
+description: A complete reference of all event types and subtypes in rotki, with examples, valid combinations, and the default tax treatment applied to each one.
 ---
 
 # Event Types and Subtypes Reference

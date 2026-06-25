@@ -1,5 +1,5 @@
 ---
-description: Creating, managing, and securing rotki premium API key and secret credentials for app activation.
+description: Create, manage, and secure the rotki premium API key and secret credentials used to activate your subscription in the app, with security best practices.
 ---
 
 # API Credentials

@@ -1,5 +1,5 @@
 ---
-description: Step-by-step walkthrough to get started with rotki, from installation to generating your first PnL report.
+description: "A step-by-step walkthrough to get started with rotki: install the app, create an account, add accounts, view your portfolio, and generate your first report."
 ---
 
 # Quick Start Guide

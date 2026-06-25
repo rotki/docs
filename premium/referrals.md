@@ -1,5 +1,5 @@
 ---
-description: Creating and using rotki premium referral codes for discounts on first subscriptions.
+description: Create and share rotki premium referral codes so both you and the people you refer earn a discount on their first subscription, plus troubleshooting.
 ---
 
 # Referral Program

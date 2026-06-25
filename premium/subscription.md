@@ -1,5 +1,5 @@
 ---
-description: Managing your rotki premium subscription, viewing payment history, canceling, and renewing plans.
+description: "Manage your rotki premium subscription: view details and payment history, access API keys, create referral codes, change your plan, cancel, or renew."
 ---
 
 # Subscription Management

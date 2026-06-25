@@ -1,5 +1,5 @@
 ---
-description: Configuring EVM chain settings, RPC nodes, transaction indexers, price oracles, and DeFi modules.
+description: Configure rotki's blockchain and EVM settings, including RPC nodes, transaction indexers, price oracle preferences, and which DeFi modules are enabled.
 ---
 
 # Blockchain & EVM Settings

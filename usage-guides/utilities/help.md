@@ -1,5 +1,5 @@
 ---
-description: Accessing help resources, reporting bugs, and submitting feature requests through the in-app support menu.
+description: Access rotki's help resources, report bugs with logs attached, and submit feature requests directly through the in-app Help & Support menu in the toolbar.
 ---
 
 # Help & Support

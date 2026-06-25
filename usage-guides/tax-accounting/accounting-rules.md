@@ -1,5 +1,5 @@
 ---
-description: Detailed explanation of every accounting setting in rotki including cost basis methods and tax-free periods.
+description: A detailed explanation of every accounting setting in rotki, including cost basis methods, crypto spending, gas costs, and tax-free periods for PnL.
 ---
 
 # Accounting Rule Options Explained

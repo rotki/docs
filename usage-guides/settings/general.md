@@ -1,5 +1,5 @@
 ---
-description: Configuring general app settings including profit currency, analytics, CSV export, and NFT display options.
+description: Configure rotki's general settings, including your profit currency, application preferences, analytics, CSV export options, and NFT display behavior.
 ---
 
 # General Settings

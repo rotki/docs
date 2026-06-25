@@ -1,5 +1,5 @@
 ---
-description: Manual testing checklist for rotki release binaries covering startup, trades, imports, and exchanges.
+description: Manual testing checklist for rotki release binaries, covering startup, external trades, data imports, exchanges, settings, balances, and tax reports.
 ---
 
 # Manual Testing

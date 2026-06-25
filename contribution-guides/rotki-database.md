@@ -1,5 +1,5 @@
 ---
-description: Architecture of rotki's SQLite databases, schema upgrades, data migrations, and cache management.
+description: Architecture of rotki's two SQLite databases (global.db and the user DB), how schema upgrades and data migrations run, and how cached data is managed.
 ---
 
 # rotki Database

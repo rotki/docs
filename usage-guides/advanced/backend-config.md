@@ -1,5 +1,5 @@
 ---
-description: Customizing rotki backend arguments via rotki_config.json for log levels, data directories, and more.
+description: Customize the rotki Python backend through rotki_config.json, setting log levels, the data directory, and other arguments useful for debugging and tuning.
 ---
 
 # Set the backend's arguments

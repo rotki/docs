@@ -1,5 +1,5 @@
 ---
-description: Frequently asked questions about rotki, premium subscriptions, supported exchanges, and common issues.
+description: Frequently asked questions about rotki covering the application, premium subscriptions, supported exchanges, roadmap, and solutions to common issues.
 ---
 
 # Frequently Asked Questions

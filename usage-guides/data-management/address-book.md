@@ -1,5 +1,5 @@
 ---
-description: Managing global and private address book entries to replace blockchain addresses with human-readable names.
+description: Manage global and private address book entries in rotki to replace blockchain addresses with readable names, and import multiple address books from CSV.
 ---
 
 # Address Book

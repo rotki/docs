@@ -1,5 +1,5 @@
 ---
-description: Customizing the rotki interface including language, theme, animations, balance refresh, and explorer links.
+description: Customize the rotki interface, including language, theme, animations, balance refresh frequency, and blockchain explorer links used across the app.
 ---
 
 # Interface Settings

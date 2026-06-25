@@ -1,5 +1,5 @@
 ---
-description: Using the calendar to track events, set reminders, and receive automatic alerts like ENS expiration.
+description: Use the rotki calendar to add and track events, set reminders for actions, receive automatic alerts such as ENS expiry, and sync with Google Calendar.
 ---
 
 # Calendar

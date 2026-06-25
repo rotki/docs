@@ -1,5 +1,5 @@
 ---
-description: How to track ETH2 validator staking, Liquity staking, Kraken staking, and Lido CSM node operation in rotki.
+description: Track staking in rotki across ETH2 validators, Liquity, Kraken, and Lido CSM node operation, with per-protocol setup and the rewards each one records.
 ---
 
 # Staking

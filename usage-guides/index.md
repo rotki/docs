@@ -1,5 +1,5 @@
 ---
-description: Reference for rotki account setup, sign-in, premium sync, data restoration, and upgrading between versions.
+description: "Set up and manage your rotki account: sign-up and sign-in, premium server sync, restoring backups, moving installations, and upgrading between versions."
 ---
 
 # Accounts & Sync

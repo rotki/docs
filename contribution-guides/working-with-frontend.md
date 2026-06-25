@@ -1,5 +1,5 @@
 ---
-description: Frontend development setup including editor integration, environment variables, and development proxy config.
+description: "Set up rotki frontend development: editor integration, environment variables, the development proxy, running multiple instances, linting, and type checks."
 ---
 
 # Working with the Frontend

@@ -1,5 +1,5 @@
 ---
-description: Quick-access utilities in rotki including global search, in-app notes, and background task management.
+description: Quick-access utilities in rotki, including global search for fast navigation, taking notes in-app, and monitoring long-running background tasks.
 ---
 
 # Utilities

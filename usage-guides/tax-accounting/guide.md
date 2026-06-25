@@ -1,5 +1,5 @@
 ---
-description: Step-by-step walkthrough for calculating crypto taxes with rotki, from data setup to PnL report generation.
+description: A step-by-step walkthrough for calculating your crypto taxes with rotki, from setting up your data to generating and reviewing a Profit/Loss report.
 ---
 
 # Using rotki for Tax Accounting

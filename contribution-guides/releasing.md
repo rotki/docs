@@ -1,5 +1,5 @@
 ---
-description: How rotki releases are cut, both minor (1.x.0) from develop and patch (1.x.y) from bugfixes.
+description: "How rotki releases are cut from its long-lived branches: minor 1.x.0 releases from develop and patch 1.x.y releases from bugfixes, step by step."
 ---
 
 # Releasing rotki
