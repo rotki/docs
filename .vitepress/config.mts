@@ -159,7 +159,7 @@ export default defineConfig({
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
-    logo: '/logo.png',
+    logo: { src: '/logo.png', alt: 'rotki' },
     nav: [
       { text: 'Documentation', link: '/' },
       { text: 'Download', link: 'https://rotki.com/download' },
