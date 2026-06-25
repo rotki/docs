@@ -104,13 +104,13 @@ const base = isPreview ? `/${DOCS_VERSION}` : '/';
 const STABLE_HOSTNAME = 'https://docs.rotki.com';
 
 // Map a source file's relativePath to its canonical URL on the stable site,
-// matching VitePress' own output paths (no clean URLs: `index.md` -> dir, the
-// rest -> `.html`). The preview builds share the same sources as stable, so the
-// canonical always points back to the stable equivalent.
+// matching VitePress' clean-URL output (`index.md` -> directory, everything
+// else -> extensionless). The preview builds share the same sources as stable,
+// so the canonical always points back to the stable equivalent.
 function stableCanonical(relativePath: string): string {
   const pathPart = relativePath
     .replace(/(?:^|\/)index\.md$/, match => match.slice(0, -'index.md'.length))
-    .replace(/\.md$/, '.html');
+    .replace(/\.md$/, '');
   return `${STABLE_HOSTNAME}/${pathPart}`;
 }
 
@@ -130,22 +130,32 @@ export default defineConfig({
   title: 'rotki Documentation',
   base,
   description: 'All you need to start using rotki, or contributing to it.',
+  // Serve extensionless URLs (/foo, not /foo.html). Keeps internal links, the
+  // sitemap, and the canonical tags all on a single clean form so crawlers stop
+  // treating /foo and /foo.html as two separate, duplicate pages.
+  cleanUrls: true,
   // Only emit a sitemap for the canonical stable build (base '/'). The versioned
   // 'latest'/'patch' builds are previews and must not publish a competing sitemap.
   sitemap: base === '/'
     ? { hostname: STABLE_HOSTNAME }
     : undefined,
-  // The 'latest'/'patch' previews render the same pages as stable, which Bing
-  // flags as duplicate titles/content across the three URL trees. Tell crawlers
-  // not to index the previews and point every preview page at its stable twin.
+  // Bing flags duplicate titles/content from two sources: GitHub Pages serves
+  // every page at both `/foo` and `/foo.html`, and the 'latest'/'patch'
+  // previews re-render the same pages under their own URL trees. Emit a
+  // self-referencing canonical on every build (pointing at the one clean stable
+  // URL, matching the sitemap) so the `/foo` vs `/foo.html` pair collapses; on
+  // previews the same canonical points back to the stable twin. Previews
+  // additionally carry noindex so they drop out of the index entirely.
   transformPageData(pageData) {
-    if (!isPreview)
-      return;
     pageData.frontmatter.head ??= [];
     pageData.frontmatter.head.push(
-      ['meta', { name: 'robots', content: 'noindex, follow' }],
       ['link', { rel: 'canonical', href: stableCanonical(pageData.relativePath) }],
     );
+    if (isPreview) {
+      pageData.frontmatter.head.push(
+        ['meta', { name: 'robots', content: 'noindex, follow' }],
+      );
+    }
   },
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
