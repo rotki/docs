@@ -11,7 +11,7 @@ Share rotki premium with others. The person who uses your code gets a discount o
 When someone subscribes using your referral code:
 
 - The referee (person using the code) gets a discount on their first subscription.
-- You (the referrer) earn account credit based on what they pay. The credit is added to your balance and applied automatically to your future renewals and upgrades.
+- You (the referrer) earn account credit based on what they pay. The credit is added to your balance and applied automatically to your future purchases, renewals, and upgrades.
 
 The exact discount and credit are shown in the app at the point where they apply, so you always see the current values.
 
@@ -70,7 +70,7 @@ A referral discount applies only to the first payment of a new subscription. Ren
 When someone you referred makes their first qualifying purchase, you receive account credit based on what they paid.
 
 - Your balance and a full history of credit earned and used appear in the Account Credit section of your [subscription page](https://rotki.com/home/subscription).
-- Credit is applied automatically to your subscription renewals and upgrades. You do not need to enter anything.
+- Credit is applied automatically to your subscription purchases, renewals, and upgrades. You do not need to enter anything.
 - Credit is granted once per referred user, on their first non-upgrade purchase.
 
 ![Account Credit section showing the available balance and a credit history entry for a referral reward](/images/referrals/account-credit-populated.webp)
@@ -124,4 +124,4 @@ If the discount does not show at checkout:
 
 1. Go to your [subscription page](https://rotki.com/home/subscription).
 2. Open the Account Credit section to see your current balance and full credit history.
-3. Credit is applied automatically to your next renewal or upgrade.
+3. Credit is applied automatically to your next purchase, renewal, or upgrade.

@@ -53,7 +53,7 @@ See [Referral Program](/premium/referrals) for detailed instructions on creating
 
 ## Account Credit
 
-Credit earned through referrals and other rewards appears in the Account Credit section of your subscription page, along with a history of credit earned and used. Credit is applied automatically to your subscription renewals and upgrades, so you do not need to enter anything.
+Credit earned through referrals and other rewards appears in the Account Credit section of your subscription page, along with a history of credit earned and used. Credit is applied automatically to your subscription purchases, renewals, and upgrades, so you do not need to enter anything.
 
 ::: warning How credit can be used
 Account credit can only be applied to rotki subscription purchases and renewals. It cannot be redeemed for cash, refunded, or transferred to another account.
