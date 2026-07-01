@@ -47,9 +47,17 @@ An invoice is automatically generated for each payment and available immediately
 
 ## Creating Referral Codes
 
-Premium subscribers can create referral codes to share with others. People using your code get 10% off their first subscription.
+Any account with a confirmed email can create a referral code to share with others. People using your code get a discount on their first subscription, and you earn account credit when they subscribe.
 
 See [Referral Program](/premium/referrals) for detailed instructions on creating and sharing referral codes.
+
+## Account Credit
+
+Credit earned through referrals and other rewards appears in the Account Credit section of your subscription page, along with a history of credit earned and used. Credit is applied automatically to your subscription renewals and upgrades, so you do not need to enter anything.
+
+::: warning How credit can be used
+Account credit can only be applied to rotki subscription purchases and renewals. It cannot be redeemed for cash, refunded, or transferred to another account.
+:::
 
 ## Canceling Your Subscription
 
