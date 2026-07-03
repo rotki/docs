@@ -69,6 +69,8 @@ A referral discount applies only to the first payment of a new subscription. Ren
 
 When someone you referred makes their first qualifying purchase, you receive account credit based on what they paid.
 
+<ReferralRewardsTable />
+
 - Your balance and a full history of credit earned and used appear in the Account Credit section of your [subscription page](https://rotki.com/home/subscription).
 - Credit is applied automatically to your subscription purchases, renewals, and upgrades. You do not need to enter anything.
 - Credit is granted once per referred user, on their first non-upgrade purchase.

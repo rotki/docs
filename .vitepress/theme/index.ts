@@ -5,6 +5,7 @@ import DefaultTheme from 'vitepress/theme';
 import { h } from 'vue';
 import CsvTable from '@/components/CsvTable.vue';
 import NavCards from '@/components/NavCards.vue';
+import ReferralRewardsTable from '@/components/ReferralRewardsTable.vue';
 import './style.css';
 
 export default {
@@ -16,6 +17,7 @@ export default {
     enhanceAppWithTabs(app);
     app.component('CsvTable', CsvTable);
     app.component('NavCards', NavCards);
+    app.component('ReferralRewardsTable', ReferralRewardsTable);
     app.component('CopyOrDownloadAsMarkdownButtons', CopyOrDownloadAsMarkdownButtons);
   },
 } satisfies Theme;
