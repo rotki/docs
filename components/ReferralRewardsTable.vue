@@ -47,8 +47,8 @@ function formatPercentage(value: string | number): string {
   return `${Number(value)}%`;
 }
 
-function formatPrice(value: string): string {
-  return `$${Number(value).toFixed(2)}`;
+function reward(price: string, percentage: number): string {
+  return `${(Number(price) * (percentage / 100)).toFixed(2)}€`;
 }
 
 onMounted(async () => {
@@ -95,33 +95,33 @@ onMounted(async () => {
     <template v-else>
       <p class="referral-table__caption">
         People who use your code get <strong>{{ refereeDiscount }}</strong> off
-        their first subscription payment. You earn account credit based on the
-        plan they pick:
+        their first subscription payment. Here is the account credit you earn
+        when they subscribe:
       </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Plan</th>
-            <th>Monthly</th>
-            <th>Yearly</th>
-            <th>Your reward</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="tier in tiers"
-            :key="tier.name"
-          >
-            <td>{{ tier.name }}</td>
-            <td>{{ formatPrice(tier.monthly_plan.price) }}</td>
-            <td>{{ formatPrice(tier.yearly_plan.price) }}</td>
-            <td>{{ formatPercentage(tier.referrer_reward_percentage) }}</td>
-          </tr>
-        </tbody>
-      </table>
+      <div class="referral-table__wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Plan</th>
+              <th>Monthly earn</th>
+              <th>Yearly earn</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="tier in tiers"
+              :key="tier.name"
+            >
+              <td>{{ tier.name }}</td>
+              <td>{{ reward(tier.monthly_plan.price, tier.referrer_reward_percentage) }}</td>
+              <td>{{ reward(tier.yearly_plan.price, tier.referrer_reward_percentage) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <p class="referral-table__note">
-        Rates are pulled live from rotki and may change. The reward is a
-        percentage of what the referred person pays.
+        Rates are pulled live from rotki and may change. You earn a percentage
+        of what the referred person pays, added to your account credit.
       </p>
     </template>
   </div>
@@ -131,6 +131,38 @@ onMounted(async () => {
 .referral-table__status,
 .referral-table__caption {
   margin-top: 1rem;
+}
+
+.referral-table__wrap {
+  margin: 1rem 0;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  overflow: auto;
+}
+
+.referral-table__wrap table {
+  display: table;
+  width: 100%;
+  margin: 0;
+}
+
+.referral-table__wrap tr:first-child th {
+  border-top: none;
+}
+
+.referral-table__wrap th:first-child,
+.referral-table__wrap td:first-child {
+  border-left: none;
+}
+
+.referral-table__wrap th:last-child,
+.referral-table__wrap td:last-child {
+  border-right: none;
+}
+
+.referral-table th:not(:first-child),
+.referral-table td:not(:first-child) {
+  text-align: right;
 }
 
 .referral-table__note {
