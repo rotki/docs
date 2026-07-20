@@ -58,7 +58,7 @@ Moving assets into an exchange, wallet, or protocol.
 | `Deposit Asset`       | account deposit  | Neutral   | Depositing ETH to Kraken               |
 | `Deposit For Wrapped` | deposit          | Out       | Depositing DAI to receive cDAI         |
 | `Deposit To Protocol` | protocol deposit | Neutral   | Depositing into Aave lending pool      |
-| `Bridge`              | bridge           | Out       | Sending ETH to the Arbitrum bridge     |
+| `Bridge`              | bridge out       | Out       | Sending ETH to the Arbitrum bridge     |
 | `Place Order`         | deposit          | Out       | Placing a limit order (e.g., CoW Swap) |
 | `Fee`                 | fee              | Out       | Fee on a deposit                       |
 
@@ -71,7 +71,7 @@ Moving assets out of an exchange, wallet, or protocol.
 | `Remove Asset`           | account withdraw    | Neutral   | Withdrawing BTC from Binance           |
 | `Redeem Wrapped`         | withdraw            | In        | Redeeming cDAI back to DAI             |
 | `Withdraw From Protocol` | protocol withdrawal | Neutral   | Withdrawing from Aave lending pool     |
-| `Bridge`                 | bridge              | In        | Receiving ETH from the Optimism bridge |
+| `Bridge`                 | bridge in           | In        | Receiving ETH from the Optimism bridge |
 | `Cancel Order`           | cancel order        | In        | Cancelling a CoW Swap order            |
 | `Refund`                 | refund              | In        | Getting refunded from a failed order   |
 | `Generate Debt`          | borrow              | In        | Borrowing from a lending protocol      |
@@ -91,6 +91,7 @@ A plain expenditure — you spent crypto and received nothing (or something non-
 | `Payment`        | pay         | Out       | Making a payment                       |                                    |
 | `Clawback`       | clawback    | Out       | Assets clawed back by protocol         |                                    |
 | `Burn`           | burn        | Out       | Burning tokens                         |                                    |
+| `Refund`         | refund      | In        | Refunding a received payment           |                                    |
 
 ### Receive
 
@@ -286,7 +287,7 @@ The following table lists every valid combination of event type and subtype reco
 | Deposit             | Deposit Asset, Deposit For Wrapped, Deposit To Protocol, Bridge, Place Order, Fee                                                                                |
 | Withdrawal          | Remove Asset, Redeem Wrapped, Withdraw From Protocol, Bridge, Cancel Order, Refund, Generate Debt, Fee                                                           |
 | Transfer            | Donate, None, Fee                                                                                                                                                |
-| Spend               | Return Wrapped, Payback Debt, Fee, Donate, Payment, None, Clawback, Burn                                                                                         |
+| Spend               | Return Wrapped, Payback Debt, Fee, Donate, Payment, None, Clawback, Burn, Refund                                                                                 |
 | Receive             | Reward, Receive Wrapped, Generate Debt, Return Wrapped, Airdrop, Donate, None, Liquidate, Payment, Grant, Interest, Cashback, Refund, Spam                       |
 | Adjustment          | Spend, Receive                                                                                                                                                   |
 | Informational       | None, Governance, Deposit Asset, Remove Asset, Place Order, Create, Update, Apply, Approve, Attest, MEV Reward, Block Production, Consolidate, Delegate, Message |
