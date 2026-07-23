@@ -81,38 +81,40 @@ Moving assets out of an exchange, wallet, or protocol.
 
 A plain expenditure — you spent crypto and received nothing (or something non-crypto) in return.
 
-| Subtype          | UI Category | Direction | Example                                | Notes                              |
-| ---------------- | ----------- | --------- | -------------------------------------- | ---------------------------------- |
-| `None`           | send        | Out       | Paying for a service with BTC          | Taxable (loss)                     |
-| `Fee`            | fee         | Out       | Paying gas fees on Ethereum            | Depends on "EVM Gas Costs" setting |
-| `Return Wrapped` | return      | Out       | Returning aDAI to Aave to get DAI back | Not taxable (protocol interaction) |
-| `Payback Debt`   | repay       | Out       | Repaying a loan on Aave                |                                    |
-| `Donate`         | donate      | Out       | Donating crypto to a cause             |                                    |
-| `Payment`        | pay         | Out       | Making a payment                       |                                    |
-| `Clawback`       | clawback    | Out       | Assets clawed back by protocol         |                                    |
-| `Burn`           | burn        | Out       | Burning tokens                         |                                    |
-| `Refund`         | refund      | In        | Refunding a received payment           |                                    |
+| Subtype          | UI Category | Direction | Example                                             | Notes                              |
+| ---------------- | ----------- | --------- | --------------------------------------------------- | ---------------------------------- |
+| `None`           | send        | Out       | Paying for a service with BTC                       | Taxable (loss)                     |
+| `Fee`            | fee         | Out       | Paying gas fees on Ethereum                         | Depends on "EVM Gas Costs" setting |
+| `Return Wrapped` | return      | Out       | Returning aDAI to Aave to get DAI back              | Not taxable (protocol interaction) |
+| `Payback Debt`   | repay       | Out       | Repaying a loan on Aave                             |                                    |
+| `Donate`         | donate      | Out       | Donating crypto to a cause                          |                                    |
+| `Payment`        | pay         | Out       | Making a payment                                    |                                    |
+| `Clawback`       | clawback    | Out       | Assets clawed back by protocol                      |                                    |
+| `Burn`           | burn        | Out       | Burning tokens                                      |                                    |
+| `Refund`         | refund      | In        | Refunding a received payment                        |                                    |
+| `Bridge`         | bridge send | Out       | Bridge-out resolved as sent to an untracked address | Accounted like a plain send        |
 
 ### Receive
 
 You received assets — this is an acquisition event.
 
-| Subtype           | UI Category        | Direction | Example                                      | Notes                       |
-| ----------------- | ------------------ | --------- | -------------------------------------------- | --------------------------- |
-| `None`            | receive            | In        | Receiving a payment in crypto                | Taxable (income)            |
-| `Reward`          | claim reward       | In        | Receiving CRV rewards from Curve             | Taxable (income)            |
-| `Airdrop`         | airdrop            | In        | Receiving a governance token airdrop         | Taxable (income)            |
-| `Receive Wrapped` | receive            | In        | Getting aDAI after depositing DAI to Aave    | Not taxable (receipt token) |
-| `Return Wrapped`  | receive            | In        | Getting back wrapped tokens                  |                             |
-| `Generate Debt`   | borrow             | In        | Borrowing assets from a lending protocol     |                             |
-| `Donate`          | receive donation   | In        | Receiving a donation                         |                             |
-| `Liquidate`       | liquidation reward | In        | Receiving assets from liquidating a position |                             |
-| `Payment`         | receive payment    | In        | Receiving a payment                          |                             |
-| `Grant`           | receive grant      | In        | Receiving a grant (e.g., Gitcoin)            |                             |
-| `Interest`        | receive interest   | In        | Receiving interest from a lending protocol   |                             |
-| `Cashback`        | cashback           | In        | Receiving cashback rewards                   |                             |
-| `Refund`          | refund             | In        | Getting a refund                             |                             |
-| `Spam`            | spam               | In        | Spam/phishing tokens sent to your address    | Ignored in accounting       |
+| Subtype           | UI Category        | Direction | Example                                                  | Notes                          |
+| ----------------- | ------------------ | --------- | -------------------------------------------------------- | ------------------------------ |
+| `None`            | receive            | In        | Receiving a payment in crypto                            | Taxable (income)               |
+| `Reward`          | claim reward       | In        | Receiving CRV rewards from Curve                         | Taxable (income)               |
+| `Airdrop`         | airdrop            | In        | Receiving a governance token airdrop                     | Taxable (income)               |
+| `Receive Wrapped` | receive            | In        | Getting aDAI after depositing DAI to Aave                | Not taxable (receipt token)    |
+| `Return Wrapped`  | receive            | In        | Getting back wrapped tokens                              |                                |
+| `Generate Debt`   | borrow             | In        | Borrowing assets from a lending protocol                 |                                |
+| `Donate`          | receive donation   | In        | Receiving a donation                                     |                                |
+| `Liquidate`       | liquidation reward | In        | Receiving assets from liquidating a position             |                                |
+| `Payment`         | receive payment    | In        | Receiving a payment                                      |                                |
+| `Grant`           | receive grant      | In        | Receiving a grant (e.g., Gitcoin)                        |                                |
+| `Interest`        | receive interest   | In        | Receiving interest from a lending protocol               |                                |
+| `Cashback`        | cashback           | In        | Receiving cashback rewards                               |                                |
+| `Refund`          | refund             | In        | Getting a refund                                         |                                |
+| `Spam`            | spam               | In        | Spam/phishing tokens sent to your address                | Ignored in accounting          |
+| `Bridge`          | bridge receive     | In        | Bridge-in resolved as received from an untracked address | Accounted like a plain receive |
 
 ### Transfer
 
@@ -287,8 +289,8 @@ The following table lists every valid combination of event type and subtype reco
 | Deposit             | Deposit Asset, Deposit For Wrapped, Deposit To Protocol, Bridge, Place Order, Fee                                                                                |
 | Withdrawal          | Remove Asset, Redeem Wrapped, Withdraw From Protocol, Bridge, Cancel Order, Refund, Generate Debt, Fee                                                           |
 | Transfer            | Donate, None, Fee                                                                                                                                                |
-| Spend               | Return Wrapped, Payback Debt, Fee, Donate, Payment, None, Clawback, Burn, Refund                                                                                 |
-| Receive             | Reward, Receive Wrapped, Generate Debt, Return Wrapped, Airdrop, Donate, None, Liquidate, Payment, Grant, Interest, Cashback, Refund, Spam                       |
+| Spend               | Return Wrapped, Payback Debt, Fee, Donate, Payment, None, Clawback, Burn, Refund, Bridge                                                                         |
+| Receive             | Reward, Receive Wrapped, Generate Debt, Return Wrapped, Airdrop, Donate, None, Liquidate, Payment, Grant, Interest, Cashback, Refund, Spam, Bridge               |
 | Adjustment          | Spend, Receive                                                                                                                                                   |
 | Informational       | None, Governance, Deposit Asset, Remove Asset, Place Order, Create, Update, Apply, Approve, Attest, MEV Reward, Block Production, Consolidate, Delegate, Message |
 | Migrate             | Spend, Receive                                                                                                                                                   |
@@ -308,34 +310,36 @@ The following table lists every valid combination of event type and subtype reco
 
 ## Quick reference: common customizations
 
-| Situation                                | Event Type      | Event Subtype              |
-| ---------------------------------------- | --------------- | -------------------------- |
-| Swap / trade on DEX or CEX               | `Trade`         | `Spend` + `Receive` (pair) |
-| Moving assets to an exchange             | `Deposit`       | `Deposit Asset`            |
-| Moving assets from an exchange           | `Withdrawal`    | `Remove Asset`             |
-| Depositing into DeFi (get receipt token) | `Deposit`       | `Deposit For Wrapped`      |
-| Depositing into DeFi (no receipt token)  | `Deposit`       | `Deposit To Protocol`      |
-| Withdrawing from DeFi (return receipt)   | `Withdrawal`    | `Redeem Wrapped`           |
-| Withdrawing from DeFi (no receipt)       | `Withdrawal`    | `Withdraw From Protocol`   |
-| Receiving wrapped/receipt tokens         | `Receive`       | `Receive Wrapped`          |
-| Returning wrapped/receipt tokens         | `Spend`         | `Return Wrapped`           |
-| Sending assets across a bridge           | `Deposit`       | `Bridge`                   |
-| Receiving assets from a bridge           | `Withdrawal`    | `Bridge`                   |
-| Transfer between own wallets             | `Transfer`      | `None`                     |
-| Paying gas fees                          | `Spend`         | `Fee`                      |
-| Receiving staking rewards                | `Staking`       | `Reward`                   |
-| Claiming DeFi rewards                    | `Receive`       | `Reward`                   |
-| Receiving an airdrop                     | `Receive`       | `Airdrop`                  |
-| Paying for a service                     | `Spend`         | `None`                     |
-| Getting paid in crypto                   | `Receive`       | `None`                     |
-| Borrowing from a protocol                | `Withdrawal`    | `Generate Debt`            |
-| Repaying a loan                          | `Spend`         | `Payback Debt`             |
-| Token migration (old→new)                | `Migrate`       | `Spend` + `Receive` (pair) |
-| ENS renewal, subscription                | `Renew`         | `None`                     |
-| Token approval, governance vote          | `Informational` | `Approve` / `Governance`   |
-| Lost in hack / exploit                   | `Loss`          | `Hack`                     |
-| Liquidation (your position)              | `Loss`          | `Liquidate`                |
-| Failed transaction (gas only)            | `Fail`          | `Fee`                      |
+| Situation                                        | Event Type      | Event Subtype              |
+| ------------------------------------------------ | --------------- | -------------------------- |
+| Swap / trade on DEX or CEX                       | `Trade`         | `Spend` + `Receive` (pair) |
+| Moving assets to an exchange                     | `Deposit`       | `Deposit Asset`            |
+| Moving assets from an exchange                   | `Withdrawal`    | `Remove Asset`             |
+| Depositing into DeFi (get receipt token)         | `Deposit`       | `Deposit For Wrapped`      |
+| Depositing into DeFi (no receipt token)          | `Deposit`       | `Deposit To Protocol`      |
+| Withdrawing from DeFi (return receipt)           | `Withdrawal`    | `Redeem Wrapped`           |
+| Withdrawing from DeFi (no receipt)               | `Withdrawal`    | `Withdraw From Protocol`   |
+| Receiving wrapped/receipt tokens                 | `Receive`       | `Receive Wrapped`          |
+| Returning wrapped/receipt tokens                 | `Spend`         | `Return Wrapped`           |
+| Sending assets across a bridge                   | `Deposit`       | `Bridge`                   |
+| Receiving assets from a bridge                   | `Withdrawal`    | `Bridge`                   |
+| Bridge-out resolved as external (no counterpart) | `Spend`         | `Bridge`                   |
+| Bridge-in resolved as external (no counterpart)  | `Receive`       | `Bridge`                   |
+| Transfer between own wallets                     | `Transfer`      | `None`                     |
+| Paying gas fees                                  | `Spend`         | `Fee`                      |
+| Receiving staking rewards                        | `Staking`       | `Reward`                   |
+| Claiming DeFi rewards                            | `Receive`       | `Reward`                   |
+| Receiving an airdrop                             | `Receive`       | `Airdrop`                  |
+| Paying for a service                             | `Spend`         | `None`                     |
+| Getting paid in crypto                           | `Receive`       | `None`                     |
+| Borrowing from a protocol                        | `Withdrawal`    | `Generate Debt`            |
+| Repaying a loan                                  | `Spend`         | `Payback Debt`             |
+| Token migration (old→new)                        | `Migrate`       | `Spend` + `Receive` (pair) |
+| ENS renewal, subscription                        | `Renew`         | `None`                     |
+| Token approval, governance vote                  | `Informational` | `Approve` / `Governance`   |
+| Lost in hack / exploit                           | `Loss`          | `Hack`                     |
+| Liquidation (your position)                      | `Loss`          | `Liquidate`                |
+| Failed transaction (gas only)                    | `Fail`          | `Fee`                      |
 
 ## Entry types
 
