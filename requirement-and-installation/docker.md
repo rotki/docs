@@ -7,7 +7,7 @@ description: Run rotki in a Docker container, with configuration, Docker Compose
 rotki provides official Docker images starting from v1.11.0. Images are published on [DockerHub](https://hub.docker.com/r/rotki/rotki) as `rotki/rotki`.
 
 > [!WARNING]
-> rotki was not designed to run over a public network. Keep the container inside a trusted environment (for example, on your home LAN or behind a VPN) and do not expose it directly to the internet to avoid unauthorized access to your data.
+> Never publish the container's port directly to the internet. rotki was not built to be the only thing between the internet and your data. Keep it on a trusted network, behind a VPN, or behind a reverse proxy you control that authenticates every request and terminates TLS. See [Security](#security) for what the port exposes and how to lock it down.
 
 > [!NOTE]
 > Versions up to v1.13.2 report a dev version inside the app due to an old build process issue. This is cosmetic and doesn't affect functionality.
@@ -34,8 +34,14 @@ Open `http://localhost:8084` in your browser and you'll see the rotki login scre
 
 Your account data lives under `~/.rotki/data`; your logs are under `~/.rotki/logs`. Both survive container restarts and upgrades as long as you reuse the same volumes.
 
-> [!WARNING]
-> On Linux, the mounted `data` and `logs` folders must be owned by `root` — that's the user the container runs as. If you change the owner, the container will hit permission errors and rotki will return 500 responses.
+> [!NOTE]
+> On first start the container takes ownership of the mounted `data` and `logs` folders, setting them to uid/gid `10001`, which is what the unprivileged backends run as. On the host those files are then no longer owned by your own user, so editing or deleting them directly needs `sudo` or a throwaway container:
+>
+> ```sh
+> docker run --rm -v $HOME/.rotki/data:/data debian:12-slim rm -rf /data/some-file
+> ```
+>
+> If you pass `docker run --user <uid>` the container skips the drop and runs as that uid instead, but then the volumes must already be writable by it.
 
 ## Configuring the backend
 
@@ -80,11 +86,56 @@ docker run -d --name rotki \
     rotki/rotki:latest
 ```
 
-Supported variables: `LOGLEVEL`, `LOGFROMOTHERMODULES`, `MAX_SIZE_IN_MB_ALL_LOGS`, `MAX_LOGFILES_NUM`, `SQLITE_INSTRUCTIONS`. Changing these requires recreating the container.
+| Variable                           | Meaning                                                             |
+| ---------------------------------- | ------------------------------------------------------------------- |
+| `LOGLEVEL`                         | backend log level                                                   |
+| `LOGFROMOTHERMODULES`              | include third-party library logs                                    |
+| `MAX_SIZE_IN_MB_ALL_LOGS`          | total log size budget                                               |
+| `MAX_LOGFILES_NUM`                 | rotated log files to keep                                           |
+| `SQLITE_INSTRUCTIONS`              | SQLite instructions-per-context                                     |
+| `ROTKI_HTTP_PORT`                  | the port rotki serves on _inside_ the container (default `80`)      |
+| `TZ`                               | container timezone, see [below](#setting-the-timezone)              |
+| `ROTKI_SESSION_KEY`                | turns on session authentication, see [Security](#security)          |
+| `ROTKI_ACCEPT_UNAUTHENTICATED_API` | silences the unauthenticated-API warning, see [Security](#security) |
 
-## Session authentication
+Configuration is read once at boot, so changing any of these requires recreating the container.
 
-By default the Docker image serves an unauthenticated API. Anything that can reach the container's port can use it and read your data without signing in, which is why rotki shows a warning on the login screen when it runs in Docker.
+## Security
+
+Everything in this section is about one question: **who can reach the port you published, and what can they do once they get there.** Read it before you expose rotki to anything wider than your own machine.
+
+### What the published port exposes
+
+The container publishes a single port. Behind it, one supervisor serves the web interface and proxies to the backends, which listen only on loopback inside the container and are not reachable from outside it. These are the paths on that port:
+
+| Path                  | Without `ROTKI_SESSION_KEY`        | With `ROTKI_SESSION_KEY`                                                                                        |
+| --------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `/` and static assets | the web interface                  | the web interface                                                                                               |
+| `/api/…`              | **open**                           | session cookie required, except the pre-login calls below                                                       |
+| `/colibri/…`          | **open**                           | session cookie required                                                                                         |
+| `/ws`                 | **open**                           | handshake refused without a live session                                                                        |
+| `/mcp/…`              | `404`, the route is not registered | session cookie required, and only reaches a server if MCP is enabled in the app, see below                      |
+| `/health`             | open                               | open, by design                                                                                                 |
+| `/_control`           | `404`                              | `GET` lists the available operations; performing one needs the session cookie, re-validated against the backend |
+
+`/health` answers `{"ok":…,"degraded":…}` and nothing else. It is deliberately unauthenticated so an external monitor can probe it, and it deliberately carries no pids, service names or error text: anything on the published port is readable by whoever can reach it.
+
+`/mcp` takes two separate switches. The session key decides whether the route exists at all: without one it is never registered and answers `404`. Turning MCP on in rotki's own settings is what actually starts the server. With a session key but MCP left off, the route is there and answers `401` to a caller with no session, but there is nothing behind it for a signed-in one to reach either. MCP does not start on a deployment with no session key even if the setting was turned on earlier, since nothing there could route to it or authorize a caller.
+
+Even with a session key set, these calls are reachable **before** signing in, because the login screen itself needs them:
+
+| Call                                    | What it gives away                                                   |
+| --------------------------------------- | -------------------------------------------------------------------- |
+| `GET /api/1/ping`                       | that rotki is here                                                   |
+| `GET /api/1/info`                       | version, log level, and the data directory path inside the container |
+| `GET /api/1/users`                      | **the names of every account on the instance**                       |
+| `PUT /api/1/users`                      | **creates a new account**                                            |
+| `POST /api/1/users/<name>`              | sign in                                                              |
+| `POST /api/1/users/<name>/authenticate` | sign in                                                              |
+
+Everything else is denied by default. Note the two in bold: account names are enumerable, and account creation is not gated. A new account cannot read an existing account's data, since each one is encrypted with its own password, but it is still an unauthenticated write by anyone who can reach the port.
+
+### Session authentication
 
 Setting `ROTKI_SESSION_KEY` turns on session authentication. Generate a random key and pass it to the container:
 
@@ -118,8 +169,29 @@ services:
       - ROTKI_SESSION_KEY=${ROTKI_SESSION_KEY}
 ```
 
-> [!NOTE]
-> Session authentication protects the API, it does not replace network isolation. Keep the container off the public internet, and if you put a reverse proxy in front of it keep the TLS and basic auth from the [example below](#public-network-with-traefik-basic-auth).
+### What session authentication does not do
+
+Session authentication closes the open door. It is not a substitute for putting rotki behind something that terminates TLS and authenticates for it.
+
+- **There is no TLS.** The image speaks plain HTTP, and the session cookie is deliberately not marked `Secure` so it works on loopback and a LAN. Your account password on the way in, and the session cookie on every request after, both cross the network in cleartext. Anyone who can observe or redirect traffic between your browser and the container can read them and reuse the cookie.
+- **There is no brute-force protection on sign-in.** Nothing rate-limits or locks out repeated attempts, so the strength of the whole thing is the strength of your account password.
+- **The pre-login calls above stay open.** Account names remain enumerable and account creation remains ungated, with or without a session key.
+- **A session lasts 7 days** unless you sign out or another sign-in takes it over.
+
+### Use an authenticating reverse proxy
+
+If rotki is reachable by anything other than the machine it runs on, put an authenticating reverse proxy in front of it and let that proxy terminate TLS. This is the recommended setup, and it stays the recommended setup with `ROTKI_SESSION_KEY` set.
+
+A proxy fixes exactly what the list above cannot:
+
+- it encrypts the connection, so the password and cookie are no longer in the clear;
+- it rejects unauthenticated callers **before** they reach rotki, so the pre-login calls stop being exposed at all;
+- it is where rate limiting, IP allowlisting and tools like fail2ban belong.
+
+The [Traefik + basic auth example](#public-network-with-traefik-basic-auth) below is a working starting point. Use the two together: the proxy keeps strangers off the port, and the session key means a request that does get through still has to carry a signed-in session.
+
+> [!WARNING]
+> What must never be public is rotki's **own** port. Behind a proxy you control, that authenticates every request and terminates TLS, reaching rotki over the internet is fine, and that is what the Traefik example is for. The danger is publishing the container's port directly, or putting a proxy in front that forwards without authenticating: rotki was not built to be the thing standing between the internet and your data. If you would rather not run a proxy at all, a VPN into the network the container sits on gets you the same result.
 
 ### Accepting the risk instead
 
@@ -133,6 +205,37 @@ This only hides the warning. It changes nothing about who can reach the API, so 
 
 > [!NOTE]
 > This replaces `ROTKI_ACCEPT_DOCKER_RISK`, which is no longer read. That variable acknowledged an older, vaguer warning that never mentioned authentication, so it is deliberately not carried over. If you had set it, you will see the new warning once, and can then pick between `ROTKI_SESSION_KEY` and the variable above.
+
+### Hardened run
+
+These cannot be baked into the image, they are flags you pass at run time:
+
+```sh
+docker run -d --name rotki \
+    -p 8084:80 \
+    --cap-drop=ALL \
+    --cap-add=CHOWN --cap-add=DAC_OVERRIDE --cap-add=SETUID --cap-add=SETGID --cap-add=NET_BIND_SERVICE \
+    --security-opt=no-new-privileges \
+    --read-only --tmpfs /tmp --tmpfs /run \
+    -v $HOME/.rotki/data:/data \
+    -v $HOME/.rotki/logs:/logs \
+    -e ROTKI_SESSION_KEY="$(openssl rand -hex 32)" \
+    rotki/rotki:latest
+```
+
+`--read-only` works because there is no web-server cache or run directory left in the image. Two writable mounts are still needed: `/tmp` for scratch files and `/run` for the supervisor's control socket.
+
+Some of this the image already does for you, whether or not you pass the flags. The container starts as root only to bind its port and to take ownership of volumes from an older release, then drops itself and both backends to uid/gid `10001` and never regains privilege. It sets `no_new_privs` before starting anything, and it ships no setuid or setgid binaries at all, so there is nothing to regain privilege through.
+
+That startup is what the five `--cap-add` flags are for, and each one is load-bearing: `CHOWN` to take ownership of the volumes, `DAC_OVERRIDE` to then write `/data/.starling.lock` into a directory it has just given away while still root, `SETUID` and `SETGID` for the drop itself, and `NET_BIND_SERVICE` to bind port `80` before it. A bare `--cap-drop=ALL` takes all five away, and each missing one is a fatal startup error rather than a degraded run.
+
+To grant no capabilities at all, run as the unprivileged uid instead: add `--user 10001:10001` and drop every `--cap-add`. Started non-root the supervisor skips privilege separation entirely, so nothing needs a capability, but three things then become yours to arrange. The volumes must already be writable by `10001`, including `/data/.starling.lock` if a root-started container left one behind, as [above](#quick-start). `/run` must be owned by the same uid (`--tmpfs /run:uid=10001,gid=10001`), or the control socket cannot be bound and the container exits before serving. And the internal port must be above 1024, so pass `-e ROTKI_HTTP_PORT=8080` and publish that instead; the health check follows the variable on its own.
+
+The image is built on a distroless base, so there is no shell, no package manager and no coreutils inside it. `docker exec <container> sh` will not work. To inspect a running container, exec the supervisor binary directly:
+
+```sh
+docker exec rotki /opt/rotki/starling ctl status
+```
 
 ## Setting the timezone
 
