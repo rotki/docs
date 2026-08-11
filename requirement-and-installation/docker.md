@@ -185,6 +185,7 @@ If rotki is reachable by anything other than the machine it runs on, put an auth
 A proxy fixes exactly what the list above cannot:
 
 - it encrypts the connection, so the password and cookie are no longer in the clear;
+- it can send `Strict-Transport-Security` (HSTS), which is worth turning on. The session cookie is not marked `Secure`, so if that same hostname is ever reachable over plain HTTP the browser will attach the cookie to those requests too. HSTS stops the browser making a plaintext request to the host at all, which closes that gap. Pair it with an unconditional HTTP to HTTPS redirect, and do not serve rotki on plain HTTP alongside;
 - it rejects unauthenticated callers **before** they reach rotki, so the pre-login calls stop being exposed at all;
 - it is where rate limiting, IP allowlisting and tools like fail2ban belong.
 
