@@ -20,16 +20,20 @@ This way you can get the full rotki functionality on mobile.
 
 Accessing rotki on mobile when you run Docker on your own can be a bit complicated and depends on the kind of setup you have. You have to make sure that [rotki is never directly accessible from a public network](/requirement-and-installation/docker).
 
-One way to have rotki accessible on mobile over a public network is by making sure that an [authenticated proxy](#docker-rotki-public) intercepts all traffic directed to rotki. This way you can ensure that no one else can access your rotki instance.
+One way to have rotki accessible on mobile over a public network is by making sure that an [authenticated proxy](/requirement-and-installation/docker#public-network-with-traefik-basic-auth) intercepts all traffic directed to rotki. This way you can ensure that no one else can access your rotki instance.
 
-If you followed the authenticated proxy example from above, you should be able to access rotki's interface by going to `https://rotki.example.com` on your phone or tablet.
+If you followed that Traefik example, you should be able to access rotki's interface by going to `https://rotki.example.com` on your phone or tablet.
 
 Alternatively, if you already have a VPN setup to your private network or on the machine, you could use this VPN connection to securely connect to the rotki instance that runs on this network machine.
 
 ![rotki warning for docker](/images/rotki_docker_warning.png)
 
-For awareness reasons, if the app is run in Docker, you will see this warning every time it is opened. You can turn it off by running the rotki Docker image with this environment variable:
+For awareness reasons, if the app is run in Docker without authentication, you will see this warning every time it is opened.
+
+The recommended way to make it go away is to [turn on session authentication](/requirement-and-installation/docker#session-authentication), which makes rotki require a signed-in session for every request. If you would rather keep the instance unauthenticated, you can dismiss the warning by running the Docker image with this environment variable:
 
 ```sh
-ROTKI_ACCEPT_DOCKER_RISK=1
+ROTKI_ACCEPT_UNAUTHENTICATED_API=1
 ```
+
+If you had set the older `ROTKI_ACCEPT_DOCKER_RISK`, it is no longer read: you will see the warning once and can then choose either of the two variables above.

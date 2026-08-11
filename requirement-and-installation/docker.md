@@ -82,6 +82,58 @@ docker run -d --name rotki \
 
 Supported variables: `LOGLEVEL`, `LOGFROMOTHERMODULES`, `MAX_SIZE_IN_MB_ALL_LOGS`, `MAX_LOGFILES_NUM`, `SQLITE_INSTRUCTIONS`. Changing these requires recreating the container.
 
+## Session authentication
+
+By default the Docker image serves an unauthenticated API. Anything that can reach the container's port can use it and read your data without signing in, which is why rotki shows a warning on the login screen when it runs in Docker.
+
+Setting `ROTKI_SESSION_KEY` turns on session authentication. Generate a random key and pass it to the container:
+
+```sh
+docker run -d --name rotki \
+    -p 8084:80 \
+    -v $HOME/.rotki/data:/data \
+    -v $HOME/.rotki/logs:/logs \
+    -e ROTKI_SESSION_KEY="$(openssl rand -hex 32)" \
+    rotki/rotki:latest
+```
+
+With the key set:
+
+- Signing in issues an `HttpOnly` session cookie. Any request that does not carry it is rejected with `401`, and the websocket connection is refused as well.
+- Only one session is active at a time. Signing in from another browser or device signs the previous one out.
+- The login screen no longer shows the Docker warning, because there is no longer an unauthenticated instance to warn about.
+
+Keep the key stable across restarts. If it changes, or is dropped, every existing session becomes invalid and you have to sign in again. With Docker Compose, put it in the `.env` file next to `docker-compose.yml`:
+
+```sh
+ROTKI_SESSION_KEY=<the value you generated>
+```
+
+and reference it from the `rotki` service:
+
+```yaml
+services:
+  rotki:
+    environment:
+      - ROTKI_SESSION_KEY=${ROTKI_SESSION_KEY}
+```
+
+> [!NOTE]
+> Session authentication protects the API, it does not replace network isolation. Keep the container off the public internet, and if you put a reverse proxy in front of it keep the TLS and basic auth from the [example below](#public-network-with-traefik-basic-auth).
+
+### Accepting the risk instead
+
+If you know the instance is unreachable by anyone else and you do not want session authentication, you can dismiss the warning permanently:
+
+```sh
+ROTKI_ACCEPT_UNAUTHENTICATED_API=1
+```
+
+This only hides the warning. It changes nothing about who can reach the API, so prefer `ROTKI_SESSION_KEY` whenever you can.
+
+> [!NOTE]
+> This replaces `ROTKI_ACCEPT_DOCKER_RISK`, which is no longer read. That variable acknowledged an older, vaguer warning that never mentioned authentication, so it is deliberately not carried over. If you had set it, you will see the new warning once, and can then pick between `ROTKI_SESSION_KEY` and the variable above.
+
 ## Setting the timezone
 
 Set `TZ` when starting the container:
