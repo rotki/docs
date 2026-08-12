@@ -86,17 +86,18 @@ docker run -d --name rotki \
     rotki/rotki:latest
 ```
 
-| Variable                           | Meaning                                                             |
-| ---------------------------------- | ------------------------------------------------------------------- |
-| `LOGLEVEL`                         | backend log level                                                   |
-| `LOGFROMOTHERMODULES`              | include third-party library logs                                    |
-| `MAX_SIZE_IN_MB_ALL_LOGS`          | total log size budget                                               |
-| `MAX_LOGFILES_NUM`                 | rotated log files to keep                                           |
-| `SQLITE_INSTRUCTIONS`              | SQLite instructions-per-context                                     |
-| `ROTKI_HTTP_PORT`                  | the port rotki serves on _inside_ the container (default `80`)      |
-| `TZ`                               | container timezone, see [below](#setting-the-timezone)              |
-| `ROTKI_SESSION_KEY`                | turns on session authentication, see [Security](#security)          |
-| `ROTKI_ACCEPT_UNAUTHENTICATED_API` | silences the unauthenticated-API warning, see [Security](#security) |
+| Variable                           | Meaning                                                                    |
+| ---------------------------------- | -------------------------------------------------------------------------- |
+| `LOGLEVEL`                         | backend log level                                                          |
+| `LOGFROMOTHERMODULES`              | include third-party library logs                                           |
+| `MAX_SIZE_IN_MB_ALL_LOGS`          | total log size budget                                                      |
+| `MAX_LOGFILES_NUM`                 | rotated log files to keep                                                  |
+| `SQLITE_INSTRUCTIONS`              | SQLite instructions-per-context                                            |
+| `ROTKI_HTTP_PORT`                  | the port rotki serves on _inside_ the container (default `80`)             |
+| `TZ`                               | container timezone, see [below](#setting-the-timezone)                     |
+| `ROTKI_SESSION_KEY`                | turns on session authentication, see [Security](#security)                 |
+| `ROTKI_ACCEPT_UNAUTHENTICATED_API` | silences the unauthenticated-API warning, see [Security](#security)        |
+| `ROTKI_SESSION_COOKIE_SECURE`      | marks the session cookie `Secure`, see [below](#marking-the-cookie-secure) |
 
 Configuration is read once at boot, so changing any of these requires recreating the container.
 
@@ -173,10 +174,10 @@ services:
 
 Session authentication closes the open door. It is not a substitute for putting rotki behind something that terminates TLS and authenticates for it.
 
-- **There is no TLS.** The image speaks plain HTTP, and the session cookie is deliberately not marked `Secure` so it works on loopback and a LAN. Your account password on the way in, and the session cookie on every request after, both cross the network in cleartext. Anyone who can observe or redirect traffic between your browser and the container can read them and reuse the cookie.
+- **There is no TLS.** The image speaks plain HTTP, and the session cookie is not marked `Secure` by default, so it works on loopback and a LAN. Your account password on the way in, and the session cookie on every request after, both cross the network in cleartext. Anyone who can observe or redirect traffic between your browser and the container can read them and reuse the cookie. Terminating TLS in front of the container fixes the encryption; [marking the cookie `Secure`](#marking-the-cookie-secure) then stops it ever being sent in the clear.
 - **There is no brute-force protection on sign-in.** Nothing rate-limits or locks out repeated attempts, so the strength of the whole thing is the strength of your account password.
 - **The pre-login calls above stay open.** Account names remain enumerable and account creation remains ungated, with or without a session key.
-- **A session lasts 7 days** unless you sign out or another sign-in takes it over.
+- **A session goes stale after a day idle, and can never outlive 7 days.** Using it rolls the idle window forward, so an active session does not expire mid-use, but no amount of use extends it past the 7-day ceiling. Signing out, or signing in elsewhere, ends it immediately either way.
 
 ### Use an authenticating reverse proxy
 
@@ -185,7 +186,7 @@ If rotki is reachable by anything other than the machine it runs on, put an auth
 A proxy fixes exactly what the list above cannot:
 
 - it encrypts the connection, so the password and cookie are no longer in the clear;
-- it can send `Strict-Transport-Security` (HSTS), which is worth turning on. The session cookie is not marked `Secure`, so if that same hostname is ever reachable over plain HTTP the browser will attach the cookie to those requests too. HSTS stops the browser making a plaintext request to the host at all, which closes that gap. Pair it with an unconditional HTTP to HTTPS redirect, and do not serve rotki on plain HTTP alongside;
+- it can send `Strict-Transport-Security` (HSTS), which is worth turning on even after you mark the cookie `Secure`. The two close different halves of the same gap: `Secure` stops the browser _sending_ the cookie over plain HTTP, while HSTS stops it _making_ the plaintext request at all. Without HSTS the request still goes out, just without the cookie. Pair it with an unconditional HTTP to HTTPS redirect, and do not serve rotki on plain HTTP alongside;
 - it rejects unauthenticated callers **before** they reach rotki, so the pre-login calls stop being exposed at all;
 - it is where rate limiting, IP allowlisting and tools like fail2ban belong.
 
@@ -193,6 +194,36 @@ The [Traefik + basic auth example](#public-network-with-traefik-basic-auth) belo
 
 > [!WARNING]
 > What must never be public is rotki's **own** port. Behind a proxy you control, that authenticates every request and terminates TLS, reaching rotki over the internet is fine, and that is what the Traefik example is for. The danger is publishing the container's port directly, or putting a proxy in front that forwards without authenticating: rotki was not built to be the thing standing between the internet and your data. If you would rather not run a proxy at all, a VPN into the network the container sits on gets you the same result.
+
+### Marking the cookie `Secure`
+
+Once TLS is terminated in front of the container, `ROTKI_SESSION_COOKIE_SECURE` marks the session cookie `Secure`, which tells the browser never to send it over a plain HTTP connection.
+
+It is off by default and has to stay that way: the image itself speaks plain HTTP, and on loopback or a LAN the flag would stop the cookie being sent at all, so nobody could sign in. Only you know whether something in front is terminating TLS.
+
+| Value               | Behaviour                                              |
+| ------------------- | ------------------------------------------------------ |
+| unset, `0`, `false` | off, the default                                       |
+| `1`, `true`         | always mark the cookie `Secure`                        |
+| `forwarded`         | decide per request from the `X-Forwarded-Proto` header |
+
+Use `1` when TLS is terminated in front and you know every request reaches the browser over HTTPS. Use `forwarded` when your proxy sets `X-Forwarded-Proto` and you want the flag to follow the actual scheme. An unrecognised value logs a warning and is treated as off, rather than quietly deciding whether a credential may cross a plaintext connection.
+
+```yaml
+services:
+  rotki:
+    environment:
+      - ROTKI_SESSION_KEY=${ROTKI_SESSION_KEY}
+      - ROTKI_SESSION_COOKIE_SECURE=forwarded
+```
+
+> [!WARNING]
+> If you set `1` while the browser still reaches rotki over plain HTTP, nobody can sign in: the browser refuses a `Secure` cookie that arrives over a plaintext connection, so the cookie is discarded and every request looks unauthenticated. Set it only once TLS actually terminates in front.
+
+In `forwarded` mode rotki does not simply believe the header. The supervisor rewrites `X-Forwarded-Proto` on every proxied request, keeping an inbound value only when the peer is a trusted hop and overwriting it with `http` otherwise, so a client cannot dictate the value by sending the header itself. Two consequences are worth knowing:
+
+- **If your TLS terminator reaches the container from a public address, name it with `--trusted-proxy`.** Otherwise its `X-Forwarded-Proto: https` is discarded like any other untrusted peer's and the cookie is silently never marked `Secure`, even though TLS is working. Nothing warns you; sign-in keeps working, just without the flag.
+- **Loopback, private and link-local peers are trusted by default**, and that set can only be extended, never narrowed. A client on the same LAN as the container is therefore trusted and can set the header on its own requests. That only affects the cookie in its own response, so it can force `Secure` onto its own session but cannot weaken anyone else's. If you would rather not allow even that, use `1` instead of `forwarded`, and do not publish the port to a network you do not trust.
 
 ### Accepting the risk instead
 
