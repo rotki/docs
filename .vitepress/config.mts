@@ -195,6 +195,7 @@ export default defineConfig({
         items: [
           { text: 'Quick Start Guide', link: '/usage-guides/quick-start' },
           { text: 'Accounts & Sync', link: '/usage-guides/' },
+          { text: 'MCP', link: '/usage-guides/mcp' },
           {
             text: 'Portfolio',
             collapsed: false,
@@ -230,6 +231,7 @@ export default defineConfig({
             items: [
               { text: 'Staking', link: '/usage-guides/staking' },
               { text: 'Statistics', link: '/usage-guides/statistics' },
+              { text: 'Snapshots', link: '/usage-guides/statistics/snapshots' },
             ],
           },
           {
@@ -265,8 +267,12 @@ export default defineConfig({
             items: [
               { text: 'General', link: '/usage-guides/settings/general' },
               { text: 'Interface', link: '/usage-guides/settings/interface' },
+              { text: 'MCP', link: '/usage-guides/settings/mcp' },
               { text: 'Accounting', link: '/usage-guides/settings/accounting' },
-              { text: 'Blockchain & EVM', link: '/usage-guides/settings/blockchain' },
+              { text: 'Chains', link: '/usage-guides/settings/blockchain' },
+              { text: 'Oracles', link: '/usage-guides/settings/blockchain#price-oracle-settings' },
+              { text: 'RPC Nodes', link: '/usage-guides/settings/blockchain#rpc-node-setting' },
+              { text: 'Modules', link: '/usage-guides/settings/blockchain#module-settings' },
               { text: 'Account & Database', link: '/usage-guides/settings/account' },
             ],
           },

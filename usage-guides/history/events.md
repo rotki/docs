@@ -195,7 +195,7 @@ You can perform two actions:
 
 ## Add / edit events
 
-There are 10 types of events in rotki:
+There are 11 types of events in rotki:
 
 :::tabs
 == History Event
@@ -255,6 +255,14 @@ You can add multiple `spend` and `receive` assets.
 == Asset Movement Event
 
 ![Asset movement event form](/images/events_asset_movement_form.png)
+
+== Bitcoin Event
+
+Use this entry type for a decoded Bitcoin or Bitcoin Cash transaction event. The form automatically uses `BTC` for Bitcoin and `BCH` for Bitcoin Cash, so the asset cannot be changed independently.
+
+The key fields are `Transaction ID` (the transaction hash), `Location` (Bitcoin or Bitcoin Cash), `Timestamp`, `Amount`, `Event Type` / `Event Subtype`, `Sequence Index`, and `Counterparty`. An amount is required. Location and transaction ID are fixed after creation.
+
+Advanced options include `Group Identifier` and `Extra Data` for additional context. When adding an event to an existing Bitcoin transaction, rotki pre-fills the transaction ID, location, timestamp, and group identifier from that transaction.
 
 == Swap Event
 

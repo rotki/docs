@@ -106,60 +106,12 @@ Each airdrop shows one of the following statuses:
 
 ## Balances Snapshots
 
-The application automatically saves balance snapshots to your local database:
+rotki automatically saves balance snapshots in your local database. They are used for the dashboard's net-value graph and portfolio statistics. Snapshots are saved:
 
-- Occurs at login
-- Default interval: every 24 hours (configurable)
+- At login
+- Then on a configurable interval, every 24 hours by default
 
-To manually create a snapshot:
+Use the [Snapshots manager](/usage-guides/statistics/snapshots) to take a snapshot manually, import or export snapshot data, and review, edit, or delete existing snapshots. You can also open a snapshot directly by clicking its point in the dashboard's net-value graph, or force one from the [snapshot controls](/usage-guides/portfolio/dashboard#snapshot-controls) next to that graph.
 
-1. Click the `arrow down` near the graph
-2. Select `Force Save`
-
-![Force snapshots saves](/images/rotki_snapshot_forcing.png)
-
-### Error Handling
-
-- Snapshots won't save if there are external source query errors
-- To save despite errors, select `Ignore Errors`
-
-### Modify a snapshot point
-
-1. Click on a snapshot point in the dashboard's net value graph
-2. From the menu you can:
-   - Edit snapshot data
-   - Remove the snapshot
-   - Download the snapshot
-
-![Delete snapshot](/images/delete_snapshot_menu.png)
-
-### Edit Snapshots Value
-
-- Click a snapshot point
-- Select edit
-- Modify values for assets and locations as needed
-
-![Edit snapshot](/images/edit_snapshot_menu.png)
-
-### Delete Snapshots
-
-Click a snapshot point and select delete to remove saved information.
-
-### Download/Export Snapshots
-
-When exporting, four files are generated:
-
-1. Two files for future data import
-2. Two human-readable files for accounting:
-   - `balances_snapshot`: Asset balances at snapshot time
-   - `location_data_snapshot`: Value per location for each asset
-
-### Import Snapshot Back
-
-To import previously exported snapshot data:
-
-1. Use files with `_import` suffix
-2. Click the `Arrow down` button near the chart
-3. Select `Import`
-
-![Import snapshots information](/images/import_snapshot.png)
+> [!NOTE]
+> Taking a snapshot manually refreshes all balances without using the cache. It can take time and may reach third-party API rate limits, so use it when you need a current saved record.

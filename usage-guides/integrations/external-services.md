@@ -57,6 +57,12 @@ OpenSea is an NFT marketplace and data provider. Adding an OpenSea API key allow
 
 Alchemy is a multi-chain data provider and price oracle. rotki can use Alchemy for blockchain data queries and as an additional price source. Adding an API key improves rate limits and reliability. You can get a free API key from [alchemy.com](https://www.alchemy.com/).
 
+## Moralis
+
+Moralis provides current and historical USD price data for supported EVM tokens. Add a Moralis API key to use it as a current or historical price oracle in rotki.
+
+Moralis offers a free tier, but requires adding a payment card to activate access. Create an API key through [Moralis](https://moralis.io/) and add it in `API Keys > External Services > Moralis`. See [Moralis pricing](https://moralis.io/pricing/) for the current tier limits and terms.
+
 ## Loopring balances
 
 To have your Loopring balances detected, you will need an API Key from Loopring. To get one, visit [Loopring Security](https://loopring.io/#/layer2/security) and unlock your account. In the list of options, click on **Export Account**.

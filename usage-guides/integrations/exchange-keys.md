@@ -32,6 +32,9 @@ Currently supported exchanges are:
 - Woo
 - Bybit
 - HTX
+- Gate (Global, Europe, and US)
+- Bit2Me
+- CoinEx
 - Crypto.com (experimental)
 
 ![Add API keys for a new exchange](/images/rotki_add_exchange_1.png)
@@ -112,6 +115,16 @@ OKX requires an API Key, API Secret, and a Passphrase. When adding OKX, you also
 - **US** — for United States users.
 
 Make sure to select the region that matches the OKX platform you registered on, as the API endpoints differ between regions.
+
+#### Gate
+
+Gate requires an API Key and API Secret. When adding Gate, select the **region** that matches the platform where you created your API key:
+
+- **Global** — the default Gate platform.
+- **Europe** — Gate Europe.
+- **United States (US)** — Gate US.
+
+The selected region determines which Gate API endpoint rotki uses.
 
 #### Crypto.com
 
