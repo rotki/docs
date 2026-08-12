@@ -35,7 +35,7 @@ If you have a premium subscription, you can link it during account creation to e
 Before adding accounts, set up a few things to make account detection and balance queries much faster:
 
 - **Etherscan API Key** — Free and significantly speeds up EVM queries (and is required for some chains like Binance Smart Chain). Go to **API Keys → External Services** and add your key. See [External Services](/usage-guides/integrations/external-services#etherscan).
-- **Custom RPC Nodes** — Add your own RPC endpoints (e.g., from Alchemy or Infura) for faster blockchain queries. Configure in **Settings → Blockchain & EVM → RPC Nodes**. See [RPC Node Settings](/usage-guides/settings/blockchain#rpc-node-setting).
+- **Custom RPC Nodes** — Add your own RPC endpoints (e.g., from Alchemy or Infura) for faster blockchain queries. Configure in **Settings → RPC Nodes**. See [RPC Node Settings](/usage-guides/settings/blockchain#rpc-node-setting).
 - **Indexer Configuration** — Adjust the order of indexers (Etherscan, Blockscout, Routescan) per chain for optimal performance. See [Indexers](/usage-guides/settings/blockchain#indexers).
 
 > [!TIP]

@@ -31,7 +31,7 @@ The graph visualizes your portfolio's total value over time, based on saved [bal
 ### Interacting with the Graph
 
 - **Hover** over the graph to see the exact balance and date at any point
-- **Click** on a snapshot point to open the snapshot management dialog (edit, delete, or download)
+- **Click** on a snapshot point to open it in the [Snapshots manager](/usage-guides/statistics/snapshots)
 - **Double-click** to reset the zoom level
 - **Scroll wheel** to zoom in or out on the data
 - **Drag** to pan across the timeline
@@ -53,13 +53,15 @@ Use the buttons above the graph to switch between timeframes:
 
 ### Snapshot Controls
 
-The snapshot dropdown button (next to the graph) provides:
+The snapshot dropdown button (next to the graph) shows when the last snapshot was taken and provides:
 
-- **Force Save** — Manually trigger a balance snapshot. Shows when the last snapshot was taken.
-- **Ignore Errors** — A checkbox to save snapshots even if some external service queries failed. This setting persists across sessions.
+- **Force save** — Manually trigger a balance snapshot, ignoring any cache. Use it sparingly, as it may get you rate-limited by external services.
+- **Ignore Errors** — A checkbox to save the snapshot even if some external service queries failed. The resulting snapshot may be incomplete. This setting persists across sessions.
 - **Import Snapshot** — Upload previously exported snapshot CSV files (balance snapshot file + location data snapshot file). After import, rotki will log you out to apply the changes.
 
-For more details on managing snapshots, see [Balance Snapshots](/usage-guides/portfolio/balances#balances-snapshots).
+![The snapshot controls next to the net value graph](/images/usage-guides/portfolio/dashboard/snapshot_controls_menu.png)
+
+For browsing, editing, exporting, and deleting saved snapshots, see [Snapshots](/usage-guides/statistics/snapshots).
 
 ## Balance Summary
 

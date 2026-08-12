@@ -1,22 +1,39 @@
 ---
-description: Configure rotki's blockchain and EVM settings, including RPC nodes, transaction indexers, price oracle preferences, and which DeFi modules are enabled.
+description: Configure rotki's chain-related settings, including query exclusions, account activity detection, transaction indexers, price oracles, RPC nodes, and which DeFi modules are enabled.
 ---
 
-# Blockchain & EVM Settings
+# Chains, Oracles, RPC & Modules
+
+In the app these are four separate settings pages: **Chains**, **Oracles**, **RPC Nodes**, and **Modules**. They are documented together here because they all control how rotki queries blockchains and prices.
+
+## Chain queries & detection
+
+![The Chains settings page](/images/usage-guides/settings/chains.png)
+
+### Skip chains and addresses
+
+Use **Skip chains and addresses** to reduce work when you track addresses across many chains but do not need rotki to query every combination.
+
+Add either of these rules:
+
+- **Chain**: Skip every tracked address on the selected chain.
+- **Address**: Skip a selected address on one or more selected chains.
+
+Skipped chains and addresses are excluded from future balance, transaction, token-detection, and history-event queries. Anything skipped is treated as not tracked, so its balances stop appearing in rotki even though they are still cached: the balances that have already been saved are filtered out of the response, not deleted from your database. Remove the rule and they come back. History events already stored are kept and remain visible. The setting also does not affect cross-chain account activity detection for newly added addresses.
+
+Use it to avoid unnecessary queries and improve performance when several chains are tracked. Remove a rule at any time to include that chain or address in future queries again.
+
+### Skip account activity detection
+
+Configure which EVM chains should not be considered when rotki checks a tracked address for activity on other chains. This prevents the address from being added automatically to those chains; it does not stop querying chains that are already tracked. Use **Skip chains and addresses** above to stop existing query work.
 
 ## EVM
 
-![EVM settings](/images/sc_evm_settings.png)
-
-#### Treat Staked ETH as ETH
+### Treat ETH2 as ETH
 
 If enabled, ETH2 (staked ETH) will appear as ETH in the UI, and all tables and charts will combine the values of ETH and ETH2.
 
-#### EVM Chains for Automatic Detection
-
-Configure which EVM chains should not automatically detect tokens. By default, EVM chains detect activities of all registered EVM accounts in other EVM chains.
-
-### Indexers
+## Indexers
 
 rotki uses several indexers to identify which transactions belong to your tracked addresses. The order used for each chain can be adjusted in the default settings and will apply unless a specific chain configuration overrides it. For example you may want to avoid using etherscan on Optimism and Base if you do not have a paid API key for those networks.
 
@@ -38,7 +55,7 @@ Regarding the need for API keys:
 
 Here, you can customize the order in which price oracles are queried, both for current and historical prices. This determines which price source to check first, second, and so on.
 
-Available price oracles include CoinGecko, CryptoCompare, Uniswap V2, Uniswap V3, DefiLlama, Alchemy, and custom (manual) prices. DeFi oracles like Uniswap V2 and Uniswap V3 use only on-chain information to get current prices. This makes querying a bit slower, but it relies solely on the Ethereum chain. Prices for some assets may differ from Coingecko or CryptoCompare, depending on the conditions of the pools at the time of the query.
+Available price oracles include CoinGecko, CryptoCompare, Uniswap V2, Uniswap V3, DefiLlama, Alchemy, Moralis, and custom (manual) prices. DeFi oracles like Uniswap V2 and Uniswap V3 use only on-chain information to get current prices. This makes querying a bit slower, but it relies solely on the Ethereum chain. Prices for some assets may differ from Coingecko or CryptoCompare, depending on the conditions of the pools at the time of the query.
 
 ### Oracle cache
 
