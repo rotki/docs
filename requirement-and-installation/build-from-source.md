@@ -212,8 +212,43 @@ pnpm run dev:web
 To build a Docker image from source using the repo's `Dockerfile`:
 
 ```sh
-docker build -t rotki .
+docker build \
+    --build-arg ROTKI_VERSION=1.44.0 \
+    --build-arg REVISION="$(git rev-parse HEAD)" \
+    -t rotki .
 ```
+
+`ROTKI_VERSION` is not optional. It becomes the backend package's fallback version, and without it the build fails late, during the PyInstaller step, with `InvalidVersion: ''`. Use the version you are building, or any valid version string if you only want an image to test with. `REVISION` is only reported by the running image and can be left out.
+
+### Debugging a container you built
+
+The runtime image is distroless. It has no shell, no package manager and no coreutils, so the usual moves do not work:
+
+```sh
+docker exec rotki sh
+# OCI runtime exec failed: exec failed: unable to start container process:
+# exec: "sh": executable file not found in $PATH
+```
+
+`ls`, `cat` and friends fail the same way. What does work:
+
+- `docker exec rotki /opt/rotki/starling ctl status` for the state of the supervised processes.
+- `docker top rotki` for the process list.
+- Reading the data and log volumes from the host side of the bind mount rather than from inside the container.
+
+If you genuinely need a shell in there, build yourself a debug image. There is no published `:debug` tag, deliberately, so layer one on top of the image you just built:
+
+```dockerfile
+FROM rotki:latest
+COPY --from=busybox:1.37-uclibc /bin/busybox /bin/busybox
+```
+
+```sh
+docker build -t rotki:debug -f Dockerfile.debug .
+docker exec -it rotki /bin/busybox sh
+```
+
+Inside that shell the applets are not on `PATH` as separate commands, so call them through busybox: `busybox ls /opt/rotki`, `busybox cat /logs/rotki.log`. Keep this for local debugging; do not run a busybox-carrying image in production, since it hands anything that gets in the shell the image was built without.
 
 ## Troubleshooting
 

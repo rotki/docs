@@ -269,6 +269,25 @@ The image is built on a distroless base, so there is no shell, no package manage
 docker exec rotki /opt/rotki/starling ctl status
 ```
 
+## Health and shutdown
+
+### The built-in health check
+
+The image ships its own `HEALTHCHECK`, so `docker ps` and any orchestrator that reads container health already know whether rotki is serving. You do not need to add one to your Compose file.
+
+It probes two URLs on the container's own port and requires both to answer:
+
+- `/health`, the supervisor's view of the processes it manages. This is what notices that colibri has died.
+- `/api/1/ping`, which only answers if the proxy is really forwarding to the backend.
+
+Neither covers the other. `/health` is answered by the supervisor itself, so it keeps reporting `ok` while the path to the backend is broken, and a plain ping never touches colibri at all.
+
+The probe resolves the port exactly as the server does, so `-e ROTKI_HTTP_PORT=8080` keeps the two in agreement with no further change. The first check is deferred for 60 seconds: on a fresh volume the backend has to build its global database before it can answer, and a container that is legitimately still starting should not be reported unhealthy.
+
+### Stopping the container
+
+`docker stop` sends `SIGTERM`, which the supervisor handles: it asks the backends to stop, gives them ten seconds to finish writing, and only then escalates. Allow for that when you set a stop timeout. `docker stop --time 5` cuts the shutdown short and kills the backends mid-write, and the ten second default leaves no margin, so prefer `--time 20`.
+
 ## Setting the timezone
 
 Set `TZ` when starting the container:
