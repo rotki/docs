@@ -41,7 +41,7 @@ Your account data lives under `~/.rotki/data`; your logs are under `~/.rotki/log
 > docker run --rm -v $HOME/.rotki/data:/data debian:12-slim rm -rf /data/some-file
 > ```
 >
-> If you pass `docker run --user <uid>` the container skips the drop and runs as that uid instead, but then the volumes must already be writable by it.
+> If you pass `docker run --user <uid>` the container skips the drop and runs as that uid instead, but then the volumes must already be writable by it. That includes `/data/.starling.lock`, which a previous root-started container left owned by root: if the container now exits reporting that it could not lock the data directory, `chown` that file to the uid you are running as.
 
 ## Configuring the backend
 
