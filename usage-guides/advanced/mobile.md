@@ -12,7 +12,7 @@ If you are running rotki on a DAppNode, then in order to access rotki on mobile 
 
 You can use either Wireguard or OpenVPN by following the guide linked above. When you are done with the configuration, you can activate the VPN connection on your device. With the VPN activated, you will be able to access rotki on `http://rotki.dappnode`.
 
-![rotki running on DAppNode accessed from a mobile device](/images/usage-guides/advanced/mobile/dappnode.png)
+![rotki running on DAppNode accessed from a mobile device](/images/usage-guides/advanced/mobile/dappnode.webp)
 
 This way you can get the full rotki functionality on mobile.
 
@@ -26,7 +26,7 @@ If you followed that Traefik example, you should be able to access rotki's inter
 
 Alternatively, if you already have a VPN setup to your private network or on the machine, you could use this VPN connection to securely connect to the rotki instance that runs on this network machine.
 
-![rotki warning for docker](/images/usage-guides/advanced/mobile/docker_warning.png)
+![rotki warning for docker](/images/usage-guides/advanced/mobile/docker_warning.webp)
 
 For awareness reasons, if the app is run in Docker without authentication, you will see this warning every time it is opened.
 

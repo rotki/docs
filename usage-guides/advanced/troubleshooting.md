@@ -11,7 +11,7 @@ While the should not typically happen, it can occur due to a bug in the frontend
 
 The error appears as a red alert in the page with a message like this:.
 
-![Redecode events for a transaction](/images/usage-guides/advanced/troubleshooting/profit_loss.png)
+![Redecode events for a transaction](/images/usage-guides/advanced/troubleshooting/profit_loss.webp)
 
 In this case, the problem is with the `'profitLossReportPeriod'`, so to fix it,
 you need to modify the `profit_loss_report_period/` field in the frontend settings.

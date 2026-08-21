@@ -15,25 +15,25 @@ Since rotki is tracking all your assets over time the first thing you can see is
 > [!NOTE]
 > This graph shows your data from the day you first used the app, as rotki takes daily snapshots. In the future, we plan to show older data using historical events, where possible (see [this issue](https://github.com/rotki/rotki/issues/1379)).
 
-![Net value over time graph](/images/usage-guides/statistics/netvalue.png)
+![Net value over time graph](/images/usage-guides/statistics/netvalue.webp)
 
 Following that you can see a graph of quantity of an asset superimposed on its USD value over time.
 
 ## Asset amount and value over time
 
-![Asset amount and value over time](/images/usage-guides/statistics/asset_amount_value.png)
+![Asset amount and value over time](/images/usage-guides/statistics/asset_amount_value.webp)
 
 We have introduced an option in the asset graphs to select the `Missing snapshot multiplier`. It sets after how many hours between two snapshots the graph will display zero balances. This allows to improve graphs for periods where the balance of an asset was zero.
 
-![Multiplying option in assets graphs](/images/usage-guides/statistics/multipliying_option.png)
+![Multiplying option in assets graphs](/images/usage-guides/statistics/multipliying_option.webp)
 
 All the assets graphs as well as the dashboard graph have the possibility of selecting a range for zooming. This can be done by left clicking and dragging on the graph itself or using the selector under the graph. The graph can be zoomed out by double clicking on it.
 
-![Zooming in the graphs](/images/usage-guides/statistics/zooming_in_graph.png)
+![Zooming in the graphs](/images/usage-guides/statistics/zooming_in_graph.webp)
 
 ### Use historical events and prices
 
-![Asset amount and value from historical events processing](/images/usage-guides/statistics/asset_amount_and_value_from_historical.png)
+![Asset amount and value from historical events processing](/images/usage-guides/statistics/asset_amount_and_value_from_historical.webp)
 
 By default, the asset amount and value use snapshot data, which is typically taken daily (depends on the setting). If you want to view more detailed data, you can use `Historical events and prices`.
 If you haven't fetched the prices before, some points might be hidden. You can click `Fetch prices`, and rotki will attempt to fetch the prices and also populate the graph with daily prices, allowing you to observe price movements over time.
@@ -47,11 +47,11 @@ You can show both sources at the same time to compare the data directly:
 1. You need to select "Historical events and prices" as the source.
 2. By default, the snapshot data is hidden in this graph. You need to enable it by clicking the legend on the button. (Clicking on the legend will toggle the corresponding line on the chart.)
 
-![Asset amount and value legend](/images/usage-guides/statistics/asset_amount_and_value_legend.png)
+![Asset amount and value legend](/images/usage-guides/statistics/asset_amount_and_value_legend.webp)
 
 ### Mismatch between amount from historical events and current balance
 
-![Asset amount and value warning](/images/usage-guides/statistics/asset_amount_and_value_warning.png)
+![Asset amount and value warning](/images/usage-guides/statistics/asset_amount_and_value_warning.webp)
 
 Sometimes you might see this warning, if there is mismatch between amount at the last event with amount in current balance.
 Here are the possible reasons:
@@ -65,13 +65,13 @@ Here are the possible reasons:
 
 Furthermore, you can see a pie chart of the distribution of your net value across different locations. So you can determine how exposed you are to having a big part of your net value in exchanges, in banks e.t.c.
 
-![Distribution of networth by location](/images/usage-guides/statistics/distribution_location.png)
+![Distribution of networth by location](/images/usage-guides/statistics/distribution_location.webp)
 
 ## Value distribution by asset
 
 Moreover, you can see a pie chart of the distribution of your net value across all the assets you own. This is an important analytics tool as it can help you determine your exposure on each asset and if some re-balancing of your portfolio is in order.
 
-![Distribution of networth by asset](/images/usage-guides/statistics/distribution_asset.png)
+![Distribution of networth by asset](/images/usage-guides/statistics/distribution_asset.webp)
 
 > [!NOTE]
 > The pie charts showing value distribution by location and asset use data from your latest snapshot, not your current balance. To see the most recent data, you'll need to [create a new snapshot](/usage-guides/statistics/snapshots#take-or-import-a-snapshot).
@@ -81,4 +81,4 @@ Moreover, you can see a pie chart of the distribution of your net value across a
 It's available under the `Statistic > Event Analysis` menu.
 You can view the summary of your activities by checking your history events data, including ETH spent, exchanges/protocols used, and Gnosis Pay usage.
 
-![Event Analysis](/images/usage-guides/statistics/event_analysis.png)
+![Event Analysis](/images/usage-guides/statistics/event_analysis.webp)

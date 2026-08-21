@@ -40,7 +40,7 @@ After creating your API credentials, add them to rotki:
 3. Enter your **API Key** and **API Secret**
 4. Click **Setup**
 
-![Set up rotki premium API key/secret pair in an existing account](/images/premium/api-keys/premium_set.png)
+![Set up rotki premium API key/secret pair in an existing account](/images/premium/api-keys/premium_set.webp)
 
 ## Managing API Credentials
 
@@ -136,7 +136,7 @@ If premium features aren't activating:
 
 When premium is successfully activated in the app you should see a `rotki Premium is active` banner in the rotki Premium view.
 
-![Active rotki premium](/images/premium/api-keys/active_premium.png)
+![Active rotki premium](/images/premium/api-keys/active_premium.webp)
 
 ### Multiple Devices Not Syncing
 

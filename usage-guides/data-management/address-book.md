@@ -11,9 +11,9 @@ rotki provides an address book for blockchains. This replaces addresses with nam
 1. **Global Address Book**: It replaces addresses with the names provided across the entire application irrespective of the user logged in.
 2. **Private Address Book**: It replaces addresses with the names provided for the user currently logged in. It takes precedence over names found in the global address book.
 
-![Adding entry to EVM address book](/images/usage-guides/data-management/address-book/add_evm.png)
+![Adding entry to EVM address book](/images/usage-guides/data-management/address-book/add_evm.webp)
 
-![Displaying behaviour of an EVM address book](/images/usage-guides/data-management/address-book/display_evm_behaviour.png)
+![Displaying behaviour of an EVM address book](/images/usage-guides/data-management/address-book/display_evm_behaviour.webp)
 
 > **Note:** The address resolution order can be configured in the general user settings. The default order is:
 
@@ -28,7 +28,7 @@ rotki provides an address book for blockchains. This replaces addresses with nam
 
 You can add multiple address book entries at once with CSV import. You can find the menu in the three dots `⋮` menu here.
 
-![Import Address Book Entries](/images/usage-guides/data-management/address-book/import_entries.png)
+![Import Address Book Entries](/images/usage-guides/data-management/address-book/import_entries.webp)
 
 <CsvTable title="Address Book Entries CSV" csvUrl="/files/address_book_entries.csv" />
 

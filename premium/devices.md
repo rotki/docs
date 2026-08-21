@@ -35,7 +35,7 @@ From **API Keys** → **rotki Premium**:
 - Identify which device you're currently using
 - Access device management options
 
-![Premium devices management in the app](/images/premium/devices/app.png)
+![Premium devices management in the app](/images/premium/devices/app.webp)
 
 ## Editing Device Names
 
@@ -47,9 +47,9 @@ Device names help you identify which device is which (e.g., "Work Laptop", "Home
 4. Enter a new name
 5. Save changes
 
-![Edit device name](/images/premium/devices/edit_device_name.png)
+![Edit device name](/images/premium/devices/edit_device_name.webp)
 
-![Edit device name dialog](/images/premium/devices/edit_device_name_dialog.png)
+![Edit device name dialog](/images/premium/devices/edit_device_name_dialog.webp)
 
 ::: tip Naming Strategy
 Use descriptive names to easily identify devices:

@@ -20,7 +20,7 @@ Required for accessing:
    - Go to `API Keys → External Services`
    - Enter your API key(s)
 
-![External services](/images/usage-guides/integrations/external-services/overview.png)
+![External services](/images/usage-guides/integrations/external-services/overview.webp)
 
 ## Etherscan
 
@@ -67,13 +67,13 @@ Moralis offers a free tier, but requires adding a payment card to activate acces
 
 To have your Loopring balances detected, you will need an API Key from Loopring. To get one, visit [Loopring Security](https://loopring.io/#/layer2/security) and unlock your account. In the list of options, click on **Export Account**.
 
-![Get Loopring keys](/images/usage-guides/integrations/external-services/get_loopring_keys.png)
+![Get Loopring keys](/images/usage-guides/integrations/external-services/get_loopring_keys.webp)
 
 Then in rotki, you need to add the API key in the `Loopring` section.
 
 After following these steps, your balances in the dashboard will be updated including the Loopring information.
 
-![Loopring balances in the UI](/images/usage-guides/integrations/external-services/loopring_balances.png)
+![Loopring balances in the UI](/images/usage-guides/integrations/external-services/loopring_balances.webp)
 
 ## Monerium
 
@@ -84,12 +84,12 @@ As long as you provide Monerium credentials, all Monerium transactions on Mainne
 1. For bank transfers from/to your address, you will be able to see the destination/source IBAN along with the memo of the transfer.
 2. For automatic EURe bridging between EVM chains, you will see amounts, from/to EVM chains along with from/to address.
 
-![Monerium decorated transactions](/images/usage-guides/integrations/external-services/monerium_transactions.png)
+![Monerium decorated transactions](/images/usage-guides/integrations/external-services/monerium_transactions.webp)
 
 ### Adding Monerium OAuth Token
 
-![Monerium get access token](/images/usage-guides/integrations/external-services/monerium_get_access_token.png)
-![Monerium OAuth](/images/usage-guides/integrations/external-services/monerium_oauth.png)
+![Monerium get access token](/images/usage-guides/integrations/external-services/monerium_get_access_token.webp)
+![Monerium OAuth](/images/usage-guides/integrations/external-services/monerium_oauth.webp)
 
 To connect your Monerium account:
 
@@ -112,7 +112,7 @@ To connect your Monerium account:
 
 ## Gnosis Pay
 
-![Gnosis Pay SIWE](/images/usage-guides/integrations/external-services/gnosis_pay_siwe.png)
+![Gnosis Pay SIWE](/images/usage-guides/integrations/external-services/gnosis_pay_siwe.webp)
 
 You can integrate Gnosis Pay with rotki to import your transaction data. This feature is only available for premium users.
 
@@ -137,11 +137,11 @@ To connect your Gnosis Pay account:
 
 rotki uses The Graph to obtain Balancer balances and particular ENS data. You can create one [here](https://thegraph.com/studio/apikeys).
 
-![Create The Graph API key](/images/usage-guides/integrations/external-services/create_the_graph_api_key.png)
+![Create The Graph API key](/images/usage-guides/integrations/external-services/create_the_graph_api_key.webp)
 
 After creating the API key, you can add it to rotki. Additionally, ensure that the generated API key is authorized for the Balancer and ENS subgraphs.
 
-![The Graph subgraphs](/images/usage-guides/integrations/external-services/the_graph_subgraphs.png)
+![The Graph subgraphs](/images/usage-guides/integrations/external-services/the_graph_subgraphs.webp)
 
 ## DefiLlama
 

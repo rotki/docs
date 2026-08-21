@@ -16,7 +16,7 @@ To add a new price, open `Latest Prices` or `Historic Prices` from the `Manage P
 
 After saving, the entry appears in the list. When a manual latest price is in use it is flagged in the UI with an orange icon next to the price; the tooltip reads "Manually defined price".
 
-![Edited latest price UI indicator](/images/usage-guides/data-management/prices/latest_price.png)
+![Edited latest price UI indicator](/images/usage-guides/data-management/prices/latest_price.webp)
 
 ## Oracle prices
 

@@ -17,13 +17,13 @@ Download and install rotki for your operating system from the [official website]
 
 When you first launch rotki, you'll be prompted to create a local account. This account exists only on your device — rotki doesn't store your data on any server.
 
-![rotki login screen](/images/_shared/login_screen.png)
+![rotki login screen](/images/_shared/login_screen.webp)
 
 1. Click **Create Account**
 2. Choose a profile name
 3. Set a strong password — this encrypts your local database
 
-![Creating a new account](/images/_shared/create_account.png)
+![Creating a new account](/images/_shared/create_account.webp)
 
 > [!WARNING]
 > Do not forget your password. It encrypts all your local data and cannot be recovered.
@@ -53,7 +53,7 @@ Navigate to **Accounts** in the sidebar and add your blockchain addresses:
 
 For EVM addresses, you can select **All Supported Chains** to automatically detect activity across all EVM networks.
 
-![Add a blockchain account](/images/_shared/add_blockchain_account.png)
+![Add a blockchain account](/images/_shared/add_blockchain_account.webp)
 
 See [Accounts](/usage-guides/portfolio/accounts) for details on xpub support, multi-address imports, and more.
 
@@ -65,7 +65,7 @@ To track exchange balances and trade history:
 2. Click **Add an exchange**
 3. Enter your read-only API key and secret
 
-![Add API keys for an exchange](/images/_shared/add_exchange_1.png)
+![Add API keys for an exchange](/images/_shared/add_exchange_1.webp)
 
 See [Exchange API Keys](/usage-guides/integrations/exchange-keys) for the full list of supported exchanges and per-exchange setup instructions.
 
@@ -107,7 +107,7 @@ When you're ready to calculate your taxes:
 3. Review your [Accounting Settings](/usage-guides/settings/accounting) — these control how trades are calculated (FIFO, LIFO, HIFO, or ACB) and whether to apply a tax-free holding period
 4. Click **Generate**
 
-![PnL Report](/images/_shared/pnl_report.png)
+![PnL Report](/images/_shared/pnl_report.webp)
 
 The report calculates profit and loss for every taxable event in the period, broken down by event type (trades, fees, staking rewards, airdrops, etc.). You can export the results as CSV for your tax advisor, and re-run the report with different settings if needed.
 

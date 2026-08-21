@@ -59,7 +59,7 @@ The snapshot dropdown button (next to the graph) shows when the last snapshot wa
 - **Ignore Errors** — A checkbox to save the snapshot even if some external service queries failed. The resulting snapshot may be incomplete. This setting persists across sessions.
 - **Import Snapshot** — Upload previously exported snapshot CSV files (balance snapshot file + location data snapshot file). After import, rotki will log you out to apply the changes.
 
-![The snapshot controls next to the net value graph](/images/usage-guides/portfolio/dashboard/snapshot_controls_menu.png)
+![The snapshot controls next to the net value graph](/images/usage-guides/portfolio/dashboard/snapshot_controls_menu.webp)
 
 For browsing, editing, exporting, and deleting saved snapshots, see [Snapshots](/usage-guides/statistics/snapshots).
 

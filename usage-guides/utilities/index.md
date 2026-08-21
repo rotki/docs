@@ -23,11 +23,11 @@ You can now take notes in various sections of the application. Note taking is ca
 
 1. **General Notes**: These are notes available & visible across the application.
 
-   ![General notes](/images/usage-guides/utilities/index/general_notes.png)
+   ![General notes](/images/usage-guides/utilities/index/general_notes.webp)
 
 2. **Location-specific Notes**: These are notes restricted to the location in which they were created in the application.
 
-   ![Location specific notes](/images/usage-guides/utilities/index/location_specific_notes.png)
+   ![Location specific notes](/images/usage-guides/utilities/index/location_specific_notes.webp)
 
 You can also pin notes; the pinned notes will appear at the top.
 
@@ -35,8 +35,8 @@ You can also pin notes; the pinned notes will appear at the top.
 
 A list of processing tasks is available on the notifications tray.
 
-![running background tasks](/images/usage-guides/utilities/index/pending_tasks.png)
+![running background tasks](/images/usage-guides/utilities/index/pending_tasks.webp)
 
 It is possible to cancel a long running task, but use this feature sparingly.
 
-![cancel background task](/images/usage-guides/utilities/index/pending_tasks_cancel.png)
+![cancel background task](/images/usage-guides/utilities/index/pending_tasks_cancel.webp)
