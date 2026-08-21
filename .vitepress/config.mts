@@ -209,6 +209,7 @@ export default defineConfig({
             collapsed: false,
             items: [
               { text: 'Historical Events', link: '/usage-guides/history/events' },
+              { text: 'Filtering Events', link: '/usage-guides/history/filtering' },
               { text: 'On-Chain Transactions', link: '/usage-guides/history/onchain' },
               { text: 'Import Data', link: '/usage-guides/history/import-data' },
             ],
