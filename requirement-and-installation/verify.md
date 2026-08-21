@@ -94,3 +94,52 @@ rotki/rotki  https://slsa.dev/provenance/v1  .github/workflows/rotki_release.yam
 
 > [!WARNING]
 > GitHub artifact attestations will fail for Windows binaries (`rotki-win32_x64-*.exe`) published after August 2025. These binaries are re-signed locally using a hardware key (Yubikey) with an OV Certificate, which causes the binary hash to change after attestation. For Windows binaries after that date, verify that the binary is signed by **Rotki Solutions GmbH** instead.
+
+## Docker Images
+
+Starting with **v1.44.0**, every published `rotki/rotki` image carries two pieces of supply chain metadata: a **provenance attestation** linking the image back to the commit and workflow that built it, and an **SBOM** listing what went into it.
+
+> [!WARNING]
+> Images published before v1.44.0 have neither, and verification against them fails with "no attestation found". That means the image predates the feature, not that it has been tampered with. The `nightly` and `edge` tags carry an SBOM but are deliberately not attested.
+
+### Verify provenance with the GitHub CLI
+
+```sh
+gh attestation verify oci://docker.io/rotki/rotki:v1.44.0 --repo rotki/rotki
+```
+
+Expected output:
+
+```
+Loaded digest sha256:... for oci://docker.io/rotki/rotki:v1.44.0
+Loaded 1 attestation from GitHub API
+✓ Verification succeeded!
+
+sha256:... was attested by:
+REPO         PREDICATE_TYPE                  WORKFLOW
+rotki/rotki  https://slsa.dev/provenance/v1  .github/workflows/rotki_release.yaml@refs/tags/v1.44.0
+```
+
+### Verify provenance with cosign
+
+The attestation is also stored next to the image in the registry, so you can verify it without the GitHub CLI:
+
+```sh
+cosign verify-attestation --type slsaprovenance1 \
+  --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+  --certificate-identity-regexp '^https://github.com/rotki/rotki/' \
+  docker.io/rotki/rotki:v1.44.0
+```
+
+Both commands check the same signature. You do not need to run both.
+
+The signing is keyless: the attestation is signed with a short-lived certificate minted from the build job's identity, so there is no long-lived public key to distribute or rotate.
+
+### Inspect the SBOM
+
+```sh
+docker buildx imagetools inspect docker.io/rotki/rotki:v1.44.0 --format '{{json .SBOM}}'
+```
+
+> [!NOTE]
+> The SBOM is a partial inventory, not a complete dependency list. It records roughly 41 packages per platform, mostly Python packages plus the base image's own. rotki's full dependency set is far larger, and none of the Rust crates appear at all, because those are linked statically and the Python bundler only preserves metadata for some packages. For the authoritative dependency list, read `uv.lock` and `Cargo.lock` at the matching tag.
