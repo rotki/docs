@@ -88,7 +88,7 @@ rotki will automatically query balances and detect tokens for your tracked accou
 
 Navigate to **History → Events** to see all your transactions, trades, and DeFi interactions. rotki automatically decodes on-chain transactions and categorizes them by event type.
 
-![History Events page](/images/events_filter.png)
+![History Events page](/images/_shared/history_events_page.webp)
 
 You can:
 

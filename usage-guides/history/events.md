@@ -27,23 +27,15 @@ Additionally, you can add your custom events.
 
 ## Events filtering
 
-History events can be filtered with these advanced filters.
-The filters will persist, meaning if you go to another page or log out, the last filter will still be applied when you open the history events page.
+Events are narrowed with a filter bar that holds one pill per active filter, with pills for the
+date, asset, amount, protocol, location, entry type, event type and subtype, transaction hash,
+address, validator, account and event state.
 
-- Accounts (tracked blockchain / exchange accounts)
-- Time range
-- Asset involved in the transaction
-- Protocol that interacted in the transaction
-- Location of the event (ethereum, optimism, kraken, etc.)
-- Event type (deposit, withdrawal, etc.)
-- Event subtype (fee, spend, etc.)
-- Entry type (EVM event, ETH block event, etc.)
-- Counterparty address
-- Tx hash/signature of a particular transaction that you want to check
-- Index of an eth2 validator that you want to see events for
-- Show only customized events
-- Show entries with ignored assets
-- Should match exact filter (whether to only show the events that match the filter, excluding the other events in the same group)
+![The history events filter bar](/images/_shared/history_events_page.webp)
+
+See **[Filtering history events](/usage-guides/history/filtering)** for the full reference: every
+available filter, the typed date and amount syntax, excluding entry types, the state markers and
+saved views.
 
 ## Refreshing Events
 
@@ -124,8 +116,6 @@ You will see the status of the EVM events redecoding.
 ### Notes
 
 EVM transactions and events can be deleted, but to restore them you will have to either purge all transactions or add by the transaction hash.
-
-![History events query status](/images/events_filter.png)
 
 ## Export history events as CSV
 
