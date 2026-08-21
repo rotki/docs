@@ -10,7 +10,7 @@ This section provides information on how to customize the application through th
 
 rotki calculates everything, including your total profit/loss during the PnL report, in a given fiat currency, called the `profit_currency`. By default, this is USD. You can change this by clicking on the currency icon in the top right menu and selecting your preferred currency.
 
-![Changing the profit currency](/images/sc_profit_currency.png)
+![Changing the profit currency](/images/usage-guides/settings/general/profit_currency.png)
 
 ## Application Settings
 
@@ -18,7 +18,7 @@ Access the settings menu via `User icon → Settings`.
 
 ## General Settings
 
-![Customizing the general app settings](/images/sc_general_settings.png)
+![Customizing the general app settings](/images/usage-guides/settings/general/overview.png)
 
 #### Anonymous Usage Analytics
 
@@ -58,7 +58,7 @@ Set the date display and date input format in the rotki user interface, such as 
 
 ### Amount Settings
 
-![Customizing the app's amount settings](/images/sc_amount_settings.png)
+![Customizing the app's amount settings](/images/usage-guides/settings/general/amount.png)
 
 #### Main Currency
 
@@ -94,7 +94,7 @@ Set whether the currency symbol appears before or after the number, e.g., `$1,00
 
 ### NFT Settings
 
-![Customizing the app's NFT settings](/images/sc_nf_settings.png)
+![Customizing the app's NFT settings](/images/usage-guides/settings/general/nf.png)
 
 #### Include NFTs in Graphs and Total Amounts
 
@@ -142,7 +142,7 @@ Select services for which you do not want to receive notifications about missing
 
 ### Backend Settings
 
-![Customizing the backend settings](/images/usage_guides_settings_general_backend_settings.webp)
+![Customizing the backend settings](/images/usage-guides/settings/general/backend.webp)
 
 #### Log Level
 

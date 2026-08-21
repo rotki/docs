@@ -6,7 +6,7 @@ description: Customize the rotki interface, including language, theme, animation
 
 ## Interface-only Settings
 
-![Customizing the app's interface only settings](/images/sc_interface_only_settings.png)
+![Customizing the app's interface only settings](/images/usage-guides/settings/interface/overview.png)
 
 #### Language
 

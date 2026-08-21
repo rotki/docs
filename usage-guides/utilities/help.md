@@ -6,7 +6,7 @@ description: Access rotki's help resources, report bugs with logs attached, and 
 
 To access the Help & Support menu, click the **?** icon in the toolbar.
 
-![Help & Support Menu](/images/help_support_menu.png)
+![Help & Support Menu](/images/usage-guides/utilities/help/support_menu.png)
 
 The Help & Support menu provides quick access to:
 
@@ -21,7 +21,7 @@ The Help & Support menu provides quick access to:
 
 If you encounter a bug or want to request a new feature, click on **Report Issue** to open the issue submission form.
 
-![Report Issue Dialog](/images/report_issue_dialog.png)
+![Report Issue Dialog](/images/usage-guides/utilities/help/report_issue_dialog.png)
 
 ### Filling Out the Form
 

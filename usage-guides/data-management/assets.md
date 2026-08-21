@@ -9,7 +9,7 @@ description: "Manage rotki's supported assets: inspect the asset list, add custo
 You can now manage the list of supported assets by your local rotki instance.
 You can inspect the list of all supported assets, edit them, delete them or add new ones. They're divided into 3 sections; `Assets`, `Custom Assets`, and more sections (consist of `Manage CEX (Centralized Exchange) Mappings`, `Manage Counterparty Mappings`, `Newly Detected Tokens` and `Missing CEX Mappings` section).
 
-![Manage the list of assets](/images/rotki_manage_assets.png)
+![Manage the list of assets](/images/usage-guides/data-management/assets/manage.png)
 
 ### Token Detection Methods
 
@@ -17,9 +17,9 @@ You can check token detection guide [here](/usage-guides/portfolio/accounts#toke
 
 ## Adding/editing an asset
 
-![Add or edit an asset](/images/rotki_add_edit_asset.png)
+![Add or edit an asset](/images/usage-guides/data-management/assets/add_edit.png)
 
-![Add or edit an asset icon](/images/rotki_add_edit_asset_icon.png)
+![Add or edit an asset icon](/images/usage-guides/data-management/assets/add_edit_icon.png)
 
 When you press the + button on the top right, or edit an existing asset you can see the Asset form.
 
@@ -42,7 +42,7 @@ When you input the address of the token rotki will try to fetch its name, symbol
 
 There are also some other fields that are completely optional and expand if you press the (7) Optional Fields section.
 
-![Optional information when adding an asset](/images/rotki_add_edit_token_optionals.png)
+![Optional information when adding an asset](/images/usage-guides/data-management/assets/add_edit_token_optionals.png)
 
 1. You can specify a timestamp at which the asset started to exist. This should be the token deployment timestamp for tokens.
 2. If the asset is part of a protocol, specify it here. For example 'uniswap' for uniswap pool tokens, 'aave' for aTokens etc.
@@ -59,7 +59,7 @@ There are also some other fields that are completely optional and expand if you 
 
 There is a lot of assets that rotki can't automatically track and they don't fit into traditional crypto assets. For example an ETF, real estate, ancient coins, valuable art etc. To represent those you can create custom assets, and then add a manual balance of those assets.
 
-![Add or edit a custom asset](/images/rotki_add_edit_custom_asset.png)
+![Add or edit a custom asset](/images/usage-guides/data-management/assets/add_edit_custom.png)
 
 When you press the + button on the top right, or edit an existing custom asset you can see the Asset form.
 
@@ -81,19 +81,19 @@ You can filter the list by exchange location or asset symbol.
 
 Users can link assets on exchanges to those recognized by rotki. If you encounter an error such as `Asset XXX is not supported` or `Found exchange balance result with unknown asset XXX. Ignoring it`, you may need to specify how the XXX asset should be recognized in rotki.
 
-![Manage centralized exchange asset mapping](/images/rotki_manage_cex_mapping.png)
+![Manage centralized exchange asset mapping](/images/usage-guides/data-management/assets/manage_cex_mapping.png)
 
 ## Manage Counterparty Mappings
 
 Users can also link assets on any counterparty to those recognized by rotki.
 
-![Manage counterparty asset mappings](/images/rotki_manage_counterparty_mapping.png)
+![Manage counterparty asset mappings](/images/usage-guides/data-management/assets/manage_counterparty_mapping.png)
 
 ## Newly detected tokens
 
 All newly detected EVM tokens will appear in the list of newly detected tokens. You should inspect this list often and accept valid tokens and reject spam assets by adding them to the ignored tokens list.
 
-![Manage newly detected tokens](/images/rotki_manage_newly_detected_tokens.png)
+![Manage newly detected tokens](/images/usage-guides/data-management/assets/manage_newly_detected_tokens.png)
 
 ## Merging two assets
 
@@ -103,7 +103,7 @@ There are two possible situations where you might need to merge two assets into 
 
 2. There was an issue and an Unknown asset notification is now visible. This can happen if you somehow end up deleting your global DB of assets. This way all your custom assets will be unknown. In this case you would need to re-add the deleted assets, and merge the old asset id that errors to the new one that you created.
 
-![Merging of assets](/images/rotki_merge_assets.png)
+![Merging of assets](/images/usage-guides/data-management/assets/merge.png)
 
 To merge two assets you can use the merge dialog by pressing the Merge Asset button in the Asset Management screen.
 In the dialog you can put the identifier of your custom or missing asset in the source field. For a custom asset,
@@ -128,13 +128,13 @@ rotki allows you to track special assets like:
 Specify which assets you own and would like to completely ignore from all calculations and balance queries. Any actions that involve these assets are ignored.
 You can ignore/un-ignore the assets by toggling the switch on the table. You can also ignore/un-ignore multiple assets by using the checkboxes.
 
-![Asset overview page](/images/asset_overview.png)
+![Asset overview page](/images/usage-guides/data-management/assets/overview.png)
 
 You can also ignore assets by clicking asset icons anywhere on the app, that will redirect you to this overview asset page. In this page, you can ignore or un-ignore a selected asset.
 
 It is also possible to ignore NFTs. To do this navigate to `Balances → NFT Balances` and toggle the ignore NFT switch. Then you can use the filter to view the ignored NFTs.
 
-![Ignoring NFTs](/images/rotki_ignore_nfts.png)
+![Ignoring NFTs](/images/usage-guides/data-management/assets/ignore_nfts.png)
 
 ## Mark asset as spam
 
@@ -142,17 +142,17 @@ If you encounter an asset that you believe is spam (such as airdropped scam toke
 
 To mark an asset as spam, navigate to `Manage Assets → Assets`, find the asset you want to mark, and click the arrow button beside the ignore/unignore switch to access the spam option. Once marked as spam, the asset will be treated the same as other ignored assets and will be excluded from all calculations and balance queries. Additionally, spam assets will not be decoded in history events.
 
-![Mark asset as spam](/images/mark_as_spam.png)
+![Mark asset as spam](/images/usage-guides/data-management/assets/mark_as_spam.png)
 
 ## Whitelisting of ignored assets
 
 Spam assets are a plague in EVM chains. rotki has an automatic algorithm trying to match assets as spam to not bother the user with automatically ignoring them. You can see all ignored assets in `Manage Assets → Assets` and filter by ignored. A problem with automatic algorithms marking something as spam is that mistakes can be made and a legit token may be ignored.
 
-![Filter ignored assets](/images/asset_filter_ignored.png)
+![Filter ignored assets](/images/usage-guides/data-management/assets/filter_ignored.png)
 
 To solve this problem we added a whitelist which you can add assets to as can be seen below. Once an asset is added to the whitelist it will be removed from the ignore list and the automatic algorithm will not mark it as spam in the future.
 
-![Whitelist asset](/images/asset_whitelist_menu.png)
+![Whitelist asset](/images/usage-guides/data-management/assets/whitelist_menu.png)
 
 ## Whitelisting and Re-detecting Missing Tokens
 
@@ -162,4 +162,4 @@ If a token doesn't appear in your balances, there are several ways to troublesho
 
 Go to the `Manage Assets -> Assets page`. Use the search to find the token by name or address. Verify if the token is ignored. If ignored, unignore it. If you did not ignore it on purpose click to whitelist it so the spam detection algorithm does not falsely flag it as spam.
 
-![Example of managing assets and whitelisting a token in the Manage Assets page.](/images/manage-assets.png)
+![Example of managing assets and whitelisting a token in the Manage Assets page.](/images/usage-guides/data-management/assets/manage_assets_whitelist.png)

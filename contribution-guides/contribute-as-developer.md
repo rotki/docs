@@ -86,7 +86,7 @@ In order to do so, you will need to install the dependencies using `uv sync`.
 
 In most cases, the CoinGecko asset identifier matches the URL one, for example "weth" for [WETH](https://www.coingecko.com/en/coins/weth). However, sometimes it doesn't, for example "sharering" for [SHR](https://www.coingecko.com/en/coins/sharetoken) ("sharetoken" in the URL). Lately, CoinGecko added the API id of the asset to the information provided for the asset.
 
-![Obtain id for assets at CoinGecko](/images/gitcoin_id_position.png)
+![Obtain id for assets at CoinGecko](/images/contribution-guides/contribute-as-developer/gitcoin_id_position.png)
 
 This identifier mismatch can be detected by running [this test](https://github.com/rotki/rotki/blob/develop/rotkehlchen/tests/unit/test_assets.py#L91):
 

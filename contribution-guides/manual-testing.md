@@ -134,7 +134,7 @@ inside the `docs` folder.
 
 When updating the user guide documentation, you might need to update the application screenshots.
 
-![Capturing screenshots](/images/contrib_screen.png)
+![Capturing screenshots](/images/contribution-guides/manual-testing/screen.png)
 
 To be consistent, use the Chrome Developer Tools in the Electron application to capture the screenshots.
 
@@ -142,7 +142,7 @@ First, toggle the device toolbar (1).
 
 If this is the first time you are taking a screenshot, click on the **Dimensions** dropdown menu and select **Edit** (2).
 
-![Adding a custom screen resolution](/images/contrib_dimens.png)
+![Adding a custom screen resolution](/images/contribution-guides/manual-testing/dimens.png)
 
 You will be given the option to **Add custom device**. Use the following settings:
 

@@ -7,7 +7,7 @@ description: "Configure rotki's accounting settings: cost basis method, crypto-t
 > [!TIP]
 > For a detailed explanation of what each accounting option does (with worked examples), see [Accounting Rule Options Explained](/usage-guides/tax-accounting/accounting-rules).
 
-![Customizing the accounting rules](/images/sc_accounting_custom_rule.png)
+![Customizing the accounting rules](/images/usage-guides/settings/accounting/custom_rule.png)
 
 In the accounting menu, you can customize application settings related to accounting calculations. These settings will affect the PnL report calculations.
 
@@ -28,13 +28,13 @@ You can change these settings to match your country's tax requirements.
 
 ### Add/Edit Accounting Rules
 
-![Add new accounting rules](/images/sc_accounting_add_rule.png)
+![Add new accounting rules](/images/usage-guides/settings/accounting/add_rule.png)
 
 You can add or edit accounting rules based on `Event type`, `Event subtype`, and `Counterparty`.
 
 ### Import/Export Accounting Rules
 
-![Export and import accounting rules](/images/sc_accounting_export_import.png)
+![Export and import accounting rules](/images/usage-guides/settings/accounting/export_import.png)
 
 You can export your accounting rules to a JSON file and import them back later. This is useful for backing up your custom rules, sharing them with others, or moving them between rotki accounts.
 
@@ -48,7 +48,7 @@ Both options are available from the three-dot menu next to the **Add accounting 
 
 ### Special Accounting Rules For Specific Events
 
-![Special Accounting Rules](/images/sc_accounting_rules_special.png)
+![Special Accounting Rules](/images/usage-guides/settings/accounting/rules_special.png)
 
 You can set custom accounting rules for individual events or groups of events directly from the History Events page. This allows you to override the default accounting behavior for specific events.
 
@@ -59,7 +59,7 @@ There are two ways to apply special rules:
 
 ### Trade Settings
 
-![Customizing the accounting trade settings](/images/sc_accounting_trade_settings.png)
+![Customizing the accounting trade settings](/images/usage-guides/settings/accounting/trade_settings.png)
 
 #### Crypto to Crypto Trades
 
@@ -142,7 +142,7 @@ The above does not happen.
 
 ### CSV Export Settings
 
-![Customizing the CSV export settings](/images/sc_accounting_csv_export_settings.png)
+![Customizing the CSV export settings](/images/usage-guides/settings/accounting/csv_export_settings.png)
 
 #### Export Formulas
 

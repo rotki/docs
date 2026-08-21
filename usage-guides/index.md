@@ -13,7 +13,7 @@ This page covers account creation, sign-in, premium sync, restoring backups, mov
 
 When you start rotki, you'll see a sign-in/signup prompt. rotki is a local app, so your account only exists on your local system. Your account on [rotki.com](https://rotki.com/) is only for managing premium subscription payments.
 
-![Creating a new account](/images/rotki_login_screen.png)
+![Creating a new account](/images/_shared/login_screen.png)
 
 To create a local account, press **Create Account**. If you have a premium subscription, you can link this local account using API keys.
 
@@ -25,7 +25,7 @@ To restore an account with premium sync during account creation:
 
 Then click **Continue**.
 
-![Enable premium sync](/images/rotki_create_account_enable_sync.png)
+![Enable premium sync](/images/usage-guides/index/create_account_enable_sync.png)
 
 Next, provide a profile name and a password:
 
@@ -34,7 +34,7 @@ Next, provide a profile name and a password:
 
 For a new account, you can add the premium API key and secret during setup or later using [Setup rotki premium](#set-up-rotki-premium).
 
-![Creating a new account](/images/rotki_create_account.png)
+![Creating a new account](/images/_shared/create_account.png)
 
 ## Restore a Backed-Up Database (Premium Users Only)
 
@@ -50,7 +50,7 @@ If you need to move your rotki database to a new device (e.g., if your old one w
 
 > **Note**: If the password is not the same, the database won't open.
 
-![Sign-up with existing premium subscription using a wrong password](/images/rotki_premium_signup_failed.png)
+![Sign-up with existing premium subscription using a wrong password](/images/usage-guides/index/premium_signup_failed.png)
 
 ### Sync Data
 
@@ -92,7 +92,7 @@ To back up your data on the rotki Server:
 
 1. Turn on "Allow data sync with rotki Server". This allows you to restore your data on any account/device using the same API key/secret and account password.
 
-![Sync data with rotki Server](/images/rotki_premium_set_sync_data.png)
+![Sync data with rotki Server](/images/usage-guides/index/premium_set_sync_data.png)
 
 ### Multiple Accounts/Devices
 
@@ -101,7 +101,7 @@ If you use multiple accounts/devices, the one with the most recent login will up
 > [!WARNING]
 > Do not run rotki on multiple accounts/devices at the same time, as this opens up the risk of several issues relating to data consistency.
 
-![Replace local database with remote backup](/images/rotki_premium_replace_local_db_with_remote.png)
+![Replace local database with remote backup](/images/usage-guides/index/premium_replace_local_db_with_remote.png)
 
 ### Manually Move Global Database
 
@@ -110,13 +110,13 @@ You can also manually move the global database containing assets from one system
 1. Locate the [rotki data directory](/usage-guides/advanced/data-directory) on the source system.
 2. The global database is located at `/global/global.db` under the data directory above. Move it to the equivalent location on the new system.
 
-![Manual DB sync](/images/rotki_premium_manual_db_sync.png)
+![Manual DB sync](/images/usage-guides/index/premium_manual_db_sync.png)
 
 ### Manual Sync
 
 You can manually sync your database by clicking the "cloud" icon in the toolbar.
 
-![Manual DB sync](/images/rotki_premium_automatic_db_sync_failed.png)
+![Manual DB sync](/images/usage-guides/index/premium_automatic_db_sync_failed.png)
 
 If automatic sync fails, a message will appear. For messages like "Remote database larger than the local one," you can perform a "force push" by clicking the button.
 

@@ -8,7 +8,7 @@ description: View exchange and manual balances in rotki, track NFTs and airdrops
 
 You can check all of the asset balances that you have in each connected exchange in the `Exchange Balances` sub-page. Clicking the `Add exchange` button takes you to the API Keys page where you can manage your exchange connections (see [Exchanges API Keys](/usage-guides/integrations/exchange-keys#exchanges-api-keys)).
 
-![Exchange Balance](/images/sc_exchange_balances.png)
+![Exchange Balance](/images/usage-guides/portfolio/balances/exchange.png)
 
 ## Manual Balances
 
@@ -29,7 +29,7 @@ To add or edit a manual balance:
 
 You can also filter the manual balances by `location`, `name` or `asset`.
 
-![The manually tracked balances](/images/sc_manual_balances.png)
+![The manually tracked balances](/images/usage-guides/portfolio/balances/manual.png)
 
 By pressing the edit button for the account you can also add tags to the blockchain account. If you want to create a new tag or edit an existing one you can open the [tag manager](/usage-guides/data-management/tags) and choose the name, description and colors of the tag.
 
@@ -37,15 +37,15 @@ By pressing the edit button for the account you can also add tags to the blockch
 
 rotki provides an NFT gallery where you can view the NFTs owned by your accounts.
 
-![NFT Gallery](/images/sc_nfts.png)
+![NFT Gallery](/images/usage-guides/portfolio/balances/nfts.png)
 
 You have an overview of the total value of your NFTs in the application dashboard, on the NFTs table.
 
-![NFT Value Dashboard](/images/sc_nf_balances_dashboard.png)
+![NFT Value Dashboard](/images/usage-guides/portfolio/balances/nf_dashboard.png)
 
 An estimation of the value of the NFTs you own is counted into your total net worth. The estimation strategy is currently the maximum of either the floor price of the collection or the last sale of the NFT. If a manual price has been given this is always preferred.
 
-![NFT Value Dashboard](/images/sc_nft_balances.png)
+![NFT Value Dashboard](/images/usage-guides/portfolio/balances/nft.png)
 
 If a price cannot be found for an NFT asset or if you want to change the calculated price estimate you can easily set the price for an NFT asset manually. You can do this by either clicking on the `>` button in the NFTs table in the dashboard or by going to `Blockchains & Accounts → NFT Balances`. And then click on the pen icon for the NFT you are interested in.
 
@@ -55,7 +55,7 @@ More details here [Critical Privacy Vulnerability: Getting Exposed by MetaMask](
 
 The configuration menu:
 
-![NFT Image Render Settings](/images/sc_nf_image_render_settings.png)
+![NFT Image Render Settings](/images/usage-guides/portfolio/balances/nf_image_render_settings.png)
 
 Highlight details:
 
@@ -65,7 +65,7 @@ Highlight details:
 4. If only whitelist, input list of allowed domains.
 5. Save button.
 
-![NFT Image Render Settings](/images/sc_nf_image_render_settings_whitelist.png)
+![NFT Image Render Settings](/images/usage-guides/portfolio/balances/nf_image_render_settings_whitelist.png)
 
 This will enable image rendering of only whitelisted NFT domains.
 
@@ -73,7 +73,7 @@ This will enable image rendering of only whitelisted NFT domains.
 
 You can filter the tables by a combination of tags.
 
-![Filter the accounts by tag](/images/filter_by_tag.png)
+![Filter the accounts by tag](/images/usage-guides/portfolio/balances/filter_by_tag.png)
 
 Simply add the tags you wish to filter by in the filter textbox above the tables.
 
@@ -87,13 +87,13 @@ You can uncheck the checkbox to apply the setting only to the current balances v
 > [!NOTE]
 > You need to press "Apply Changes" for the setting to take effect.
 
-![Hide small balances](/images/hide_small_balances.png)
+![Hide small balances](/images/usage-guides/portfolio/balances/hide_small.png)
 
 ## Airdrops
 
 rotki can detect some airdrops for you
 
-![rotki airdrops detection](/images/rotki_airdrops.png)
+![rotki airdrops detection](/images/usage-guides/portfolio/balances/airdrops.png)
 
 The list of supported airdrops is pulled from the [rotki/data](https://github.com/rotki/data/tree/main/airdrops) repository and is updated automatically. New airdrops may be added over time without requiring an app update.
 

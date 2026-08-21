@@ -28,7 +28,7 @@ flamegraph.pl --title "rotki-test graph" /tmp/20211127_1641_stack.data > profile
 
 Finally, open the SVG with any compatible viewer and explore the flamegraph. It will look like this:
 
-![A flamegraph profiling example](/images/flamegraph_example.svg)
+![A flamegraph profiling example](/images/contribution-guides/code-profiling/flamegraph_example.svg)
 
 ### Viztracer
 

@@ -10,7 +10,7 @@ description: "Manage rotki account and security settings: change your password, 
 
 Choose the "User & Security" section to change the user password.
 
-![Changing the user's password](/images/sc_user_password_change.png)
+![Changing the user's password](/images/usage-guides/settings/account/user_password_change.png)
 
 ### Password Confirmation
 
@@ -22,7 +22,7 @@ When using auto-login, you can enable periodic password confirmation to ensure y
 
 View information about your user and global database, such as directory, size, and version.
 
-![Creating database backups](/images/sc_db_backup.png)
+![Creating database backups](/images/usage-guides/settings/account/db_backup.png)
 
 Create new database backups, delete backups, and download backups locally.
 
@@ -30,13 +30,13 @@ Create new database backups, delete backups, and download backups locally.
 
 rotki keeps a lot of data cached locally. Clean this data periodically from the "Manage Data" section in the settings. Remove specific exchanges by first removing any active API keys.
 
-![Purging user data](/images/sc_purge_data.png)
+![Purging user data](/images/usage-guides/settings/account/purge_data.png)
 
 ### Exporting and Importing User Assets
 
 Use the export/import function to migrate user assets between computers. This function creates a zip archive of user assets for transfer.
 
-![Importing user assets](/images/sc_custom_import_export.png)
+![Importing user assets](/images/usage-guides/settings/account/custom_import_export.png)
 
 > [!WARNING]
 > This archive cannot be used as a backup/restore across different versions of rotki since there is no guarantee of compatibility across versions.
@@ -52,7 +52,7 @@ There are two options to reset the assets database:
 
 Desktop app users can change the default data directory and log directory via the login screen. Click the cog wheel at the bottom right to view the backend settings dialog.
 
-![Change the backend settings](/images/rotki_backend_settings.png)
+![Change the backend settings](/images/usage-guides/settings/account/backend.png)
 
 Select a new data directory, log directory, etc., and press "Save". Previously created accounts won't be accessible in the new location; move them manually.
 

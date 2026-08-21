@@ -51,7 +51,7 @@ Regarding the need for API keys:
 
 ## Price Oracle Settings
 
-![Change the order of price sources](/images/sc_price_oracle_order.png)
+![Change the order of price sources](/images/usage-guides/settings/blockchain/price_oracle_order.png)
 
 Here, you can customize the order in which price oracles are queried, both for current and historical prices. This determines which price source to check first, second, and so on.
 
@@ -59,7 +59,7 @@ Available price oracles include CoinGecko, CryptoCompare, Uniswap V2, Uniswap V3
 
 ### Oracle cache
 
-![Creating a historical price cache](/images/sc_historical_price_cache.png)
+![Creating a historical price cache](/images/usage-guides/settings/blockchain/historical_price_cache.png)
 
 Querying historical prices from oracles such as CryptoCompare and CoinGecko is slow and can be slower due to rate limiting. rotki creates historical price caches during idle times.
 
@@ -87,11 +87,11 @@ It is good to add more nodes and set their priority. We always try your own node
 
 The node's weight (percentage) shows how likely it is to be used. You can turn nodes on or off with the toggle button.
 
-![Customizing the app's connection to EVM nodes](/images/rotki_nodes_management.png)
+![Customizing the app's connection to EVM nodes](/images/usage-guides/settings/blockchain/nodes_management.png)
 
 In this menu you can also edit, delete or add more nodes.
 
-![Add an EVM node](/images/rotki_nodes_management_addition.png)
+![Add an EVM node](/images/usage-guides/settings/blockchain/nodes_management_addition.png)
 
 ### Local Nodes
 
@@ -118,7 +118,7 @@ Choose the "Module" section of the settings to customize the enabled modules and
 
 Enabling only the modules you use and specifying addresses improves querying speed.
 
-![Managing module settings](/images/module_settings.png)
+![Managing module settings](/images/usage-guides/settings/blockchain/modules.png)
 
 ### Activating/Deactivating Modules
 
@@ -126,6 +126,6 @@ View all modules in the table. Some are activated by default. Enable/disable a m
 
 ### Selecting Addresses
 
-![Select address for modules](/images/module_settings_select_address.png)
+![Select address for modules](/images/usage-guides/settings/blockchain/modules_select_address.png)
 
 To limit querying to selected addresses, click the "edit/pencil" button on the module to select addresses. If no addresses are selected, rotki checks all eligible addresses, increasing query duration.

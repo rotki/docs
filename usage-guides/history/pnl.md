@@ -38,7 +38,7 @@ This ensures your reports are accurate even when looking at specific time period
 
 ## Creating Your PnL Report
 
-![View profit/loss report list](/images/sc_pnl_report.png)
+![View profit/loss report list](/images/_shared/pnl_report.png)
 
 ### Step-by-Step Guide
 
@@ -67,11 +67,11 @@ This ensures your reports are accurate even when looking at specific time period
 
 Once done you have an overview of the profit/loss for the given period, how much of that is taxable, and how much each taxable event category contributes to the total.
 
-![Overview of the profit/loss report](/images/sc_pnl_report1.png)
+![Overview of the profit/loss report](/images/usage-guides/history/pnl/report_1.png)
 
 Additionally below the overview you get a table containing all of the events that were taken into account in the calculation along with how much of the `profit_currency` you lost or gained through that event.
 
-![Event list of the profit/loss report](/images/sc_pnl_report2.png)
+![Event list of the profit/loss report](/images/usage-guides/history/pnl/report_2.png)
 
 Finally you can get a CSV export by pressing the "Export CSV" button. This export is meant to be imported into
 Google Sheets. Press the button and then choose a directory to write the CSV files to. Once done you can import the CSV
@@ -99,7 +99,7 @@ Following are definitions for the all_event document's columns
 
 Results from past profit and loss reports are saved so the user can later review them without the need to run a new execution.
 
-![Profit and loss reports from past executions](/images/sc_pnl_saved_reports.png)
+![Profit and loss reports from past executions](/images/usage-guides/history/pnl/saved_reports.png)
 
 ## Cost basis
 
@@ -115,11 +115,11 @@ For all those trades you can see the cost basis when you create a profit loss re
 
 1. Either navigating to the trade in the generated table after the PnL report and pressing the arrow to show more details.
 
-![Cost basis in PnL report table](/images/sc_pnl_reports_costbasis.png)
+![Cost basis in PnL report table](/images/usage-guides/history/pnl/costbasis.png)
 
 2. Export the report to CSV and import it in a spreadsheet tool. We have tested it works with google spreadsheets and libreoffice. The cost basis column contains the info you seek.
 
-![Cost basis in PnL report spreadsheet](/images/sc_pnl_reports_costbasis_spreadsheet.png)
+![Cost basis in PnL report spreadsheet](/images/usage-guides/history/pnl/costbasis_spreadsheet.png)
 
 ## PnL report creation problems
 
@@ -127,7 +127,7 @@ For all those trades you can see the cost basis when you create a profit loss re
 
 It's possible that rotki is not able to find an acquisition event for a sale. In which case it will warn you and ask you to fix it.
 
-![Missing acquisitions found for asset](/images/sc_pnl_missing_acquisitions.png)
+![Missing acquisitions found for asset](/images/usage-guides/history/pnl/missing_acquisitions.png)
 
 This can happen for many reasons. The asset may have been acquired in a non-supported exchange/protocol, some event not detected etc.
 
@@ -152,7 +152,7 @@ Simply change the language on Google doc to United States. This can be done in F
 
 ### Timeout or price not found for timestamp
 
-![Missing prices asset](/images/sc_pnl_missing_prices.png)
+![Missing prices asset](/images/usage-guides/history/pnl/missing_prices.png)
 
 It's possible that rotki is not able to find the price of assets. You have to input the price manually, otherwise the event will be skipped from pnl reports. For example if you are creating a GBP profit/loss report and the asset is GNO then make sure to create the GNO -> GBP historical price cache. You can add the prices on the spot, or open the [oracle cache](/usage-guides/settings/blockchain#oracle-cache) from the settings.
 
@@ -165,7 +165,7 @@ If you have any question or are confused about the settings, feel free to send u
 
 ### Seeking help with complicated errors during PnL report generation
 
-![Export PnL debug data](/images/sc_pnl_export_debug_data.png)
+![Export PnL debug data](/images/usage-guides/history/pnl/export_debug_data.png)
 
 It's possible that many errors could occur during the PnL report generation due to certain event(s) not accounted for properly. In such a scenario if all else fails, exporting the PnL debug data allows us to fully replicate the issue encountered and find a solution.
 

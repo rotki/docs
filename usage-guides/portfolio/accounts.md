@@ -6,7 +6,7 @@ description: Add and manage blockchain accounts across EVM chains, Bitcoin, Subs
 
 To manage Blockchain Accounts, you need to visit the `Accounts` section from the left sidebar.
 
-![Blockchain accounts page](/images/accounts.png)
+![Blockchain accounts page](/images/usage-guides/portfolio/accounts/overview.png)
 
 ## Blockchain Accounts
 
@@ -52,7 +52,7 @@ For now, the following chains are supported in rotki (and the list will be growi
 
 - Choose `All Supported Chains` in the chain selector.
 
-![Add a blockchain account](/images/add_blockchain_account.png)
+![Add a blockchain account](/images/_shared/add_blockchain_account.png)
 
 You can edit or delete an account using the buttons at the end of the row.
 For editing, you can modify the label or the tags.
@@ -98,7 +98,7 @@ Paste your address or xpub into the input. The form reacts as follows:
 - **`zpub...`** — automatically tracked as Native Segwit (WPKH).
 - **`xpub...`** — ambiguous (it can back any of the four wallet layouts). All four address-type buttons appear inline, with **Native Segwit** selected by default. Pick the one your wallet uses; the picker stays visible so you can correct a misclick before saving.
 
-![Add a Bitcoin account](/images/add_btc_account.webp)
+![Add a Bitcoin account](/images/usage-guides/portfolio/accounts/add_btc.webp)
 
 > [!INFO] Good to know
 >
@@ -109,11 +109,11 @@ Paste your address or xpub into the input. The form reacts as follows:
 
 In the EVM Chains section, the chain selection allows you to filter accounts based on specific blockchain networks. This functionality works as a filter, meaning you can click on any chain, like Ethereum, Gnosis, or Polygon, and view only the accounts that are associated with those chains. You can even filter by multiple chains simultaneously.
 
-![Filter or delete a blockchain account](/images/filter_chains.png)
+![Filter or delete a blockchain account](/images/usage-guides/portfolio/accounts/filter_chains.png)
 
 Additionally, there is an option to toggle between viewing the aggregated assets across all chains or displaying the assets per individual chain. This provides flexibility, allowing you to either get a total balance view from all chains at once or focus on specific chain assets.
 
-![Filter or delete a blockchain account](/images/aggregated_view_per_chain.png)
+![Filter or delete a blockchain account](/images/usage-guides/portfolio/accounts/aggregated_view_per_chain.png)
 
 ### ENS names resolution
 
@@ -123,11 +123,11 @@ rotki automatically resolves ENS name and ENS avatar for every EVM address that 
 
 For EVM accounts, it is possible to trigger the process of detecting tokens before refreshing the balances. There are several ways to do that:
 
-![Refresh all accounts tokens](/images/refresh_all_accounts_tokens.png)
+![Refresh all accounts tokens](/images/usage-guides/portfolio/accounts/refresh_all_tokens.png)
 
 1. To re-detect tokens for all EVM accounts in all chains, go to the dashboard and toggle the arrow here. You can change the default behavior of the refresh button to `Re-detect tokens and refresh balances` and then click the refresh button.
 
-![Refresh particular accounts tokens](/images/refresh_particular_account_tokens.png)
+![Refresh particular accounts tokens](/images/usage-guides/portfolio/accounts/refresh_particular_tokens.png)
 
 2. To re-detect tokens for all addresses of one EVM chain, click `Re-detect tokens` in the EVM accounts section.
 
@@ -139,7 +139,7 @@ You can export your blockchain accounts to CSV and then import them again into a
 
 You can do it in from any submenu from the menu `Accounts` by clicking the three-dot menu.
 
-![Import and Export Blockchain Accounts](/images/import_and_export_blockchain_accounts.png)
+![Import and Export Blockchain Accounts](/images/usage-guides/portfolio/accounts/import_and_export.png)
 
 <CsvTable title="Blockchain Accounts CSV" csvUrl="/files/blockchain-accounts.csv" />
 
@@ -154,10 +154,10 @@ You can do it in from any submenu from the menu `Accounts` by clicking the three
 You can see the list of aggregated assets from Blockchain Accounts from menu `Balances > Blockchain Balances`.
 You can also see the breakdown of the assets, which locations they belong to, whether they are in the wallet, or being put into some protocol.
 
-![Aggregated list of assets from blockchain accounts](/images/sc_blockchain_balances.png)
+![Aggregated list of assets from blockchain accounts](/images/usage-guides/portfolio/accounts/blockchain_balances.png)
 
 ### Loopring balances
 
 From the balances section you can quickly get an overview of the accounts having balances in Loopring and what assets these accounts hold.
 
-![Loopring balances detailed per address](/images/loopring_balances_detailed.png)
+![Loopring balances detailed per address](/images/usage-guides/portfolio/accounts/loopring_balances_detailed.png)

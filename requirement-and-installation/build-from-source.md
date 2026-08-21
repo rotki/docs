@@ -256,7 +256,7 @@ Inside that shell the applets are not on `PATH` as separate commands, so call th
 
 If you get a blank screen on Electron when starting the dev server, check the console for a syntax-error message:
 
-![Syntax Error](/images/troubleshooting_syntax_error.png)
+![Syntax Error](/images/requirement-and-installation/build-from-source/troubleshooting_syntax_error.png)
 
 If you see one, go to `Help → Clear Cache`, then `View → Force Reload`. If the issue persists, follow the frontend [troubleshooting steps](/contribution-guides/vue-typescript#troubleshooting).
 

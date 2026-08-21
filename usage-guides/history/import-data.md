@@ -10,7 +10,7 @@ Go to `Import Data` menu in the sidebar.
 
 For exchanges that don't support integration through API keys (or haven't integrated to rotki), you can still import your trades or transactions.
 
-![Import CSV Data](/images/sc_data_import.png)
+![Import CSV Data](/images/usage-guides/history/import-data/data_import.png)
 
 ### Steps to Import CSV Files:
 

@@ -45,11 +45,11 @@ You can choose to refresh all events by clicking the main `Refresh` button, or y
 
 Refreshes specific chains, optionally limited to only specific accounts on those chains.
 
-![Refreshing onchain events](/images/refreshing_onchain_events.png)
+![Refreshing onchain events](/images/usage-guides/history/events/refreshing_onchain.png)
 
 To see the status, you can click the button here:
 
-![See query status](/images/see_query_status.png)
+![See query status](/images/usage-guides/history/events/query_status_button.png)
 
 Basically, what happens when you refresh the transactions/events is:
 
@@ -57,25 +57,25 @@ Basically, what happens when you refresh the transactions/events is:
 2. For EVM events, after rotki queries these new transactions, it will try to decode them.
 3. The events will be displayed correctly in the UI only after they are properly decoded.
 
-![Events query status](/images/events_query_status.png)
+![Events query status](/images/usage-guides/history/events/query_status.png)
 
 ### Exchange Events
 
 Refreshes the events from specific exchanges.
 
-![Refreshing exchange events](/images/refreshing_exchange_events.png)
+![Refreshing exchange events](/images/usage-guides/history/events/refreshing_exchange.png)
 
 ### ETH Staking Events
 
 Refreshes ETH withdrawals and block production events.
 
-![Refreshing eth staking events](/images/refreshing_eth_staking_events.png)
+![Refreshing eth staking events](/images/usage-guides/history/events/refreshing_eth_staking.png)
 
 ### Protocol Events
 
 Refreshes events from specific protocols such as Monerium and Gnosis Pay, pulling data from the protocol's API to enrich the existing onchain events.
 
-![Refreshing protocols events](/images/refreshing_protocols_events.png)
+![Refreshing protocols events](/images/usage-guides/history/events/refreshing_protocols.png)
 
 ## Redecoding blockchain transactions
 
@@ -88,7 +88,7 @@ Sometimes you may need to redecode events for blockchain transactions (EVM and S
 
 This will re-read and re-decode the transaction's events and try to understand what happened. If the transaction contains custom events, you will get an extra confirmation asking whether to also reset these custom events.
 
-![Redecode events for a transaction](/images/redecode_events.png)
+![Redecode events for a transaction](/images/usage-guides/history/events/redecode.png)
 
 ::: tip Advanced: Redecode with options
 If you need more control, use `Redecode with options` (button at the right of `Redecode events`) to:
@@ -101,17 +101,17 @@ If you need more control, use `Redecode with options` (button at the right of `R
 
 To redecode all transactions that have been queried, click `Redecode All Transactions` at the top of the page.
 
-![Menu to redecode all queried EVM transactions events](/images/redecode_all_events.png)
+![Menu to redecode all queried EVM transactions events](/images/usage-guides/history/events/redecode_all.png)
 
 ### Transaction decoding status
 
 To see the status of event decoding, click the menu button and go to `Transaction Decoding Status`.
 
-![Menu to redecode events for an EVM transaction](/images/redecode_events_status_button.png)
+![Menu to redecode events for an EVM transaction](/images/usage-guides/history/events/redecode_status_button.png)
 
 You will see the status of the EVM events redecoding.
 
-![EVM events redecoding breakdown](/images/redecode_events_status.png)
+![EVM events redecoding breakdown](/images/usage-guides/history/events/redecode_status.png)
 
 ### Notes
 
@@ -121,15 +121,15 @@ EVM transactions and events can be deleted, but to restore them you will have to
 
 Events can be exported as CSV, click on `Export CSV` button and accept prompt to download exported events.
 
-![Button to download events as csv](/images/events_csv_export.png)
+![Button to download events as csv](/images/usage-guides/history/events/csv_export.png)
 
 ## Delete transactions & events
 
-![Menu to delete EVM transactions events](/images/delete_transaction_events.png)
+![Menu to delete EVM transactions events](/images/usage-guides/history/events/delete_transaction_events.png)
 
 ## Add transaction by hash
 
-![Add transaction by hash](/images/add_tx_by_hash.png)
+![Add transaction by hash](/images/usage-guides/history/events/add_tx_by_hash.png)
 
 If you want to add a transaction that was either deleted or for some reason missed, or was not found by rotki, you can add it by transaction hash by clicking the menu as seen in the picture.
 
@@ -145,11 +145,11 @@ It is possible that due to network issues, RPC errors, or other problems, some e
 You can find the menu by clicking the three-dots `⋮` menu in the top right and selecting `Re-pulling Events`.
 You can pull blockchain transaction events and events that come from exchanges.
 
-![Repull transactions](/images/repull_transactions.png)
+![Repull transactions](/images/usage-guides/history/events/repull_transactions.png)
 
 If any missed transactions are found, you'll see a notification indicating how many new transactions were discovered. You can click the action in the notification to view the pulled transactions.
 
-![Repulled transactions result](/images/repull_transactions_notification.png)
+![Repulled transactions result](/images/usage-guides/history/events/repull_transactions_notification.png)
 
 After the transactions are pulled, blockchain transactions need to be decoded, while events from exchanges will appear directly. For blockchain transactions, you can either:
 
@@ -163,11 +163,11 @@ Once decoded, the blockchain transactions will appear in the history view with a
 
 If you see this warning button, it means the event won't be processed correctly in accounting. It could be due to improper decoding or a missing accounting rule for that event. You can fix it by editing the event or adding the missing accounting rule. You can also edit the events if they have special meaning to you, such as OTC trades or transfers between accounts.
 
-![The button indicates that the event won't be processed correctly.](/images/event_not_processed.png)
+![The button indicates that the event won't be processed correctly.](/images/usage-guides/history/events/not_processed.png)
 
 ## Edit accounting rule
 
-![Edit accounting rule](/images/edit_accounting_rule.png)
+![Edit accounting rule](/images/usage-guides/history/events/edit_accounting_rule.png)
 
 You can customize how events are processed in accounting by editing their accounting rules. When editing an accounting rule, you have two options:
 
@@ -183,7 +183,7 @@ By default, all events will be processed in accounting, but you can ignore unwan
 
 You can go to selection mode and select multiple events by clicking this menu in the top left:
 
-![Selection mode](/images/selection_mode.png)
+![Selection mode](/images/usage-guides/history/events/selection_mode.png)
 
 You can perform two actions:
 
@@ -191,7 +191,7 @@ You can perform two actions:
 2. Set regular accounting rules for specific events
    - Note: Multiple selected events must have the same entry type/subtype combination to apply custom accounting rules.
 
-![Select multiple events](/images/select_multiple_events.png)
+![Select multiple events](/images/usage-guides/history/events/select_multiple.png)
 
 ## Add / edit events
 
@@ -200,7 +200,7 @@ There are 11 types of events in rotki:
 :::tabs
 == History Event
 
-![History event form](/images/events_history_event_form.png)
+![History event form](/images/usage-guides/history/events/history_event_form.png)
 
 Here the non obvious fields are:
 
@@ -210,7 +210,7 @@ Here the non obvious fields are:
 
 == EVM Event
 
-![EVM event form](/images/events_evm_event_form.png)
+![EVM event form](/images/usage-guides/history/events/evm_event_form.png)
 
 Currently we support EVM events for these chains:
 
@@ -235,26 +235,26 @@ Here the non obvious fields are:
 
 == EVM Swap Event
 
-![EVM swap event form](/images/events_evm_swap_event_form.png)
+![EVM swap event form](/images/usage-guides/history/events/evm_swap_event_form.png)
 
 Basically it's similar to `EVM Event`, but it's specifically for swap events.
 You can add multiple `spend` and `receive` assets.
 
 == ETH Withdrawal Event
 
-![ETH withdrawal event form](/images/events_eth_withdrawal_event_form.png)
+![ETH withdrawal event form](/images/usage-guides/history/events/eth_withdrawal_event_form.png)
 
 == ETH Block Event
 
-![ETH block event form](/images/events_eth_block_event_form.png)
+![ETH block event form](/images/usage-guides/history/events/eth_block_event_form.png)
 
 == ETH Deposit Event
 
-![ETH deposit event form](/images/events_eth_deposit_event_form.png)
+![ETH deposit event form](/images/usage-guides/history/events/eth_deposit_event_form.png)
 
 == Asset Movement Event
 
-![Asset movement event form](/images/events_asset_movement_form.png)
+![Asset movement event form](/images/usage-guides/history/events/asset_movement_form.png)
 
 == Bitcoin Event
 
@@ -266,7 +266,7 @@ Advanced options include `Group Identifier` and `Extra Data` for additional cont
 
 == Swap Event
 
-![Swap event form](/images/events_swap_event_form.png)
+![Swap event form](/images/usage-guides/history/events/swap_event_form.png)
 
 == Solana Event
 
@@ -314,7 +314,7 @@ These are some common customizations you may want to do, based on the issue:
 
 Events that have been modified will appear marked in the UI.
 
-![Customized events in the UI](/images/customized_events.png)
+![Customized events in the UI](/images/usage-guides/history/events/customized.png)
 
 ## Updating the price of an event
 
@@ -322,11 +322,11 @@ The fiat value shown next to an asset on a history event row is computed from th
 
 Click the asset chip on the event row to open its menu and pick the **Update price** action (the dollar icon).
 
-![Update price action on an event row](/images/event_price_edit_button.webp)
+![Update price action on an event row](/images/usage-guides/history/events/price_edit_button.webp)
 
 This opens the price update dialog:
 
-![Update price dialog for a history event](/images/event_price_edit_dialog.webp)
+![Update price dialog for a history event](/images/usage-guides/history/events/price_edit_dialog.webp)
 
 The dialog prefills with the price rotki currently has stored for `(asset, your main currency, event timestamp)`:
 
@@ -339,7 +339,7 @@ Saving updates the stored historic price and invalidates rotki's in-memory cache
 
 rotki can detect certain issues with your history events that may affect accounting accuracy. When issues are found, you will see a warning button with a badge showing the total number of issues at the top of the History Events page.
 
-![Issue check button](/images/history_events_issue_check_button.png)
+![Issue check button](/images/usage-guides/history/events/issue_check_button.png)
 
 Clicking the button opens a menu where you can check for specific types of issues. Currently, rotki detects the following:
 
@@ -363,7 +363,7 @@ This can happen when:
 
 #### How to resolve
 
-![Match asset movements dialog](/images/history_events_unmatched_asset_movements.png)
+![Match asset movements dialog](/images/usage-guides/history/events/unmatched_asset_movements.png)
 
 You have several options to resolve unmatched asset movements:
 
@@ -376,7 +376,7 @@ You have several options to resolve unmatched asset movements:
 
    Potential matches are displayed in a list, with **recommended** matches highlighted. Select one or more matching events and click `Confirm Match`. A single asset movement can be linked to multiple on-chain events, which is useful when the on-chain side was split across multiple transactions.
 
-   ![Potential matches dialog](/images/history_events_unmatched_asset_movements_potential.png)
+   ![Potential matches dialog](/images/usage-guides/history/events/unmatched_asset_movements_potential.png)
 
 3. **Ignore** - If a movement has no corresponding on-chain event (e.g., fiat currency deposits/withdrawals), click `Ignore` to mark it as having no match. Ignored movements are moved to the **Ignored** tab and can be restored later.
 
@@ -401,7 +401,7 @@ rotki categorizes duplicates into two types:
 
 When duplicates are detected, an alert banner will appear showing the count for each category, with a `View` button to navigate to the affected events.
 
-![Duplicate custom events alert](/images/history_events_duplicate_custom_events.png)
+![Duplicate custom events alert](/images/usage-guides/history/events/duplicate_custom.png)
 
 #### How to resolve
 
@@ -411,7 +411,7 @@ When duplicates are detected, an alert banner will appear showing the count for 
 
 3. **Manual review** - For duplicates that need manual review, click `View` to see the affected events in the history view. Inspect the events and manually resolve them by editing or deleting the incorrect one.
 
-   ![Duplicate events in history view](/images/history_events_duplicate_custom_events_view.png)
+   ![Duplicate events in history view](/images/usage-guides/history/events/duplicate_custom_view.png)
 
 ### Internal Transaction Conflicts
 
@@ -427,11 +427,11 @@ Internal transaction conflicts occur when rotki detects inconsistencies in inter
 
 When conflicts are detected, a banner will appear in the History Events page alerting you to the number of conflicts that need attention.
 
-![Internal transaction conflicts banner](/images/internal_tx_conflicts_banner.webp)
+![Internal transaction conflicts banner](/images/usage-guides/history/events/internal_tx_conflicts_banner.webp)
 
 You can also access the conflicts dialog from the three-dot `⋮` menu at the top right of the History Events page by clicking `Check internal tx conflicts`. An orange dot indicator will appear when there are pending conflicts.
 
-![Internal transaction conflicts menu](/images/internal_tx_conflicts_menu.webp)
+![Internal transaction conflicts menu](/images/usage-guides/history/events/internal_tx_conflicts_menu.webp)
 
 Click `Review` in the banner or `Check internal tx conflicts` in the menu to open the Internal Transaction Conflicts dialog, which shows all detected conflicts organized into three tabs:
 
@@ -439,7 +439,7 @@ Click `Review` in the banner or `Check internal tx conflicts` in the menu to ope
 - **Failed** - Conflicts where the automatic resolution attempt failed.
 - **Fixed** - Conflicts that have been successfully resolved.
 
-![Internal transaction conflicts dialog](/images/internal_tx_conflicts_dialog.webp)
+![Internal transaction conflicts dialog](/images/usage-guides/history/events/internal_tx_conflicts_dialog.webp)
 
 Each conflict shows the transaction hash, chain, action type (repull or fix & redecode), timestamp, reason, last retry time, and any error from the last attempt. You can filter the list by chain or date range using the combined filters.
 
@@ -458,7 +458,7 @@ Each conflict shows the transaction hash, chain, action type (repull or fix & re
 
 When a conflict resolution attempt fails (e.g., the data source is temporarily unavailable or returns an error), the conflict is moved to the **Failed** tab. This tab shows all conflicts where the last resolution attempt was unsuccessful, along with the error message from the last attempt.
 
-![Internal transaction conflicts failed tab](/images/internal_tx_conflicts_dialog_failed.webp)
+![Internal transaction conflicts failed tab](/images/usage-guides/history/events/internal_tx_conflicts_dialog_failed.webp)
 
 You can retry failed conflicts at any time by selecting them and clicking `Resolve Selected`, or by clicking the refresh button on individual entries. The automatic resolution system will also periodically retry failed conflicts.
 
@@ -466,7 +466,7 @@ You can retry failed conflicts at any time by selecting them and clicking `Resol
 
 You can pin the conflicts panel to the side of the History Events page by clicking the pin icon in the dialog header. This allows you to browse your history events while keeping the conflicts list visible for reference.
 
-![Internal transaction conflicts pinned sidebar](/images/internal_tx_conflicts_pinned.webp)
+![Internal transaction conflicts pinned sidebar](/images/usage-guides/history/events/internal_tx_conflicts_pinned.webp)
 
 #### Show in history events
 
@@ -476,7 +476,7 @@ Click the external link icon on a conflict to highlight the corresponding transa
 
 You can configure the automatic conflict resolution behavior by clicking the gear icon in the dialog header.
 
-![Internal transaction conflicts settings](/images/internal_tx_conflicts_dialog_settings.webp)
+![Internal transaction conflicts settings](/images/usage-guides/history/events/internal_tx_conflicts_dialog_settings.webp)
 
 Two settings are available:
 
@@ -485,4 +485,4 @@ Two settings are available:
 
 These settings are also available in `Settings > General > History Events`.
 
-![Internal transaction conflicts in general settings](/images/internal_tx_conflicts_general_settings.webp)
+![Internal transaction conflicts in general settings](/images/usage-guides/history/events/internal_tx_conflicts_general_settings.webp)

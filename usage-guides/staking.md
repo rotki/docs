@@ -22,7 +22,7 @@ You can track ETH2 staking in 2 ways:
    - Enter the validator's public key and/or index
    - Optional: Set ownership percentage if sharing the validator
 
-![Track an ETH2 validator](/images/eth2_add_validator.png)
+![Track an ETH2 validator](/images/usage-guides/staking/eth2_add_validator.png)
 
 After adding a new validator you will see a list showing the status and balance of each validator.
 Validator status may be `PENDING`, `ACTIVE`, `EXITING`, `EXITED`, or `CONSOLIDATED`.
@@ -34,7 +34,7 @@ Once converted, additional ETH can be deposited into the validator, and other va
 
 rotki detects consolidation via the execution layer consolidation request transaction (see an example transaction [here](https://etherscan.io/tx/0x812eeeb8a786650afa1826d8e9d46aa2073e28f1ed261f0c3da4ea18b7d7cd82)).
 
-![ETH2 validator balances](/images/eth2_validators.png)
+![ETH2 validator balances](/images/usage-guides/staking/eth2_validators.png)
 
 View your ETH staking details under menu `Staking > ETH`.
 ETH2 stakers can track their earnings both at current ETH prices and based on the value of daily staking rewards.
@@ -47,7 +47,7 @@ Validator profit is calculated from several different sources:
 - Block and MEV rewards - rotki must be tracking the receiving address to count these in the validator's profit.
 - Exits - When a validator is exited the profit is calculated as the exited amount minus the deposited amount.
 
-![ETH2 validator stats](/images/rotki_eth2_staking.png)
+![ETH2 validator stats](/images/usage-guides/staking/eth2.png)
 
 These earnings are included in profit/loss reports and can be exported to CSV for further analysis.
 
@@ -55,7 +55,7 @@ These earnings are included in profit/loss reports and can be exported to CSV fo
 
 If you stake LQTY in the protocol you can see stability pool deposits, staked amount, and the stake events.
 
-![See your Liquity staking gains](/images/sc_staking_liquity.png)
+![See your Liquity staking gains](/images/usage-guides/staking/liquity.png)
 
 On the left side, we display information for your current deposited amount of `LUSD` in the stability pool along with the `ETH` and `LQTY` rewards that you haven't claimed yet. On the right side, we display the staked `LQTY` and the `ETH` and `LUSD` that are available to claim.
 
@@ -78,13 +78,13 @@ PnL = B - C
 
 For `LQTY` staking we display the claimed rewards.
 
-![Liquity Statistics](/images/liquity_stats.png)
+![Liquity Statistics](/images/usage-guides/staking/liquity_stats.png)
 
 ## Kraken Staking
 
 If you stake on Kraken you can see your gains, and events in the various staked assets.
 
-![See your Kraken staking gains](/images/sc_staking_kraken.png)
+![See your Kraken staking gains](/images/usage-guides/staking/kraken.png)
 
 ## Lido CSM
 

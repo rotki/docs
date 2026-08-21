@@ -6,7 +6,7 @@ description: Overview of the rotki dashboard showing total balance, net value gr
 
 The dashboard is the first page you see after logging into rotki. It provides a high-level overview of your entire portfolio across all tracked accounts, exchanges, and manual balances.
 
-![rotki Dashboard](/images/rotki_dashboard.webp)
+![rotki Dashboard](/images/_shared/dashboard.webp)
 
 ## Progress Indicator
 
@@ -88,7 +88,7 @@ Displays manually tracked balances grouped by location (e.g., External, Blockcha
 
 ## Assets Table
 
-![Dashboard Assets Table](/images/rotki_dashboard_assets.webp)
+![Dashboard Assets Table](/images/usage-guides/portfolio/dashboard/assets.webp)
 
 The assets table shows all your holdings aggregated across all sources. Each row displays:
 

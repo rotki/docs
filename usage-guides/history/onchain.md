@@ -10,7 +10,7 @@ description: Send on-chain transactions directly from rotki by connecting a brow
 rotki allows you to perform onchain transactions by connecting your wallet (either through a browser wallet or WalletConnect).
 At the moment rotki only supports sending native tokens and ERC-20 tokens on all supported EVM chains.
 
-![Onchain send tokens](/images/onchain_send.png)
+![Onchain send tokens](/images/usage-guides/history/onchain/send.png)
 
 ::: info
 You can only send tokens from an address that is registered as an EVM account in rotki. Otherwise, rotki won't be able to retrieve the list of tokens.
@@ -26,7 +26,7 @@ You can connect the wallet via Wallet Connect. For example, if you want to conne
 
 2. Click `Connect Wallet` button and proceed from there
 
-![Onchain wallet connect](/images/onchain_wallet_connect.png)
+![Onchain wallet connect](/images/usage-guides/history/onchain/wallet_connect.png)
 
 ## Connect using Browser Wallet
 
@@ -37,13 +37,13 @@ If you don't want to connect via Wallet Connect, you can also connect locally to
 2. Click `Connect Wallet` button
 
 3. If you access rotki via the app, it will open a tab in your browser. It attempts to scan the wallet you have in your browser. You need to keep this browser tab open while doing transactions.
-   ![Open browser wallet bridge](/images/onchain_browser_wallet_1.png)
+   ![Open browser wallet bridge](/images/usage-guides/history/onchain/browser_wallet_1.png)
 
 4. Go back to your main app. You will see this popup after rotki scans which browser wallet you have. You can choose any and finish the connection.
-   ![Select browser wallet](/images/onchain_browser_wallet_2.png)
+   ![Select browser wallet](/images/usage-guides/history/onchain/browser_wallet_2.png)
 
 5. If it's successful, it will look like this, and show your connected address on top.
-   ![Browser wallet connection success](/images/onchain_browser_wallet_3.png)
+   ![Browser wallet connection success](/images/usage-guides/history/onchain/browser_wallet_3.png)
 
 You're now connected and can perform transactions.
 
