@@ -21,7 +21,12 @@ Here the non-obvious fields are:
 
 rotki can also create automatic events based on your on-chain activity. The events that rotki currently can check include:
 
-- ENS Expiration & Renewal
+- **Name service expiry and renewal** — for ENS, Basenames and Gwei Name Service (`.gwei`) names you hold.
+- **Airdrop claim deadlines** — so a claimable airdrop does not expire unnoticed.
+- **Yearn vesting escrows** — one entry at the cliff date and one when the escrow is fully vested.
+- **CRV vote escrow** — when your locked CRV lock period ends.
+- **VELO and AERO vote escrow** — when a veNFT lock period ends.
+- **L2 bridging** — when funds bridged to or from an L2 become available.
 
 You can customize how rotki handles automatic events by clicking the `setting` icon at the top.
 

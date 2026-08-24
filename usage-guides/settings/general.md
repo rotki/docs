@@ -28,6 +28,16 @@ Specify whether the application can submit anonymous usage analytics. This helps
 
 Specify whether to automatically detect tokens and refresh balances by periodically checking historical events.
 
+#### Auto detect tokens on login
+
+Also run token detection after the first balance scan following login, so newly acquired tokens show up without waiting for the next periodic run. This is opt-in and **disabled by default**.
+
+#### Auto detect tokens cooldown
+
+The minimum time between two on-login detection runs, from 1 to 168 hours (7 days). Logging in again inside the cooldown skips the scan, so several logins in a day do not each trigger one. Triggering detection yourself from the accounts page ignores the cooldown.
+
+This setting only appears when **Auto detect tokens on login** is enabled.
+
 #### Display Date in Localtime
 
 Specify whether dates in CSV exports should be displayed in local time rather than UTC. Enabled by default.

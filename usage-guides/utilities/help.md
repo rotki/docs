@@ -16,6 +16,14 @@ The Help & Support menu provides quick access to:
 - **Discord** - Join the community and get support
 - **Github** - Review the code and open issues
 - **Twitter / X** - Follow for updates
+- **About** - Version information, including the data directory currently in use
+- **Browser Log** - Download the browser log file
+
+> [!NOTE]
+> The desktop app also has its own **Help** menu in the application menu bar, which is a different
+> menu with different entries. That is where you will find **Logs Directory** and **Data Directory**,
+> which open those folders in your file manager — see
+> [opening the data directory](/usage-guides/advanced/data-directory#opening-it-from-the-app).
 
 ## Report Issue
 

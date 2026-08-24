@@ -104,7 +104,7 @@ The assets table shows all your holdings aggregated across all sources. Each row
 ### Table Features
 
 - **Sorting** — Click any column header to sort. Default sort is by value (descending).
-- **Search** — Use the search box to filter by asset name or symbol.
+- **Search** — Use the search box to filter by asset name, symbol, or **contract address**. Pasting a contract address is the quickest way to pin down a token whose name you do not know, or one that shares a symbol with several others. An asset whose symbol or name is exactly what you typed is shown first, so searching for `eth` finds ETH rather than burying it under every token containing those letters. Matches appear as you type.
 - **Pagination** — Configure how many rows to display per page using the "Rows per page" dropdown.
 - **Column Visibility** — Click the column configuration button to toggle optional columns ("% of Net Value" and "% of Group").
 - **Row Expansion** — Click the expand arrow on a row to see a detailed breakdown of where that asset is held (per chain, per exchange, per protocol).

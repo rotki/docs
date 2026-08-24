@@ -174,6 +174,24 @@ You can create custom rules that override the defaults for specific combinations
 
 See [Add/Edit accounting rules](/usage-guides/settings/accounting#add-edit-accounting-rules) for how to create them in the UI. You can also [import/export accounting rules](/usage-guides/settings/accounting#import-export-accounting-rules) as JSON to back them up or share them.
 
+### Seeing which events a rule governs
+
+A rule and the events it applies to are one click apart in either direction:
+
+- From a rule, use **View events matching this rule**. It opens the history events page with the
+  filter already set to that rule's event type, subtype and counterparty, so you see exactly what it
+  affects before changing it.
+- From an event, the [edit accounting rule](/usage-guides/history/events#edit-accounting-rule) action
+  takes you to the rule that governs it.
+
+### Filtering the rules
+
+The rules table uses the same filter bar as the rest of rotki, with a pill for `Event type`,
+`Event subtype` and `Counterparty`. Types and subtypes are picked from a list and read as words
+rather than as their raw values, and counterparties are shown with their protocol icon and name. See
+[Filtering history events](/usage-guides/history/filtering) for the shared syntax and keyboard
+handling.
+
 ### Limitations
 
 - **Counterparty must be a known protocol**: You can only create rules for counterparties that rotki recognizes (e.g., "uniswap-v3", "aave", "makerdao_dsr"). Custom smart contract addresses cannot currently be used as counterparties for accounting rules. Support for custom counterparties is tracked in [rotki/rotki#9803](https://github.com/rotki/rotki/issues/9803).

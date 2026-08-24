@@ -168,3 +168,7 @@ You can see the list of aggregated assets from Blockchain Accounts from menu `Ba
 You can also see the breakdown of the assets, which locations they belong to, whether they are in the wallet, or being put into some protocol.
 
 ![Aggregated list of assets from blockchain accounts](/images/usage-guides/portfolio/accounts/blockchain_balances.webp)
+
+The search box above the table finds an asset by name, symbol or **contract address**, and shows an
+exact symbol or name match first. Pasting a contract address is the quickest way to identify a token
+whose name you do not know, or to tell apart several tokens sharing a symbol.

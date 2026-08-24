@@ -24,6 +24,18 @@ rotki provides an address book for blockchains. This replaces addresses with nam
 > 5. Hardcoded Mappings
 > 6. ENS names.
 
+## Filtering the address book
+
+The address book uses the same filter bar as the rest of rotki, with a pill for `Address`, `Name` and
+`Chain`. Chains are shown with their logo and name and picked from a list. There is also a
+`Strict chain` pill: with it added, only entries recorded for that exact chain are shown, rather than
+also including entries that apply to every chain.
+
+Both the chain selector and the strict-chain checkbox used to sit beside the bar; they are pills
+inside it now, so there is a single place to filter from. See
+[Filtering history events](/usage-guides/history/filtering) for the shared syntax and keyboard
+handling.
+
 ## Importing address book names (CSV)
 
 You can add multiple address book entries at once with CSV import. You can find the menu in the three dots `⋮` menu here.

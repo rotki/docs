@@ -62,6 +62,29 @@ Which means, in practice:
 - **Scroll** needs a **Blockscout key**, since Etherscan no longer serves Scroll and Routescan does not cover it.
 - **Binance SC** needs a **paid Etherscan plan**, since it is the only indexer that serves the chain.
 
+### Suppressing indexer notifications
+
+When a chain has no usable indexer, rotki raises a **"No indexers available"** notification for it.
+If it names a chain you have no intention of configuring, the notification offers to suppress it:
+confirm, and rotki stops raising it for that chain.
+
+Suppressed chains are listed under **Suppressed "No indexers available" notifications** on this page.
+Remove a chain from that list to start showing its notification again.
+
+Suppression is per chain, so silencing one never silences another. Even without suppressing anything,
+a notification you keep ignoring backs off on its own — see
+[how often a notification repeats](/usage-guides/utilities/#how-often-a-notification-repeats).
+
+### Recommended settings after upgrading
+
+Some releases change which indexer a chain should use by default. When that happens and you had
+already chosen your own order for the affected chain, rotki shows a recommended-settings dialog after
+the upgrade rather than silently overriding your choice.
+
+Upgrading to 1.44 shows this for **Gnosis** if you have Gnosis events and had picked your own order.
+It explains that Etherscan no longer serves Gnosis for free, shows which of the two keys you already
+have, and preselects the order matching them. You can accept the recommendation or keep what you had.
+
 ## Price Oracle Settings
 
 ![Change the order of price sources](/images/usage-guides/settings/blockchain/price_oracle_order.webp)

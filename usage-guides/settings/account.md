@@ -26,6 +26,16 @@ View information about your user and global database, such as directory, size, a
 
 Create new database backups, delete backups, and download backups locally.
 
+### Cloud sync integrity checks
+
+For premium users syncing the database to rotki's cloud, rotki verifies the database before it moves
+in either direction. It runs an integrity check before uploading a backup, and again on a downloaded
+copy before that copy replaces your local database.
+
+If a check fails, the sync is abandoned and rotki reports the problem rather than continuing. That
+stops a corrupt local database from overwriting a good remote copy, and a corrupt download from
+overwriting a good local one.
+
 ### Purging Data
 
 rotki keeps a lot of data cached locally. Clean this data periodically from the "Manage Data" section in the settings. Remove specific exchanges by first removing any active API keys.

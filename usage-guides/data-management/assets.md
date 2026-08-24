@@ -55,6 +55,15 @@ There are also some other fields that are completely optional and expand if you 
 > [!NOTE]
 > Underlying tokens only apply to asset type of `EVM Token`.
 
+### Hyperliquid Core tokens
+
+Native tokens on Hyperliquid Core are first class assets, with the asset type `Hyperliquid Token`.
+You can add or edit their metadata here the same way as any other token, search for them by name,
+symbol or token ID, and use them in asset mappings.
+
+Their identifier is a **token ID** rather than a contract address, so the address field takes that ID
+and, like other token types, cannot be changed after the asset is created.
+
 ## Adding/editing a custom asset
 
 There is a lot of assets that rotki can't automatically track and they don't fit into traditional crypto assets. For example an ETF, real estate, ancient coins, valuable art etc. To represent those you can create custom assets, and then add a manual balance of those assets.

@@ -12,6 +12,20 @@ rotki saves user data by default in a different directory per OS. For each OS, d
 
 Before v1.6.0, rotki was saving data in `$USER/.rotkehlchen`. From v1.6.0, that directory got migrated to the OS equivalent standard directory, and it should be safe for users to delete the old directory as long as the new directory contains the migrated DB.
 
+## Opening it from the app
+
+In the desktop app you do not have to go looking for either directory. The **Help** menu in the
+application menu bar has two entries that open them in your file manager:
+
+- **Logs Directory** — where rotki writes its log files.
+- **Data Directory** — the directory the running backend actually resolved, which is not necessarily
+  the default above if you configured a different one.
+
+> [!NOTE]
+> **Data Directory** stays disabled until the backend is running, because until then rotki does not
+> yet know which directory is in use. Both entries are in the desktop application's own menu bar, not
+> the in-app `?` menu, so they are not available when running rotki in a browser through Docker.
+
 A very good idea for the rotki data directory would be to make frequent backups of it as it contains all of the data of all of your rotki accounts and cache data for historical price queries.
 
 > [!WARNING]

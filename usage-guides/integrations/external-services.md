@@ -128,6 +128,18 @@ To connect your Gnosis Pay account:
 
 > **Note**: The access token only provides read-only access to your Gnosis Pay data. The "Sign in with Ethereum" authentication process described above is mandated by Gnosis Pay's API requirements, not a design choice by rotki. rotki simply integrates with their authentication system as required.
 
+### Safe migration
+
+Gnosis Pay replaced user Safes during its security migration, so an account can have both a previous
+and a current Safe. rotki notices when you track only one of the two and tells you which address is
+missing:
+
+- If you track only the **previous** Safe, add the new active one to keep tracking future activity.
+- If you track only the **new** Safe, add the previous one to keep its historical activity.
+
+Add the named address as a normal blockchain account on Gnosis. Tracking both means your history
+covers the whole account rather than stopping or starting at the migration.
+
 ## The Graph
 
 rotki uses The Graph to obtain Balancer balances and particular ENS data. You can create one [here](https://thegraph.com/studio/apikeys).
