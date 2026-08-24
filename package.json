@@ -24,6 +24,7 @@
     "preview": "vitepress preview",
     "lint": "eslint .",
     "check:images": "node scripts/check-images.mjs",
+    "check:anchors": "node scripts/check-anchors.mjs",
     "lint-staged": "lint-staged",
     "prepare": "husky"
   },
