@@ -34,7 +34,7 @@ You only need a rotki.com account with a confirmed email address to create a ref
 
 Your share link looks like `https://rotki.com/products?ref=YOURCODE`. When someone opens it, the discount is remembered and applied automatically at checkout, so they do not have to type anything.
 
-![Referral Code section on the subscription page, showing the code, copy and share buttons, and the referral discount](/images/referrals/referral-code-section.webp)
+![Referral Code section on the subscription page, showing the code, copy and share buttons, and the referral discount](/images/premium/referrals/referral_code_section.webp)
 
 ::: info One code per account
 Each account has a single referral code. Once created, the same code is reused every time you open the Referral Code section.
@@ -59,7 +59,7 @@ The link is remembered for 30 days, so the discount still applies even if you br
 3. In the Discount/Referral Code field, enter the code and click Apply code.
 4. The discount and "Referral code applied" confirmation appear.
 
-![Checkout order summary with a referral code applied, showing the discount and updated total](/images/referrals/checkout-referral-applied.webp)
+![Checkout order summary with a referral code applied, showing the discount and updated total](/images/premium/referrals/checkout_referral_applied.webp)
 
 ::: info First payment only
 A referral discount applies only to the first payment of a new subscription. Renewals and later subscriptions are charged at full price.
@@ -75,7 +75,7 @@ When someone you referred makes their first qualifying purchase, you receive acc
 - Credit is applied automatically to your subscription purchases, renewals, and upgrades. You do not need to enter anything.
 - Credit is granted once per referred user, on their first non-upgrade purchase.
 
-![Account Credit section showing the available balance and a credit history entry for a referral reward](/images/referrals/account-credit-populated.webp)
+![Account Credit section showing the available balance and a credit history entry for a referral reward](/images/premium/referrals/account_credit_populated.webp)
 
 ::: warning How credit can be used
 Account credit can only be applied to rotki subscription purchases and renewals. It cannot be redeemed for cash, refunded, or transferred to another account.

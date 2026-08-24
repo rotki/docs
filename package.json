@@ -23,6 +23,7 @@
     "build": "vitepress build",
     "preview": "vitepress preview",
     "lint": "eslint .",
+    "check:images": "node scripts/check-images.mjs",
     "lint-staged": "lint-staged",
     "prepare": "husky"
   },

@@ -24,7 +24,7 @@ rotki provides an address book for blockchains. This replaces addresses with nam
 > 5. Hardcoded Mappings
 > 6. ENS names.
 
-## Import multiple address books (CSV)
+## Importing address book names (CSV)
 
 You can add multiple address book entries at once with CSV import. You can find the menu in the three dots `⋮` menu here.
 
