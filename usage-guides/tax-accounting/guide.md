@@ -44,7 +44,7 @@ Go to **History Events** in the left sidebar. This is where all your transaction
 - **Check for missing events**: If you moved assets through unsupported protocols or peer-to-peer, you may need to [add events manually](/usage-guides/history/events#add-edit-events).
 - **Fix incorrectly categorized events**: rotki may not always correctly identify what a transaction represents. See the [event types and subtypes reference](/usage-guides/tax-accounting/event-types) to understand each category, and the [common customization guide](/usage-guides/history/events#common-customization) for how to re-categorize events.
 - **Check for missing accounting rules**: Events with a warning icon won't be processed correctly. Either edit the event or add a [missing accounting rule](/usage-guides/history/events#missing-accounting-rule).
-- **Match asset movements**: If you have exchange deposits/withdrawals that aren't linked to on-chain transactions, use the [asset movement matching](/usage-guides/history/events#unmatched-asset-movements) feature.
+- **Match asset movements**: If you have exchange deposits/withdrawals that aren't linked to on-chain transactions, use the [asset movement matching](/usage-guides/history/issues#unmatched-asset-movements) feature.
 
 ### 4. Add missing prices
 

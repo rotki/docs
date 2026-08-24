@@ -56,7 +56,9 @@ Configure whether the graph y-axis starts at 0 or the minimum amount for the per
 
 ### Alias Name for Addresses
 
-Enable or disable alias names for blockchain addresses. Aliases are obtained from `ENS`, `addressbook`, or `blockchain account label`. Change the order of resolution as needed.
+Enable or disable alias names for blockchain addresses, and change the order the sources are resolved in. The sources are `Private address book`, `Global address book`, `ENS names`, `GNS names (.gwei)`, `Ethereum tokens`, `Hardcoded mappings` and `Blockchain account labels`.
+
+`GNS names (.gwei)` is opt-in and off by default. Add it to the priority list to have [Gwei Name Service](https://gwei.domains) names shown for your addresses, positioned wherever you want relative to ENS. Avatars follow the same priority.
 
 ### Newly Detected Tokens
 

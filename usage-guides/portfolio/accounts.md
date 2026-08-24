@@ -105,11 +105,24 @@ Paste your address or xpub into the input. The form reacts as follows:
 > - For Ledger hardware wallet users, you can get your xpub by following [this guide](https://support.ledger.com/article/6275459128989-zd)
 > - Bitcoin Cash only works with Legacy (P2PKH) and Segwit (P2SH-P2WPKH) addresses
 
-### Aggregated view filtering
+### Filtering accounts
 
-In the EVM Chains section, the chain selection allows you to filter accounts based on specific blockchain networks. This functionality works as a filter, meaning you can click on any chain, like Ethereum, Gnosis, or Polygon, and view only the accounts that are associated with those chains. You can even filter by multiple chains simultaneously.
+Accounts are narrowed from the filter bar above the table, which works the same way as the one on the
+history events page. Each filter is a pill: `Chain` shows each network with its logo, `Accounts` lets
+you pick one or more tracked accounts from a list showing each one's avatar, name and address, and
+`Tags` filters by the tags you assigned. Typing in the bar narrows across all of them at once. See
+[Filtering history events](/usage-guides/history/filtering) for the shared syntax and keyboard
+handling.
 
 ![Filter or delete a blockchain account](/images/usage-guides/portfolio/accounts/filter_chains.webp)
+
+A set of filters you return to can be saved as a named view from the star button in the bar, and
+applied again in one click. Filters you had already saved for this table are carried over the first
+time you open the views menu.
+
+> [!NOTE]
+> A bookmarked link to this page that carried an account filter needs to be taken again. Filters are
+> written into the address differently now, so an older link will not restore the same selection.
 
 Additionally, there is an option to toggle between viewing the aggregated assets across all chains or displaying the assets per individual chain. This provides flexibility, allowing you to either get a total balance view from all chains at once or focus on specific chain assets.
 
@@ -155,9 +168,3 @@ You can see the list of aggregated assets from Blockchain Accounts from menu `Ba
 You can also see the breakdown of the assets, which locations they belong to, whether they are in the wallet, or being put into some protocol.
 
 ![Aggregated list of assets from blockchain accounts](/images/usage-guides/portfolio/accounts/blockchain_balances.webp)
-
-### Loopring balances
-
-From the balances section you can quickly get an overview of the accounts having balances in Loopring and what assets these accounts hold.
-
-![Loopring balances detailed per address](/images/usage-guides/portfolio/accounts/loopring_balances_detailed.webp)

@@ -204,8 +204,7 @@ There are 11 types of events in rotki:
 
 Here the non obvious fields are:
 
-- `Event Type`: We have created a categorization of all the actions in a set of major event types. This field will describe the action category.
-- `Event Subtype`: Inside an event type you can perform different actions. This subtype will let you describe exactly what is happening in the event.
+- `Action`: What the event does, named as a verb. See [Choosing an action](#choosing-an-action) below.
 - `Sequence Index`: Is an internal index that sets the order in which events happened in the transactions. This allows knowing how events are sorted and should be taken into account. By default it corresponds to the event log index in the blockchain with a few exceptions.
 
 == EVM Event
@@ -226,8 +225,7 @@ Currently we support EVM events for these chains:
 
 Here the non obvious fields are:
 
-- `Event Type`: We have created a categorization of all the actions in a set of major event types. This field will describe the action category.
-- `Event Subtype`: Inside an event type you can perform different actions. This subtype will let you describe exactly what is happening in the event.
+- `Action`: What the event does, named as a verb. See [Choosing an action](#choosing-an-action) below.
 - `Sequence Index`: Is an internal index that sets the order in which events happened in the transactions. This allows knowing how events are sorted and should be taken into account. By default it corresponds to the event log index in the blockchain with a few exceptions.
 - `Location Label`: This is the address related to the event, for example if you are receiving one asset in a transfer or calling a contract will match with your address.
 - `Address`: Registered rotki account which this event is linked to.
@@ -260,7 +258,7 @@ You can add multiple `spend` and `receive` assets.
 
 Use this entry type for a decoded Bitcoin or Bitcoin Cash transaction event. The form automatically uses `BTC` for Bitcoin and `BCH` for Bitcoin Cash, so the asset cannot be changed independently.
 
-The key fields are `Transaction ID` (the transaction hash), `Location` (Bitcoin or Bitcoin Cash), `Timestamp`, `Amount`, `Event Type` / `Event Subtype`, `Sequence Index`, and `Counterparty`. An amount is required. Location and transaction ID are fixed after creation.
+The key fields are `Transaction ID` (the transaction hash), `Location` (Bitcoin or Bitcoin Cash), `Timestamp`, `Amount`, `Action`, `Sequence Index`, and `Counterparty`. An amount is required. Location and transaction ID are fixed after creation.
 
 Advanced options include `Group Identifier` and `Extra Data` for additional context. When adding an event to an existing Bitcoin transaction, rotki pre-fills the transaction ID, location, timestamp, and group identifier from that transaction.
 
@@ -273,7 +271,7 @@ Advanced options include `Group Identifier` and `Extra Data` for additional cont
 Similar to an EVM Event but for the Solana blockchain. The location is fixed to Solana. Key fields include:
 
 - `Signature`: The Solana transaction signature (equivalent to a transaction hash).
-- `Event Type` / `Event Subtype`: Same categorization as other event types.
+- `Action`: The same action picker as other event types.
 - `Sequence Index`: Order of the event within the transaction.
 - `Counterparty`: The protocol or address you interacted with.
 - `Address`: The Solana address related to the event.
@@ -293,24 +291,50 @@ Similar to the EVM Swap Event but for the Solana blockchain. The location is fix
 
 For history event, and EVM history event, if any event was not decoded the way you expected it to be, you can always customize events using the settings described above or file a bug report via the in-app Report Issue dialog (Help & Support > Report Issue), on our github repository, or in our discord server. The customizations that you make also affect how events are processed in accounting.
 
+### Choosing an action
+
+Every event form has one `Action` field describing what the event does, written as a verb rather than
+as a raw type and subtype pair. Open it and you get a searchable list, so you can type `bridge` or
+`airdrop` instead of working out which combination expresses it.
+
+Actions are grouped by intent: `Trade`, `Transfer`, `DeFi deposit & withdraw`, `DeFi borrow & repay`,
+`Staking`, `Income`, `Expense`, `Donation`, `NFT`, `Bridge`, `Centralized exchange`, `Validator`,
+`Governance`, `Approval`, `Loss` and `Other`. Each row carries a one-line description of what it
+means for your accounting, and a direction badge (`In`, `Out` or `Neutral`) telling you which way the
+assets move. That badge is how two rows sharing a name are told apart: a swap has both an `Out` and
+an `In` side, and so does a bridge or a migration.
+
+The actions you pick most often are collected in a `Recent` group pinned to the top of the list. Use
+`↑` `↓` to move, `↵` to select and `esc` to close.
+
+The list only offers actions the entry type you are editing can actually produce, so an action that
+would make no sense for the event in front of you is never shown.
+
+> [!NOTE]
+> `Action` is a friendlier way to set the same event type and subtype rotki has always stored, not a
+> replacement for them. Accounting rules, the P&L report and the filter bar's `Type` and `Subtype`
+> filters still work on the underlying pair, which is documented in the
+> [Event Types & Subtypes Reference](/usage-guides/tax-accounting/event-types).
+
 ### Common customization
 
-These are some common customizations you may want to do, based on the issue:
+These are some common customizations you may want to do, based on the issue. Each names the `Action`
+to pick:
 
-- `Event Type` to `Transfer` if you are sending money to a friend / (another account you own) and don't want the event to be taxable. The `Event Subtype` should be `None` in that case.
-- `Event Type` to `Deposit` / `Withdrawal` if you're moving assets between exchanges or wallets. Use `Event Subtype` of `Deposit Asset` / `Remove Asset`. These won't be taxable in P&L reports and ensure balance tracking is accurate.
-- `Event Type` to `Deposit` / `Withdrawal` with `Event Subtype` of `Deposit To Protocol` / `Withdraw From Protocol` if assets are going to or coming from a DeFi protocol (staking, lending, etc.) without receiving wrapped tokens. These won't be taxable in P&L reports and ensure balance tracking is accurate.
-- `Event Type` to `Withdrawal` and `Event Subtype` to `Bridge` if you are receiving something from another chain via some kind of bridge. And `Event Type` to `Deposit` and `Event Subtype` to `Bridge` if you are depositing to a bridge in order to move something to another chain.
-- For a swap: The first event should be `Event Type`: `Trade` and `Event Subtype`: `Spend`, while the second event should be `Event Type`: `Trade` and `Event Subtype`: `Receive`. But in swaps what's also important is the `sequence_index`. They need to be subsequent and the send should come before the receive.
-- `Event Type` to `Spend` / `Receive` and `Event Subtype` to `None` if it is a plain expenditure / receipt.
-- `Event Type` to `Receive` and `Event Subtype` to `Reward` if you got a reward for something.
-- `Event Type` to `Receive` and `Event Subtype` to `Airdrop` if you received an airdrop.
-- `Event Type` to `Receive` / `Spend` and `Event Subtype` to `Receive Wrapped` / `Return Wrapped` accordingly if you interacted with a protocol (e.g. Curve, Yearn, Aave, etc.) and received wrapped / returned some wrapped tokens.
-- `Event Type` to `Spend` and `Event Subtype` to `Fee` if you are paying a fee for some of your actions.
-- `Event Type` to `Migration` if it is a migration of assets from one protocol to another and you don't lose / gain anything from this event. For example when migrating from SAI to DAI. There is two events in a migration. Both should have type `Migration` and the OUT event should have `Event Subtype` set to `Spend`, while the IN event should have `Event Subtype` set to `Receive`.
-- `Event Type` to `Staking` and `Event Subtype` to `Deposit Asset` if it is a staking deposit event. For example staking in eth2 or in liquity.
-- `Event Type` to `Renew` and `Event Subtype` to `None` if it is a renewal of any subscription or service that you are paying for.
-- `Event Type` to `Informational` and `Event Subtype` to `None` if the event contains some useful information but it shouldn't be considered in accounting at all.
+- `transfer` if you are sending money to a friend (or to another account you own) and don't want the event to be taxable.
+- `account deposit` / `account withdraw` if you're moving assets between exchanges or wallets. These won't be taxable in P&L reports and ensure balance tracking is accurate.
+- `protocol deposit` / `protocol withdrawal` if assets are going to or coming from a DeFi protocol (staking, lending, etc.) without receiving a receipt token back. These won't be taxable in P&L reports and ensure balance tracking is accurate.
+- `bridge out` if you are depositing to a bridge in order to move something to another chain, and `bridge in` if you are receiving something from another chain via a bridge.
+- For a swap: both events get `swap`, the first one the `Out` side and the second the `In` side. What's also important is the `sequence_index`. They need to be subsequent and the send should come before the receive.
+- `send` / `receive` if it is a plain expenditure / receipt.
+- `claim reward` if you got a reward for something.
+- `airdrop` if you received an airdrop.
+- `deposit` / `return` if you interacted with a protocol (e.g. Curve, Yearn, Aave, etc.) and received a wrapped token / returned one to reclaim the underlying asset.
+- `fee` if you are paying a fee for some of your actions.
+- `migrate` if it is a migration of assets from one protocol to another and you don't lose / gain anything from this event. For example when migrating from SAI to DAI. There are two events in a migration, and both get `migrate`: the `Out` side for the old asset you sent, the `In` side for the new one you received.
+- `stake` if it is a staking deposit event. For example staking in eth2 or in liquity.
+- `renew` if it is a renewal of any subscription or service that you are paying for.
+- `informational` if the event contains some useful information but it shouldn't be considered in accounting at all.
 
 Events that have been modified will appear marked in the UI.
 
@@ -337,152 +361,9 @@ Saving updates the stored historic price and invalidates rotki's in-memory cache
 
 ## Resolving Issues
 
-rotki can detect certain issues with your history events that may affect accounting accuracy. When issues are found, you will see a warning button with a badge showing the total number of issues at the top of the History Events page.
-
-![Issue check button](/images/usage-guides/history/events/issue_check_button.webp)
-
-Clicking the button opens a menu where you can check for specific types of issues. Currently, rotki detects the following:
-
-### Unmatched Asset Movements
-
-::: warning Premium Feature
-Asset movement matching is only available for certain premium subscription tiers. Visit the [pricing page](https://rotki.com/pricing) for details on which tiers include this feature.
-:::
-
-An unmatched asset movement is an exchange deposit or withdrawal that hasn't been linked to its corresponding on-chain blockchain transaction. For example:
-
-- You **withdraw** from an exchange, but there is no matching **receive** event on a tracked blockchain address.
-- You **deposit** to an exchange, but there is no matching **send** event from a tracked blockchain address.
-
-This can happen when:
-
-- The blockchain address involved is not tracked in rotki.
-- The corresponding on-chain event was missed or not yet synced.
-- There's a significant time or amount difference between the exchange record and the on-chain event.
-- The exchange doesn't provide enough information (such as the blockchain or transaction hash) to automatically link the movement to the corresponding on-chain event, even if that event already exists in your history.
-
-#### How to resolve
-
-![Match asset movements dialog](/images/usage-guides/history/events/unmatched_asset_movements.webp)
-
-You have several options to resolve unmatched asset movements:
-
-1. **Auto Match** - Click the `Trigger automatic matching` button to let rotki automatically match movements with corresponding on-chain events based on amount, asset, and timestamp. You can configure the amount tolerance and time range settings before triggering auto match.
-
-2. **Find Match** (manual) - Click `Find Match` on a specific movement to search for potential matches. You can adjust the search criteria:
-   - **Time range** (in hours) - Maximum allowed time difference between the movement and the on-chain event.
-   - **Amount tolerance** (in %) - Maximum allowed percentage difference between the movement amount and the on-chain event amount.
-   - **Only show same assets** - Filter results to the same asset.
-
-   Potential matches are displayed in a list, with **recommended** matches highlighted. Select one or more matching events and click `Confirm Match`. A single asset movement can be linked to multiple on-chain events, which is useful when the on-chain side was split across multiple transactions.
-
-   ![Potential matches dialog](/images/usage-guides/history/events/unmatched_asset_movements_potential.webp)
-
-3. **Ignore** - If a movement has no corresponding on-chain event (e.g., fiat currency deposits/withdrawals), click `Ignore` to mark it as having no match. Ignored movements are moved to the **Ignored** tab and can be restored later.
-
-4. **Ignore All Fiat** - Quickly ignore all fiat currency movements at once, since fiat movements don't have blockchain transactions.
-
-> [!TIP]
-> You can pin the matching dialog to the side of the History Events page, allowing you to browse events while working on matches side-by-side.
-
-### Duplicate Custom Events
-
-Duplicate custom events occur when you have customized (manually edited) a blockchain event, and a non-customized version of the same event also exists. This typically happens when:
-
-- A transaction is re-decoded after you had already customized one of its events, creating both the original decoded event and your customized version.
-- Events are re-pulled, generating new events alongside your existing customized ones.
-
-Duplicates can cause incorrect accounting since the same action may be counted more than once.
-
-rotki categorizes duplicates into two types:
-
-- **Auto-fixable** - The customized and non-customized events are exact matches (only differing by sequence index). These can be safely auto-fixed.
-- **Manual review** - The events share the same asset and direction but have other differences. These require manual inspection before resolving.
-
-When duplicates are detected, an alert banner will appear showing the count for each category, with a `View` button to navigate to the affected events.
-
-![Duplicate custom events alert](/images/usage-guides/history/events/duplicate_custom.webp)
-
-#### How to resolve
-
-1. **Auto Fix All** - For auto-fixable duplicates, click `Auto Fix All` to remove all the duplicate non-customized events at once, keeping your customized versions.
-
-2. **Individual Fix** - Click the `Fix` button on a specific duplicate event to remove just that one duplicate.
-
-3. **Manual review** - For duplicates that need manual review, click `View` to see the affected events in the history view. Inspect the events and manually resolve them by editing or deleting the incorrect one.
-
-   ![Duplicate events in history view](/images/usage-guides/history/events/duplicate_custom_view.webp)
-
-### Internal Transaction Conflicts
-
-Internal transaction conflicts occur when rotki detects inconsistencies in internal (trace-level) EVM transactions. These can arise from issues such as:
-
-- **All zero gas** - All internal transactions in the trace have zero gas values, which typically indicates incomplete or corrupt data from the data source. These conflicts trigger a **repull** from the data source.
-- **Duplicate exact rows** - Multiple identical internal transaction entries exist for the same transaction. These conflicts trigger a **fix & redecode** to remove duplicates and re-process the transaction.
-- **Mixed zero gas** - Some internal transactions in the trace have zero gas while others don't, indicating partial data corruption. These conflicts trigger a **fix & redecode**.
-- **Mixed zero gas & duplicate** - Both zero gas and duplicate conditions are present in the same transaction.
-
-> [!NOTE]
-> This feature was introduced in v1.42.1 as a one-time remediation for internal transaction data issues. The conflicts table is temporary and will be removed in a future release once all conflicts have been resolved.
-
-When conflicts are detected, a banner will appear in the History Events page alerting you to the number of conflicts that need attention.
-
-![Internal transaction conflicts banner](/images/usage-guides/history/events/internal_tx_conflicts_banner.webp)
-
-You can also access the conflicts dialog from the three-dot `⋮` menu at the top right of the History Events page by clicking `Check internal tx conflicts`. An orange dot indicator will appear when there are pending conflicts.
-
-![Internal transaction conflicts menu](/images/usage-guides/history/events/internal_tx_conflicts_menu.webp)
-
-Click `Review` in the banner or `Check internal tx conflicts` in the menu to open the Internal Transaction Conflicts dialog, which shows all detected conflicts organized into three tabs:
-
-- **Pending** - Conflicts that haven't been resolved yet.
-- **Failed** - Conflicts where the automatic resolution attempt failed.
-- **Fixed** - Conflicts that have been successfully resolved.
-
-![Internal transaction conflicts dialog](/images/usage-guides/history/events/internal_tx_conflicts_dialog.webp)
-
-Each conflict shows the transaction hash, chain, action type (repull or fix & redecode), timestamp, reason, last retry time, and any error from the last attempt. You can filter the list by chain or date range using the combined filters.
-
-#### How to resolve
-
-1. **Resolve individually** - Click the refresh button on a specific conflict to trigger resolution for that transaction.
-
-2. **Resolve in bulk** - Select multiple conflicts using the checkboxes and click `Resolve Selected` to process them all at once. A progress indicator will show the current status, and you can cancel the operation at any time.
-
-3. **Automatic resolution** - rotki will periodically attempt to resolve pending conflicts in the background. Conflicts that have never been retried are prioritized first, followed by those with the oldest retry timestamps. You can configure how often and how many conflicts are processed per run (see [Settings](#internal-transaction-conflict-settings) below).
-
-> [!TIP]
-> If you have manually customized any history events for a conflicting transaction, your edits are preserved. For fix & redecode conflicts, redecoding is skipped on customized transactions to protect your changes.
-
-#### Failed conflicts
-
-When a conflict resolution attempt fails (e.g., the data source is temporarily unavailable or returns an error), the conflict is moved to the **Failed** tab. This tab shows all conflicts where the last resolution attempt was unsuccessful, along with the error message from the last attempt.
-
-![Internal transaction conflicts failed tab](/images/usage-guides/history/events/internal_tx_conflicts_dialog_failed.webp)
-
-You can retry failed conflicts at any time by selecting them and clicking `Resolve Selected`, or by clicking the refresh button on individual entries. The automatic resolution system will also periodically retry failed conflicts.
-
-#### Pinning to sidebar
-
-You can pin the conflicts panel to the side of the History Events page by clicking the pin icon in the dialog header. This allows you to browse your history events while keeping the conflicts list visible for reference.
-
-![Internal transaction conflicts pinned sidebar](/images/usage-guides/history/events/internal_tx_conflicts_pinned.webp)
-
-#### Show in history events
-
-Click the external link icon on a conflict to highlight the corresponding transaction in the History Events view. If the panel is not already pinned, this will automatically pin it, allowing you to browse conflicts and events side-by-side.
-
-#### Internal transaction conflict settings
-
-You can configure the automatic conflict resolution behavior by clicking the gear icon in the dialog header.
-
-![Internal transaction conflicts settings](/images/usage-guides/history/events/internal_tx_conflicts_dialog_settings.webp)
-
-Two settings are available:
-
-- **Transactions per batch** - The number of conflicts to process per periodic task run (default: 20, minimum: 1).
-- **Repull frequency (minutes)** - How often the system automatically attempts to resolve conflicts (default: 60 minutes, minimum: 0.5 minutes).
-
-These settings are also available in `Settings > General > History Events`.
-
-![Internal transaction conflicts in general settings](/images/usage-guides/history/events/internal_tx_conflicts_general_settings.webp)
+rotki detects issues with your history events that may affect accounting accuracy, and collects them
+in the **actions center** at the top of the page.
+
+See **[Resolving history event issues](/usage-guides/history/issues)** for what each category means
+and how to clear it: unmatched asset movements and bridge transactions, duplicate customized events,
+internal transaction conflicts and undecoded transactions.

@@ -8,7 +8,7 @@ In the app these are four separate settings pages: **Chains**, **Oracles**, **RP
 
 ## Chain queries & detection
 
-![The Chains settings page](/images/usage-guides/settings/chains.webp)
+![The Chains settings page](/images/usage-guides/settings/blockchain/chains.webp)
 
 ### Skip chains and addresses
 
@@ -35,19 +35,32 @@ If enabled, ETH2 (staked ETH) will appear as ETH in the UI, and all tables and c
 
 ## Indexers
 
-rotki uses several indexers to identify which transactions belong to your tracked addresses. The order used for each chain can be adjusted in the default settings and will apply unless a specific chain configuration overrides it. For example you may want to avoid using etherscan on Optimism and Base if you do not have a paid API key for those networks.
+rotki uses several indexers to identify which transactions belong to your tracked addresses. The order used for each chain can be adjusted in the default settings and will apply unless a specific chain configuration overrides it. Some chains already ship with their own order, because the default one does not suit them: Base and Optimism try Blockscout before Etherscan, Gnosis uses Blockscout with Etherscan only as a fallback, and Scroll, Binance SC and Monad have a single usable indexer each.
 
 This lets you control which sources are queried and change the configuration if one of them is unreliable for a particular chain.
 
 In addition to querying historical events, indexers are used when detecting onchain activity, for example when you add a new address to all supported EVM chains or when the periodic task performs this check in the background.
 
-At the time of writing the only chain that cannot be queried for free is Binance SC because neither blockscout nor routescan are available and etherscan requires an API key under the Lite plan.
+### API keys and chain coverage
 
-Regarding the need for API keys:
+No indexer covers every chain, and each has its own key requirement:
 
-- Etherscan requires an API key in the free tier to perform API calls.
-- Blockscout does not require an API key and has a default limit of 10 requests per second.
-- Routescan offers a free tier comparable to etherscan and does not require an API key.
+| Indexer        | API key                                                                                                                                                                                | Chains covered                                                                    |
+| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| **Etherscan**  | Required, even on the free tier. One key covers every chain it serves                                                                                                                  | Most EVM chains, but **not** Scroll. Gnosis and Binance SC only on **paid** plans |
+| **Blockscout** | Required. The multichain endpoints reject keyless requests. One key covers every chain it serves. **Exception:** Hyperliquid is served through a free public instance and needs no key | Ethereum, Optimism, Polygon PoS, Arbitrum One, Base, Gnosis, Scroll, Hyperliquid  |
+| **Routescan**  | Not required                                                                                                                                                                           | Ethereum and Optimism only                                                        |
+
+rotki caps its own Blockscout traffic at 10 requests per second, so parallel chain refreshes do not overwhelm the endpoint.
+
+Which means, in practice:
+
+- **Ethereum** and **Optimism** can be queried with no API key at all, through Routescan.
+- **Hyperliquid** can be queried with no API key, through the free Blockscout instance.
+- Every other chain needs at least one key. For most of them a **free Etherscan key** is enough.
+- **Gnosis** needs either a **Blockscout key** or a **paid Etherscan plan**. Either one on its own is enough. Blockscout is queried first by default, and whichever indexer you have no key for steps aside instead of spending a request that cannot succeed. If you have neither, rotki tells you which one to add the first time it queries Gnosis.
+- **Scroll** needs a **Blockscout key**, since Etherscan no longer serves Scroll and Routescan does not cover it.
+- **Binance SC** needs a **paid Etherscan plan**, since it is the only indexer that serves the chain.
 
 ## Price Oracle Settings
 

@@ -27,7 +27,9 @@ To add or edit a manual balance:
 5. Add any tags you want
 6. Enter the amount and location
 
-You can also filter the manual balances by `location`, `name` or `asset`.
+You can also filter the manual balances from the filter bar above the table, with a pill for
+`location`, `name`, `asset` or `tags`. Locations are shown with their icon and name, and assets with
+their icon and symbol, so you pick them from a list rather than typing an identifier.
 
 ![The manually tracked balances](/images/usage-guides/portfolio/balances/manual.webp)
 
@@ -75,7 +77,9 @@ You can filter the tables by a combination of tags.
 
 ![Filter the accounts by tag](/images/usage-guides/portfolio/balances/filter_by_tag.webp)
 
-Simply add the tags you wish to filter by in the filter textbox above the tables.
+Add the `Tags` pill to the filter bar above the table and pick the tags you want. Each tag is drawn in
+the colours you gave it, so a set of tag filters is readable at a glance. Removing the pill clears the
+tag filter.
 
 ## Hide small balances
 

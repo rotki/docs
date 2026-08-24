@@ -20,8 +20,11 @@ When you first launch rotki, you'll be prompted to create a local account. This 
 ![rotki login screen](/images/_shared/login_screen.webp)
 
 1. Click **Create Account**
-2. Choose a profile name
-3. Set a strong password — this encrypts your local database
+2. Choose how to get started:
+   - **Create new account** — start fresh with a new local rotki profile.
+   - **Restore from cloud sync** — already a rotki premium user? Restore the database you previously synced to the cloud.
+3. Choose a profile name
+4. Set a strong password — this encrypts your local database
 
 ![Creating a new account](/images/_shared/create_account.webp)
 

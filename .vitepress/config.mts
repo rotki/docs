@@ -211,6 +211,7 @@ export default defineConfig({
             items: [
               { text: 'Historical Events', link: '/usage-guides/history/events' },
               { text: 'Filtering Events', link: '/usage-guides/history/filtering' },
+              { text: 'Resolving Issues', link: '/usage-guides/history/issues' },
               { text: 'On-Chain Transactions', link: '/usage-guides/history/onchain' },
               { text: 'Import Data', link: '/usage-guides/history/import-data' },
             ],
