@@ -65,15 +65,10 @@ Moralis offers a free tier, but requires adding a payment card to activate acces
 
 ## Loopring balances
 
-To have your Loopring balances detected, you will need an API Key from Loopring. To get one, visit [Loopring Security](https://loopring.io/#/layer2/security) and unlock your account. In the list of options, click on **Export Account**.
-
-![Get Loopring keys](/images/usage-guides/integrations/external-services/get_loopring_keys.webp)
-
-Then in rotki, you need to add the API key in the `Loopring` section.
-
-After following these steps, your balances in the dashboard will be updated including the Loopring information.
-
-![Loopring balances in the UI](/images/usage-guides/integrations/external-services/loopring_balances.webp)
+> [!IMPORTANT]
+> Loopring tracking was removed in rotki 1.44, since the Loopring API has shut down. There is no
+> Loopring API key section any more and no new balances are queried. Historical Loopring data already
+> in your database is preserved.
 
 ## Monerium
 
