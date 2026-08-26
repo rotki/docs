@@ -28,8 +28,10 @@ rotki provides an address book for blockchains. This replaces addresses with nam
 
 The address book uses the same filter bar as the rest of rotki, with a pill for `Address`, `Name` and
 `Chain`. Chains are shown with their logo and name and picked from a list. There is also a
-`Strict chain` pill: with it added, only entries recorded for that exact chain are shown, rather than
-also including entries that apply to every chain.
+`Strict blockchain filter` pill: with it added, only entries recorded for that exact chain are shown,
+rather than also including entries that apply to every chain.
+
+![Filtering the address book](/images/usage-guides/data-management/address-book/filter_bar.webp)
 
 Both the chain selector and the strict-chain checkbox used to sit beside the bar; they are pills
 inside it now, so there is a single place to filter from. See

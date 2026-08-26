@@ -27,6 +27,12 @@ const SHARED_DIRS = new Set(['_shared', '_external']);
  */
 const SKIP_DIRS = new Set(['node_modules', '.git', '.vitepress', 'dist', 'cache', 'scripts']);
 
+/**
+ * Never published, so their prose is not a page and its `/images/...` mentions are not references.
+ * Mirrors `srcExclude` in `.vitepress/config.mts` — keep the two in step.
+ */
+const SKIP_FILES = new Set(['README.md', 'LICENSE.md']);
+
 /** Files that can carry an image reference. */
 const TEXT_EXTENSIONS = new Set(['.md', '.vue', '.ts', '.mts', '.js', '.mjs', '.json']);
 
@@ -38,7 +44,7 @@ async function walk(dir, predicate) {
         continue;
       found.push(...await walk(join(dir, entry.name), predicate));
     }
-    else if (predicate(entry.name)) {
+    else if (!SKIP_FILES.has(entry.name) && predicate(entry.name)) {
       found.push(join(dir, entry.name));
     }
   }
@@ -119,6 +125,39 @@ function misplacedImages(imageFiles, docPages) {
     .map(([image, orphanDir]) => `image is not under a docs page: public/images/${image}\n    "${orphanDir}" is not a docs page — move it under its page's directory, or into _shared/ if several pages use it`);
 }
 
+/**
+ * The image sits under a real docs page, but a *different* page is the one referencing it. That
+ * passes the placement check above and still breaks the convention, because `ls <page dir>` no
+ * longer answers "which images does this page own".
+ *
+ * Only single-referrer images are judged. An image used by several pages belongs in `_shared/`,
+ * which is what the placement check already says, so flagging it here would just duplicate that.
+ */
+function strandedImages(references, docPages) {
+  const errors = [];
+  for (const [reference, sources] of references) {
+    const image = reference.replace(/^\/images\//, '');
+    const parts = image.split('/');
+    const dir = parts.slice(0, -1).join('/');
+
+    if (dir === '' || SHARED_DIRS.has(parts[0]) || !docPages.has(dir))
+      continue;
+
+    const pages = new Set([...sources].map(source =>
+      relative(ROOT, source).split('\\').join('/').replace(/\.md$/, ''),
+    ));
+
+    if (pages.size !== 1)
+      continue;
+
+    const [only] = pages;
+    if (only !== dir) {
+      errors.push(`image sits under another page's directory: public/images/${image}\n    only ${only}.md references it — move it to public/images/${only}/`);
+    }
+  }
+  return errors;
+}
+
 async function main() {
   const imageFiles = (await walk(IMAGES_DIR, () => true))
     .map(file => relative(IMAGES_DIR, file).split('\\').join('/'));
@@ -135,6 +174,7 @@ async function main() {
     ...brokenReferences(references, imageFiles),
     ...unreferencedImages(imageFiles, referenced),
     ...misplacedImages(imageFiles, docPages),
+    ...strandedImages(references, docPages),
   ];
 
   if (errors.length > 0) {

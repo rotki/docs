@@ -184,13 +184,20 @@ A rule and the events it applies to are one click apart in either direction:
 - From an event, the [edit accounting rule](/usage-guides/history/events#edit-accounting-rule) action
   takes you to the rule that governs it.
 
+![Events matching an accounting rule](/images/usage-guides/tax-accounting/accounting-rules/matching_events.webp)
+
+The pills carry the rule over, so you can widen or narrow the selection from there rather than
+rebuilding the filter by hand.
+
 ### Filtering the rules
 
-The rules table uses the same filter bar as the rest of rotki, with a pill for `Event type`,
-`Event subtype` and `Counterparty`. Types and subtypes are picked from a list and read as words
-rather than as their raw values, and counterparties are shown with their protocol icon and name. See
+The rules table uses the same filter bar as the rest of rotki, with a pill for `Type`, `Subtype` and
+`Counterparty`. Types and subtypes are picked from a list and read as words rather than as their raw
+values, and counterparties are shown with their protocol icon and name. See
 [Filtering history events](/usage-guides/history/filtering) for the shared syntax and keyboard
 handling.
+
+![Filtering the accounting rules](/images/usage-guides/tax-accounting/accounting-rules/filter_bar.webp)
 
 ### Limitations
 

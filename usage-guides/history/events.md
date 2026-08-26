@@ -256,6 +256,8 @@ You can add multiple `spend` and `receive` assets.
 
 == Bitcoin Event
 
+![Bitcoin event form](/images/usage-guides/history/events/bitcoin_event_form.webp)
+
 Use this entry type for a decoded Bitcoin or Bitcoin Cash transaction event. The form automatically uses `BTC` for Bitcoin and `BCH` for Bitcoin Cash, so the asset cannot be changed independently.
 
 The key fields are `Transaction ID` (the transaction hash), `Location` (Bitcoin or Bitcoin Cash), `Timestamp`, `Amount`, `Action`, `Sequence Index`, and `Counterparty`. An amount is required. Location and transaction ID are fixed after creation.
@@ -268,24 +270,27 @@ Advanced options include `Group Identifier` and `Extra Data` for additional cont
 
 == Solana Event
 
+![Solana event form](/images/usage-guides/history/events/solana_event_form.webp)
+
 Similar to an EVM Event but for the Solana blockchain. The location is fixed to Solana. Key fields include:
 
 - `Signature`: The Solana transaction signature (equivalent to a transaction hash).
 - `Action`: The same action picker as other event types.
 - `Sequence Index`: Order of the event within the transaction.
 - `Counterparty`: The protocol or address you interacted with.
-- `Address`: The Solana address related to the event.
 
 Advanced options include `Group Identifier` and `Extra Data` for additional context.
 
 == Solana Swap Event
+
+![Solana swap event form](/images/usage-guides/history/events/solana_swap_event_form.webp)
 
 Similar to the EVM Swap Event but for the Solana blockchain. The location is fixed to Solana. You can add multiple `spend` and `receive` assets, along with optional fee entries. Key fields include:
 
 - `Signature`: The Solana transaction signature.
 - `Spend` / `Receive`: Lists of assets spent and received in the swap, each with an asset and amount.
 - `Fee`: Optional fee entries that can be enabled via the fee checkbox.
-- `Address`: The Solana program or contract address involved.
+- `Contract Address`: The Solana program or contract address involved.
 - `Sequence Index` / `Counterparty`: Same as other event types.
   :::
 
@@ -296,6 +301,8 @@ For history event, and EVM history event, if any event was not decoded the way y
 Every event form has one `Action` field describing what the event does, written as a verb rather than
 as a raw type and subtype pair. Open it and you get a searchable list, so you can type `bridge` or
 `airdrop` instead of working out which combination expresses it.
+
+![The action picker](/images/usage-guides/history/events/action_picker.webp)
 
 Actions are grouped by intent: `Trade`, `Transfer`, `DeFi deposit & withdraw`, `DeFi borrow & repay`,
 `Staking`, `Income`, `Expense`, `Donation`, `NFT`, `Bridge`, `Centralized exchange`, `Validator`,

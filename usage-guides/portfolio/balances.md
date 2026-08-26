@@ -75,7 +75,7 @@ This will enable image rendering of only whitelisted NFT domains.
 
 You can filter the tables by a combination of tags.
 
-![Filter the accounts by tag](/images/usage-guides/portfolio/balances/filter_by_tag.webp)
+![Filter a balances table by tag](/images/usage-guides/portfolio/balances/filter_by_tag.webp)
 
 Add the `Tags` pill to the filter bar above the table and pick the tags you want. Each tag is drawn in
 the colours you gave it, so a set of tag filters is readable at a glance. Removing the pill clears the

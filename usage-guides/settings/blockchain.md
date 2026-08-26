@@ -71,6 +71,8 @@ confirm, and rotki stops raising it for that chain.
 Suppressed chains are listed under **Suppressed "No indexers available" notifications** on this page.
 Remove a chain from that list to start showing its notification again.
 
+![Suppressed indexer notifications](/images/usage-guides/settings/blockchain/indexer_notifications.webp)
+
 Suppression is per chain, so silencing one never silences another. Even without suppressing anything,
 a notification you keep ignoring backs off on its own — see
 [how often a notification repeats](/usage-guides/utilities/#how-often-a-notification-repeats).

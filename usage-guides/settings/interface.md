@@ -56,9 +56,17 @@ Configure whether the graph y-axis starts at 0 or the minimum amount for the per
 
 ### Alias Name for Addresses
 
-Enable or disable alias names for blockchain addresses, and change the order the sources are resolved in. The sources are `Private address book`, `Global address book`, `ENS names`, `GNS names (.gwei)`, `Ethereum tokens`, `Hardcoded mappings` and `Blockchain account labels`.
+Shown in the app as **Blockchain address aliases**. Enable or disable alias names for blockchain
+addresses, and change the order the sources are resolved in. The first source that has a name for an
+address wins. In priority order the defaults are `Private address book`, `Blockchain account labels`,
+`Global address book`, `Ethereum tokens`, `Hardcoded mappings`, `ENS names` and `GNS names (.gwei)`.
 
-`GNS names (.gwei)` is opt-in and off by default. Add it to the priority list to have [Gwei Name Service](https://gwei.domains) names shown for your addresses, positioned wherever you want relative to ENS. Avatars follow the same priority.
+![The address alias priority list](/images/usage-guides/settings/interface/alias_priority.webp)
+
+`GNS names (.gwei)` was added in 1.44 and sits last by default, so a
+[Gwei Name Service](https://gwei.domains) name is used only where nothing higher, ENS included, has
+one. Drag it above `ENS names` to prefer it, or remove it from the list to ignore GNS entirely.
+Avatars follow the same priority.
 
 ### Newly Detected Tokens
 

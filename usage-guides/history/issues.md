@@ -9,7 +9,7 @@ rotki can detect certain issues with your history events that may affect account
 the **categories** that need attention, not the individual items, so a badge of `2` means two kinds of
 thing to deal with, however many events each covers.
 
-![Issue check button](/images/usage-guides/history/events/issue_check_button.webp)
+![Issue check button](/images/usage-guides/history/issues/issue_check_button.webp)
 
 Opening it lists every category as a row with its own count, a short description and its own action
 button. Categories with nothing to do are listed too, so you can re-check them at any time rather
@@ -17,19 +17,30 @@ than wondering whether they were ever looked at. Rows are ordered by what you ca
 needing attention first, then ones where only ignored items remain, then any locked behind a premium
 tier.
 
+![The actions center](/images/usage-guides/history/issues/actions_center.webp)
+
 The categories are:
 
-| Category                           | What it means                                                                          |
-| ---------------------------------- | -------------------------------------------------------------------------------------- |
-| **Tracked accounts**               | You are not tracking any accounts yet, so every other count below is legitimately zero |
-| **Unmatched asset movements**      | An exchange deposit or withdrawal not yet linked to its on-chain transaction           |
-| **Unmatched bridge transactions**  | A bridge leg not yet linked to its counterpart on the other chain                      |
-| **Duplicate events**               | Duplicated customized events that can be fixed automatically                           |
-| **Duplicates needing review**      | Duplicated customized events that need you to choose                                   |
-| **Internal transaction conflicts** | A re-pulled internal transaction disagrees with what was stored                        |
-| **Undecoded transactions**         | Transactions queried but not yet decoded into events                                   |
+| Category                           | What it means                                                                          | Action           |
+| ---------------------------------- | -------------------------------------------------------------------------------------- | ---------------- |
+| **Tracked accounts**               | You are not tracking any accounts yet, so every other count below is legitimately zero | `Add an account` |
+| **Unmatched asset movements**      | An exchange deposit or withdrawal not yet linked to its on-chain transaction           | `Match` ᴾ        |
+| **Unmatched bridge transactions**  | A bridge leg not yet linked to its counterpart on the other chain                      | `Match` ᴾ        |
+| **Duplicate events**               | Duplicated customized events that can be fixed automatically                           | `Review`         |
+| **Duplicates needing review**      | Duplicated customized events that need you to choose                                   | `Review`         |
+| **Internal transaction conflicts** | A re-pulled internal transaction disagrees with what was stored                        | `Review`         |
+| **Undecoded transactions**         | Transactions queried but not yet decoded into events                                   | `View status`    |
 
-The ones needing an explanation of their own are covered below.
+ᴾ Premium only. A locked row still appears in the list, but it never raises the badge, so the count
+on the button reflects what you can actually act on.
+
+Two of these mean less than they look. **Tracked accounts** and **Undecoded transactions** describe
+the state of your data rather than a mistake to correct: the first is only ever raised on an empty
+account, and the second clears itself as decoding proceeds. The remaining five are the ones that
+affect accounting, and each is covered in its own section below.
+
+When every item in a category has been ignored rather than resolved, the row stays in the list but
+its action changes to `Review ignored`, so ignoring something never makes it disappear silently.
 
 ## Unmatched Asset Movements
 
@@ -51,7 +62,7 @@ This can happen when:
 
 ### How to resolve
 
-![Match asset movements dialog](/images/usage-guides/history/events/unmatched_asset_movements.webp)
+![Match asset movements dialog](/images/usage-guides/history/issues/unmatched_asset_movements.webp)
 
 You have several options to resolve unmatched asset movements:
 
@@ -62,9 +73,16 @@ You have several options to resolve unmatched asset movements:
    - **Amount tolerance** (in %) - Maximum allowed percentage difference between the movement amount and the on-chain event amount.
    - **Only show same assets** - Filter results to the same asset.
 
-   Potential matches are displayed in a list, with **recommended** matches highlighted. Select one or more matching events and click `Confirm Match`. A single asset movement can be linked to multiple on-chain events, which is useful when the on-chain side was split across multiple transactions.
+   Potential matches are displayed in a list. Where one candidate stands out, it is marked as
+   **recommended** with a thumbs-up; when nothing qualifies, the list is simply the candidates that
+   fit the criteria. Select one or more matching events and click `Confirm Match`. A single asset
+   movement can be linked to multiple on-chain events, which is useful when the on-chain side was
+   split across multiple transactions.
 
-   ![Potential matches dialog](/images/usage-guides/history/events/unmatched_asset_movements_potential.webp)
+   If nothing comes back, the dialog says so and offers `Widen search`, which relaxes the two
+   criteria for you. You can also edit them directly and search again.
+
+   ![Potential matches dialog](/images/usage-guides/history/issues/unmatched_asset_movements_potential.webp)
 
 3. **Ignore** - If a movement has no corresponding on-chain event (e.g., fiat currency deposits/withdrawals), click `Ignore` to mark it as having no match. Ignored movements are moved to the **Ignored** tab and can be restored later.
 
@@ -87,9 +105,9 @@ rotki categorizes duplicates into two types:
 - **Auto-fixable** - The customized and non-customized events are exact matches (only differing by sequence index). These can be safely auto-fixed.
 - **Manual review** - The events share the same asset and direction but have other differences. These require manual inspection before resolving.
 
-When duplicates are detected, an alert banner will appear showing the count for each category, with a `View` button to navigate to the affected events.
-
-![Duplicate custom events alert](/images/usage-guides/history/events/duplicate_custom.webp)
+Each type is its own row in the actions center, reached from the `Actions needed` button described
+above: **Duplicate events** for the auto-fixable ones and **Duplicates needing review** for the rest,
+each with its own count and its own `Review` action.
 
 ### How to resolve
 
@@ -99,7 +117,7 @@ When duplicates are detected, an alert banner will appear showing the count for 
 
 3. **Manual review** - For duplicates that need manual review, click `View` to see the affected events in the history view. Inspect the events and manually resolve them by editing or deleting the incorrect one.
 
-   ![Duplicate events in history view](/images/usage-guides/history/events/duplicate_custom_view.webp)
+   ![Duplicate events in history view](/images/usage-guides/history/issues/duplicate_custom_view.webp)
 
 ## Internal Transaction Conflicts
 
@@ -113,23 +131,24 @@ Internal transaction conflicts occur when rotki detects inconsistencies in inter
 > [!NOTE]
 > This feature was introduced in v1.42.1 as a one-time remediation for internal transaction data issues. The conflicts table is temporary and will be removed in a future release once all conflicts have been resolved.
 
-When conflicts are detected, a banner will appear in the History Events page alerting you to the number of conflicts that need attention.
+When conflicts are detected they appear as the **Internal transaction conflicts** row in the actions
+center, with the number needing attention and a `Review` action that opens the dialog below.
 
-![Internal transaction conflicts banner](/images/usage-guides/history/events/internal_tx_conflicts_banner.webp)
-
-You can also access the conflicts dialog from the three-dot `⋮` menu at the top right of the History Events page by clicking `Check internal tx conflicts`. An orange dot indicator will appear when there are pending conflicts.
-
-![Internal transaction conflicts menu](/images/usage-guides/history/events/internal_tx_conflicts_menu.webp)
-
-Click `Review` in the banner or `Check internal tx conflicts` in the menu to open the Internal Transaction Conflicts dialog, which shows all detected conflicts organized into three tabs:
+Click `Review` on that row to open the Internal Transaction Conflicts dialog, which shows all detected conflicts organized into three tabs:
 
 - **Pending** - Conflicts that haven't been resolved yet.
 - **Failed** - Conflicts where the automatic resolution attempt failed.
 - **Fixed** - Conflicts that have been successfully resolved.
 
-![Internal transaction conflicts dialog](/images/usage-guides/history/events/internal_tx_conflicts_dialog.webp)
+![Internal transaction conflicts dialog](/images/usage-guides/history/issues/internal_tx_conflicts_dialog.webp)
 
-Each conflict shows the transaction hash, chain, action type (repull or fix & redecode), timestamp, reason, last retry time, and any error from the last attempt. You can filter the list by chain or date range using the combined filters.
+Each conflict shows the transaction hash, chain, action type (repull or fix & redecode), timestamp, reason, last retry time, and any error from the last attempt.
+
+The list uses the same filter bar as the rest of rotki, with a pill for `Chain` and one for `Date`.
+`Chain` takes a single chain and offers EVM chains only, and `Date` folds both ends of the range into
+one pill. The Pending, Failed and Fixed tabs set the status, so it is not a pill. See
+[Filtering history events](/usage-guides/history/filtering) for the shared syntax and keyboard
+handling.
 
 ### How to resolve
 
@@ -146,7 +165,7 @@ Each conflict shows the transaction hash, chain, action type (repull or fix & re
 
 When a conflict resolution attempt fails (e.g., the data source is temporarily unavailable or returns an error), the conflict is moved to the **Failed** tab. This tab shows all conflicts where the last resolution attempt was unsuccessful, along with the error message from the last attempt.
 
-![Internal transaction conflicts failed tab](/images/usage-guides/history/events/internal_tx_conflicts_dialog_failed.webp)
+![Internal transaction conflicts failed tab](/images/usage-guides/history/issues/internal_tx_conflicts_dialog_failed.webp)
 
 You can retry failed conflicts at any time by selecting them and clicking `Resolve Selected`, or by clicking the refresh button on individual entries. The automatic resolution system will also periodically retry failed conflicts.
 
@@ -154,7 +173,7 @@ You can retry failed conflicts at any time by selecting them and clicking `Resol
 
 You can pin the conflicts panel to the side of the History Events page by clicking the pin icon in the dialog header. This allows you to browse your history events while keeping the conflicts list visible for reference.
 
-![Internal transaction conflicts pinned sidebar](/images/usage-guides/history/events/internal_tx_conflicts_pinned.webp)
+![Internal transaction conflicts pinned sidebar](/images/usage-guides/history/issues/internal_tx_conflicts_pinned.webp)
 
 ### Show in history events
 
@@ -164,13 +183,15 @@ Click the external link icon on a conflict to highlight the corresponding transa
 
 You can configure the automatic conflict resolution behavior by clicking the gear icon in the dialog header.
 
-![Internal transaction conflicts settings](/images/usage-guides/history/events/internal_tx_conflicts_dialog_settings.webp)
+![Internal transaction conflicts settings](/images/usage-guides/history/issues/internal_tx_conflicts_dialog_settings.webp)
 
 Two settings are available:
 
-- **Transactions per batch** - The number of conflicts to process per periodic task run (default: 20, minimum: 1).
-- **Repull frequency (minutes)** - How often the system automatically attempts to resolve conflicts (default: 60 minutes, minimum: 0.5 minutes).
+- **Transactions per batch** - The number of conflicts to process per periodic task run (default: 100, minimum: 1).
+- **Repull frequency (minutes)** - How often the system automatically attempts to resolve conflicts (default: 15 minutes, minimum: 0.5 minutes).
 
-These settings are also available in `Settings > General > History Events`.
+These settings are also available in `Settings > General > History Events`, where the same two
+controls are titled `Internal transactions to repull` and `Conflict repull frequency`. The fields
+themselves keep the labels above, so the values you see there are the same ones.
 
-![Internal transaction conflicts in general settings](/images/usage-guides/history/events/internal_tx_conflicts_general_settings.webp)
+![Internal transaction conflicts in general settings](/images/usage-guides/history/issues/internal_tx_conflicts_general_settings.webp)

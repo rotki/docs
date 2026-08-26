@@ -25,6 +25,7 @@
     "lint": "eslint .",
     "check:images": "node scripts/check-images.mjs",
     "check:anchors": "node scripts/check-anchors.mjs",
+    "check:app-links": "node scripts/check-app-links.mjs",
     "lint-staged": "lint-staged",
     "prepare": "husky"
   },

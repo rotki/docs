@@ -64,5 +64,8 @@ jobs:
       - name: Check anchors 🔗
         run: pnpm run check:anchors
 
+      - name: Check app links 🔗
+        run: pnpm run check:app-links
+
       - name: Build
         run: pnpm run build

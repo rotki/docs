@@ -16,6 +16,10 @@ The Help & Support menu provides quick access to:
 - **Discord** - Join the community and get support
 - **Github** - Review the code and open issues
 - **Twitter / X** - Follow for updates
+
+When you run rotki in a browser, for example the docker deployment, two more entries appear at the
+bottom of the menu. The desktop app does not show them here.
+
 - **About** - Version information, including the data directory currently in use
 - **Browser Log** - Download the browser log file
 

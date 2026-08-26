@@ -16,6 +16,12 @@ import process from 'node:process';
 const ROOT = resolve(import.meta.dirname, '..');
 const SKIP_DIRS = new Set(['node_modules', '.git', '.vitepress', 'dist', 'cache', 'scripts', 'public']);
 
+/**
+ * Never published, so they are neither a link source nor an anchor target.
+ * Mirrors `srcExclude` in `.vitepress/config.mts` — keep the two in step.
+ */
+const SKIP_FILES = new Set(['README.md', 'LICENSE.md']);
+
 /** A markdown link to an internal page with an anchor: `](/some/page#the-anchor)`. */
 const ANCHORED_LINK = /]\(\/([\w/-]+)#([\w-]+)\)/g;
 
@@ -43,7 +49,7 @@ async function walk(dir) {
         continue;
       found.push(...await walk(join(dir, entry.name)));
     }
-    else if (entry.name.endsWith('.md')) {
+    else if (!SKIP_FILES.has(entry.name) && entry.name.endsWith('.md')) {
       found.push(join(dir, entry.name));
     }
   }

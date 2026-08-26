@@ -35,8 +35,11 @@ You can also pin notes; the pinned notes will appear at the top.
 
 rotki reports what it is doing, and anything that needs your attention, through the **notification
 area** in the toolbar. Opening it shows every notification received this session, grouped into four
-tabs: `View All`, `Error`, `Needs Action` and `Reminder`. Many notifications carry an action, such as
-adding a missing API key or opening the dialog that resolves what they are about.
+tabs: `View All`, `Needs Action`, `Reminder` and `Error`. Many notifications carry an action, such as
+adding a missing API key or opening the dialog that resolves what they are about. Any task still
+running is shown above the tabs, with its progress.
+
+![The notification area](/images/usage-guides/utilities/index/notifications.webp)
 
 Notifications also appear briefly as a **popup** in the corner of the window as they arrive.
 
@@ -45,6 +48,8 @@ Notifications also appear briefly as a **popup** in the corner of the window as 
 If the popups interrupt you, click **Silence notification popups** in the notification area. The
 button then reads `Popups silenced. Click to allow them again`, and you can turn them back on the
 same way.
+
+![Silencing notification popups](/images/usage-guides/utilities/index/notifications_silence.webp)
 
 Nothing is lost while popups are silenced. Every notification still arrives in the notification area
 with its actions intact; only the transient popup is suppressed. The setting is stored with your

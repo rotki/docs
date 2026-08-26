@@ -155,7 +155,7 @@ To mark an asset as spam, navigate to `Manage Assets → Assets`, find the asset
 
 ## Whitelisting of ignored assets
 
-Spam assets are a plague in EVM chains. rotki has an automatic algorithm trying to match assets as spam to not bother the user with automatically ignoring them. You can see all ignored assets in `Manage Assets → Assets` by adding the `Ignored assets` pill to the filter bar and setting it to `Only show ignored assets`. A problem with automatic algorithms marking something as spam is that mistakes can be made and a legit token may be ignored.
+Spam assets are a plague in EVM chains. rotki has an automatic algorithm trying to match assets as spam to not bother the user with automatically ignoring them. You can see all ignored assets in `Manage Assets → Assets` by adding the `Ignored assets` pill to the filter bar and setting it to `Only ignored`, which also shows how many there are. A problem with automatic algorithms marking something as spam is that mistakes can be made and a legit token may be ignored.
 
 ![Filter ignored assets](/images/usage-guides/data-management/assets/filter_ignored.webp)
 

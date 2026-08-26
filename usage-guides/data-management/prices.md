@@ -27,12 +27,15 @@ The `Oracle Prices` page has two tabs:
 
 ![Oracle prices listing](/images/usage-guides/data-management/prices/oracle_list.webp)
 
-The **Prices** tab uses the same filter bar as the rest of rotki, with a pill for the `From asset`,
-the `To asset`, the `Source` oracle and the `Period`. Assets are shown with their icon and symbol,
-and each oracle by the name the table itself uses rather than its raw identifier. The two separate
-start and end date filters are now one period pill with a date picker for each end. See
+The **Prices** tab uses the same filter bar as the rest of rotki, with a pill for the `Source asset`,
+the `Target asset`, the `Source` oracle and the `Period`. Those first two filter the `From Asset` and
+`To Asset` columns. Assets are shown with their icon and symbol, and each oracle by the name the
+table itself uses rather than its raw identifier. The two separate start and end date filters are now
+one period pill with a date picker for each end. See
 [Filtering history events](/usage-guides/history/filtering) for the shared syntax and keyboard
 handling.
+
+![Filtering cached oracle prices](/images/usage-guides/data-management/prices/filter_bar.webp)
 
 Each row in the **Prices** tab can be edited or deleted. Use this when you know the cached price is wrong (for example, an oracle returned a stale or incorrect value) and want to override it without adding a separate manual entry. Deleting an entry removes the cached value entirely; the next lookup will hit the oracle again.
 
