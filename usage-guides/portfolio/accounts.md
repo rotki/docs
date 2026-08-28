@@ -124,6 +124,24 @@ time you open the views menu.
 > A bookmarked link to this page that carried an account filter needs to be taken again. Filters are
 > written into the address differently now, so an older link will not restore the same selection.
 
+#### Excluding a chain from one account's total
+
+The filter bar decides which rows the table shows. Excluding a chain is a separate thing: it changes
+what a single row counts.
+
+An account tracked on several chains shows one icon per chain in its `Chains` column. Click an icon
+to exclude that chain from that account, and click it again to put it back. An excluded chain's icon
+is dimmed, and the row's value then shows two figures: the smaller one above is the total for the
+chains still included, and the one below it is the account's full total across every chain.
+
+Hovering the column reveals an `x` button that clears the exclusions for that row. Its tooltip reads
+`Enable all chains`.
+
+![An account with Ethereum excluded: its icon is dimmed and the row shows the included total above the full one](/images/usage-guides/portfolio/accounts/chain_exclusion.webp)
+
+This only applies to accounts tracked on more than one chain. On a single-chain account the icon is
+not clickable, and its tooltip just names the chain.
+
 Additionally, there is an option to toggle between viewing the aggregated assets across all chains or displaying the assets per individual chain. This provides flexibility, allowing you to either get a total balance view from all chains at once or focus on specific chain assets.
 
 ![Filter or delete a blockchain account](/images/usage-guides/portfolio/accounts/aggregated_view_per_chain.webp)
@@ -136,15 +154,17 @@ rotki automatically resolves ENS name and ENS avatar for every EVM address that 
 
 For EVM accounts, it is possible to trigger the process of detecting tokens before refreshing the balances. There are several ways to do that:
 
-![Refresh all accounts tokens](/images/usage-guides/portfolio/accounts/refresh_all_tokens.webp)
+1. To re-detect tokens for all EVM accounts on all chains, go to the dashboard and open the arrow beside the `Blockchain Balances` refresh button. Setting the behaviour to `Re-detect tokens and refresh balances` makes every later click of that refresh button detect tokens first.
 
-1. To re-detect tokens for all EVM accounts in all chains, go to the dashboard and toggle the arrow here. You can change the default behavior of the refresh button to `Re-detect tokens and refresh balances` and then click the refresh button.
+![The blockchain refresh button behaviour options on the dashboard](/images/usage-guides/portfolio/accounts/refresh_all_tokens.webp)
 
-![Refresh particular accounts tokens](/images/usage-guides/portfolio/accounts/refresh_particular_tokens.webp)
+2. To re-detect tokens for every address on one or more chains, open the arrow beside `Re-detect tokens` in the EVM accounts toolbar. Tick the chains you want and press the button at the bottom, or use a row's own `Re-detect` to do that one chain immediately.
 
-2. To re-detect tokens for all addresses of one EVM chain, click `Re-detect tokens` in the EVM accounts section.
+![Choosing which chains to re-detect tokens on](/images/usage-guides/portfolio/accounts/refresh_particular_tokens.webp)
 
-3. To re-detect tokens for only one account, click the refresh button in the corresponding row.
+3. To re-detect tokens for one account on one chain, expand that account, switch to `Per chain`, and click the refresh button on the chain's row. Its tooltip shows when tokens were last detected for that pair.
+
+![The per-chain view of an expanded account, with a refresh button on each chain row](/images/usage-guides/portfolio/accounts/refresh_chain_row_tokens.webp)
 
 ### Import and Export Blockchain Accounts (CSV)
 

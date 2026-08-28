@@ -17,11 +17,12 @@ When you start rotki, you'll see a sign-in/signup prompt. rotki is a local app, 
 
 To create a local account, press **Create Account**. If you have a premium subscription, you can link this local account using API keys.
 
-To restore an account with premium sync during account creation:
+Account creation runs as a short sequence of steps, listed on the right of the screen: `Introduction`, then the premium step, then your credentials, then usage analytics.
 
-1. **Enable premium**.
-2. Enable **Restore synced database**.
-3. Enter your **API Key** and **Secret** (found on your account page at [rotki.com](https://rotki.com/)).
+To restore an account you previously synced from another device:
+
+1. On `Introduction`, choose to restore an account rather than starting a fresh one.
+2. On **Restore from cloud**, enter your **rotki API Key** and **rotki API Secret** (found on your account page at [rotki.com](https://rotki.com/)).
 
 Then click **Continue**.
 
