@@ -8,14 +8,18 @@ description: Quick-access utilities in rotki, including global search for fast n
 
 You can use global search provided to speed up your actions by clicking the icon on the top bar, or using the shortcut `Control-/` (`Command-/` if you are using Mac).
 
+![The global search box before anything is typed](/images/usage-guides/utilities/index/global_search_empty.webp)
+
 Some actions provided by this global search:
 
-- Navigate to any page in rotki
-- Some basic actions such as adding a new trade.
+- Navigate to any page in rotki.
+- Quick-add actions, such as `Add a manual balance`, `Add blockchain account`, `Add an exchange` or `Create Tag`. These take you to the relevant page with the add dialog already open.
 - Go to a certain owned asset overview page.
-- Go to a certain location overview page.
+- Go to a certain location overview page. Your connected exchanges and the chains you track both appear here.
 
-![Global Search](/images/usage-guides/utilities/index/global_searchbox.gif)
+One query returns all of them together, ranked in a single list.
+
+![Search results for "bal", mixing pages, a connected exchange, a quick-add action and an owned asset](/images/usage-guides/utilities/index/global_search_results.webp)
 
 ## Taking Notes In-App
 
@@ -76,10 +80,13 @@ The area holds a maximum of 200 notifications, after which the oldest are droppe
 
 ## Background Tasks
 
-A list of processing tasks is available on the notifications tray.
+A list of processing tasks is available on the notifications tray, headed by a count of how many
+jobs are currently running. A task that reports its progress also shows how many of its steps are
+done.
 
 ![running background tasks](/images/usage-guides/utilities/index/pending_tasks.webp)
 
-It is possible to cancel a long running task, but use this feature sparingly.
+It is possible to cancel a long running task, but use this feature sparingly. rotki asks you to
+confirm first, and warns that cancelling leaves the underlying process in an unfinished state.
 
 ![cancel background task](/images/usage-guides/utilities/index/pending_tasks_cancel.webp)

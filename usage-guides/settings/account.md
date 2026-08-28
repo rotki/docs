@@ -8,7 +8,7 @@ description: "Manage rotki account and security settings: change your password, 
 
 ### Changing Password
 
-Choose the "User & Security" section to change the user password.
+Choose the "Security" section to change the user password.
 
 ![Changing the user's password](/images/usage-guides/settings/account/user_password_change.webp)
 
