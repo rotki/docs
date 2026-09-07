@@ -6,12 +6,14 @@ description: Manage global and private address book entries in rotki to replace 
 
 You can manage the address book in `Manage Address Book` menu in the sidebar.
 
-rotki provides an address book for blockchains. This replaces addresses with names provided by the user across the application. You can click on `Save this name for all chains` to use the name for the provided address on all chains where that address appears. The address book is split into two different kinds:
+rotki provides an address book for blockchains. This replaces addresses with names provided by the user across the application. To reuse one name for an address on every chain where it appears, pick `All Supported Chains` in the entry's blockchain selector instead of a single chain. The address book is split into two different kinds:
 
 1. **Global Address Book**: It replaces addresses with the names provided across the entire application irrespective of the user logged in.
 2. **Private Address Book**: It replaces addresses with the names provided for the user currently logged in. It takes precedence over names found in the global address book.
 
 ![Adding entry to EVM address book](/images/usage-guides/data-management/address-book/add_evm.webp)
+
+Once an entry exists, the name stands in for that address everywhere the address would otherwise be printed. Here a history event names one side of the transfer and leaves the other as raw hex, because only the first has an address book entry:
 
 ![Displaying behaviour of an EVM address book](/images/usage-guides/data-management/address-book/display_evm_behaviour.webp)
 

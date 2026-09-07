@@ -25,6 +25,8 @@ Following that you can see a graph of quantity of an asset superimposed on its U
 
 We have introduced an option in the asset graphs to select the `Missing snapshot multiplier`. It sets after how many hours between two snapshots the graph will display zero balances. This allows to improve graphs for periods where the balance of an asset was zero.
 
+The same panel carries a second setting, `Infer zero timed balances`. Enable it to have rotki infer a zero balance for an asset at times when it has none recorded, which makes zero-balance periods visible in the graph rather than leaving a gap.
+
 ![Multiplying option in assets graphs](/images/usage-guides/statistics/multipliying_option.webp)
 
 All the assets graphs as well as the dashboard graph have the possibility of selecting a range for zooming. This can be done by left clicking and dragging on the graph itself or using the selector under the graph. The graph can be zoomed out by double clicking on it.

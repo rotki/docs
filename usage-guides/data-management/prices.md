@@ -14,7 +14,7 @@ The `Manage Prices` menu lets you add manual prices that override oracle lookups
 
 To add a new price, open `Latest Prices` or `Historic Prices` from the `Manage Prices` menu and press the plus button. This opens the add form where you can specify the assets, the price, and (for historical entries) the date.
 
-After saving, the entry appears in the list. When a manual latest price is in use it is flagged in the UI with an orange icon next to the price; the tooltip reads "Manually defined price".
+After saving, the entry appears in the list. Wherever that price is then used, rotki flags it with an orange sparkle icon whose tooltip reads "Manually defined price". The icon marks both the price itself and any value derived from it, so a balance row carries it twice: once beside the unit price and once beside the total.
 
 ![Edited latest price UI indicator](/images/usage-guides/data-management/prices/latest_price.webp)
 

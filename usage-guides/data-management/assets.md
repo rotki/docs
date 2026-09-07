@@ -28,7 +28,7 @@ You can fill in the following fields:
 1. The type of asset being created. This is required.
 2. The chain where the token is located. This is required if the asset type is `EVM Token` or `Solana Token`.
 3. The token kind. This is required if the asset type is `EVM Token` (options: `ERC20`, `ERC721`) or `Solana Token` (options: `SPL Token`, `SPL NFT`).
-4. The token address. This is required if the asset type is `EVM Token` or `Solana Token`.
+4. The token address. This is required if the asset type is `EVM Token` or `Solana Token`. When the token kind is a collectible (`ERC721` or `SPL NFT`), a `Collectible ID` field appears beside it.
 5. The token name. This is required.
 6. The token symbol. This is required.
 7. The token decimals. This is required if the asset type is `EVM Token`.
@@ -40,7 +40,7 @@ You can fill in the following fields:
 
 When you input the address of the token rotki will try to fetch its name, symbol and decimals and use them if they are available.
 
-There are also some other fields that are completely optional and expand if you press the (7) Optional Fields section.
+There are also some other fields that are completely optional and expand if you press the (10) Optional Fields section.
 
 ![Optional information when adding an asset](/images/usage-guides/data-management/assets/add_edit_token_optionals.webp)
 
@@ -51,6 +51,11 @@ There are also some other fields that are completely optional and expand if you 
 5. You have to specify the token kind.
 6. And here add the underlying token's weight.
 7. Here you can edit or delete underlying token address/weights. Note: The weight of the underlying tokens should add up to 100%.
+
+Two further optional fields appear depending on the asset type:
+
+- `Forked`: the asset this one forked from. Shown for asset types other than `EVM Token`.
+- `Rebasing token`: a switch to enable for tokens whose balance changes over time without transfer events. Shown for `EVM Token` assets that are not NFTs.
 
 > [!NOTE]
 > Underlying tokens only apply to asset type of `EVM Token`.
@@ -77,6 +82,9 @@ You can fill in the following fields:
 1. The name to be given to the custom asset. This is required.
 2. The type of custom asset being represented. It's just a string. The type field remembers all previously used types. This is required.
 3. The note to be added to the custom asset. This is optional.
+4. Preview of the icon you upload.
+5. You can upload an icon for the custom asset. Any of the common image extensions is accepted (png, jpg, jpeg, webp).
+6. Save the custom asset.
 
 ## Missing Mappings
 

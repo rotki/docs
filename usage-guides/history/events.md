@@ -343,7 +343,7 @@ to pick:
 - `renew` if it is a renewal of any subscription or service that you are paying for.
 - `informational` if the event contains some useful information but it shouldn't be considered in accounting at all.
 
-Events that have been modified will appear marked in the UI.
+Events you have modified are marked in the UI with a small blue pencil badge under the event type; hovering it shows `Customized`. The mark matters beyond bookkeeping: a redecode rebuilds events from the chain but skips the customized ones, so anything you edited by hand survives it.
 
 ![Customized events in the UI](/images/usage-guides/history/events/customized.webp)
 

@@ -36,6 +36,10 @@ If time format doesn't match rotki's default:
 
 rotki can import any trade CSV data exported from [cointracking.info](https://cointracking.info/). But in general, it's not recommended to utilize cointracking as their exported data are missing a lot of information.
 
+### CoinLedger
+
+rotki can import a CSV data file exported from [CoinLedger](https://coinledger.io/). Exports are imported row-by-row using the `Record Type` field (for example `Credit`, `Debit`, `Platform Fee`).
+
 ### Binance.com
 
 rotki can import a CSV data file exported from [binance.com](https://binance.com/). But due to Binance's CSV format, some data may not be importable. You will see warnings if this happens.

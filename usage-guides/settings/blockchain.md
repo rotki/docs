@@ -93,7 +93,11 @@ have, and preselects the order matching them. You can accept the recommendation 
 
 Here, you can customize the order in which price oracles are queried, both for current and historical prices. This determines which price source to check first, second, and so on.
 
-Available price oracles include CoinGecko, CryptoCompare, Uniswap V2, Uniswap V3, DefiLlama, Alchemy, Moralis, and custom (manual) prices. DeFi oracles like Uniswap V2 and Uniswap V3 use only on-chain information to get current prices. This makes querying a bit slower, but it relies solely on the Ethereum chain. Prices for some assets may differ from Coingecko or CryptoCompare, depending on the conditions of the pools at the time of the query.
+Both lists offer CryptoCompare, CoinGecko, DefiLlama, Alchemy, Moralis, Uniswap V2 and Uniswap V3. Latest Prices additionally offers Kraken.
+
+Manual prices are not part of this ordering. They always take precedence over any oracle, and you add them under [Managing prices](/usage-guides/data-management/prices).
+
+DeFi oracles like Uniswap V2 and Uniswap V3 use only on-chain information to get current prices. This makes querying a bit slower, but it relies solely on the Ethereum chain. Prices for some assets may differ from Coingecko or CryptoCompare, depending on the conditions of the pools at the time of the query.
 
 ### Oracle cache
 
@@ -101,7 +105,7 @@ Available price oracles include CoinGecko, CryptoCompare, Uniswap V2, Uniswap V3
 
 Querying historical prices from oracles such as CryptoCompare and CoinGecko is slow and can be slower due to rate limiting. rotki creates historical price caches during idle times.
 
-Request the creation of such a cache by going to the Oracle cache section, selecting the oracle, the from asset of the pair, the to asset of the pair, and then pressing "Cache pair prices".
+Caches are managed outside the settings: open `Manage Prices` in the sidebar, then `Oracle Prices`, then its `Caches` tab. Request the creation of one by selecting the price oracle, the from asset of the pair and the to asset of the pair, then pressing `Create Cache`.
 
 Manage existing historical price cache entries, inspect start and end dates, and delete caches if needed.
 
@@ -119,7 +123,7 @@ The number of consecutive failures after which an oracle is penalized and tempor
 
 ## RPC Node Setting
 
-This setting lets you change the nodes used to connect to blockchains. We give you a list of public nodes, but sometimes they are busy or down. You will see a green or red icon showing if a node is working.
+This setting lets you change the nodes used to connect to blockchains. We give you a list of public nodes, but sometimes they are busy or down. The `Connectivity` column shows a `CONNECTED` or `FAILED` chip for each node, so you can see at a glance which ones are reachable.
 
 It is good to add more nodes and set their priority. We always try your own nodes first, then use some random public nodes if needed. If you don't have your own node, we use public nodes.
 
