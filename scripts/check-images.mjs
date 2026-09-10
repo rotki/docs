@@ -143,9 +143,8 @@ function strandedImages(references, docPages) {
     if (dir === '' || SHARED_DIRS.has(parts[0]) || !docPages.has(dir))
       continue;
 
-    const pages = new Set([...sources].map(source =>
-      relative(ROOT, source).split('\\').join('/').replace(/\.md$/, ''),
-    ));
+    const pages = new Set(Array.from(sources, source =>
+      relative(ROOT, source).split('\\').join('/').replace(/\.md$/, '')));
 
     if (pages.size !== 1)
       continue;

@@ -82,7 +82,7 @@ async function main() {
       continue;
     }
 
-    const headings = new Set([...text.matchAll(HEADING)].map(match => slug(match[1])));
+    const headings = new Set(Array.from(text.matchAll(HEADING), match => slug(match[1])));
     for (const anchor of anchors) {
       if (!headings.has(anchor))
         errors.push(`the app links to a heading that does not exist: /${path}#${anchor}\n    a heading on that page must slug to "${anchor}"`);

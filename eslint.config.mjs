@@ -24,5 +24,9 @@ export default rotki({
   files: ['**/*.md'],
   rules: {
     'max-lines': ['error', { max: 500 }],
+    // The rule slugifies headings the GitHub way, which disagrees with VitePress
+    // on punctuation ('type/subtype', 'Traefik + basic auth'). `pnpm check:anchors`
+    // gates the same thing against VitePress' own slugger and runs in CI.
+    'markdown/no-missing-link-fragments': 'off',
   },
 });

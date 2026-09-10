@@ -16,7 +16,7 @@ rotki calculates everything, including your total profit/loss during the PnL rep
 
 Access the settings menu via `User icon → Settings`.
 
-## General Settings
+### General Settings
 
 ![Customizing the general app settings](/images/usage-guides/settings/general/overview.webp)
 

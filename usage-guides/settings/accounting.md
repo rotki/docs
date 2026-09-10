@@ -26,13 +26,13 @@ In the accounting menu, you can customize application settings related to accoun
 
 You can change these settings to match your country's tax requirements.
 
-### Add/Edit Accounting Rules
+## Add/Edit Accounting Rules
 
 ![Add new accounting rules](/images/usage-guides/settings/accounting/add_rule.webp)
 
 You can add or edit accounting rules based on `Event type`, `Event subtype`, and `Counterparty`.
 
-### Import/Export Accounting Rules
+## Import/Export Accounting Rules
 
 ![Export and import accounting rules](/images/usage-guides/settings/accounting/export_import.webp)
 
@@ -46,7 +46,7 @@ Both options are available from the three-dot menu next to the **Add accounting 
 > [!NOTE]
 > Imported rules can conflict with rules you already have. When any conflict exists, a **Resolve accounting rules conflicts** banner appears on the page, letting you choose which version of each conflicting rule to keep. This banner isn't specific to imports — it also shows up for conflicts introduced by manually added rules or by updates to rotki's built-in (source) rules.
 
-### Special Accounting Rules For Specific Events
+## Special Accounting Rules For Specific Events
 
 ![Special Accounting Rules](/images/usage-guides/settings/accounting/rules_special.webp)
 
@@ -57,11 +57,11 @@ There are two ways to apply special rules:
 - Use the [Edit accounting rule](/usage-guides/history/events#edit-accounting-rule) menu for individual events
 - Use [Select multiple events](/usage-guides/history/events#select-multiple-events) to apply rules to multiple events at once
 
-### Trade Settings
+## Trade Settings
 
 ![Customizing the accounting trade settings](/images/usage-guides/settings/accounting/trade_settings.webp)
 
-#### Crypto to Crypto Trades
+### Crypto to Crypto Trades
 
 A setting to determine whether crypto to crypto trades or any events that spend crypto are taxable and should be taken into account. By default it's `True`.
 
@@ -94,31 +94,31 @@ A setting to determine whether crypto to crypto trades or any events that spend 
 
 :::
 
-#### EVM Gas Costs
+### EVM Gas Costs
 
 Specify if EVM transaction gas costs should be counted as a loss.
 
-#### Tax Free Period
+### Tax Free Period
 
 Specify if there is a tax-free holding period for crypto assets.
 
-#### Calculate Past Cost Basis
+### Calculate Past Cost Basis
 
 Enable or disable calculating cost basis from all past events, even before the report period.
 
-#### Omit ETH Staking Events
+### Omit ETH Staking Events
 
 Specify if ETH staking events are taxable only after the merge and withdrawals are enabled or at the point of receiving.
 
-#### Use Asset Collections in Cost Basis
+### Use Asset Collections in Cost Basis
 
 When enabled, assets that belong to the same collection share cost basis. For example, if WETH and ETH are in the same asset collection, buying WETH and later selling ETH will use the WETH purchase as the cost basis. By default, this setting is `True`.
 
-#### Cost Basis Method
+### Cost Basis Method
 
 Select the cost basis calculation method: `FIFO`, `LIFO`, `HIFO`, or `ACB`.
 
-#### Include Fees in Cost Basis
+### Include Fees in Cost Basis
 
 A setting to determine if trade fees should be included in the cost basis of the asset being bought/sold. By default, this setting is `True`.
 
@@ -140,14 +140,14 @@ The above does not happen.
 
 :::
 
-### CSV Export Settings
+## CSV Export Settings
 
 ![Customizing the CSV export settings](/images/usage-guides/settings/accounting/csv_export_settings.webp)
 
-#### Export Formulas
+### Export Formulas
 
 Specify if formulas should be exported as formulas in the CSV or as actual values.
 
-#### Have Summary
+### Have Summary
 
 Specify whether the all_events CSV export should include a summary of all events and the total profit/loss at the end. This summary would also include the rotki version and the settings used during the PnL report, making it easier to reproduce a report run.

@@ -71,7 +71,7 @@ async function main() {
   const anchorsByPage = new Map();
   for (const [path, file] of pages) {
     const content = await readFile(file, 'utf8');
-    anchorsByPage.set(path, new Set([...content.matchAll(HEADING)].map(match => slug(match[1]))));
+    anchorsByPage.set(path, new Set(Array.from(content.matchAll(HEADING), match => slug(match[1]))));
   }
 
   const errors = [];

@@ -1,22 +1,24 @@
-# Installation
+# rotki docs
+
+## Installation
 
 ```
 pnpm install
 ```
 
-# Run locally
+## Run locally
 
 ```
 pnpm run dev
 ```
 
-# Build
+## Build
 
 ```
 pnpm run build
 ```
 
-# Build and Preview
+## Build and Preview
 
 ```
 pnpm run preview

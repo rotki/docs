@@ -16,6 +16,7 @@ export interface RedirectsConfig {
    * Values are either a string (simple redirect) or a RedirectTarget (anchor-aware).
    *
    * @example
+   * ```ts
    * {
    *   'usage-guides/old-page': '/usage-guides/new-page',
    *   'usage-guides/split-page': {
@@ -25,6 +26,7 @@ export interface RedirectsConfig {
    *     },
    *   },
    * }
+   * ```
    */
   redirects: Record<string, RedirectValue>;
   /** Base path for the site (default: '/') */

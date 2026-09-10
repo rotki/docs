@@ -420,11 +420,11 @@ To test unpublished UI library changes in the main application:
 
 2. **Link to Application**
    - Open `package.json` in rotki main directory `frontend/app/package.json`
-   - Change UI library version to point to local build:
+   - Change UI library version to point to local build, adjusting the relative path to wherever your UI library checkout lives:
      ```json
      {
        "dependencies": {
-         "@rotki/ui-library": "file:../../../ui-library" // adjust path based on your UI library location
+         "@rotki/ui-library": "file:../../../ui-library"
        }
      }
      ```
