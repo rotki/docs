@@ -80,13 +80,47 @@ The area holds a maximum of 200 notifications, after which the oldest are droppe
 
 ## Background Tasks
 
-A list of processing tasks is available on the notifications tray, headed by a count of how many
-jobs are currently running. A task that reports its progress also shows how many of its steps are
-done.
+While rotki works in the background, a small pill in the bottom-right corner names the most
+important job and how far along it is, for example `History refresh 12 of 43`, with `+N more` when
+other jobs run beside it. Click the pill to open the task panel, and again to close it.
 
-![running background tasks](/images/usage-guides/utilities/index/pending_tasks.webp)
+The panel lists each job you started as one row, with a progress bar and a count. Jobs keep the
+order they started in, and a job that finishes stays where it is until everything is done, so rows
+do not jump while you read them. Work that is over within a second is not listed at all.
 
-It is possible to cancel a long running task, but use this feature sparingly. rotki asks you to
-confirm first, and warns that cancelling leaves the underlying process in an unfinished state.
+Click the arrow beside a job to see what it is made of. A history refresh, for instance, lists each
+chain, exchange and online query, and each chain lists its accounts and the decoding of its
+transactions:
 
-![cancel background task](/images/usage-guides/utilities/index/pending_tasks_cancel.webp)
+- chains, exchanges and banks show their icon, and accounts show their address with buttons to
+  copy it or open it in a block explorer;
+- a running account shows which query it is on (transactions, internal transactions or token
+  transfers) and the date range it has reached; a running exchange or bank shows which kind of
+  events it is querying;
+- a decode shows how many transactions it has processed, and lists the protocol caches it filled
+  along the way;
+- a job shows a line per section, such as `Transaction sync 9/13`, with a mark that turns red when
+  something in that section failed.
+
+While a history refresh runs, the panel also explains what the first sync does, and suggests
+adding a free Etherscan API key if you have not set one, since it speeds syncing up considerably.
+
+### When a job finishes
+
+A finished job stays in the panel until you dismiss it, so you can read the outcome whenever you
+come back. A clean run reads, for example, `40 done · 2 skipped`. When something failed, the pill
+says so, and the failed items are listed under the job without having to open it. Failures that
+share the same reason, such as several accounts that need the same missing API key, are grouped
+under that reason once, with a button to retry all of them and a `Retry` button on each item.
+
+Dismissing a job shrinks the pill to a small icon, which reopens what you dismissed. The icon goes
+away on its own ten seconds after everything is dismissed, as long as the panel is closed and you
+are not hovering it.
+
+### Stopping jobs
+
+A running job has a stop button, and rotki asks you to confirm first. When several jobs are
+running, `Stop all` stops the ones that are safe to interrupt, such as balance refreshes and history
+syncs: what they already fetched is kept, and running them again finishes the rest. Jobs that change
+your data, such as imports, asset database updates or re-decoding, keep running, and the
+confirmation tells you how many.
