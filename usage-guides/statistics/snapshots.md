@@ -54,6 +54,8 @@ You can add, edit, or remove balances. Every balance must be assigned to a locat
 
 To show hidden rows, open **Add filter** and turn on **Show spam** or **Show ignored**. A spam token is usually also ignored, so you may need both before its row appears. The count next to the table title tells you how many rows the filters are hiding.
 
+![Show ignored is on and Show spam is offered, with one row still hidden](/images/usage-guides/statistics/snapshots/balances_filter_menu.webp)
+
 Select **Edit locations** to add, edit, or remove location allocations, or distribute an allocation across locations. If the totals do not agree, you have to [reconcile them](#reconcile-the-totals) before you can edit balances.
 
 ![The locations drawer of the snapshot editor](/images/usage-guides/statistics/snapshots/editor_locations_drawer.webp)
@@ -67,6 +69,10 @@ Changes stay in a draft until you select **Save**. You can review the pending ch
 A snapshot records its value in two ways: one row per balance, and one subtotal per location. The editor treats the balances as the source of truth, so the net worth it shows is always the sum of the balances, assets minus liabilities. Hidden spam and ignored rows count toward it too.
 
 When the location subtotals add up to something else, a **Totals do not match** warning appears above the balances, showing the **Sum of balances** and the **Sum of locations**. This usually means the snapshot was edited by hand at some point: a balance was changed without its location, or a location was changed without its balances. Until the two sums agree, adding, editing, and deleting balances is disabled.
+
+![The Totals do not match warning, with Kraken chosen to absorb the difference](/images/usage-guides/statistics/snapshots/reconcile_warning.webp)
+
+![The balances table locked until the totals are reconciled](/images/usage-guides/statistics/snapshots/balances_locked.webp)
 
 To reconcile:
 
@@ -85,6 +91,9 @@ A snapshot taken while a spam token had a price can carry a large, fake value. I
 2. Reconcile the totals as described above. The location holding the spam token is likely the largest one and therefore preselected; pick the location that was actually edited instead.
 3. Open **Add filter** and turn on **Show spam** and **Show ignored** until the token's row appears.
 4. Delete the row. rotki asks which location to take its value from, and greys out locations that do not hold enough. Pick the location that held the token and confirm.
+
+   ![Deleting the spam token takes its value out of Blockchain](/images/usage-guides/statistics/snapshots/delete_balance_dialog.webp)
+
 5. Check that the net worth looks right, then select **Save**.
 
 ## Export or delete from the editor
