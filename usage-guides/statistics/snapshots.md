@@ -22,7 +22,7 @@ For each snapshot, you can:
 
 Use **Refresh** to reload the list.
 
-The net worth shown in the list and on the dashboard graph is the snapshot's stored total, minus the value of any assets you ignore. Opening a snapshot shows the sum of its balances instead, ignored assets included, so the two can differ until the snapshot is cleaned up and saved.
+The net worth shown in the list and on the dashboard graph is the snapshot's stored total, minus the value of any assets you ignore. Opening a snapshot shows the sum of its balances instead, ignored assets included, so the two can differ. They also differ when the stored total no longer matches the balances, for example after an earlier hand edit. The editor then shows the corrected value, but rotki only stores it the next time you save a change to that snapshot.
 
 > [!NOTE]
 > Without a [premium subscription](/premium/), the list only includes snapshots from the last two weeks, the same range as the dashboard graph. Older snapshots stay in your database.
@@ -77,7 +77,7 @@ When the location subtotals add up to something else, a **Totals do not match** 
 To reconcile:
 
 1. Work out which location the difference belongs to. Select **Edit locations** to compare each location's subtotal with the balances held there.
-2. In **Absorb difference into**, choose that location. The editor preselects the largest location, which is not necessarily the one that is off.
+2. In **Absorb difference into**, choose that location. Check the selection before you continue: the editor preselects the largest location, or keeps the one you chose in the previous snapshot, and neither is necessarily the one that is off.
 3. Select **Reconcile locations**. rotki moves the chosen location by the difference, the warning disappears, and the balances can be edited again.
 4. Select **Save**.
 
