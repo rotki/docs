@@ -22,7 +22,7 @@ For each snapshot, you can:
 
 Use **Refresh** to reload the list.
 
-The net worth shown in the list and on the dashboard graph is the snapshot's stored total, minus the value of any assets you ignore. Opening a snapshot shows the sum of its balances instead, ignored assets included, so the two can differ. They also differ when the stored total no longer matches the balances, for example after an earlier hand edit. The editor then shows the corrected value, but rotki only stores it the next time you save a change to that snapshot.
+The net worth shown in the list and on the dashboard graph is the snapshot's stored total, minus the value of any assets you ignore. Opening a snapshot shows the sum of its balances instead, ignored assets included, so the two can differ. They also differ when the stored total no longer matches the balances, for example after an earlier hand edit. If the locations still match the balances, the editor opens with the corrected total as an unsaved change, and **Save** stores it.
 
 > [!NOTE]
 > Without a [premium subscription](/premium/), the list only includes snapshots from the last two weeks, the same range as the dashboard graph. Older snapshots stay in your database.
@@ -52,7 +52,7 @@ Opening a snapshot shows its net worth, change since the previous snapshot, allo
 
 You can add, edit, or remove balances. Every balance must be assigned to a location; when necessary, split a balance's value between several locations. The editor can also hide spam, ignored, and zero-value rows, and lets you remove zero-value balances in bulk.
 
-To show hidden rows, open **Add filter** and turn on **Show spam** or **Show ignored**. A spam token is usually also ignored, so you may need both before its row appears. The count next to the table title tells you how many rows the filters are hiding.
+To show hidden rows, open **Add filter** and turn on **Show spam** or **Show ignored**. The chip next to the table title says how many rows are hidden and why; select it to show them all.
 
 ![Show ignored is on and Show spam is offered, with one row still hidden](/images/usage-guides/statistics/snapshots/balances_filter_menu.webp)
 
@@ -70,6 +70,8 @@ A snapshot records its value in two ways: one row per balance, and one subtotal 
 
 When the location subtotals add up to something else, a **Totals do not match** warning appears above the balances, showing the **Sum of balances** and the **Sum of locations**. This usually means the snapshot was edited by hand at some point: a balance was changed without its location, or a location was changed without its balances. Until the two sums agree, adding, editing, and deleting balances is disabled.
 
+If the difference is the value of one balance, or of your spam and ignored balances, the warning names them and offers to remove them instead. That is what a snapshot looks like after its locations were lowered around a spam token: see [Remove a high-value spam token](#remove-a-high-value-spam-token).
+
 ![The Totals do not match warning, with Kraken chosen to absorb the difference](/images/usage-guides/statistics/snapshots/reconcile_warning.webp)
 
 ![The balances table locked until the totals are reconciled](/images/usage-guides/statistics/snapshots/balances_locked.webp)
@@ -77,24 +79,30 @@ When the location subtotals add up to something else, a **Totals do not match** 
 To reconcile:
 
 1. Work out which location the difference belongs to. Select **Edit locations** to compare each location's subtotal with the balances held there.
-2. In **Absorb difference into**, choose that location. Check the selection before you continue: the editor preselects the largest location, or keeps the one you chose in the previous snapshot, and neither is necessarily the one that is off.
+2. In **Absorb difference into**, choose that location. Nothing is preselected. When the locations add up to more than the balances, locations that would drop below zero are greyed out; if every location is, the warning says so and you lower the locations in the drawer instead.
 3. Select **Reconcile locations**. rotki moves the chosen location by the difference, the warning disappears, and the balances can be edited again.
 4. Select **Save**.
 
 If the difference is spread over several locations, fix them in the locations drawer instead: edit each location's value, or use **Distribute across locations**. Distributing asks for the new value of each location, not for the difference, and the values must add up to the net worth. Once the drawer shows **Allocation matches net worth**, the warning disappears.
 
-### Example: remove a high-value spam token
+## Remove a high-value spam token
 
-A snapshot taken while a spam token had a price can carry a large, fake value. If that snapshot was also edited by hand before, you need to reconcile it before you can delete the token:
+A snapshot taken while a spam token had a price can carry a large, fake value. Usually all you need to do is [mark the token as spam](/usage-guides/data-management/assets#mark-asset-as-spam): that also ignores it, and the list and the graph leave ignored assets out of every snapshot. Edit the snapshot only if you want the row itself gone.
 
-1. Open the snapshot. Its net worth includes the spam token, even though the list and graph leave out ignored assets, and the **Totals do not match** warning is shown.
-2. Reconcile the totals as described above. The location holding the spam token is likely the largest one and therefore preselected; pick the location that was actually edited instead.
-3. Open **Add filter** and turn on **Show spam** and **Show ignored** until the token's row appears.
-4. Delete the row. rotki asks which location to take its value from, and greys out locations that do not hold enough. Pick the location that held the token and confirm.
+> [!WARNING]
+> Do not lower a snapshot's locations or net worth by hand to leave the token out. The graph subtracts ignored assets from the stored total, so once the total no longer holds the token's value, that snapshot plots far below zero.
+
+To remove the row:
+
+1. Open the snapshot.
+2. If the **Totals do not match** warning offers to remove the token, select **Remove** followed by the token's name. This is the case when the locations were lowered around the token earlier. The balance is removed without changing any location. If the lowered values were typed by hand and are a little off, the warning says how much is left, and you [reconcile](#reconcile-the-totals) that remainder.
+3. Otherwise, select **Show them** next to **Excludes … in ignored assets** to show the token's row, then delete it. rotki asks which location to take its value from and greys out locations that do not hold enough. Pick the location that held the token and confirm.
 
    ![Deleting the spam token takes its value out of Blockchain](/images/usage-guides/statistics/snapshots/delete_balance_dialog.webp)
 
-5. Check that the net worth looks right, then select **Save**.
+   If the token was held in several locations, no single one holds enough. Turn on **Split across locations**, add a row per location, and select **Fill** on each: it takes what is still left to remove, up to everything the location holds. Fill the locations that hold only the spam token first. Fill cannot tell a location's real holdings from the spam value, so the last row should be the location that also holds real assets.
+
+4. Check that the net worth looks right, then select **Save**.
 
 ## Export or delete from the editor
 
