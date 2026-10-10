@@ -50,6 +50,7 @@ No indexer covers every chain, and each has its own key requirement:
 | **Etherscan**  | Required, even on the free tier. One key covers every chain it serves                                                                                                                  | Most EVM chains, but **not** Scroll. Gnosis and Binance SC only on **paid** plans |
 | **Blockscout** | Required. The multichain endpoints reject keyless requests. One key covers every chain it serves. **Exception:** Hyperliquid is served through a free public instance and needs no key | Ethereum, Optimism, Polygon PoS, Arbitrum One, Base, Gnosis, Scroll, Hyperliquid  |
 | **Routescan**  | Not required                                                                                                                                                                           | Ethereum and Optimism only                                                        |
+| **Nuthatch**   | Not required. A nest you run yourself, see [Using a Nuthatch nest](#using-a-nuthatch-nest)                                                                                             | The chain the nest indexes                                                        |
 
 rotki caps its own Blockscout traffic at 10 requests per second, so parallel chain refreshes do not overwhelm the endpoint.
 
@@ -61,6 +62,19 @@ Which means, in practice:
 - **Gnosis** needs either a **Blockscout key** or a **paid Etherscan plan**. Either one on its own is enough. Blockscout is queried first by default, and whichever indexer you have no key for steps aside instead of spending a request that cannot succeed. If you have neither, rotki tells you which one to add the first time it queries Gnosis.
 - **Scroll** needs a **Blockscout key**, since Etherscan no longer serves Scroll and Routescan does not cover it.
 - **Binance SC** needs a **paid Etherscan plan**, since it is the only indexer that serves the chain.
+
+### Using a Nuthatch nest
+
+A [Nuthatch](https://nuthatch-indexer.com) nest is an indexer you run yourself, against your own RPC node, so your addresses never leave your machine. A nest in rotki mode serves your tracked accounts' transactions, internal transactions, token transfers, ETH withdrawals and produced blocks (with their MEV rewards) in the same format rotki reads from Etherscan. How to install and run one is covered in [Nuthatch's documentation](https://nuthatch-indexer.com).
+
+To use a nest:
+
+1. Set its address under **Settings → RPC Nodes → Nuthatch nest**. By default rotki expects it at `http://127.0.0.1:8288`, where a nest listens unless told otherwise.
+2. Add **Nuthatch** to the indexer order of the chain the nest indexes, first if you want it asked before the others.
+
+Once Nuthatch is in a chain's order, rotki registers the addresses you track on that chain with the nest, and adds or removes them as you add or remove accounts. If the nest is not running, adding an account still works and rotki registers it the next time it can.
+
+A nest answers only what it has fully indexed. Anything else, such as a block range it has not reached yet, is refused rather than answered with an empty list, and rotki asks the next indexer in the order instead. For produced blocks, rotki still queries beaconcha.in after the nest when you have a beaconcha.in API key, so a block the nest could not attribute to a validator is still found.
 
 ### Suppressing indexer notifications
 
@@ -148,6 +162,10 @@ Set the RPC endpoint for a Polkadot node here.
 #### Connecting to an ETH Consensus Layer Beacon Node
 
 Set the RPC endpoint for the Ethereum consensus layer beacon node. If unreachable, beaconcha.in will be used. For DAppNode Ethereum validator users, find the RPC node setting in the DAppNode Package for the Execution Client.
+
+#### Connecting to a Nuthatch nest
+
+Set the address of a [Nuthatch nest](#using-a-nuthatch-nest) you run, for example `http://127.0.0.1:8288`. It is only queried on chains whose indexer order includes Nuthatch.
 
 #### Connecting to a Bitcoin Mempool instance
 
