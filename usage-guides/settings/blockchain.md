@@ -81,11 +81,13 @@ rotki uses one nest, for Ethereum. To use it:
 
 Leave Nuthatch out of other chains' orders: a nest serves only its own chain, and rotki skips it anywhere else.
 
-When you set the nest's address, change an indexer order, add or remove an account, or log in, rotki registers the Ethereum addresses you track with the nest, and removes the ones you stopped tracking, once Nuthatch is in Ethereum's order. If the nest is not running, nothing else is held up and rotki registers them the next time one of those happens.
+When you set the nest's address, change an indexer order, add or remove an account or a validator, or log in, rotki registers the Ethereum addresses and validators you track with the nest, and removes the ones you stopped tracking, once Nuthatch is in Ethereum's order. If the nest is not running, nothing else is held up and rotki registers them the next time one of those happens.
 
 A nest answers only what it has fully indexed. Anything else, such as a block range it has not reached yet, is refused rather than answered with an empty list, and rotki asks the next indexer in the order instead. A nest's history starts at the block it was configured to start from, so if that is later than your accounts' first activity, keep another indexer after Nuthatch in the order for the earlier history.
 
-For produced blocks, a block's MEV reward comes from what the MEV-Boost relays recorded. When no relay has a record of a block, the block's reward is still added and rotki keeps asking about its MEV for 30 days, since relays can publish late. With a beaconcha.in API key, rotki also queries beaconcha.in after the nest, so a block the nest could not attribute to a validator is still found.
+For produced blocks, the nest proves which validator proposed each block, from the beacon block header the next Ethereum block commits to, so every block your validators proposed is found, whichever address its rewards went to. The proof is only possible from the Dencun upgrade (block 19,426,587, March 2024) on, and from the first block the nest has proven. A validator's blocks before that are not covered by the nest: with a beaconcha.in API key rotki finds them there, and without one it tells you which validators are not fully covered. Blocks paid to an address you do not track are shown as information, not as your income.
+
+A block's MEV reward comes from what the MEV-Boost relays recorded. When no relay has a record of a block, the block's reward is still added and rotki keeps asking about its MEV for 30 days, since relays can publish late. A block whose reward the nest could not read yet is added once it can, never as zero.
 
 ### Suppressing indexer notifications
 
