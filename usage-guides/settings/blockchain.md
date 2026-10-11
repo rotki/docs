@@ -65,7 +65,7 @@ Which means, in practice:
 
 ### Using a Nuthatch nest
 
-A [Nuthatch](https://nuthatch-indexer.com) nest is an indexer you run yourself, against an RPC endpoint you choose. A nest in rotki mode serves your tracked accounts' transactions, internal transactions, token transfers, ETH withdrawals and produced blocks (with their MEV rewards) in the same format rotki reads from Etherscan. How to install and run one is covered in [Nuthatch's documentation](https://nuthatch-indexer.com/rotki).
+The Nuthatch integration requires Nuthatch 5.3.0 or later. A [Nuthatch](https://nuthatch-indexer.com) nest is an indexer you run yourself, against an RPC endpoint you choose. A nest in rotki mode serves your tracked accounts' transactions, internal transactions, token transfers, ETH withdrawals and produced blocks (with their MEV rewards) in the same format rotki reads from Etherscan. How to install and run one is covered in [Nuthatch's documentation](https://nuthatch-indexer.com/rotki).
 
 Your history is built and stored on your machine, and no indexer service learns your list of addresses. What does see them:
 
@@ -77,7 +77,7 @@ Your history is built and stored on your machine, and no indexer service learns 
 rotki uses one nest, for Ethereum. To use it:
 
 1. Set its address under **Settings → RPC Nodes → ETH Nuthatch Nest**. By default rotki expects it at `http://127.0.0.1:8288`, where a nest listens unless told otherwise.
-2. Add **Nuthatch** to Ethereum's indexer order. Put it first to have it asked before the others; rotki does not reorder it for you.
+2. Add **Nuthatch** to Ethereum's indexer order. Put it first to have it asked before the others; rotki does not reorder it for you. Select Nuthatch alone to keep account-history queries with the nest. Withdrawals then use only the indexers you selected, including when the nest is unavailable.
 
 Leave Nuthatch out of other chains' orders: a nest serves only its own chain, and rotki skips it anywhere else.
 
@@ -85,7 +85,7 @@ When you set the nest's address, change an indexer order, add or remove an accou
 
 A nest answers only what it has fully indexed. Anything else, such as a block range it has not reached yet, is refused rather than answered with an empty list, and rotki asks the next indexer in the order instead. A nest's history starts at the block it was configured to start from, so if that is later than your accounts' first activity, keep another indexer after Nuthatch in the order for the earlier history.
 
-For produced blocks, the nest proves which validator proposed each block, from the beacon block header the next Ethereum block commits to, so every block your validators proposed is found, whichever address its rewards went to. The proof is only possible from the Dencun upgrade (block 19,426,587, March 2024) on, and only from the first block the nest has proven, which can be later: a nest built from published partitions may cover only the last year. A validator's blocks before that are not covered by the nest: with a beaconcha.in API key rotki finds them there, and without one it tells you which validators are not fully covered. Blocks paid to an address you do not track are shown as information, not as your income.
+For produced blocks, the nest proves which validator proposed each block, from the beacon block header the next Ethereum block commits to, so every block your validators proposed is found, whichever address its rewards went to. The supported catalogue starts at slot 12,777,208, execution block 23,551,570. Earlier proposals remain outside the nest's proven coverage. The published catalogue advances in complete 10,000-block spans. Set `beacon_url` in the nest configuration to your beacon node to prove blocks beyond the published catalogue; otherwise that tail remains incomplete until publication. A validator's blocks before that are not covered by the nest: with a beaconcha.in API key rotki finds them there, and without one it tells you which validators are not fully covered. Blocks paid to an address you do not track are shown as information, not as your income.
 
 A block's MEV reward comes from what the MEV-Boost relays recorded. When no relay has a record of a block, the block's reward is still added and rotki keeps asking about its MEV for 30 days, since relays can publish late. A block whose reward the nest could not read yet is added once it can, never as zero.
 
