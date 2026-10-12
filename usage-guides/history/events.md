@@ -47,17 +47,16 @@ Refreshes specific chains, optionally limited to only specific accounts on those
 
 ![Refreshing onchain events](/images/usage-guides/history/events/refreshing_onchain.webp)
 
-To see the status, you can click the button here:
-
-![See query status](/images/usage-guides/history/events/query_status_button.webp)
+To follow a refresh, open the task panel from the pill in the bottom-right corner. The history
+refresh is listed there with its progress per chain, account, exchange and online query, and with
+any failures and their reasons. See [Background Tasks](/usage-guides/utilities/#background-tasks)
+for what the panel shows.
 
 Basically, what happens when you refresh the transactions/events is:
 
 1. It will query the transactions from the "last queried time" to the current time.
 2. For EVM events, after rotki queries these new transactions, it will try to decode them.
 3. The events will be displayed correctly in the UI only after they are properly decoded.
-
-![Events query status](/images/usage-guides/history/events/query_status.webp)
 
 ### Exchange Events
 
