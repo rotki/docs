@@ -7,7 +7,9 @@
     "paths": {
       "@/*": ["./*"]
     },
-    "types": ["vite/client"]
+    "types": ["vite/client"],
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   },
   "include": [
     "**/*.ts",

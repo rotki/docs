@@ -14,7 +14,7 @@ strictDepBuilds: true
 saveExact: true
 
 overrides:
-  vitepress>vite: npm:vite@8.2.2
+  vitepress>vite: npm:vite@8.3.4
 
 allowBuilds:
   esbuild: true

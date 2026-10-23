@@ -4,10 +4,10 @@ import { fileURLToPath, URL } from 'node:url';
 import { defineConfig } from 'vitepress';
 import llmstxt, { copyOrDownloadAsMarkdownButtons } from 'vitepress-plugin-llms';
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs';
-import { markdownFitMedia } from './plugins/markdown-fit-media';
-import { getRedirectPaths, redirectsPlugin } from './plugins/redirects';
+import { markdownFitMedia } from './plugins/markdown-fit-media.ts';
+import { getRedirectPaths, redirectsPlugin } from './plugins/redirects.ts';
 
-const redirects: Record<string, import('./plugins/redirects').RedirectValue> = {
+const redirects: Record<string, import('./plugins/redirects.ts').RedirectValue> = {
   // Simple redirects (1:1 moves)
   'usage-guides/historical-events': '/usage-guides/history/events',
   'usage-guides/onchain': '/usage-guides/history/onchain',
