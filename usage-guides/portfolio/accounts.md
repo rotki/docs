@@ -1,5 +1,5 @@
 ---
-description: Add and manage blockchain accounts across EVM chains, Bitcoin, Substrate, and Solana in rotki, and connect exchanges to track all your balances in one place.
+description: Add and manage blockchain accounts across EVM chains, Bitcoin, Substrate, Solana, and Dogecoin in rotki, and connect exchanges to track all your balances in one place.
 ---
 
 # Tracking Accounts
@@ -34,6 +34,8 @@ For now, the following chains are supported in rotki (and the list will be growi
 |                      | Kusama              | ksm                             |
 |                      |                     |                                 |
 | **Solana Chains**    | Solana              | solana                          |
+|                      |                     |                                 |
+| **Dogecoin Chains**  | Dogecoin            | doge                            |
 
 ### Steps to Add an Account:
 
@@ -104,6 +106,14 @@ Paste your address or xpub into the input. The form reacts as follows:
 >
 > - For Ledger hardware wallet users, you can get your xpub by following [this guide](https://support.ledger.com/article/6275459128989-zd)
 > - Bitcoin Cash only works with Legacy (P2PKH) and Segwit (P2SH-P2WPKH) addresses
+
+### Dogecoin
+
+Dogecoin addresses go on the `Dogecoin Accounts` page. rotki accepts mainnet addresses starting with `D`, `9` or `A`
+and tracks their DOGE balance. It queries the balances from [SoChain](https://sochain.com), or from
+[Dogechain](https://dogechain.com) when SoChain can't answer; both are run by Block.io. Neither needs an API key:
+SoChain allows 2,500 lookups a day per IP, Dogechain 120 requests a minute, and each balance refresh uses one lookup
+per address. xpubs and transaction history are not supported for Dogecoin yet.
 
 ### Filtering accounts
 
