@@ -46,7 +46,7 @@
     "husky": "9.1.7",
     "image-size": "2.0.4",
     "lint-staged": "17.6.0",
-    "markdown-it": "14.3.2",
+    "markdown-it": "14.3.3",
     "oxc-minify": "0.154.0",
     "papaparse": "5.7.0",
     "url": "0.11.4",
