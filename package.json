@@ -34,8 +34,8 @@
     "vue": "3.5.42"
   },
   "devDependencies": {
-    "@rotki/eslint-config": "8.3.0",
-    "@rotki/eslint-plugin": "1.8.0",
+    "@rotki/eslint-config": "8.4.1",
+    "@rotki/eslint-plugin": "1.10.0",
     "@types/node": "24.13.3",
     "@vue/compiler-sfc": "3.5.42",
     "@vue/runtime-dom": "3.5.42",

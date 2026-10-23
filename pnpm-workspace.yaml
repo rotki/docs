@@ -1,15 +1,20 @@
 blockExoticSubdeps: true
+
 minimumReleaseAge: 10080
 minimumReleaseAgeExcludePrune: true
 minimumReleaseAgeExclude:
   - '@rotki/*'
+
 trustPolicy: no-downgrade
 trustPolicyExclude:
   - vite
+
 shellEmulator: true
 strictDepBuilds: true
 saveExact: true
+
 overrides:
   vitepress>vite: npm:vite@8.2.2
+
 allowBuilds:
   esbuild: true
