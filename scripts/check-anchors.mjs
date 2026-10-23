@@ -18,7 +18,7 @@ const SKIP_DIRS = new Set(['node_modules', '.git', '.vitepress', 'dist', 'cache'
 
 /**
  * Never published, so they are neither a link source nor an anchor target.
- * Mirrors `srcExclude` in `.vitepress/config.mts` — keep the two in step.
+ * Mirrors `srcExclude` in `.vitepress/config.mts`. Keep the two in step.
  */
 const SKIP_FILES = new Set(['README.md', 'LICENSE.md']);
 

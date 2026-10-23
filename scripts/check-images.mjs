@@ -29,7 +29,7 @@ const SKIP_DIRS = new Set(['node_modules', '.git', '.vitepress', 'dist', 'cache'
 
 /**
  * Never published, so their prose is not a page and its `/images/...` mentions are not references.
- * Mirrors `srcExclude` in `.vitepress/config.mts` — keep the two in step.
+ * Mirrors `srcExclude` in `.vitepress/config.mts`. Keep the two in step.
  */
 const SKIP_FILES = new Set(['README.md', 'LICENSE.md']);
 
@@ -87,7 +87,7 @@ async function collectReferences() {
 /**
  * The convention: `public/images/<docs page path>/<subject>.webp`, so `usage-guides/history/events`
  * owns `usage-guides/history/events/*`. An `index.md` page keeps `index` in the image path, so
- * `usage-guides/index.md` owns `usage-guides/index/*` rather than `usage-guides/*` — otherwise its
+ * `usage-guides/index.md` owns `usage-guides/index/*` rather than `usage-guides/*`. Otherwise its
  * images would sit in the same directory as every sibling page's own directory.
  */
 function checkOwningPage(imagePath, docPages) {
@@ -115,14 +115,14 @@ function brokenReferences(references, imageFiles) {
 function unreferencedImages(imageFiles, referenced) {
   return imageFiles
     .filter(image => !referenced.has(`/images/${image}`))
-    .map(image => `unreferenced image: public/images/${image}\n    nothing links to it — delete it, or reference it from the page it belongs to`);
+    .map(image => `unreferenced image: public/images/${image}\n    nothing links to it; delete it, or reference it from the page it belongs to`);
 }
 
 function misplacedImages(imageFiles, docPages) {
   return imageFiles
     .map(image => [image, checkOwningPage(image, docPages)])
     .filter(([, orphanDir]) => orphanDir !== undefined)
-    .map(([image, orphanDir]) => `image is not under a docs page: public/images/${image}\n    "${orphanDir}" is not a docs page — move it under its page's directory, or into _shared/ if several pages use it`);
+    .map(([image, orphanDir]) => `image is not under a docs page: public/images/${image}\n    "${orphanDir}" is not a docs page; move it under its page's directory, or into _shared/ if several pages use it`);
 }
 
 /**
@@ -151,7 +151,7 @@ function strandedImages(references, docPages) {
 
     const [only] = pages;
     if (only !== dir) {
-      errors.push(`image sits under another page's directory: public/images/${image}\n    only ${only}.md references it — move it to public/images/${only}/`);
+      errors.push(`image sits under another page's directory: public/images/${image}\n    only ${only}.md references it; move it to public/images/${only}/`);
     }
   }
   return errors;

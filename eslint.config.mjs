@@ -5,6 +5,7 @@ export default rotki({
   typescript: true,
   markdown: true,
   formatters: true,
+  slop: true,
 }, {
   files: ['shims-vue.d.ts'],
   rules: {

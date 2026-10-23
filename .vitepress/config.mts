@@ -115,8 +115,8 @@ function stableCanonical(relativePath: string): string {
 }
 
 // Version switcher entries. The current build is shown as the dropdown label;
-// the other two are listed as cross-links so every build — including the
-// bugfixes/patch one — can reach the others.
+// the other two are listed as cross-links so every build, including the
+// bugfixes/patch one, can reach the others.
 const currentVersion = isLatest || isPatch ? DOCS_VERSION : 'stable';
 const VERSIONS = [
   { id: 'stable', text: 'Stable', link: 'https://docs.rotki.com/' },
@@ -139,13 +139,9 @@ export default defineConfig({
   sitemap: base === '/'
     ? { hostname: STABLE_HOSTNAME }
     : undefined,
-  // Bing flags duplicate titles/content from two sources: GitHub Pages serves
-  // every page at both `/foo` and `/foo.html`, and the 'latest'/'patch'
-  // previews re-render the same pages under their own URL trees. Emit a
-  // self-referencing canonical on every build (pointing at the one clean stable
-  // URL, matching the sitemap) so the `/foo` vs `/foo.html` pair collapses; on
-  // previews the same canonical points back to the stable twin. Previews
-  // additionally carry noindex so they drop out of the index entirely.
+  // Bing flags duplicates from `/foo` vs `/foo.html` and from the 'latest'/'patch'
+  // previews. Every build points its canonical at the clean stable URL, which
+  // collapses both; previews also carry noindex.
   transformPageData(pageData) {
     pageData.frontmatter.head ??= [];
     pageData.frontmatter.head.push(

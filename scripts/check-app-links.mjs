@@ -78,7 +78,7 @@ async function main() {
   for (const [path, anchors] of Object.entries(APP_LINKS)) {
     const text = pages.get(path) ?? pages.get(`${path}/index`);
     if (text === undefined) {
-      errors.push(`the app links to a page that does not exist: /${path}\n    restore it, or add a redirect — the released app cannot be changed`);
+      errors.push(`the app links to a page that does not exist: /${path}\n    restore it, or add a redirect, since the released app cannot be changed`);
       continue;
     }
 
