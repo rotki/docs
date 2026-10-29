@@ -14,7 +14,10 @@ strictDepBuilds: true
 saveExact: true
 
 overrides:
-  vitepress>vite: npm:vite@8.3.4
+  # oxfmt 0.35 pins tinypool 2.1.0 (GHSA prototype pollution to RCE); drop once
+  # @rotki/eslint-config ships an eslint-plugin-format on a fixed oxfmt.
+  oxfmt>tinypool: 2.1.2
+  vitepress>vite: npm:vite@8.3.5
 
 allowBuilds:
   esbuild: true
