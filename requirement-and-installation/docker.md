@@ -195,6 +195,28 @@ The [Traefik + basic auth example](#public-network-with-traefik-basic-auth) belo
 > [!WARNING]
 > What must never be public is rotki's **own** port. Behind a proxy you control, that authenticates every request and terminates TLS, reaching rotki over the internet is fine, and that is what the Traefik example is for. The danger is publishing the container's port directly, or putting a proxy in front that forwards without authenticating: rotki was not built to be the thing standing between the internet and your data. If you would rather not run a proxy at all, a VPN into the network the container sits on gets you the same result.
 
+#### Forward the original `Host` header
+
+Starting with rotki 1.44.3, the API refuses requests that change data (logging in, saving settings, importing files) when the browser's `Origin` names a different host or port than the `Host` header rotki receives. This stops a page on another site from submitting forms to your rotki. The scheme is not compared, so a proxy that terminates TLS in front of rotki's plain HTTP is fine.
+
+Your proxy therefore has to pass the `Host` the browser sent on to rotki unchanged:
+
+- **Traefik**, **Caddy** and **HAProxy** do this by default, so the [Traefik example](#public-network-with-traefik-basic-auth) needs no change.
+- **nginx** does not. `proxy_pass` replaces `Host` with the upstream address unless you set it yourself:
+
+  ```nginx
+  location / {
+      proxy_pass http://rotki:80;
+      proxy_set_header Host $http_host;
+  }
+  ```
+
+  Use `$http_host` rather than `$host`: `$host` drops the port, so a proxy listening on a non-standard port such as `8443` would still be refused.
+
+- **Apache** does not either. Add `ProxyPreserveHost On` next to `ProxyPass`.
+
+If logins or saves fail with `403` and the message `Cross-origin requests are not allowed`, this header is the first thing to check. See [Troubleshooting](#troubleshooting).
+
 ### Marking the cookie `Secure`
 
 Once TLS is terminated in front of the container, `ROTKI_SESSION_COOKIE_SECURE` marks the session cookie `Secure`, which tells the browser never to send it over a plain HTTP connection.
@@ -497,3 +519,7 @@ The next time you start the Docker container, the `alice` account will appear on
 ## Troubleshooting
 
 If you hit issues, check the logs at `$HOME/.rotki/logs/rotki.log` (or your custom logs volume) and [open an issue on GitHub](https://github.com/rotki/rotki/issues/new/choose) with the relevant lines.
+
+### Login or saving fails with `403 Cross-origin requests are not allowed`
+
+The page loads and reads data, but logging in, saving settings or importing a file is refused. A reverse proxy in front of rotki is rewriting the `Host` header, so rotki cannot tell that the request came from its own page. Make the proxy forward the original header, as described in [Forward the original `Host` header](#forward-the-original-host-header).
