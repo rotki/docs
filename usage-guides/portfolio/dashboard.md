@@ -8,9 +8,11 @@ The dashboard is the first page you see after logging into rotki. It provides a 
 
 ![rotki Dashboard](/images/_shared/dashboard.webp)
 
-## Progress Indicator
+## History Status
 
-At the top of the dashboard, a progress indicator shows the status of ongoing operations such as balance queries, history event fetching, and historical balance processing. This bar appears automatically when rotki is working and can be dismissed.
+At the top of the dashboard, a bar tells you when your transaction history needs attention: it has never been downloaded, the last query completed a while ago, some transactions are not decoded yet, or rotki was just updated. Protocol balances depend on that history, so the bar links to the history events page, where a refresh brings them up to date. You can dismiss it, and configure when it appears in the [interface settings](/usage-guides/settings/interface#progress-query-indicator-on-dashboard).
+
+Progress of the work itself, such as balance queries, history refreshes and historical balance processing, is shown in the task panel instead. See [Background Tasks](/usage-guides/utilities/#background-tasks).
 
 ## Total Balance
 
