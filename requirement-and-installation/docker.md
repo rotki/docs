@@ -348,6 +348,77 @@ docker run -d --name rotki \
 > [!IMPORTANT]
 > Always reuse the same volumes. If you mount different ones, your existing accounts and data won't be visible to the new container.
 
+## Premium and device limits
+
+Each premium subscription has a [device limit](/premium/devices). rotki identifies a device by its machine ID (`/etc/machine-id` on Linux). The Docker image does not include one, so rotki builds the device identifier from the container instead:
+
+- **Docker and Podman:** the container ID.
+- **Kubernetes:** the pod hostname.
+
+If that value changes, rotki registers a new device the next time you log in with premium. Old entries are not removed, so they pile up until you hit the limit and login fails with a `Device limit` error.
+
+When a new container runs a newer rotki version than the one it replaces, rotki removes the previous container's device and registers the new one, so the update flow above does not use up your limit. Recreating a container on the **same** version does register an extra device. This happens with `docker run --rm`, `docker compose down` followed by `up`, or `docker compose up` after a change to the service definition. A plain `docker restart` or a restart policy keeps the container ID and the device.
+
+### Docker and Podman
+
+On a Linux host, mount the host's machine ID into the container as read-only. rotki then uses it instead of the container ID, so the device stays the same however often you recreate or update the container:
+
+```sh
+docker run -d --name rotki \
+    -p 8084:80 \
+    -v $HOME/.rotki/data:/data \
+    -v $HOME/.rotki/logs:/logs \
+    -v /etc/machine-id:/etc/machine-id:ro \
+    rotki/rotki:latest
+```
+
+With Docker Compose, add the same line to the service's `volumes`:
+
+```yaml
+volumes:
+  - /etc/machine-id:/etc/machine-id:ro
+```
+
+Podman takes the same `-v` flag, including rootless Podman.
+
+Keep in mind:
+
+- Adding the mount to an existing setup registers one more device the first time, because the identifier changes. Remove the old container entry afterwards (see [Removing stale devices](#removing-stale-devices)).
+- A desktop rotki install on the same host, logged in with the same username, uses the same identifier. Both count as one device.
+- This only works on Linux hosts. Docker Desktop on macOS and Windows has no `/etc/machine-id` to share, so check that the file exists on your host before adding the mount.
+
+### Kubernetes
+
+A Deployment gives each new pod a random name such as `rotki-6d9f7c8b5-x2k4q`, and the pod hostname defaults to that name. Every rollout, eviction or pod restart becomes a new device. Pin the hostname in the pod template:
+
+```yaml
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: rotki
+spec:
+  selector:
+    matchLabels:
+      app: rotki
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: rotki
+    spec:
+      hostname: rotki # keeps the device identifier stable across pod restarts
+      containers:
+        - name: rotki
+          image: rotki/rotki:latest
+```
+
+A StatefulSet with a single replica works too, since its pod name (`rotki-0`) stays the same.
+
+### Removing stale devices
+
+If you already hit the limit, delete the old container entries from the [devices page on rotki.com](https://rotki.com/home/devices) or from the app, then log in again. See [Removing Devices](/premium/devices#removing-devices).
+
 ## Docker Compose
 
 For most users, a simple private-network Compose file is the easiest way to keep rotki running.

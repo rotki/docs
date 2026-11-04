@@ -140,6 +140,10 @@ Devices are identified by:
 Installing rotki multiple times on the same computer (e.g., different user accounts) may register as multiple devices, each counting toward your limit.
 :::
 
+::: info Docker and Kubernetes
+In a container, the device is tied to the container ID (Docker) or the pod hostname (Kubernetes). Recreating the container or rescheduling the pod can register a new device each time. On Docker and Podman you can mount the host's `/etc/machine-id` to avoid this. See [Premium and device limits](/requirement-and-installation/docker#premium-and-device-limits) for how to keep it stable.
+:::
+
 ### Device Registration Limits
 
 - Only successfully authenticated devices count toward your limit
