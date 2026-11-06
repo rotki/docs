@@ -50,7 +50,7 @@ Before adding accounts, set up a few things to make account detection and balanc
 
 Navigate to **Accounts** in the sidebar and add your blockchain addresses:
 
-1. Select the chain category (EVM, Bitcoin, Substrate, or Solana)
+1. Select the chain category (EVM, Bitcoin, Substrate, Solana, or Dogecoin)
 2. Click **Add Account**
 3. Enter your address and click **Save**
 
