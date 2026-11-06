@@ -50,6 +50,7 @@ No indexer covers every chain, and each has its own key requirement:
 | **Etherscan**  | Required, even on the free tier. One key covers every chain it serves                                                                                                                  | Most EVM chains, but **not** Scroll. Gnosis and Binance SC only on **paid** plans |
 | **Blockscout** | Required. The multichain endpoints reject keyless requests. One key covers every chain it serves. **Exception:** Hyperliquid is served through a free public instance and needs no key | Ethereum, Optimism, Polygon PoS, Arbitrum One, Base, Gnosis, Scroll, Hyperliquid  |
 | **Routescan**  | Not required                                                                                                                                                                           | Ethereum and Optimism only                                                        |
+| **Nuthatch**   | Not required. A nest you run yourself, see [Using a Nuthatch nest](#using-a-nuthatch-nest)                                                                                             | Ethereum                                                                          |
 
 rotki caps its own Blockscout traffic at 10 requests per second, so parallel chain refreshes do not overwhelm the endpoint.
 
@@ -61,6 +62,32 @@ Which means, in practice:
 - **Gnosis** needs either a **Blockscout key** or a **paid Etherscan plan**. Either one on its own is enough. Blockscout is queried first by default, and whichever indexer you have no key for steps aside instead of spending a request that cannot succeed. If you have neither, rotki tells you which one to add the first time it queries Gnosis.
 - **Scroll** needs a **Blockscout key**, since Etherscan no longer serves Scroll and Routescan does not cover it.
 - **Binance SC** needs a **paid Etherscan plan**, since it is the only indexer that serves the chain.
+
+### Using a Nuthatch nest
+
+The Nuthatch integration requires Nuthatch 5.3.0 or later. A [Nuthatch](https://nuthatch-indexer.com) nest is an indexer you run yourself, against an RPC endpoint you choose. A nest in rotki mode serves your tracked accounts' transactions, internal transactions, token transfers, ETH withdrawals and produced blocks (with their MEV rewards) in the same format rotki reads from Etherscan. How to install and run one is covered in [Nuthatch's documentation](https://nuthatch-indexer.com/rotki).
+
+Your history is built and stored on your machine, and no indexer service learns your list of addresses. What does see them:
+
+- **Your RPC endpoint.** The nest asks it for each address's traces and logs, so a remote RPC provider sees the addresses in those requests. A node you run yourself sees them only locally.
+- **Any indexer after the nest in the order.** When the nest cannot answer and rotki falls back, that indexer sees the addresses it is asked about, as it always has.
+- **The block partition mirror, if the nest uses one.** It sees your IP address and the block ranges downloaded, never an address.
+- **The MEV-Boost relays, if the nest has them turned on.** They see your IP address and the numbers of the blocks asked about, which identify a validator.
+
+rotki uses one nest, for Ethereum. To use it:
+
+1. Set its address under **Settings → RPC Nodes → ETH Nuthatch Nest**. By default rotki expects it at `http://127.0.0.1:8288`, where a nest listens unless told otherwise.
+2. Add **Nuthatch** to Ethereum's indexer order. Put it first to have it asked before the others; rotki does not reorder it for you. Select Nuthatch alone to keep account-history queries with the nest. Withdrawals then use only the indexers you selected, including when the nest is unavailable.
+
+Leave Nuthatch out of other chains' orders: a nest serves only its own chain, and rotki skips it anywhere else.
+
+When you set the nest's address, change an indexer order, add or remove an account or a validator, or log in, rotki registers the Ethereum addresses and validators you track with the nest, and removes the ones you stopped tracking, once Nuthatch is in Ethereum's order. If the nest is not running, nothing else is held up and rotki registers them the next time one of those happens.
+
+A nest answers only what it has fully indexed. Anything else, such as a block range it has not reached yet, is refused rather than answered with an empty list, and rotki asks the next indexer in the order instead. A nest's history starts at the block it was configured to start from, so if that is later than your accounts' first activity, keep another indexer after Nuthatch in the order for the earlier history.
+
+For produced blocks, the nest proves which validator proposed each block, from the beacon block header the next Ethereum block commits to, so every block your validators proposed is found, whichever address its rewards went to. The supported catalogue starts at slot 12,777,208, execution block 23,551,570. Earlier proposals remain outside the nest's proven coverage. The published catalogue advances in complete 10,000-block spans. Set `beacon_url` in the nest configuration to your beacon node to prove blocks beyond the published catalogue; otherwise that tail remains incomplete until publication. A validator's blocks before that are not covered by the nest: with a beaconcha.in API key rotki finds them there, and without one it tells you which validators are not fully covered. Blocks paid to an address you do not track are shown as information, not as your income.
+
+A block's MEV reward comes from what the MEV-Boost relays recorded. When no relay has a record of a block, the block's reward is still added and rotki keeps asking about its MEV for 30 days, since relays can publish late. A block whose reward the nest could not read yet is added once it can, never as zero.
 
 ### Suppressing indexer notifications
 
@@ -148,6 +175,10 @@ Set the RPC endpoint for a Polkadot node here.
 #### Connecting to an ETH Consensus Layer Beacon Node
 
 Set the RPC endpoint for the Ethereum consensus layer beacon node. If unreachable, beaconcha.in will be used. For DAppNode Ethereum validator users, find the RPC node setting in the DAppNode Package for the Execution Client.
+
+#### Connecting to a Nuthatch nest
+
+Set the address of the [Nuthatch nest](#using-a-nuthatch-nest) you run for Ethereum, for example `http://127.0.0.1:8288`. It is only queried once Nuthatch is in Ethereum's indexer order.
 
 #### Connecting to a Bitcoin Mempool instance
 
