@@ -6,8 +6,6 @@ description: Configure rotki's MCP service, privacy level, and bearer-token acce
 
 Configure the local Model Context Protocol (MCP) service that AI assistants use to access rotki. For client-specific connection instructions, see the general [MCP guide](/usage-guides/mcp).
 
-When anonymous usage analytics are enabled, MCP reports only the limited event data described under [Anonymous Usage Analytics](/usage-guides/settings/general#anonymous-usage-analytics).
-
 ## Subscription requirement
 
 MCP is a [premium](/premium/) feature and needs the Basic tier or higher. On the Free and Supporter tiers `Settings > MCP` shows an upgrade notice in place of the service controls, and the MCP tools return a `premium_required` error.

@@ -24,8 +24,6 @@ Access the settings menu via `User icon → Settings`.
 
 Specify whether the application can submit anonymous usage analytics. This helps measure active users while ensuring data is anonymized and contains no sensitive information.
 
-For MCP, these analytics can include client details (name, version, and title), the model in use, your subscription plan, whether you encountered the premium wall, and the distinct names of tools used during the session. They never include tool arguments, queries, addresses, or any other user data.
-
 #### Auto detect tokens
 
 Specify whether to automatically detect tokens and refresh balances by periodically checking historical events.
