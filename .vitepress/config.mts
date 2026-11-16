@@ -192,6 +192,7 @@ export default defineConfig({
           { text: 'Quick Start Guide', link: '/usage-guides/quick-start' },
           { text: 'Accounts & Sync', link: '/usage-guides/' },
           { text: 'MCP', link: '/usage-guides/mcp' },
+          { text: 'Build on rotki', link: '/usage-guides/build-on-rotki' },
           {
             text: 'Portfolio',
             collapsed: false,
