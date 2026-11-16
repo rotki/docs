@@ -6,6 +6,8 @@ description: rotki's documentation in LLM-friendly formats (llms.txt and Markdow
 
 rotki's documentation is available in LLM-friendly formats to help developers and AI agents integrate with rotki faster.
 
+If you are creating an agent, script, dashboard, or integration, start with [Build on rotki](/usage-guides/build-on-rotki) to choose between MCP and the REST API.
+
 ## Available Endpoints
 
 | Endpoint                        | Description                                                        |
