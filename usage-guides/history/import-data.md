@@ -142,10 +142,21 @@ This is for importing generic events. Supported events are `"Deposit"`, `"Withdr
 6. **Fee Currency**: The currency in which the fee was charged. This is optional.
 7. **Description**: A description of the event that was carried out, if any. This is optional.
 8. **Timestamp**: The UTC Unix timestamp at which the event took place. This is a milliseconds timestamp.
+9. **Source ID**: A unique identifier of the event at its source, such as an exchange transaction or deposit ID. The header must be written exactly as `Source ID`, including capitalization and spacing. For wallet events, this can be the transaction hash followed by the output index (for example, `<transaction hash>:<output index>`). This is optional, only needs to be unique for each location, and is recommended whenever the source provides a stable identifier. Leading and trailing whitespace is ignored, and an empty value is treated as if no source ID was provided for that row. When provided, rotki uses the combination of **Location** and **Source ID** to recognize the event, even if its other values differ.
 
 A sample generic events template can be found below:
 
 <CsvTable title="rotki Generic Events Template" csvUrl="/files/rotki_generic_events.csv" />
+
+### Re-importing Generic CSV Files
+
+You can safely re-import generic trades and events CSV files. rotki skips rows that were already imported, so importing the same file again does not create duplicates. If an updated file contains older rows alongside new ones, such as a full-history export, only the new rows are added. The file name and row order do not affect this behavior, and files imported with older rotki versions are also recognized.
+
+Identical rows within the same file are all imported because a source can legitimately contain two identical trades or events. Re-importing that file still recognizes and skips each of those rows. Changing only a row's **Description** does not make it a new event. Events edited in rotki are not overwritten or duplicated when their CSV is imported again, while events deleted in rotki are imported again if they are still present in the file.
+
+The import result reports recognized rows as `Skipped already imported ...`. Its processed count includes only rows that were actually added.
+
+> **Note**: For generic events without a **Source ID**, rotki recognizes rows by their values. When importing incremental batches, a row with exactly the same type, location, asset, amount, fee and timestamp as one from an earlier batch is treated as already imported and skipped. To avoid this, include a stable **Source ID** or import full-history files instead. Identical rows within a single file are still all imported.
 
 ### Supported Locations
 
